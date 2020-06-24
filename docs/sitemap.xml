@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://willj.net/tags/meta/</loc>
+    <lastmod>2020-06-24T23:30:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/posts/</loc>
+    <lastmod>2020-06-24T23:30:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/</loc>
+    <lastmod>2020-06-24T23:30:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/posts/welcome-to-my-new-blog/</loc>
+    <lastmod>2020-06-24T23:30:40+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://willj.net/tags/electronics/</loc>
     <lastmod>2020-06-24T02:09:43+01:00</lastmod>
   </url>
@@ -13,17 +33,7 @@
   </url>
   
   <url>
-    <loc>https://willj.net/posts/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://willj.net/tags/raspberrypi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/</loc>
     <lastmod>2020-06-24T02:09:43+01:00</lastmod>
   </url>
   

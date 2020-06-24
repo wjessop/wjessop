@@ -8,10 +8,22 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 Jun 2020 02:09:43 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2020 23:30:40 +0100</lastBuildDate>
     
 	  <atom:link href="https://willj.net/posts/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Welcome to My New Blog</title>
+      <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
+      <pubDate>Wed, 24 Jun 2020 23:30:40 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/welcome-to-my-new-blog/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/me_rotterdam_round.png#right&#34; alt=&#34;Me in Rotterdam&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to my new site! If you want to see my old writings you can still find them at &lt;a href=&#34;https://blog.willj.net/&#34;&gt;my Wordpress blog site&lt;/a&gt; which is still up. I may at some point attempt to copy the posts over from there, but I don&amp;rsquo;t have time right now.&lt;/p&gt;
+&lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>

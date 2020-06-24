@@ -1,15 +1,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Will Jessop&#39;s writings</title>
-    <link>https://willj.net/categories/</link>
-    <description>Recent content in Categories on Will Jessop&#39;s writings</description>
+    <title>meta on Will Jessop&#39;s writings</title>
+    <link>https://willj.net/tags/meta/</link>
+    <description>Recent content in meta on Will Jessop&#39;s writings</description>
     
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 24 Jun 2020 23:30:40 +0100</lastBuildDate>
     
-	  <atom:link href="https://willj.net/categories/rss.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://willj.net/tags/meta/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
