@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/styles.css">
+		{{ $style := resources.Get "sass/styles.scss" | toCSS }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+		<title>{{ .Title }}</title>
+		<meta name="description" content="{{ .Title }}">
+		<meta name="author" content="{{ .Site.Author.name }}">
+	</head>
+	<body>
+		<h1>{{ .Site.Title }}</h1>
+		<em></srong><p>Programming, Robots, Technology and other things</p></em>
+		{{ partial "nav.html" . }}
+
+		{{ block "main" . }}{{ end }}
+
+		{{ partial "footer.html" . }}
+	</body>
+</html>

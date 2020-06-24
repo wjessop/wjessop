@@ -1,0 +1,12 @@
+{{ define "main" }}
+	{{ .Content }}
+
+	<ul>
+	{{ range .Paginator.Pages }}
+			<li>
+				<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
+					<p>{{ .Summary }}</p>
+			</li>
+	{{ end }}
+	</ul>
+{{ end }}
