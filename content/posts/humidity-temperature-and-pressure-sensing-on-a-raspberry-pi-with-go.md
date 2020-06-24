@@ -13,7 +13,7 @@ summary: I have recently started playing around with climate sensing using some 
 
 ![Buddha's Hand](/img/posts/buddhas-hand.jpg#right)
 
-A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a [Buddah's hand tree](https://en.wikipedia.org/wiki/Buddha%27s_hand). This tree was fairly expensive, and I wanted to maximise it's chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don't like cold, but apparently don't like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.
+A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a [Buddha's hand tree](https://en.wikipedia.org/wiki/Buddha%27s_hand). This tree was fairly expensive, and I wanted to maximise it's chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don't like cold, but apparently don't like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.
 
 It was for this reason that I decided to start experimenting with climate monitoring.
 
@@ -23,7 +23,7 @@ It was for this reason that I decided to start experimenting with climate monito
 
 ![BME280 sensor](/img/posts/BME280.jpg#left)
 
-I was originally planning on making some sensor units as described in [Aaron Paterson's ESP8266 + Plantower AQ sensor project](https://github.com/tenderlove/esp8266aq), so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddah's Hand tree had already arrived I decided to get some [BME280 temperature, humidity and pressure sensors from Amazon](https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1) as they don't cost too much and would allow me to get a jump start on checking that my trees were safe.
+I was originally planning on making some sensor units as described in [Aaron Paterson's ESP8266 + Plantower AQ sensor project](https://github.com/tenderlove/esp8266aq), so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha's Hand tree had already arrived I decided to get some [BME280 temperature, humidity and pressure sensors from Amazon](https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1) as they don't cost too much and would allow me to get a jump start on checking that my trees were safe.
 
 These BME280 sensors use [the I²C bus](https://en.wikipedia.org/wiki/I%C2%B2C), which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.
 
