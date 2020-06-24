@@ -36,6 +36,13 @@ These BME280 sensors use [the I²C bus](https://en.wikipedia.org/wiki/I%C2%B2C),
 * [Wire to connect the sensor to the Raspberry pi](https://www.amazon.co.uk/Aukru-20cm-Female-Female-Jumpers-Raspberry/dp/B00OL6JZ3C/ref=pd_sbs_23_2/257-1678062-8665147?_encoding=UTF8&pd_rd_i=B00OL6JZ3C&pd_rd_r=2d8fad77-74b0-4e22-885d-482ee519390b&pd_rd_w=kq16h&pd_rd_wg=GYNJU&pf_rd_p=2773aa8e-42c5-4dbe-bda8-5cdf226aa078&pf_rd_r=PQ2X10H9H3VV3FCWCM1B&psc=1&refRID=PQ2X10H9H3VV3FCWCM1B)
 * Power supply for the Pi
 
+Wiring the sensor was pretty easy. You can find [Raspberry Pi pinout diagrams](https://www.element14.com/community/docs/DOC-92640/l/raspberry-pi-4-model-b-default-gpio-pinout-with-poe-header) on the Web, and you just need to connect:
+
+* VIN to DC Power 5v (pin 4)
+* GND to Ground (pin 6)
+* SCL to SCL1 (pin 5)
+* SDA to SDA1 (pin 3)
+
 That's it! No complex electronics required for this setup.
 
 ---
