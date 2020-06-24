@@ -4,7 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{{ $style := resources.Get "sass/styles.scss" | toCSS }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+		<link href="{{ .Site.BaseURL }}rss.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
 		<title>{{ .Title }}</title>
 		<meta name="description" content="{{ .Title }}">

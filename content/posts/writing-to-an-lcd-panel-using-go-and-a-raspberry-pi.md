@@ -5,6 +5,9 @@ draft: true
 tags: ["electronics", "raspberrypi", "golang"]
 category: ""
 summary: Writing data to a multiline LCD display connected to a Raspberry Pi using Go
+outputs:
+- html
+- rss
 ---
 
 ![LCD display showing climate data](/img/posts/lcd.jpg#right)

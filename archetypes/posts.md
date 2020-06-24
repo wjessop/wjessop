@@ -5,4 +5,7 @@ draft: true
 tags: [""]
 category: ""
 summary: Summary of the post
+outputs:
+- html
+- rss
 ---

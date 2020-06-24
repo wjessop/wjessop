@@ -1,9 +1,12 @@
 baseURL = "https://willj.net/"
-languageCode = "en-gb"
+languageCode = "en"
 title = "Will Jessop's writings"
+rssLimit = 20
+copyright = "&#169; Will Jessop. All rights reserved."
 
 [author]
     name = "Will Jessop"
+    email = "will@willj.net"
 
 [menu]
   [[menu.main]]
@@ -21,3 +24,14 @@ title = "Will Jessop's writings"
  #   pre = "tag"
  #   url = "/tags/"
  #   weight = 3
+
+[outputs]
+  page = ["HTML", "RSS"]
+  home = ["HTML", "RSS"]
+  section = ["HTML","RSS"]
+  taxonomyTerm = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    baseName = "rss"

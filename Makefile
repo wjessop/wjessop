@@ -1,2 +1,2 @@
 all:
-	hugo  -D -d docs/
+	hugo -d docs/

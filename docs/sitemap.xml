@@ -4,36 +4,31 @@
   
   <url>
     <loc>https://willj.net/tags/electronics/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
+    <lastmod>2020-06-23T20:26:10+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://willj.net/tags/golang/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/posts/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/raspberrypi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
+    <lastmod>2020-06-23T20:26:10+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</loc>
+    <lastmod>2020-06-23T20:26:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/posts/</loc>
+    <lastmod>2020-06-23T20:26:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/raspberrypi/</loc>
+    <lastmod>2020-06-23T20:26:10+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/</loc>
     <lastmod>2020-06-23T20:26:10+01:00</lastmod>
   </url>
   
