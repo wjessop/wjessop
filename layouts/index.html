@@ -3,12 +3,25 @@
 
 	<p>	{{.Content}}</p>
 
-	<ul>
-		{{ range first 10 .Pages.ByPublishDate.Reverse }}
-		<li>
-			<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
-		</li>
-		{{ end }}
-	</ul>
+	<h3>About me</h3>
 
+	<p>I am Will Jessop, a Ruby on Rails upgrade and performance consultant.</p>
+
+	<h3>Recent posts</h3>
+
+	<p>
+		<ul>
+			{{ range first 10 .Site.RegularPages.ByPublishDate.Reverse }}
+			<li>
+				{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
+				<a href="{{ .Permalink }}">{{ .Title }}</a> - <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+			</li>
+			{{ end }}
+		</ul>
+	</p>
+
+	<h3>Getting in touch</h3>
+
+	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a href="https://twitter.com/will_j">Twitter</a>, and <a href="mailto:will@willj.net">Email</a>.</p>
 {{ end }}

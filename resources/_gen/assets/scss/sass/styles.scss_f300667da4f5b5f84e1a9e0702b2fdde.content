@@ -9,6 +9,8 @@ body {
   padding-right: 3%;
   margin: 0 auto;
   background: #F5F5F0; }
+  body nav {
+    margin-bottom: 20px; }
 
 a {
   font-weight: bold; }

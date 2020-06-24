@@ -1,4 +1,7 @@
 {{ define "main" }}
+	{{ $dateTime := .PublishDate.Format "2006-01-02" }}
+	{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
+	<time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
 	{{ $baseurl := .Site.BaseURL }}
 	{{ if or .Params.tags .Params.categories .Params.series }}
 	|
@@ -20,7 +23,7 @@
 	<p>{{ .Summary }}</p>
 
 	<article>
-	{{ .Content }}
+		{{ .Content }}
 	</article>
 
 {{ end }}
