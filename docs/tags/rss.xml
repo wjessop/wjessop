@@ -8,10 +8,77 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 23 Jun 2020 20:26:10 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2020 02:09:43 +0100</lastBuildDate>
     
 	  <atom:link href="https://willj.net/tags/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
+      <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
+      <pubDate>Wed, 24 Jun 2020 02:09:43 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
+&lt;h3 id=&#34;why-tho&#34;&gt;Why tho&lt;/h3&gt;
+&lt;p&gt;Why indeed! It&amp;rsquo;s not particularly useful, I know it&amp;rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&amp;rsquo;t. It&amp;rsquo;s quite &lt;em&gt;interesting&lt;/em&gt; to know how hot it is in here (my wife &lt;em&gt;definitely&lt;/em&gt; agrees on this) and just being able to know by glancing at an LCD display is quite convenient.&lt;/p&gt;
+&lt;p&gt;But that&amp;rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-display&#34;&gt;The display&lt;/h3&gt;
+&lt;p&gt;The display is an LCM1602 20 character by 4 line LCD. Attached to the back of the LCD is a &amp;ldquo;backpack&amp;rdquo;. This backpack connects to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt;, for example like the ones on either an Arduino or Raspberry Pi.&lt;/p&gt;
+&lt;h3 id=&#34;making-the-dislay-show-text&#34;&gt;Making the dislay show text&lt;/h3&gt;
+&lt;p&gt;This was the fun part of the challenge. There are some &lt;a href=&#34;https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/&#34;&gt;Python code and libraries&lt;/a&gt; and at least one &lt;a href=&#34;https://github.com/johnrickman/LiquidCrystal_I2C&#34;&gt;C++ library&lt;/a&gt; out there that work mostly OK, but I don&amp;rsquo;t want to use Python, I want to use Go.&lt;/p&gt;
+&lt;p&gt;So, rather than attempt to start from scratch and interpret &lt;a href=&#34;https://cdn-shop.adafruit.com/datasheets/TC1602A-01T.pdf&#34;&gt;the datasheet&lt;/a&gt; I decided try to convert some of the Python code to Go. This turned out to be pretty easy, even though I don&amp;rsquo;t really know Python at all.&lt;/p&gt;
+&lt;p&gt;What I ended up with was my &lt;a href=&#34;https://github.com/wjessop/lcm1602_lcd&#34;&gt;Go LCM1602 LCD driver&lt;/a&gt; project. This library is pretty simple to use, as can be seen from the example code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;lcd&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/wjessop/lcm1602_lcd&amp;#34;&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Configure this line with the device location and address of your device
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDevice&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i2c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Open&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i2c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Devfs&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;Dev&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/dev/i2c-1&amp;#34;&lt;/span&gt;}, &lt;span style=&#34;color:#ae81ff&#34;&gt;0x27&lt;/span&gt;)
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDevice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Close&lt;/span&gt;()
+
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDisplay&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;lcd&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewLCM1602LCD&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDevice&lt;/span&gt;)
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Write a string to row 1, position 0 (ie, the start of the line)
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDisplay&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WriteString&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Write a string to row 2, position 7
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDisplay&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WriteString&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;(&amp;gt;&amp;#39;.&amp;#39;&amp;lt;)&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lcdDisplay&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Clear&lt;/span&gt;(); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The only feature not documented here is the &lt;code&gt;WritePaddedString&lt;/code&gt; method:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// WritePaddedString writes a string to the LCD at the given row, but pads the
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// row to effectively wipe any remaining characters off the line. This is handy
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// for when you want to repeatedly display data on a line, but it could be of
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// varying length, and you don&amp;#39;t want to blank the entire screen each time.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;l&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;LCM1602LCD&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;WritePaddedString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;row&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;startPosition&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;l&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WriteString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Sprintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%-20v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;row&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;startPosition&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once I&amp;rsquo;d written the library it was a simple job to incorporate it into the climate monitoring program I&amp;rsquo;d created, and you can see this in the &lt;a href=&#34;https://github.com/wjessop/rpi_go_bme280_example&#34;&gt;full working example&lt;/a&gt; I uploaded to GitHub.&lt;/p&gt;
+&lt;h3 id=&#34;thats-it&#34;&gt;That&amp;rsquo;s it!&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;ll probably keep the LCD displaying climate data in my office, as I&amp;rsquo;m basically addicted to knowing what the temperature and humidity is now. If you decide to get your own LCD screen, make sure you grab one that has the backpack, as you&amp;rsquo;ll have a hard time using it if it doesn&amp;rsquo;t have one.&lt;/p&gt;
+&lt;p&gt;Just for fun, here&amp;rsquo;s a photo of the back of the LCD with the backlight shining through the circuit board:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
@@ -178,6 +245,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
     

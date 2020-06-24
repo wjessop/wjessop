@@ -202,3 +202,5 @@ Here is the working sensor and Pi in place in my conservatory, running the Go pr
 Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in [Aarons project](https://github.com/tenderlove/esp8266aq) so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.
 
 Because the Raspberry Pi was meant to be temporary I've left it bare, I'll 3d print some cases for everything when my [3d printer arrives](https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html).
+
+In my [next post]({{< ref "/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi" >}}) I discuss how I added an LCD display to show the climate data.
