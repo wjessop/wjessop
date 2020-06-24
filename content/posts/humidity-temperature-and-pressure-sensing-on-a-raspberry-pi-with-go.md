@@ -9,6 +9,8 @@ summary: I have recently started playing around with climate sensing using some 
 
 [![Office climate graphs](/img/posts/climate.png#full)](/img/posts/climate.png) (click for a higher resolution image)
 
+---
+
 ### Background
 
 ![Buddha's Hand](/img/posts/buddhas-hand.jpg#right)
