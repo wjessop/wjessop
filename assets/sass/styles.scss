@@ -3,7 +3,7 @@ body {
 							 Monospace, /* Linux = DejaVu Sans Mono */
 							 Courier;   /* MacOSX & Windows = Courier */
 	font-size: 16px;
-	line-height: 1.33em;
+	line-height: 1.5;
 	max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
 	padding-left: 2%;
 	padding-right: 3%;
@@ -30,8 +30,8 @@ img {
 p {
 	margin-top: 0px;
 	margin-bottom: 4ch;
-	text-align: justify;
 }
+
 sup {
 	vertical-align: 0.3em;
 	font-size: 0.65em;
@@ -55,9 +55,6 @@ div.heading {
 	text-transform: uppercase;
 }
 
-/** {
-	font-size: 16px;
-}*/
 @media (max-width: 500px) { /* For small screen decices */
 	*{
 		font-size: 12px;
