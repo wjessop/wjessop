@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on Will Jessop&#39;s writings</title>
+    <title>golang on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/golang/</link>
-    <description>Recent content in golang on Will Jessop&#39;s writings</description>
+    <description>Recent content in golang on Will Jessop&#39;s Writings</description>
     
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
@@ -12,6 +12,40 @@
     
 	  <atom:link href="https://willj.net/tags/golang/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Custom 3D printed Blue Snowball desk stand</title>
+      <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
+      <pubDate>Wed, 25 Nov 2020 04:59:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</guid>
+      <description>&lt;h1 id=&#34;introducing-an-all-new-super-sleek-blue-snowball-microphone-desk-stand&#34;&gt;Introducing, an all-new, super-sleek Blue Snowball microphone desk stand!&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;images/blue_snowball_0.jpg#left&#34; alt=&#34;Blue snowball microphone on the new stand&#34;&gt;
+&lt;img src=&#34;images/microphone_stand_0.jpg#right&#34; alt=&#34;Closeup of the blue snowball stand showing the threads&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s very nice Will, but why?&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;images//blue_snowball_1.jpg#right&#34; alt=&#34;Blue Snowball microphone in the way of my monitor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I inherited a unwanted Blue Snowball from &lt;a href=&#34;https://37signals.com/&#34;&gt;an old employer&lt;/a&gt; several years ago, and it&amp;rsquo;s been a really fantastic addition to my day to day kit, especially as the number of video calls has increased in recent years. The only problem I had with the microphone started when I upgraded my monitors to some portrait orientation screens. These come almost all the way down to the desk, and as a result the (in my opinion rather ugly) original Blue Snowball microphone stand rather got in the way, even at it&amp;rsquo;s shortest setting.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;images//blue_snowball_2.jpg#right&#34; alt=&#34;Blue Snowball microphone lying on it&amp;rsquo;s side&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I was able to &amp;ldquo;fix&amp;rdquo; the problem of the microphone being in the way by laying the microphone flat. This wasn&amp;rsquo;t ideal, it took up a lot more room, looked bad, and made it sound like I was lying down. Still, it worked for long enough.&lt;/p&gt;
+&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m always looking for a problem where the solution is &amp;ldquo;3D print something&amp;rdquo;, and this seemed like a perfect fit. An hour with Fusion 360 later and I had a stand I liked.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images//blue_snowball_0.jpg#left&#34; alt=&#34;Blue snowball microphone on the new stand, side view&#34;&gt;
+&lt;img src=&#34;images//blue_snowball_3.jpg#left&#34; alt=&#34;Blue snowball microphone on the new stand, front view&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m really happy with it, it fulfils all the criteria I had when I started designing it, and I&amp;rsquo;m particularly happy with the way it looks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is as minimalistic as possible. I don&amp;rsquo;t want clutter.&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s also fairly elegant in terms of looks (in my opinion of course), I have to look at this thing every day.&lt;/li&gt;
+&lt;li&gt;Fits the screw threads on the Blue Snowball mic. I want to position it myself and don&amp;rsquo;t want it swivelling around if a cable gets nudged.&lt;/li&gt;
+&lt;li&gt;Rises as low as possible above the desk. I don&amp;rsquo;t want it blocking the view of my monitors.&lt;/li&gt;
+&lt;li&gt;Allows room for the microphone to be tilted without the cable fouling on the desk.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;print-one-yourself&#34;&gt;Print one yourself&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve uploaded the STL files for you to print yourself. There&amp;rsquo;s the &lt;a href=&#34;files/blue_snowball_desk_stand/Blue%20snowball%20desk%20stand%20v3.stl&#34;&gt;v3 design&lt;/a&gt; which is the one I use, and the &lt;a href=&#34;files/blue_snowball_desk_stand/Blue%20snowball%20desk%20stand%20v5.stl&#34;&gt;v5 design&lt;/a&gt;. The two versions are very similar, the difference is only that the v3 version has a curved underside, and the v5 version has been designed to not require a support structure while printing. V3 is my preferred version and is probably less prone to wobble.&lt;/p&gt;
+&lt;p&gt;If you are printing these yourself due to the fine thread you will likely want to use a fairly high quality print setting.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Welcome to My New Blog</title>
