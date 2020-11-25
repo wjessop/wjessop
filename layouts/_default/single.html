@@ -18,6 +18,8 @@
 	series:{{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}
 	{{ end }}
 
+	<hr />
+
 	<h2>{{ if .Draft }}DRAFT: {{end}}{{ .Title }}</h2>
 
 	<p>{{ .Summary }}</p>

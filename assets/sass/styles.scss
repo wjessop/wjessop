@@ -97,7 +97,7 @@ blockquote div {
 }
 
 
-/* ----- Articles ----- */
+/* ----- Posts ----- */
 
 article {
 
@@ -134,5 +134,9 @@ article {
 
 	ul {
 		clear: both;
+	}
+
+	table {
+		margin-bottom: 40px;
 	}
 }
