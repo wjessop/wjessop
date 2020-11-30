@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
+		<meta name="description" content="Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go">
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Programming, Robots, Technology, Sailing and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+
+	<a class="nav-link" href="/">Home</a>
+
+	<a class="nav-link" href="/posts/">Posts</a>
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2020-06-23">Tuesday, June 23, 2020</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/electronics">electronics</a> <a href="https://willj.net/tags/raspberrypi">raspberrypi</a> <a href="https://willj.net/tags/golang">golang</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</h2>
+
+	<p>I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make.</p>
+
+	<article>
+		<p><a href="/img/posts/climate.png"><img src="/img/posts/climate.png#full" alt="Office climate graphs"></a> (click for a higher resolution image)</p>
+<hr>
+<h3 id="background">Background</h3>
+<p><img src="/img/posts/buddhas-hand.jpg#right" alt="Buddha&rsquo;s Hand"></p>
+<p>A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a <a href="https://en.wikipedia.org/wiki/Buddha%27s_hand">Buddha&rsquo;s hand tree</a>. This tree was fairly expensive, and I wanted to maximise it&rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&rsquo;t like cold, but apparently don&rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.</p>
+<p>It was for this reason that I decided to start experimenting with climate monitoring.</p>
+<hr>
+<h3 id="the-hardware">The Hardware</h3>
+<p><img src="/img/posts/BME280.jpg#left" alt="BME280 sensor"></p>
+<p>I was originally planning on making some sensor units as described in <a href="https://github.com/tenderlove/esp8266aq">Aaron Paterson&rsquo;s ESP8266 + Plantower AQ sensor project</a>, so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha&rsquo;s Hand tree had already arrived I decided to get some <a href="https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;psc=1">BME280 temperature, humidity and pressure sensors from Amazon</a> as they don&rsquo;t cost too much and would allow me to get a jump start on checking that my trees were safe.</p>
+<p>These BME280 sensors use <a href="https://en.wikipedia.org/wiki/I%C2%B2C">the I²C bus</a>, which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.</p>
+<h4 id="required-equipment">Required equipment</h4>
+<ul>
+<li>Raspberry Pi</li>
+<li><a href="https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;psc=1">BME280 sensor</a></li>
+<li><a href="https://www.amazon.co.uk/Aukru-20cm-Female-Female-Jumpers-Raspberry/dp/B00OL6JZ3C/ref=pd_sbs_23_2/257-1678062-8665147?_encoding=UTF8&amp;pd_rd_i=B00OL6JZ3C&amp;pd_rd_r=2d8fad77-74b0-4e22-885d-482ee519390b&amp;pd_rd_w=kq16h&amp;pd_rd_wg=GYNJU&amp;pf_rd_p=2773aa8e-42c5-4dbe-bda8-5cdf226aa078&amp;pf_rd_r=PQ2X10H9H3VV3FCWCM1B&amp;psc=1&amp;refRID=PQ2X10H9H3VV3FCWCM1B">Wire to connect the sensor to the Raspberry pi</a></li>
+<li>Power supply for the Pi</li>
+</ul>
+<p>Wiring the sensor was pretty easy. You can find <a href="https://www.element14.com/community/docs/DOC-92640/l/raspberry-pi-4-model-b-default-gpio-pinout-with-poe-header">Raspberry Pi pinout diagrams</a> on the Web, and you just need to connect:</p>
+<ul>
+<li>VIN to DC Power 5v (pin 4)</li>
+<li>GND to Ground (pin 6)</li>
+<li>SCL to SCL1 (pin 5)</li>
+<li>SDA to SDA1 (pin 3)</li>
+</ul>
+<p>That&rsquo;s it! No complex electronics required for this setup.</p>
+<hr>
+<h3 id="the-software">The Software</h3>
+<p>I decided on using an <a href="https://www.influxdata.com/">Influx DB</a> to store the data, and to graph the results in <a href="https://grafana.com/">Grafana</a> (as <a href="https://github.com/tenderlove/esp8266aq">Aaron does for his monitoring</a>) as they seemed like a good fit, and I didn&rsquo;t want to spend too much time looking at alternatives as my trees were going unmonitored. They are also incredibly easy to connect to each other to see the time-series data in Influx DB in Grafana which helps a lot. There is handily an existing <a href="https://simonhearne.com/2020/pi-influx-grafana/">guide to installing Influx DB and Grafana on a Raspbery Pi 4</a> already available, which made things a bit quicker.</p>
+<p>For the software to grab the sensor readings and put the data into Influx I used Go for a number of reasons:</p>
+<ul>
+<li>I like writing it</li>
+<li>It&rsquo;s efficient. Raspberry Pis are faster than they used to be, but they&rsquo;re still somewhat constrained</li>
+<li>It&rsquo;s really easy to deploy to a Pi</li>
+<li>It&rsquo;s really simple to make work with systemd</li>
+</ul>
+<p>In reality you can use whatever language you like, Ruby or Python would be fine as this isn&rsquo;t a highly CPU or memory intensive application, but you are likely to want to choose a language that someone has already written a driver for the sensor in as that&rsquo;s going to cut down the amount of time you have to spend writing the software <strong>a lot</strong>.</p>
+<p>It just so happens that a couple of people have written Go libraries for the BME280, I chose <a href="https://github.com/maciej/bme280">this one</a>. Putting it to use it&rsquo;s fairly simple to get the data out of the sensor and print it to the terminal:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#75715e">//
+</span><span style="color:#75715e">// Get sensor data from the BME280 and print it to the terminal
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+
+	<span style="color:#e6db74">&#34;github.com/maciej/bme280&#34;</span>
+	<span style="color:#e6db74">&#34;golang.org/x/exp/io/i2c&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getBME280</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Driver</span> {
+	<span style="color:#a6e22e">device</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">i2c</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">i2c</span>.<span style="color:#a6e22e">Devfs</span>{<span style="color:#a6e22e">Dev</span>: <span style="color:#e6db74">&#34;/dev/i2c-1&#34;</span>}, <span style="color:#ae81ff">0x76</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#a6e22e">driver</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">device</span>)
+	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">driver</span>.<span style="color:#a6e22e">InitWith</span>(<span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">ModeForced</span>, <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Settings</span>{
+		<span style="color:#a6e22e">Filter</span>:                  <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">FilterOff</span>,
+		<span style="color:#a6e22e">Standby</span>:                 <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">StandByTime1000ms</span>,
+		<span style="color:#a6e22e">PressureOversampling</span>:    <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Oversampling16x</span>,
+		<span style="color:#a6e22e">TemperatureOversampling</span>: <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Oversampling16x</span>,
+		<span style="color:#a6e22e">HumidityOversampling</span>:    <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Oversampling16x</span>,
+	})
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">driver</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">bme280</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getBME280</span>()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Close</span>()
+
+	<span style="color:#a6e22e">response</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bme280</span>.<span style="color:#a6e22e">Read</span>()
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(
+		<span style="color:#e6db74">&#34;Temp: %.1fC, Press: %.1fhPa, Hum: %.1f%%\n&#34;</span>,
+		<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Temperature</span>,
+		<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Pressure</span>,
+		<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Humidity</span>,
+	)
+}
+</code></pre></div><p>To make this code work for yourself, write it to a file, compile it on your local machine:</p>
+<pre><code>GOOS=linux GOARCH=arm GOARM=7 go build sensor.go -o sensor
+</code></pre>
+<p>Copy it over to your Raspberry Pi, wherever that happens to be:</p>
+<pre><code>$ scp sensor pi@192.168.1.120:~/
+tmp 100% 2096KB   4.4MB/s   00:00
+</code></pre>
+<p>Then SSH into your Raspberry Pi and after you have <a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c">made sure that i2c is enabled</a> run the binary as root:</p>
+<pre><code># sudo ./sensor
+Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
+</code></pre>
+<p>Sweet! The next step is to get the data into Influx DB so we can log it and graph it with Grafana. To do that I used the <a href="http://github.com/influxdata/influxdb-client-go">Influx DB API provided by the Influx creators</a> themselves. This looks something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;context&#34;</span>
+	<span style="color:#e6db74">&#34;flag&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
+	<span style="color:#e6db74">&#34;time&#34;</span>
+
+	<span style="color:#a6e22e">influxdb2</span> <span style="color:#e6db74">&#34;github.com/influxdata/influxdb-client-go&#34;</span>
+	<span style="color:#a6e22e">lcd</span> <span style="color:#e6db74">&#34;github.com/wjessop/lcm1602_lcd&#34;</span>
+	<span style="color:#e6db74">&#34;golang.org/x/exp/io/i2c&#34;</span>
+)
+
+<span style="color:#66d9ef">const</span> (
+	<span style="color:#a6e22e">databaseName</span> = <span style="color:#e6db74">&#34;climate&#34;</span>
+	<span style="color:#a6e22e">locationName</span> = <span style="color:#e6db74">&#34;conservatory&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// create new client with default option for server url authenticate by token
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewClient</span>(
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;http://127.0.0.1:8086&#34;</span>, <span style="color:#a6e22e">influxhost</span>),
+		<span style="color:#e6db74">&#34;climate-writer:&lt;password goes here&gt;&#34;</span>,
+	)
+
+	<span style="color:#75715e">// user blocking write client for writes to desired bucket
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">writeAPI</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">WriteApiBlocking</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">databaseName</span>)
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ctx</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
+
+	<span style="color:#a6e22e">now</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+
+	<span style="color:#75715e">// Write a single datapoint to Infux
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewPoint</span>(
+		<span style="color:#e6db74">&#34;stat&#34;</span>,
+		<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;unit&#34;</span>: <span style="color:#e6db74">&#34;temperature&#34;</span>, <span style="color:#e6db74">&#34;location&#34;</span>: <span style="color:#a6e22e">locationName</span>},
+		<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{<span style="color:#e6db74">&#34;value&#34;</span>: <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Temperature</span>},
+		<span style="color:#a6e22e">now</span>,
+	)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">writeAPI</span>.<span style="color:#a6e22e">WritePoint</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">p</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#75715e">// Repeat the above Influx write for humidity and pressure
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>I have pushed <a href="https://github.com/wjessop/rpi_go_bme280_example">a full working example</a> including reading the sensor data and sending to Influx DB to Github. It also includes optional writing of the climate data to an LCD panel.</p>
+<p>That is pretty much it! Place your Raspberry Pi with it&rsquo;s sensor in the place you want to be monitored, and it will gather the data for you. Creating a Grafana dashboard is left as an exercise for the reader.</p>
+<hr>
+<h3 id="the-finished-device">The Finished Device</h3>
+<p>Here is the working sensor and Pi in place in my conservatory, running the Go program, Influx DB and Grafana. I have now added a second Pi in my study that reports it&rsquo;s sensor readings to the Influx DB on this machine too.</p>
+<p><img src="/img/posts/sensor-in-place.jpg#full" alt="Raspberry Pi and attached sensor"></p>
+<hr>
+<h3 id="improvements">Improvements</h3>
+<p>Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in <a href="https://github.com/tenderlove/esp8266aq">Aarons project</a> so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.</p>
+<p>Because the Raspberry Pi was meant to be temporary I&rsquo;ve left it bare, I&rsquo;ll 3d print some cases for everything when my <a href="https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html">3d printer arrives</a>.</p>
+<p>In my <a href="https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/">next post</a> I discuss how I added an LCD display to show the climate data.</p>
+
+	</article>
+
+
+
+		
+	</body>
+</html>

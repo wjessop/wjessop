@@ -65,12 +65,13 @@ blockquote {
   width: 97.5%;
   font-style: italic;
   text-align: justify;
-  padding: 1ch;
-  padding-top: 2ch;
-  padding-bottom: 2ch;
-  margin: 0ch;
+  padding: 2ch;
+  margin-right: 2ch;
+  margin-left: 2ch;
   margin-bottom: 2ch;
   margin-top: 0ch; }
+  blockquote p {
+    margin: 0px; }
 
 blockquote div {
   text-transform: none;

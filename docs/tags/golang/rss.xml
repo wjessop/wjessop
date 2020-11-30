@@ -8,10 +8,220 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 Jun 2020 02:09:43 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 11:24:00 +0000</lastBuildDate>
     
 	  <atom:link href="https://willj.net/tags/golang/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using the T67XX CO₂ Sensor Module in Go</title>
+      <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
+      <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;images/T67XX.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
+&lt;p&gt;So, you bought four T67XX CO₂ sensors and only once they were delivered started to work out how to get values from them huh? Well I&amp;rsquo;m right there with you because so did I. and I carefully deposited the results in a new Go lib. Announcing the &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;Go T67XX CO₂ sensor library&lt;/a&gt;! This post will give you some details about what these sensors can do, then introduce the library and how to use it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;unit-specs&#34;&gt;Unit specs&lt;/h3&gt;
+&lt;p&gt;I got my devices (I think mine are T6713) from &lt;a href=&#34;https://www.aliexpress.com/item/32322544929.html?spm=a2g0s.9042311.0.0.7fcf4c4dwbubog&#34;&gt;AliExpress&lt;/a&gt;, and there are specs on the page there, but some interesting specs to highlight would be:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Measurement Range&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;0 to 5000 ppm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;400-5000 ppm ± 75 ppm or 10% of reading, whichever is greater&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Signal Update&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Every 5 second&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Response Time&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt; 3 minutes for 90% step change typical&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Warm Up Time&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&amp;lt; 2 minutes (operational), 10 minutes (maximum accuracy)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Connection&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;I²C slave up to 100 kHz, UART @ 19200 Baud w/Modbus support&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Power Requirements&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;4.5-5.5 VDC, Peak 200mA (155mA typical), Average 25mA (20mA typical)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This sensor is likely good enough for most home uses like just ensuring you&amp;rsquo;re getting enough fresh air during the day, and this is what I&amp;rsquo;m using it for:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/graph.png#full&#34; alt=&#34;graph of CO₂ data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There is more data available on &lt;a href=&#34;files/Manual-AMP-0002-T6713-Sensor.pdf&#34;&gt;the datasheet&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;connecting-it-up&#34;&gt;Connecting it up&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;m using it connected to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt; on my Raspberry Pi 4, so although there are a few modes of connecting the sensor that&amp;rsquo;s the one I&amp;rsquo;m focussing on. To do this. I connected the pins as follows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/connections.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pin&lt;/th&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;Raspberry Pi 4 pin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SDA&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SCL&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;V++&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;PWM&lt;/td&gt;
+&lt;td&gt;Not connected&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CTRL/TEST&lt;/td&gt;
+&lt;td&gt;6 (Also GND)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Whatever you do, don&amp;rsquo;t connect them backwards as this sensor seems to be particularly sensitive to being misconnected (I did this and accidentally let the magic smoke out of one of them). I used a &lt;a href=&#34;https://www.adafruit.com/product/757&#34;&gt;level shifter&lt;/a&gt; to switch the 3.3v lines to 5v because I didn&amp;rsquo;t have any 4.7k resistors and this is what worked for me, though the unit should work at 3.3v, from the datasheet:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There is an internal pull up resistor on pin 1 of the I2C interface. Customer will need to provide an external pull up resistor on pin 2 with a recommended value of 4.7k. I2C interface can operate at both 3.3V and 5V logic levels.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;images/connected.jpg#full&#34; alt=&#34;The sensor connected and displaying the CO₂ reading on an LCD&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;using-the-sensor-with-the-t67xx-go-library&#34;&gt;Using the sensor with the T67XX Go library&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m not going to go into the details of how the library works, there are docs and examples over at &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;the T67XX Github page&lt;/a&gt;, but at a high level, given a connection to the I²C bus it can read CO₂ data and perform management tasks. Here&amp;rsquo;s a simple program that waits for the sensor to achieve full accuracy then reads CO₂ values from it every 10 seconds:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;os&amp;#34;&lt;/span&gt;
+	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+
+	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/wjessop/t67xx&amp;#34;&lt;/span&gt;
+	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;golang.org/x/exp/io/i2c&amp;#34;&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; (
+	&lt;span style=&#34;color:#75715e&#34;&gt;// We can change the sensor address on the bus if we want to, but it defaults
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// to 0x21
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;t67XXSensorAddress&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;0x21&lt;/span&gt;
+)
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Open an i2c bus that we can pass to the driver
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;device&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i2c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Open&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;i2c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Devfs&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;Dev&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/dev/i2c-1&amp;#34;&lt;/span&gt;}, &lt;span style=&#34;color:#a6e22e&#34;&gt;t67XXSensorAddress&lt;/span&gt;)
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Couldn&amp;#39;t open the T67XX sensor at %x, error was %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;t67XXSensorAddress&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Create the driver
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;t67xx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;T67XX&lt;/span&gt;{}
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Device&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;device&lt;/span&gt;
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// For now the library needs a logger to be provided. It needs to satisfy the
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// following interface:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// type Logger interface {
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Debug(...interface{})
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Debugf(string, ...interface{})
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Fatalf(string, ...interface{})
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// }
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;os&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Stderr&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;T67XX&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;LstdFlags&lt;/span&gt;)
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SetLogger&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;)
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// EnableABC enables the ABC calibration. From the datasheet:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//   &amp;#34;ABC LOGIC™ Automatic Background Logic, or ABC Logic™, is a patented
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    self-calibration technique that is designed to be used in applications where
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    concentrations will drop to outside ambient conditions (400 ppm) at least
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    three times in a 7 days, typically during unoccupied periods. Full accuracy
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    to be achieved utilizing ABC Logic™. With ABC Logic™ enabled, the sensor will
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    typically reach its operational accuracy after 24 hours of continuous
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    operation at a condition that it was exposed to ambient reference levels of
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    air at 400 ppm CO2. Sensor will maintain accuracy specifications with ABC
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    Logic™ enabled, given that it is at least four times in 21 days exposed to
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    the reference value and this reference value is the lowest concentration
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    to which the sensor is exposed. ABC Logic™ requires continuous operation of
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    the sensor for periods of at least 24 hours.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    Note: Applies when used in typical residential ambient air. Consult Telaire
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    if other gases or corrosive agents are part of the application environment.&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;EnableABC&lt;/span&gt;(); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Could not enable ABC calibration on the sensor&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+	}
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Create a signal channel that will be closed when the sensor reaches full accuracy
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;accuracyChan&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make(&lt;span style=&#34;color:#66d9ef&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt;{})
+
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;t67xx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;T67XX&lt;/span&gt;) {
+		&lt;span style=&#34;color:#75715e&#34;&gt;// Sleep in the background until the sensor has been powered up long enough
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;// to achieve full accuracy.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SleepUntilFullAccuracy&lt;/span&gt;()
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+			&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Error sleeping until full accuracy&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+		}
+
+		&lt;span style=&#34;color:#75715e&#34;&gt;// Close the signal channel then exit the goroutine as we no-longer need it.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		close(&lt;span style=&#34;color:#a6e22e&#34;&gt;accuracyChan&lt;/span&gt;)
+	}(&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;)
+
+	&lt;span style=&#34;color:#75715e&#34;&gt;// Now we can read the CO₂ readings in a loop, taking care to discard any
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// spurious readings.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; {
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; {
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;accuracyChan&lt;/span&gt;:
+			&lt;span style=&#34;color:#75715e&#34;&gt;// A successful read on the closed channel indicates that the sensor is
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;// now fully accurate.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;co2Reading&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;GasPPM&lt;/span&gt;()
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+				&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+			}
+
+			&lt;span style=&#34;color:#75715e&#34;&gt;// The sensors I have sometimes give spurious readings. Let&amp;#39;s discount them.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;// Adjust these values based on the baseline CO₂ reading you expect. The max is
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;// the measurement limit according to the datasheet, but i&amp;#39;ve seen values well
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;// over 10,000.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;co2Reading&lt;/span&gt; &amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;co2Reading&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt; {
+				&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Reading of %d from CO₂ sensor was out of allowed bounds&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;co2Reading&lt;/span&gt;)
+			} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+				&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Got CO₂ reading of %d from CO₂ sensor&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;co2Reading&lt;/span&gt;)
+			}
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;:
+			&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Skipping CO₂ reading as the sensor has not yet achieved full accuracy&amp;#34;&lt;/span&gt;)
+		}
+
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Sleep&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>

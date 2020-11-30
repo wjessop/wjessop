@@ -3,22 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://willj.net/tags/electronics/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/golang/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/posts/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/raspberrypi/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/tags/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://willj.net/tags/3d-printing/</loc>
     <lastmod>2020-11-25T04:59:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</loc>
-    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/posts/</loc>
-    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/</loc>
     <lastmod>2020-11-25T04:59:00+00:00</lastmod>
   </url>
   
@@ -30,21 +50,6 @@
   <url>
     <loc>https://willj.net/posts/welcome-to-my-new-blog/</loc>
     <lastmod>2020-06-24T23:30:40+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/electronics/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/golang/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/raspberrypi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
   </url>
   
   <url>
