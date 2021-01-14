@@ -65,7 +65,7 @@ When you take the starter out ideally it will be fairly stiff and coagulated, se
 
 {{< youtube id="7OCz-usKlgc" title="Me making sourdough" class="youtube-embed" >}}
 
-You can use the starter every day if you want to, but in my experience it keeps for up to a week. When it's been left for longer than this you can still make bread with it, but it gets harder to get good results. If you leave it too long it might die and you'll need to start from scratch.
+The starter should be good to use every day, but if you don't need to make bread for a while it should keep in the fridge for over a week without use. When it's been left for longer than that without being refreshed you can still make bread with it, but it gets harder to get good results. If you leave it too long though it might die and you'll need to start from scratch.
 
 If your starter has sat for a while then you will find it will become more liquid, this is OK, you can still make bread with it, it just might not be as good. If there is liquid sitting on top of the starter, mix it in. If you pour it out your starter will be unbalanced.
 
