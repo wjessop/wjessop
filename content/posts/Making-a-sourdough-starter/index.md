@@ -55,6 +55,8 @@ Once it's done, keep the cloth cover on and put it in the fridge until you need 
 
 ## Maintaining your starter
 
+As long as you keep taking some out and then topping it up, the starter should last forever.
+
 I found that my starter keeps best when kept in the fridge as it turns over too fast when any warmer.
 
 When you use some of the starter, replace what you took with 50/50 water and flour. For example, if you take 150g starter to make a loaf of bread, replace what you took with 75g water and 75g flour. Try to keep the ratios exact. If you bias towards more water for instance each time you're going to end up with wet bread, but bear in mind that over time your starter will suffer from evaporation, so you may need to add a little extra water every once in a while.
