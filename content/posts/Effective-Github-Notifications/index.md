@@ -1,5 +1,5 @@
 ---
-title: "Effective Github Notifications"
+title: Effective Github Notifications
 date: 2022-08-16T00:00:00Z
 draft: false
 tags: ["github"]
