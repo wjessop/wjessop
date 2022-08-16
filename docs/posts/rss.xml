@@ -8,10 +8,30 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Aug 2022 12:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="https://willj.net/posts/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Full-height Github &#34;checks&#34; box in Firefox</title>
+      <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
+      <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/full-height-github-checks-box-in-firefox/</guid>
+      <description>&lt;p&gt;The scrolling checks box on Github &lt;strong&gt;really&lt;/strong&gt; irritates me. Follow these instructions to make it full height on Firefox.&lt;/p&gt;
+&lt;h2 id=&#34;1-take-this-css&#34;&gt;1. Take this CSS:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list-wrapper&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;max-height&lt;/span&gt;: fit-content &lt;span style=&#34;color:#75715e&#34;&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
+&lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/full-height-github-checks-box.png&#34;
+         alt=&#34;Notifications in action in Apple Mail&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Effective Github Notifications</title>
