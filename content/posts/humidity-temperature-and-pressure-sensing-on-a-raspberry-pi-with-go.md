@@ -5,6 +5,7 @@ draft: false
 tags: ["electronics", "raspberrypi", "golang"]
 category: ""
 summary: I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make.
+type: Post
 ---
 
 [![Office climate graphs](/img/posts/climate.png#full)](/img/posts/climate.png) (click for a higher resolution image)

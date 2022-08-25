@@ -5,6 +5,7 @@ draft: false
 tags: ["github"]
 summary: Taming the torrent of Github notification emails
 category: ""
+type: Post
 ---
 
 Github notifications can be overwhelming, but with effective email filtering they can be turned from an encumbrance to being highly valuable. Here's some filters to get you started (in Mail.app on a mac) to make them more useful.

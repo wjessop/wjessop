@@ -7,6 +7,7 @@ category: ""
 summary: I used to blog on wordpress, but now I don't
 outputs:
 - html
+type: Post
 ---
 
 ![Me in Rotterdam](/img/posts/me_rotterdam_round.png#right)

@@ -5,6 +5,7 @@ date: 2020-11-30T11:24:00+00:00
 draft: false
 tags: ["electronics", "raspberrypi", "golang"]
 category: ""
+type: Post
 ---
 
 ![T67XX CO₂ sensor datasheet cover](images/T67XX.png#right)

@@ -5,6 +5,7 @@ draft: false
 tags: ["baking", "cooking", "bread"]
 summary: A simple method for making a sourdough starter
 category: ""
+type: Post
 ---
 
 The absolutely best way of making a starter if you don't already have one is to not make one at all. If you can, ask someone who already has one for a bit of theirs. Most people will be happy to donate a bit, and this is a far shorter way of starting. There's nothing heroic about creating your own, it's mostly just a pain in the butt. If you've not got one though, here's how make your own.

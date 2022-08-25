@@ -5,6 +5,7 @@ draft: false
 tags: ["3d printing"]
 category: ""
 summary: I wasn't happy with the original Blue Snowball microphone desk stand, so I designed and printed a new one
+type: Post
 ---
 
 # Introducing, an all-new, super-sleek Blue Snowball microphone desk stand!

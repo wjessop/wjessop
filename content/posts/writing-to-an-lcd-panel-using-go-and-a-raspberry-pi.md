@@ -8,6 +8,7 @@ summary: Writing data to an LCM1602 based multiline LCD display connected to a R
 outputs:
 - html
 - rss
+type: Post
 ---
 
 ![LCD display showing climate data](/img/posts/lcd.jpg#right)

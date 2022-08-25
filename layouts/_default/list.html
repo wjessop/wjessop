@@ -27,7 +27,6 @@
 		{{ with $page.Params.series }}
 		series:[ {{ range $page.Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}]
 		{{ end }}
-
 		</p>
 	</li>
 	{{ end }}

@@ -9,17 +9,20 @@
 
 	<h3>Recent posts</h3>
 
-	<p>
+	<post_list>
 		<ul>
-			{{ range first 10 .Site.RegularPages.ByPublishDate.Reverse }}
+			{{ range (first 10 (where .Site.RegularPages.ByPublishDate.Reverse "Type" "in" "Post")) }}
 			<li>
 				{{ $dateTime := .PublishDate.Format "2006-01-02" }}
 				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
 				<a href="{{ .Permalink }}">{{ .Title }}</a> - <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+				<p>{{ .Summary }}</p>
 			</li>
 			{{ end }}
 		</ul>
-	</p>
+
+		<p><a href="/posts">more posts</a></p>
+	</post_list>
 
 	<h3>Getting in touch</h3>
 

@@ -5,6 +5,7 @@ date: 2021-01-13T02:53:53Z
 draft: false
 tags: ["baking", "cooking", "bread"]
 category: ""
+type: Post
 ---
 
 ![Two sourdough boules](images/Hero.jpg#full)

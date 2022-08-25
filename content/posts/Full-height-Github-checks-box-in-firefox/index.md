@@ -5,6 +5,7 @@ draft: false
 tags: ["github"]
 summary: No more scolling the checks box on Github when you have plenty of screen space to display it
 category: ""
+type: Post
 ---
 
 The scrolling checks box on Github __really__ irritates me. Follow these instructions to make it full height on Firefox.
