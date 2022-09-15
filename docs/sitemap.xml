@@ -2,16 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://willj.net/posts/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/sailing/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/youtube-sailing-channel-recommendations/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://willj.net/posts/full-height-github-checks-box-in-firefox/</loc>
     <lastmod>2022-08-16T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/tags/github/</loc>
-    <lastmod>2022-08-16T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/posts/</loc>
-    <lastmod>2022-08-16T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/</loc>
     <lastmod>2022-08-16T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/effective-github-notifications/</loc>
