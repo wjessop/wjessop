@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>Full-height Github &#34;checks&#34; box in Firefox</title>
+		<meta name="description" content="Full-height Github &#34;checks&#34; box in Firefox">
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2022-08-16">Tuesday, August 16, 2022</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/github">github</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Full-height Github &#34;checks&#34; box in Firefox</h2>
+
+	<article>
+		<p>The scrolling checks box on Github <strong>really</strong> irritates me. Follow these instructions to make it full height on Firefox.</p>
+<h2 id="1-take-this-css">1. Take this CSS:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">branch-action-item</span>.<span style="color:#a6e22e">open</span> <span style="color:#f92672">&gt;</span> .<span style="color:#a6e22e">merge-status-list-wrapper</span> <span style="color:#f92672">&gt;</span> .<span style="color:#a6e22e">merge-status-list</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">branch-action-item</span>.<span style="color:#a6e22e">open</span> <span style="color:#f92672">&gt;</span> .<span style="color:#a6e22e">merge-status-list</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">max-height</span>: fit-content <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="2-tell-firefox-to-use-the-new-css">2. Tell Firefox to use the new CSS</h2>
+<p>Follow the guide <a href="https://davidwalsh.name/firefox-user-stylesheet">here</a> for adding it to the custom CSS. And done, full height checks box!</p>
+<figure class="full"><img src="images/full-height-github-checks-box.png"
+         alt="Notifications in action in Apple Mail"/>
+</figure>
+
+
+	</article>
+
+
+
+		
+	</body>
+</html>

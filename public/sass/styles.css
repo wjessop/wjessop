@@ -8,7 +8,8 @@ body {
   padding-left: 2%;
   padding-right: 3%;
   margin: 0 auto;
-  background: #F5F5F0; }
+  background: #F5F5F0;
+  color: #3e3e3e; }
   body nav {
     margin-bottom: 20px; }
 
@@ -78,6 +79,13 @@ blockquote div {
   text-align: right;
   width: 100%; }
 
+/* ----- Post list ----- */
+post_list ul p {
+  margin: 5px 0px 25px 0px;
+  padding: 0px 0px 0px 15px;
+  border-left: 1px solid #3e3e3e;
+  font-style: italic; }
+
 /* ----- Posts ----- */
 article h1, article h2 {
   clear: both; }
@@ -88,6 +96,45 @@ article hr {
   height: 1px;
   border: 0px;
   background-color: #a1a1a1; }
+
+article figure {
+  margin: 0px 0px 4ch 0px;
+  max-width: 100%; }
+
+article figcaption {
+  max-width: 100%; }
+  article figcaption h4 {
+    margin: 0px; }
+
+article .right {
+  float: right;
+  margin: 10px 0px 40px 40px;
+  max-width: 400px; }
+
+article .left {
+  float: left;
+  margin: 10px 40px 40px 0px;
+  max-width: 400px; }
+
+article .full {
+  width: 100%; }
+  article .full img {
+    max-width: 100%; }
+
+article .youtube-embed {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 30px; }
+  article .youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; }
 
 article img {
   max-width: 400px;

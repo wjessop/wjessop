@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://willj.net/tags/3d-printing/</loc>
-    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</loc>
-    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://willj.net/posts/</loc>
-    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/sailing/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://willj.net/tags/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/youtube-sailing-channel-recommendations/</loc>
+    <lastmod>2022-09-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/full-height-github-checks-box-in-firefox/</loc>
+    <lastmod>2022-08-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/github/</loc>
+    <lastmod>2022-08-16T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/effective-github-notifications/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/baking/</loc>
+    <lastmod>2021-01-13T02:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/bread/</loc>
+    <lastmod>2021-01-13T02:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/cooking/</loc>
+    <lastmod>2021-01-13T02:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/simple-sourdough-bread/</loc>
+    <lastmod>2021-01-13T02:53:53+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/making-a-sourdough-starter/</loc>
+    <lastmod>2021-01-13T02:53:52+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/electronics/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/golang/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/raspberrypi/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</loc>
+    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/3d-printing/</loc>
     <lastmod>2020-11-25T04:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</loc>
+    <lastmod>2020-11-25T04:59:00+00:00</lastmod>
+  </url><url>
     <loc>https://willj.net/tags/meta/</loc>
     <lastmod>2020-06-24T23:30:40+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://willj.net/posts/welcome-to-my-new-blog/</loc>
     <lastmod>2020-06-24T23:30:40+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/electronics/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/golang/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://willj.net/tags/raspberrypi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</loc>
     <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</loc>
     <lastmod>2020-06-23T20:26:10+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://willj.net/</loc>
     <lastmod>2020-06-23T18:03:31+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://willj.net/categories/</loc>
   </url>
-  
 </urlset>
