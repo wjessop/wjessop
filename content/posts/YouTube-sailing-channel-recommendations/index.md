@@ -15,6 +15,7 @@ Anyway, I ignored sailing, and sailing ignored me, until one day a cooking show 
 Over those years I've gathered a number of YouTube subscriptions and figured I'd share them here, save people having to dig through the less great content out there to find some gems.
 
 - [SV Delos](https://www.youtube.com/c/svdelos) - Try to push through the earlier videos, this one of the most widely respected sailing channels out there, but the early videos don't do them justice.
+- [Sail Life](https://www.youtube.com/@SailLife) - First several years are a re-fit (which was very well filmed and I loved), but they're sailing now.
 - [Ran Sailing](https://www.youtube.com/channel/UCLYd5EnTTwUKhouIkHoqzMw)
 - [Sailing Uma](https://www.youtube.com/channel/UCXbWsGV_cjG3gOsSnNJPVlg)
 - [Sailing Millennial Falcon](https://www.youtube.com/channel/UC-e4fYEUg2tVQ0NGL9oD1RQ)
