@@ -2,7 +2,7 @@
 title: Full-height Github "checks" box in Firefox
 date: 2022-08-16T12:00:00Z
 draft: false
-tags: ["github"]
+tags: ["github", "programming"]
 summary: No more scolling the checks box on Github when you have plenty of screen space to display it
 category: ""
 type: Post

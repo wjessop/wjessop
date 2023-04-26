@@ -2,7 +2,7 @@
 title: Effective Github Notifications
 date: 2022-08-16T00:00:00Z
 draft: false
-tags: ["github"]
+tags: ["github", "programming"]
 summary: Taming the torrent of Github notification emails
 category: ""
 type: Post
