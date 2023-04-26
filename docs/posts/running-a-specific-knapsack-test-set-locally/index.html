@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>Running a specific knapsack test set locally</title>
+		<meta name="description" content="Running a specific knapsack test set locally">
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2023-04-26">Wednesday, April 26, 2023</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/ruby">ruby</a> <a href="https://willj.net/tags/programming">programming</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Running a specific knapsack test set locally</h2>
+
+	<article>
+		<p>Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here&rsquo;s how to do that!</p>
+<ol>
+<li>Grab <code>CI_NODE_TOTAL</code> and <code>CI_NODE_INDEX</code> from the test output, it&rsquo;s likely near the top:</li>
+</ol>
+<p><img src="images/ci-node-data.png#full" alt="Getting the CI node data from CI output"></p>
+<ol start="2">
+<li>Grab the seed value, it&rsquo;s probably going to be near the bottom of the output:</li>
+</ol>
+<p><img src="images/seed.png#full" alt="Getting the seed value from CI output"></p>
+<ol start="3">
+<li>
+<p>Run the command with the interpolated values you got above</p>
+<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation]&quot;
+</code></pre>
+<p>You might also want to add <code>--fail-fast</code> to the options to cut short the test suite when you hit your error:</p>
+<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]&quot;
+</code></pre>
+</li>
+</ol>
+
+	</article>
+
+
+
+		
+	</body>
+</html>
