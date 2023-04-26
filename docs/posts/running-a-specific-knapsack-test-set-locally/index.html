@@ -63,6 +63,10 @@
 <p>You might also want to add <code>--fail-fast</code> to the options to cut short the test suite when you hit your error:</p>
 <pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]&quot;
 </code></pre>
+<p>You can even <code>rspec bisect</code> across this set of tests:</p>
+<pre><code> $ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=13 bundle exec rake &quot;knapsack:rspec[--seed 16837 --bisect]&quot;
+</code></pre>
+<p>Here I added <code>OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES</code> as there <a href="https://stackoverflow.com/questions/52671926/rails-may-have-been-in-progress-in-another-thread-when-fork-was-called">is bug/issue with Ruby</a> on OS X, you should be able to remove that environment variable on Linux.</p>
 </li>
 </ol>
 

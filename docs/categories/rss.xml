@@ -35,6 +35,10 @@
 &lt;p&gt;You might also want to add &lt;code&gt;--fail-fast&lt;/code&gt; to the options to cut short the test suite when you hit your error:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can even &lt;code&gt;rspec bisect&lt;/code&gt; across this set of tests:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=13 bundle exec rake &amp;quot;knapsack:rspec[--seed 16837 --bisect]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here I added &lt;code&gt;OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES&lt;/code&gt; as there &lt;a href=&#34;https://stackoverflow.com/questions/52671926/rails-may-have-been-in-progress-in-another-thread-when-fork-was-called&#34;&gt;is bug/issue with Ruby&lt;/a&gt; on OS X, you should be able to remove that environment variable on Linux.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>
