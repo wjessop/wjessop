@@ -58,10 +58,10 @@
 <ol start="3">
 <li>
 <p>Run the command with the interpolated values you got above</p>
-<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation]&quot;
+<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format documentation]&quot;
 </code></pre>
 <p>You might also want to add <code>--fail-fast</code> to the options to cut short the test suite when you hit your error:</p>
-<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]&quot;
+<pre><code> $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &quot;knapsack:rspec[--seed 43092 --format documentation --fail-fast]&quot;
 </code></pre>
 <p>You can even <code>rspec bisect</code> across this set of tests:</p>
 <pre><code> $ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=13 bundle exec rake &quot;knapsack:rspec[--seed 16837 --bisect]&quot;

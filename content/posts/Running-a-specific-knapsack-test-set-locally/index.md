@@ -20,11 +20,11 @@ Sometimes you have a test order issue CI that you want to debug locally, and to 
 
 3. Run the command with the interpolated values you got above
 
-        $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake "knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation]"
+        $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake "knapsack:rspec[--seed 43092 --format documentation]"
 
     You might also want to add `--fail-fast` to the options to cut short the test suite when you hit your error:
 
-        $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake "knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]"
+        $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake "knapsack:rspec[--seed 43092 --format documentation --fail-fast]"
 
     You can even `rspec bisect` across this set of tests:
 

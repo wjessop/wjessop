@@ -31,10 +31,10 @@
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;Run the command with the interpolated values you got above&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation]&amp;quot;
+&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format documentation]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You might also want to add &lt;code&gt;--fail-fast&lt;/code&gt; to the options to cut short the test suite when you hit your error:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format RSpec::Github::Formatter --format documentation --fail-fast]&amp;quot;
+&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format documentation --fail-fast]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can even &lt;code&gt;rspec bisect&lt;/code&gt; across this set of tests:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; $ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=13 bundle exec rake &amp;quot;knapsack:rspec[--seed 16837 --bisect]&amp;quot;
