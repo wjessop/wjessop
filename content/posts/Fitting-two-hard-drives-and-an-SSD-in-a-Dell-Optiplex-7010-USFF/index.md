@@ -10,9 +10,13 @@ type: Post
 
 {{< figure src="images/DELL-Optiplex-7010-USFF.jpg" title="A Dell OptiPlex 7010 USFF" class="right" alt="A Dell OptiPlex 7010 Ultra Small Form Factor">}}
 
-I recently bought a [Dell OptiPlex 7010 Ultra Small Form Factor](https://www.dell.com/support/manuals/en-ae/optiplex-7010/opti7010_usff/specifications?guid=guid-157e8495-34d3-4efa-ab61-1d9efba4c90e&lang=en-us) PC from eBay. I was Intending on squeezing two of the spare 4TB 3.5" hard drives I have in it with an SSD boot disk and installing [TrueNAS](https://www.truenas.com/) to use it as a file store. It's a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the USFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the USFF model I got can only officially fit a single 2.5" SSD in it, and no 3.5" drives at all. Whoops.
+I recently bought a [Dell OptiPlex 7010 Ultra Small Form Factor](https://www.dell.com/support/manuals/en-ae/optiplex-7010/opti7010_usff/specifications?guid=guid-157e8495-34d3-4efa-ab61-1d9efba4c90e&lang=en-us) PC from eBay. I was Intending on squeezing two of the spare Seagate Barracuda 4TB 3.5" hard drives I have in it with an SSD boot disk and installing [TrueNAS](https://www.truenas.com/) to use it as a file store. It's a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the USFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the USFF model I got can only officially fit a single 2.5" SSD in it, and no 3.5" drives at all. Whoops.
 
 Opening up the machine it turns out that there was actually a 3.5" drive bay and the eBay seller used a tiny amount of hot glue to just glue a 2.5" SSD into the bay rather than using an adapter. Quality. This didn't help much though, there was still no way of fitting the number of drives I wanted in the machine as it came. Anyway, after removing the SSD, the official Dell drive mounts and the slim CDRW drive I took a look at the situation and figured I could probably rescue this with a bit of 3d printing. Any day that requires you to solve a problem with a bit of 3d printing is generally a good day.
+
+## Caveat!
+
+This works for my Seagate Barracuda 4TB drives. They're slightly thinner than some of the other drives I've got, if yours are thicker then it might work for yoiu or it might not.
 
 ## Risers of the Machine
 
