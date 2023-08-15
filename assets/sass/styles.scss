@@ -1,3 +1,21 @@
+:root {
+	--main-color: #3e3e3e;
+	--bg-color: #F5F5F0;
+	--blockquote-bg-color: #f3f3f3;
+	--code-bg-color: #f3f3f3;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--main-color: #d0d0d0;
+		--bg-color: #252525;
+
+		--a-color: #6969da;
+		--blockquote-bg-color: #5b5b5b;
+		--code-bg-color: #5b5b5b;
+	}
+}
+
 body {
 	font-family: Consolas,
 							 Monospace, /* Linux = DejaVu Sans Mono */
@@ -8,8 +26,8 @@ body {
 	padding-left: 2%;
 	padding-right: 3%;
 	margin: 0 auto;
-	background: #F5F5F0;
-	color: #3e3e3e;
+	background: var(--bg-color);
+	color: var(--main-color);
 
 	nav {
 		margin-bottom: 20px;
@@ -17,6 +35,7 @@ body {
 }
 
 a {
+	color: var(--a-color);
 	font-weight: bold;
 }
 
@@ -76,7 +95,7 @@ img.pixel, canvas.pixel {
 }
 
 blockquote {
-	background-color: #f3f3f3;
+	background-color: var(--blockquote-bg-color);
 	border: dashed 1px grey;
 	width: 97.5%;
 	font-style: italic;
@@ -114,7 +133,6 @@ post_list {
 /* ----- Posts ----- */
 
 article {
-
 	h1,h2 {
 		clear: both;
 	}
@@ -203,5 +221,9 @@ article {
 
 	table {
 		margin-bottom: 40px;
+	}
+
+	pre {
+		background: var(--code-bg-color);
 	}
 }
