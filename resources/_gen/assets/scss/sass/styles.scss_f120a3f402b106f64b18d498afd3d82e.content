@@ -2,13 +2,16 @@
   --main-color: #3e3e3e;
   --bg-color: #F5F5F0;
   --blockquote-bg-color: #f3f3f3;
-  --code-bg-color: #f3f3f3; }
+  --code-bg-color: #f3f3f3;
+  --a-color: rgb(0, 102, 204);
+  --a-color-visited: #1a0dab; }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --main-color: #d0d0d0;
     --bg-color: #252525;
-    --a-color: #6969da;
+    --a-color: #8798e2;
+    --a-color-visited: #554dac;
     --blockquote-bg-color: #5b5b5b;
     --code-bg-color: #5b5b5b; } }
 
@@ -28,6 +31,10 @@ body {
     margin-bottom: 20px; }
 
 a {
+  color: var(--a-color-visited);
+  font-weight: bold; }
+
+a:visited {
   color: var(--a-color);
   font-weight: bold; }
 
