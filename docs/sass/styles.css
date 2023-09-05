@@ -93,8 +93,8 @@ blockquote {
   margin-left: 2ch;
   margin-bottom: 2ch;
   margin-top: 0ch; }
-  blockquote p {
-    margin: 0px; }
+  blockquote p:last-child {
+    margin-bottom: 0px; }
 
 blockquote div {
   text-transform: none;
