@@ -116,8 +116,8 @@ blockquote {
 	margin-bottom: 2ch;
 	margin-top: 0ch;
 
-	p {
-		margin: 0px;
+	p:last-child {
+		margin-bottom: 0px;
 	}
 }
 
