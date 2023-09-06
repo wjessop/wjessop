@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --main-color: #3e3e3e;
   --bg-color: #F5F5F0;
@@ -172,6 +173,12 @@ article img[src$='#right'] {
 article img[src$='#left'] {
   float: left;
   margin: 10px 40px 40px 0px; }
+
+article figure figcaption p {
+  margin-left: 30px; }
+
+article figure figcaption p:after {
+  content: "⤴"; }
 
 article ul {
   clear: both; }

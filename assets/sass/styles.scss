@@ -223,6 +223,18 @@ article {
 		margin: 10px 40px 40px 0px;
 	}
 
+	figure {
+		figcaption {
+			p {
+				margin-left: 30px;
+			}
+
+			p:after {
+				content: "⤴"
+			}
+		}
+	}
+
 	ul {
 		clear: both;
 	}
