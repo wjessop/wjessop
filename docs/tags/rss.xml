@@ -8,10 +8,41 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Sep 2023 17:27:00 +0100</lastBuildDate>
     
 	  <atom:link href="https://willj.net/tags/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
+      <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
+      <pubDate>Mon, 11 Sep 2023 17:27:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</guid>
+      <description>&lt;p&gt;A recent update to Firefox changed the order of suggestions when you started typing in the URL bar (or &amp;ldquo;address bar&amp;rdquo;). It used to be that you&amp;rsquo;d get recently visited URLs first but the change caused search suggestions to appear first. I almost always navigate to sites I know by typing the first few letters of the domain name and almost never used the search suggestions so this change cause consternation.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Before.png&#34;
+         alt=&#34;A firefox URL bar suggestions dropdown showing suggested searches before recently visited sites&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The URL bar suggestions after Firefox &amp;#34;Improved&amp;#34; the experience in a recent update and changed the suggestions order&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Fearing for the longevity of my down arrow key caused the wear of all the extra pressing to get down to the recently visited URLs section I searched for a solution. It turns out that you can change the order of the suggestions in the config. To do so:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open a new Firefox tab&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;about:config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Accept any warnings (yolo)&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;browser.urlbar.showSearchSuggestionsFirst&lt;/code&gt; into the search field&lt;/li&gt;
+&lt;li&gt;Toggle the value&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You shouldn&amp;rsquo;t need to restart Firefox for the change to take effect, and should now have your URL history back where it was before the search suggestions.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/After.png&#34;
+         alt=&#34;A firefox URL bar with recently visited sites before search suggestions&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;URL bar suggestion order, now fixed&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
