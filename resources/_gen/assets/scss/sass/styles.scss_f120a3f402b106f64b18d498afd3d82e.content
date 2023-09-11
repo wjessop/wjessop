@@ -2,10 +2,11 @@
 :root {
   --main-color: #3e3e3e;
   --bg-color: #F5F5F0;
+  --a-color: rgb(0, 102, 204);
+  --a-color-visited: #1a0dab;
   --blockquote-bg-color: #f3f3f3;
   --code-bg-color: #f3f3f3;
-  --a-color: rgb(0, 102, 204);
-  --a-color-visited: #1a0dab; }
+  --bg-color-about-me: #e0e0e0; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,7 +15,8 @@
     --a-color: #8798e2;
     --a-color-visited: #554dac;
     --blockquote-bg-color: #5b5b5b;
-    --code-bg-color: #5b5b5b; } }
+    --code-bg-color: #5b5b5b;
+    --bg-color-about-me: #1a1a1a; } }
 
 body {
   font-family: Consolas, Monospace, Courier;
@@ -44,6 +46,33 @@ a:hover {
 
 img {
   border: none; }
+
+div.clearfix {
+  clear: both; }
+
+about-me {
+  display: block;
+  background-color: var(--bg-color-about-me);
+  padding: 10px;
+  padding-left: 20px; }
+  about-me img {
+    max-width: 100%;
+    height: auto;
+    float: right;
+    margin: 10px; }
+  about-me p {
+    font-size: 21px;
+    padding: 0px 5px; }
+
+@media only screen and (max-width: 768px) {
+  about-me {
+    padding-left: 30px; }
+    about-me p {
+      font-size: 16px;
+      padding: 0px 5px; } }
+
+hr {
+  clear: both; }
 
 p {
   margin-top: 0px;
@@ -83,6 +112,12 @@ img.pixel, canvas.pixel {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges; }
 
+p code:not([data-lang]) {
+  background-color: #595959;
+  color: #e3e2e2;
+  padding: 4px 8px;
+  border-radius: 5px; }
+
 /* ----- Post list ----- */
 post_list ul p {
   margin: 5px 0px 25px 0px;
@@ -113,7 +148,6 @@ article h1, article h2 {
 
 article hr {
   width: 100%;
-  clear: both;
   height: 1px;
   border: 0px;
   background-color: #a1a1a1; }
@@ -186,9 +220,3 @@ article table {
 
 article pre {
   background: var(--code-bg-color); }
-
-article p code:not([data-lang]) {
-  background-color: #595959;
-  color: #e3e2e2;
-  padding: 4px 8px;
-  border-radius: 5px; }

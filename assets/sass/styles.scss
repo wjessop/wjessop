@@ -1,10 +1,13 @@
 :root {
 	--main-color: #3e3e3e;
 	--bg-color: #F5F5F0;
-	--blockquote-bg-color: #f3f3f3;
-	--code-bg-color: #f3f3f3;
+
 	--a-color: rgb(0, 102, 204);
 	--a-color-visited: #1a0dab;
+	--blockquote-bg-color: #f3f3f3;
+	--code-bg-color: #f3f3f3;
+
+	--bg-color-about-me: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +19,8 @@
 		--a-color-visited: #554dac;
 		--blockquote-bg-color: #5b5b5b;
 		--code-bg-color: #5b5b5b;
+
+		--bg-color-about-me: #1a1a1a;
 	}
 }
 
@@ -53,6 +58,44 @@ a:hover {
 
 img {
 	border: none;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+about-me {
+	display: block;
+	background-color: var(--bg-color-about-me);
+	padding: 10px;
+	padding-left: 20px;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		float: right;
+		margin: 10px;
+	}
+
+	p {
+		font-size: 21px;
+		padding: 0px 5px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+  about-me {
+    padding-left: 30px;
+
+		p {
+			font-size: 16px;
+			padding: 0px 5px;
+		}
+  }
+}
+
+hr {
+	clear: both;
 }
 
 p {
@@ -102,6 +145,18 @@ img.pixel, canvas.pixel {
 	image-rendering: crisp-edges;
 }
 
+p {
+	// multiling blocks, eg those with fences, don't look good formatted with
+	// this style so rely on the attributes that are present when these are
+	// generated to ignore them.
+	code:not([data-lang]) {
+		background-color: #595959;
+		color: #e3e2e2;
+		padding: 4px 8px;
+		border-radius: 5px;
+	}
+}
+
 /* ----- Post list ----- */
 
 post_list {
@@ -146,7 +201,6 @@ article {
 
 	hr {
 		width: 100%;
-		clear: both;
 		height: 1px;
 		border: 0px;
 		background-color: rgb(161, 161, 161);
@@ -244,17 +298,5 @@ article {
 
 	pre {
 		background: var(--code-bg-color);
-	}
-
-	p {
-		// multiling blocks, eg those with fences, don't look good formatted with
-		// this style so rely on the attributes that are present when these are
-		// generated to ignore them.
-		code:not([data-lang]) {
-			background-color: #595959;
-			color: #e3e2e2;
-			padding: 4px 8px;
-			border-radius: 5px;
-		}
 	}
 }

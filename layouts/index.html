@@ -1,11 +1,20 @@
 {{ define "main" }}
 	<h2>{{ .Title }}</h2>
-
 	<p>	{{.Content}}</p>
 
-	<h3>About me</h3>
+	<about-me>
+		<img class="mugshot" src="img/me_sailing.jpeg" alt="Me on a sailing yacht">
 
-	<p>I am Will Jessop, CTO of <a href="https://impactive.io">Impactive</a> and a Ruby on Rails upgrade and performance consultant. I run <a href="https://ownandship.io">Own&Ship</a>, an app for tracking Ruby and Rails deprecations and helping manage upgrades.</p>
+		<h2>About me</h3>
+
+		<p>I am Will Jessop, CTO of <a href="https://impactive.io">Impactive</a>
+		and a Ruby on Rails and Postgres upgrade and performance consultant. I run <a href="https://ownandship.io">Own&Ship</a>,
+		an app for tracking Ruby and Rails deprecations and helping manage upgrades.</p>
+
+		<p>I blog sporadically about my sailing adventures over at <a href="https://sailingsilvergirl.com/">the Silver Girl website</a>.</p>
+
+		<div class="clearfix"></div>
+	</about-me>
 
 	<h3>Recent posts</h3>
 
@@ -23,6 +32,8 @@
 
 		<p><a href="/posts">more posts</a></p>
 	</post_list>
+
+	<hr>
 
 	<h3>Getting in touch</h3>
 
