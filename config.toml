@@ -29,7 +29,6 @@ copyright = "&#169; Will Jessop. All rights reserved."
   page = ["HTML", "RSS"]
   home = ["HTML", "RSS"]
   section = ["HTML","RSS"]
-  taxonomyTerm = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
 
 [outputFormats]
