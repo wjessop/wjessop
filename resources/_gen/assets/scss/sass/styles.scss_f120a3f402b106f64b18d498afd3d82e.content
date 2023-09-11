@@ -177,8 +177,8 @@ article img[src$='#left'] {
 article figure figcaption p {
   margin-left: 30px; }
 
-article figure figcaption p:after {
-  content: "⤴"; }
+article figure figcaption h4:before {
+  content: "⤴ "; }
 
 article ul {
   clear: both; }
@@ -188,3 +188,9 @@ article table {
 
 article pre {
   background: var(--code-bg-color); }
+
+code {
+  background-color: #595959;
+  color: #e3e2e2;
+  padding: 4px 8px;
+  border-radius: 5px; }

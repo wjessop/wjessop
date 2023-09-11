@@ -229,8 +229,8 @@ article {
 				margin-left: 30px;
 			}
 
-			p:after {
-				content: "⤴"
+			h4:before {
+				content: "⤴ "
 			}
 		}
 	}
@@ -246,4 +246,11 @@ article {
 	pre {
 		background: var(--code-bg-color);
 	}
+}
+
+code {
+	background-color: #595959;
+	color: #e3e2e2;
+	padding: 4px 8px;
+	border-radius: 5px;
 }
