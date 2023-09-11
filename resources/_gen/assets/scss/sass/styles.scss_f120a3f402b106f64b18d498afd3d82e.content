@@ -83,25 +83,6 @@ img.pixel, canvas.pixel {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges; }
 
-blockquote {
-  background-color: var(--blockquote-bg-color);
-  border: dashed 1px grey;
-  width: 97.5%;
-  font-style: italic;
-  text-align: justify;
-  padding: 2ch;
-  margin-right: 2ch;
-  margin-left: 2ch;
-  margin-bottom: 2ch;
-  margin-top: 0ch; }
-  blockquote p:last-child {
-    margin-bottom: 0px; }
-
-blockquote div {
-  text-transform: none;
-  text-align: right;
-  width: 100%; }
-
 /* ----- Post list ----- */
 post_list ul p {
   margin: 5px 0px 25px 0px;
@@ -110,6 +91,23 @@ post_list ul p {
   font-style: italic; }
 
 /* ----- Posts ----- */
+article blockquote {
+  background-color: var(--blockquote-bg-color);
+  border: dashed 1px grey;
+  font-style: italic;
+  text-align: justify;
+  padding: 2ch;
+  margin-left: 2ch;
+  margin-bottom: 2ch;
+  margin-top: 0ch; }
+  article blockquote p:last-child {
+    margin-bottom: 0px; }
+
+article blockquote div {
+  text-transform: none;
+  text-align: right;
+  width: 100%; }
+
 article h1, article h2 {
   clear: both; }
 
