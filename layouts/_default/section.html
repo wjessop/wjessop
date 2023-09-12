@@ -14,5 +14,5 @@
 		{{ end }}
 	</post_list>
 
-	{{ template "_internal/pagination.html" }}
+	{{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 {{ end }}
