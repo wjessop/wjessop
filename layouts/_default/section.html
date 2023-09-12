@@ -1,14 +1,18 @@
 {{ define "main" }}
 	{{ .Content }}
-
 	<post_list>
+		{{ range (.Paginate (.Pages.GroupByDate "2006/January")).PageGroups }}
+		<h3>{{ .Key }}</h3>
 		<ul>
-		{{ range .Paginator.Pages }}
+		{{ range .Pages.ByPublishDate }}
 				<li>
 					<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
 						<p>{{ .Summary }}</p>
 				</li>
 		{{ end }}
 		</ul>
+		{{ end }}
 	</post_list>
+
+	{{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
 {{ end }}
