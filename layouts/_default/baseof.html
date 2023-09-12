@@ -9,7 +9,17 @@
 
 		<link href="{{ .Site.BaseURL }}rss.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
-		<title>{{ .Title }}</title>
+		<title>
+			{{ if .Title }}
+				{{ .Title }}
+			{{ else }}
+				Will Jessop's Writings; Sailing, Food, Programming, Technology, and other things
+			{{ end }}
+		</title>
+		<meta
+			name="description"
+			content="{{ if .Params.summary }}{{ .Params.summary }}{{ else }}I write about Ruby on Rails and Postgres scaling, performance and upgrade work, Ruby, Go and other programming topics, as well as sailing and cooking.{{ end }}"
+		/>
 		<meta name="description" content="{{ .Title }}">
 		<meta name="author" content="{{ .Site.Author.name }}">
 	</head>
