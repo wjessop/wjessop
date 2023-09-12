@@ -2,10 +2,10 @@
 title: "Custom 3D printed Blue Snowball desk stand"
 date: 2020-11-25T04:59:00+00:00
 draft: false
-tags: ["3d printing"]
+tags: ["3D Printing"]
 category: ""
 summary: I wasn't happy with the original Blue Snowball microphone desk stand, so I designed and printed a new one
-type: Post
+type: Posts
 ---
 
 # Introducing, an all-new, super-sleek Blue Snowball microphone desk stand!

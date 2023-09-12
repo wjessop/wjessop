@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>Testing Github commit hook one liners</title>
+		<meta name="description" content="Testing Github commit hook one liners">
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2014-06-09">Monday, June 9, 2014</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/github">github</a> <a href="https://willj.net/tags/ruby">Ruby</a> <a href="https://willj.net/tags/programming">programming</a> <a href="https://willj.net/tags/tech">tech</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Testing Github commit hook one liners</h2>
+
+	<article>
+		<p>A couple of ruby one-liners for dumping out the content of a github commit hook payload:</p>
+<p>For hooks that use type <strong>application/json</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(request.body.read); end&#39;</span>
+</span></span></code></pre></div><p>For hooks that use type <strong>application/x-www-form-urlencoded</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(params[:payload]); end&#39;</span>
+</span></span></code></pre></div>
+	</article>
+
+
+
+		<footer>
+	<hr>
+	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned), and <a href="mailto:will@willj.net">Email</a>.</p>
+</footer>
+
+	</body>
+</html>

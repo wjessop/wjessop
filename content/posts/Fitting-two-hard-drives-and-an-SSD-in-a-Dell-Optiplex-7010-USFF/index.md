@@ -2,7 +2,7 @@
 title: Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF
 date: 2023-05-28T00:00:00Z
 draft: false
-tags: ["3d Printing", "design", "tech"]
+tags: ["3D Printing", "design", "tech"]
 summary: The Dell OptiPlex 7010 USFF officially only has room for one 2.5" hard drive internally, I fitted two 3.25" hard drives and a 2.5" SSD in one.
 category: ""
 type: Post
