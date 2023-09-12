@@ -47,20 +47,14 @@
 	<h2>Converting a wordpress.com dump to Hugo, including images</h2>
 
 	<article>
-		<p>There are a few <a href="https://gohugo.io/tools/migrations/#wordpress">&ldquo;official&rdquo; options for migrating wordpress content to Hugo</a>, but they are all either cumbersome (requiring installing wordpress in docker) or don&rsquo;t handle images. I didn&rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle this for me.</p>
+		<p>There are a few <a href="https://gohugo.io/tools/migrations/#wordpress">&ldquo;official&rdquo; options for migrating wordpress content to Hugo</a>, but they are all either cumbersome (requiring installing wordpress in docker) or don&rsquo;t handle images. I didn&rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.</p>
+<p>In the end <a href="https://github.com/wjessop/wordpress_to_hugo">I created a somewhat rough, but functional program to do the job</a> and it was successful.</p>
 <p>The requirements:</p>
 <ul>
-<li>
-<p>Extracts tags where there are any on the original post and adds them to the front Hugo matter</p>
-</li>
-<li>
-<p>Maintains the original post date</p>
-</li>
-<li>
-<p>Converts the HTML to Markdown</p>
-</li>
-<li>
-<p>Maintains the directory structure, with images copied to the directory that the post&rsquo;s index.md is in:</p>
+<li>Extracts tags where there are any on the original post and adds them to the front Hugo matter</li>
+<li>Maintains the original post date</li>
+<li>Converts the HTML to Markdown</li>
+<li>Maintains the directory structure, with images copied to the directory that the post&rsquo;s index.md is in:
 <pre tabindex="0"><code class="language-thing" data-lang="thing">basedir/
   content/
     posts/
@@ -74,149 +68,32 @@
       images/
         post-image-for-this-other-arcicle.jpg
 </code></pre></li>
+</ul>
+<p>There are some caveats:</p>
+<ul>
 <li>
-<p>Requires some fixup</p>
+<p><strong>Posts require some fixup</strong></p>
+<p>There&rsquo;s a little bit of tweaking that I&rsquo;ve had to do to Hugo front matter or the posts, but the program got me mostly all the way. These things could likely be fixed in the code and it would be worth doing so if I was going to run the program more than once, but I&rsquo;m not so it was faster to fix things up manually.</p>
 </li>
 <li>
-<p>Does&rsquo;t write the summary</p>
+<p><strong>Doesn&rsquo;t write the summary</strong></p>
+<p>I had to write this manually, but I was only dealiing with 10s of posts. If you want to use this then you might want to add something to generate a summary.</p>
 </li>
 <li>
-<p>Doesn&rsquo;t always get the image URLs right in the markdown (but it&rsquo;s easily fixable)</p>
+<p><strong>Doesn&rsquo;t always get the image URLs right in the markdown (but it&rsquo;s easily fixable)</strong></p>
+<p>The code left a few images URLs in the posts pointing to the old wordpress site. It still copied over the images so it was a really simple find and replace to fix these up.</p>
 </li>
 <li>
-<p>Doesn&rsquo;t do any error checking, just panics</p>
+<p><strong>Doesn&rsquo;t do any error checking, just panics</strong></p>
+<p>It didn&rsquo;t error so I didn&rsquo;t put in the time to handle errors as it was a one-off program, it worked for me.</p>
 </li>
 <li>
-<p>Skips image only posts</p>
+<p><strong>Skips image only posts</strong></p>
+<p>This was delberate, but you might want to add that feature.</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;encoding/xml&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/url&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;path/filepath&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;strings&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">md</span> <span style="color:#e6db74">&#34;github.com/JohannesKaufmann/html-to-markdown&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/beevik/etree&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">BaseDir</span>          = <span style="color:#e6db74">&#34;/Users/will/www/go/src/github.com/wjessop/wp_to_hugo/&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ContentDir</span>       = <span style="color:#e6db74">&#34;content&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">PostsDir</span>         = <span style="color:#e6db74">&#34;posts&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ImagesDir</span>        = <span style="color:#e6db74">&#34;images&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">WordPressXMLFile</span> = <span style="color:#e6db74">&#34;/Users/will/Downloads/willjessop4.wordpress.com-2023-09-11-23_09_49/willwrites.wordpress.2023-09-11.000.xml&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">LocalImageDir</span>    = <span style="color:#e6db74">&#34;/Users/will/Downloads/media-export-31097282-from-0-to-1426&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">doc</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">etree</span>.<span style="color:#a6e22e">NewDocument</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">ReadFromFile</span>(<span style="color:#a6e22e">WordPressXMLFile</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">item</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">FindElements</span>(<span style="color:#e6db74">&#34;//item&#34;</span>) {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">postType</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">SelectElement</span>(<span style="color:#e6db74">&#34;wp:post_type&#34;</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">postType</span>.<span style="color:#a6e22e">Text</span>() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;attachment&#34;</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">continue</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">title</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">SelectElement</span>(<span style="color:#e6db74">&#34;title&#34;</span>).<span style="color:#a6e22e">Text</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">content</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">SelectElement</span>(<span style="color:#e6db74">&#34;content:encoded&#34;</span>).<span style="color:#a6e22e">Text</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">dateStr</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">SelectElement</span>(<span style="color:#e6db74">&#34;pubDate&#34;</span>).<span style="color:#a6e22e">Text</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">tags</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">extractTags</span>(<span style="color:#a6e22e">item</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">postDir</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">BaseDir</span>, <span style="color:#a6e22e">ContentDir</span>, <span style="color:#a6e22e">PostsDir</span>, <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ReplaceAll</span>(<span style="color:#a6e22e">title</span>, <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>))
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">MkdirAll</span>(<span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">postDir</span>, <span style="color:#a6e22e">ImagesDir</span>), <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">ModePerm</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">converter</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">md</span>.<span style="color:#a6e22e">NewConverter</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">markdown</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">converter</span>.<span style="color:#a6e22e">ConvertString</span>(<span style="color:#a6e22e">content</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">frontMatter</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;---\ntitle: %s\ndate: %s\ndraft: true\ntags: [%s]\nsummary: \ncategory: \&#34;\&#34;\ntype: Post\n---\n&#34;</span>, <span style="color:#a6e22e">title</span>, <span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">dateStr</span>), <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">tags</span>, <span style="color:#e6db74">&#34;, &#34;</span>))
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">contentString</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">frontMatter</span> <span style="color:#f92672">+</span> string(<span style="color:#a6e22e">markdown</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">postDir</span>, <span style="color:#e6db74">&#34;index.md&#34;</span>), []byte(<span style="color:#a6e22e">contentString</span>), <span style="color:#ae81ff">0644</span>)
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Copy images
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">imgURL</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">extractImageURLs</span>(<span style="color:#a6e22e">content</span>) {
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">parsedImgURL</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#a6e22e">imgURL</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">pathParts</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(<span style="color:#a6e22e">parsedImgURL</span>.<span style="color:#a6e22e">Path</span>, <span style="color:#e6db74">&#34;/&#34;</span>)
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">pathParts</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">4</span> {
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">imgName</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pathParts</span>[len(<span style="color:#a6e22e">pathParts</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>], <span style="color:#a6e22e">pathParts</span>[len(<span style="color:#a6e22e">pathParts</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>], <span style="color:#a6e22e">pathParts</span>[len(<span style="color:#a6e22e">pathParts</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">srcPath</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">LocalImageDir</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">imgName</span>)
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">destPath</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">postDir</span>, <span style="color:#a6e22e">ImagesDir</span>, <span style="color:#a6e22e">imgName</span>)
-</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">copyFile</span>(<span style="color:#a6e22e">srcPath</span>, <span style="color:#a6e22e">destPath</span>)
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Error copying image:&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">extractTags</span>(<span style="color:#a6e22e">item</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">etree</span>.<span style="color:#a6e22e">Element</span>) []<span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tags</span> []<span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">category</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">SelectElements</span>(<span style="color:#e6db74">&#34;category&#34;</span>) {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">domain</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">category</span>.<span style="color:#a6e22e">SelectAttrValue</span>(<span style="color:#e6db74">&#34;domain&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>); <span style="color:#a6e22e">domain</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;post_tag&#34;</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">tags</span> = append(<span style="color:#a6e22e">tags</span>, <span style="color:#a6e22e">category</span>.<span style="color:#a6e22e">Text</span>())
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tags</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">extractImageURLs</span>(<span style="color:#a6e22e">content</span> <span style="color:#66d9ef">string</span>) []<span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">urls</span> []<span style="color:#66d9ef">string</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">decoder</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">xml</span>.<span style="color:#a6e22e">NewDecoder</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">content</span>))
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">decoder</span>.<span style="color:#a6e22e">Token</span>()
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">t</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">se</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">t</span>.(<span style="color:#66d9ef">type</span>) {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">xml</span>.<span style="color:#a6e22e">StartElement</span>:
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">se</span>.<span style="color:#a6e22e">Name</span>.<span style="color:#a6e22e">Local</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;img&#34;</span> {
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">attr</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">se</span>.<span style="color:#a6e22e">Attr</span> {
-</span></span><span style="display:flex;"><span>					<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">attr</span>.<span style="color:#a6e22e">Name</span>.<span style="color:#a6e22e">Local</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;src&#34;</span> {
-</span></span><span style="display:flex;"><span>						<span style="color:#a6e22e">urls</span> = append(<span style="color:#a6e22e">urls</span>, <span style="color:#a6e22e">attr</span>.<span style="color:#a6e22e">Value</span>)
-</span></span><span style="display:flex;"><span>					}
-</span></span><span style="display:flex;"><span>				}
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">urls</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">copyFile</span>(<span style="color:#a6e22e">src</span>, <span style="color:#a6e22e">dest</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">input</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#a6e22e">src</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#a6e22e">dest</span>, <span style="color:#a6e22e">input</span>, <span style="color:#ae81ff">0644</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">date</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">RFC1123Z</span>, <span style="color:#a6e22e">date</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Format</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">RFC3339</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<p>Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&rsquo;d call it a success. <a href="https://github.com/wjessop/wordpress_to_hugo">I&rsquo;ve put the code up on Github</a>, I likely won&rsquo;t need to run this code again, but if it&rsquo;s useful to you please feel free to submit PRs.</p>
+
 	</article>
 
 

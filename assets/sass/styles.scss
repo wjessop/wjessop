@@ -292,6 +292,12 @@ article {
 
 	ul {
 		clear: both;
+
+		li {
+			p {
+				margin-bottom: 0px;
+			}
+		}
 	}
 
 	table {

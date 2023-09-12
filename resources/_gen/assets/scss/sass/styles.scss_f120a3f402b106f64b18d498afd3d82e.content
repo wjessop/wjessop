@@ -214,6 +214,8 @@ article figure figcaption h4:before {
 
 article ul {
   clear: both; }
+  article ul li p {
+    margin-bottom: 0px; }
 
 article table {
   margin-bottom: 40px; }
