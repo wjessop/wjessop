@@ -1,7 +1,7 @@
 ---
 title: Error installing libv8 on Mac OS Catalina
 date: 2020-02-17T16:23:53Z
-draft: true
+draft: false
 tags: ["ruby", "MacOS", "tech", "programming"]
 summary: "If you are getting a \"fatal error: 'climits' file not found\" error installing libv8 on Catalina then this post is for you."
 category: ""

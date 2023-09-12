@@ -8,7 +8,7 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 01 May 2019 15:00:33 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 16:23:53 +0000</lastBuildDate>
     
 	  <atom:link href="https://willj.net/tags/macos/rss.xml" rel="self" type="application/rss+xml" />
     
@@ -925,6 +925,67 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Error installing libv8 on Mac OS Catalina</title>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR:  Error installing libv8:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    current directory: /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/bin/ruby -r ./siteconf20200217-34155-18bho1v.rb extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;creating Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-building-tests.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-werror-on-osx.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-xcode-debugging.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-imply-vfp3-and-armv7.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-MAP_NORESERVE-on-freebsd.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-vfp2.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/fPIC-for-static.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Compiling v8 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x64
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using python 2.7.16
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using compiler: c++ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clang version 11.0.0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unable to find a compiler officially supported by v8.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;It is recommended to use GCC v4.4 or higher
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Beginning compilation. This will take some time.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building v8 with env CXX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++ LINK&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++  /usr/bin/make x64.release ARFLAGS.target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;crs werror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GYP_GENERATORS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;make &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	build/gyp/gyp --generator-output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt; build/all.gyp &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Ibuild/standalone.gypi --depth&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;. &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Dv8_target_arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;x64 &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -S.x64  -Dv8_enable_backtrace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -Dv8_can_use_vfp2_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv2 -Dv8_can_use_vfp3_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv3 -Dwerror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  CXX&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;target&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: include path &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; stdlibc++ headers not found; pass &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-stdlib=libc++&amp;#39;&lt;/span&gt; on the command line to use the libc++ standard library instead &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wstdlibcxx-not-found&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ../src/allocation.cc:33:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;../src/utils.h:33:10: fatal error: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;climits&amp;#39;&lt;/span&gt; file not found
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         ^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; warning and &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;x64.release&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:36:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;block in verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: libv8 did not install properly, expected binary v8 archive &amp;#39;&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in `each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:26:in `install!&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from extconf.rb:7:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extconf failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-19/2.4.0/libv8-3.16.14.19/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;The solution was as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install v8@3.15
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt; -- --with-system-v8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions with: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;--with-system-v8&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed libv8-3.16.14.19
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
