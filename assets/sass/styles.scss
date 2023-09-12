@@ -145,7 +145,7 @@ img.pixel, canvas.pixel {
 	image-rendering: crisp-edges;
 }
 
-p {
+p, li {
 	// multiling blocks, eg those with fences, don't look good formatted with
 	// this style so rely on the attributes that are present when these are
 	// generated to ignore them.
