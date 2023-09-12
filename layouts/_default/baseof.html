@@ -18,9 +18,8 @@
 		</title>
 		<meta
 			name="description"
-			content="{{ if .Params.summary }}{{ .Params.summary }}{{ else }}I write about Ruby on Rails and Postgres scaling, performance and upgrade work, Ruby, Go and other programming topics, as well as sailing and cooking.{{ end }}"
+			content="{{ if .Params.description }}{{ .Params.description }}{{ else if .Params.summary }}{{ .Params.summary }}{{ else if .Title }}{{ .Title }}{{ else }}I write about Ruby on Rails and Postgres scaling, performance and upgrade work, Ruby, Go and other programming topics, as well as sailing and cooking.{{ end }}"
 		/>
-		<meta name="description" content="{{ .Title }}">
 		<meta name="author" content="{{ .Site.Author.name }}">
 	</head>
 	<body>

@@ -6,6 +6,7 @@ tags: ["programming", "Go", "tech", "Hugo"]
 summary: I wanted to convert my old wordpress.com articles to Hugo and all off the "official" methods were cumbersome so I wrote a somewhat rough but fast and simple program to do the conversion for me.
 category: ""
 type: Post
+description: I wrote a program for converting a wordpress.com dump, incliding images, to Hugo and markdown
 ---
 
 There are a few ["official" options for migrating wordpress content to Hugo](https://gohugo.io/tools/migrations/#wordpress), but they are all either cumbersome (requiring installing wordpress in docker) or don't handle images. I didn't want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.
