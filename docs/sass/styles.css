@@ -220,3 +220,37 @@ article table {
 
 article pre {
   background: var(--code-bg-color); }
+
+.pagination {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0; }
+
+.page-item {
+  margin-right: 10px; }
+
+.page-link {
+  display: block;
+  padding: 10px;
+  background: var(--bg-color);
+  color: var(--main-color); }
+
+.page-item.active .page-link {
+  background: var(--main-color);
+  color: var(--bg-color); }
+
+.page-link:hover {
+  background: var(--a-color);
+  color: var(--bg-color); }
+
+@media (prefers-color-scheme: dark) {
+  .page-link {
+    background: var(--bg-color);
+    color: var(--main-color); }
+  .page-item.active .page-link {
+    background: var(--main-color);
+    color: var(--bg-color); }
+  .page-link:hover {
+    background: var(--a-color);
+    color: var(--bg-color); } }

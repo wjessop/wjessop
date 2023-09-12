@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>Fixing errors installing the charlock_holmes ruby gem</title>
+		<meta name="description" content="Fixing errors installing the charlock_holmes ruby gem">
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2019-02-13">Wednesday, February 13, 2019</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/ruby">ruby</a> <a href="https://willj.net/tags/macos">MacOS</a> <a href="https://willj.net/tags/tech">tech</a> <a href="https://willj.net/tags/programming">programming</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Fixing errors installing the charlock_holmes ruby gem</h2>
+
+	<article>
+		<p>This gem can be a PITA to install on a mac, this is what worked for me. If you get this error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>charlock_holmes -v <span style="color:#e6db74">&#39;0.7.7&#39;</span>
+</span></span><span style="display:flex;"><span>Building native extensions. This could take a <span style="color:#66d9ef">while</span>...
+</span></span><span style="display:flex;"><span>ERROR:  Error installing charlock_holmes:
+</span></span><span style="display:flex;"><span>ERROR: Failed to build gem native extension.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>current directory: /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7/ext/charlock_holmes
+</span></span><span style="display:flex;"><span>/Users/will/.rbenv/versions/2.6.1/bin/ruby -I /Users/will/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20190213-34122-e636v8.rb extconf.rb
+</span></span><span style="display:flex;"><span>checking <span style="color:#66d9ef">for</span> -licui18n... yes
+</span></span><span style="display:flex;"><span>checking <span style="color:#66d9ef">for</span> -licui18n... yes
+</span></span><span style="display:flex;"><span>checking <span style="color:#66d9ef">for</span> unicode/ucnv.h... no
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>***************************************************************************************
+</span></span><span style="display:flex;"><span>*********** icu required <span style="color:#f92672">(</span>brew install icu4c or apt-get install libicu-dev<span style="color:#f92672">)</span> ***********
+</span></span><span style="display:flex;"><span>***************************************************************************************
+</span></span><span style="display:flex;"><span>*** extconf.rb failed ***
+</span></span><span style="display:flex;"><span>Could not create Makefile due to some reason, probably lack of necessary
+</span></span><span style="display:flex;"><span>libraries and/or headers. Check the mkmf.log file <span style="color:#66d9ef">for</span> more details. You may
+</span></span><span style="display:flex;"><span>need configuration options.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Provided configuration options:
+</span></span><span style="display:flex;"><span>--with-opt-dir
+</span></span><span style="display:flex;"><span>--without-opt-dir
+</span></span><span style="display:flex;"><span>--with-opt-include
+</span></span><span style="display:flex;"><span>--without-opt-include<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>opt-dir<span style="color:#e6db74">}</span>/include
+</span></span><span style="display:flex;"><span>--with-opt-lib
+</span></span><span style="display:flex;"><span>--without-opt-lib<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>opt-dir<span style="color:#e6db74">}</span>/lib
+</span></span><span style="display:flex;"><span>--with-make-prog
+</span></span><span style="display:flex;"><span>--without-make-prog
+</span></span><span style="display:flex;"><span>--srcdir<span style="color:#f92672">=</span>.
+</span></span><span style="display:flex;"><span>--curdir
+</span></span><span style="display:flex;"><span>--ruby<span style="color:#f92672">=</span>/Users/will/.rbenv/versions/2.6.1/bin/<span style="color:#66d9ef">$(</span>RUBY_BASE_NAME<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>--with-icu-dir
+</span></span><span style="display:flex;"><span>--without-icu-dir
+</span></span><span style="display:flex;"><span>--with-icu-include
+</span></span><span style="display:flex;"><span>--without-icu-include<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>icu-dir<span style="color:#e6db74">}</span>/include
+</span></span><span style="display:flex;"><span>--with-icu-lib
+</span></span><span style="display:flex;"><span>--without-icu-lib<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>icu-dir<span style="color:#e6db74">}</span>/lib
+</span></span><span style="display:flex;"><span>--with-icui18nlib
+</span></span><span style="display:flex;"><span>--without-icui18nlib
+</span></span><span style="display:flex;"><span>--with-icui18nlib
+</span></span><span style="display:flex;"><span>--without-icui18nlib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>To see why this extension failed to compile, please check the mkmf.log which can be found here:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/mkmf.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extconf failed, exit code <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Gem files will remain installed in /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7 <span style="color:#66d9ef">for</span> inspection.
+</span></span><span style="display:flex;"><span>Results logged to /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/gem_make.out
+</span></span></code></pre></div><p>First, make sure you have installed the required dependencies:</p>
+<pre><code>brew install xz icu4c
+</code></pre>
+<p>Now, install charlock_holmes:</p>
+<pre><code>gem install charlock_holmes -v=0.7.7 -- --with-opt-dir=/usr/local/opt --with-opt-include=/usr/local/opt/icu4c/include --with-opt-lib=/usr/local/opt/icu4c/lib --with-cxxflags=-std=c++11
+</code></pre>
+
+	</article>
+
+
+
+		<footer>
+	<hr>
+	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned), and <a href="mailto:will@willj.net">Email</a>.</p>
+</footer>
+
+	</body>
+</html>
