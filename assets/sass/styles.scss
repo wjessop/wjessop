@@ -149,7 +149,9 @@ p, li {
 	// multiling blocks, eg those with fences, don't look good formatted with
 	// this style so rely on the attributes that are present when these are
 	// generated to ignore them.
-	code:not([data-lang]) {
+	//
+	// & > targets direct descendents only
+	& > code:not([data-lang]) {
 		background-color: #595959;
 		color: #e3e2e2;
 		padding: 4px 8px;

@@ -1,16 +1,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS on Will Jessop&#39;s Writings</title>
-    <link>https://willj.net/tags/aws/</link>
-    <description>Recent content in AWS on Will Jessop&#39;s Writings</description>
+    <title>Hugo on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/hugo/</link>
+    <description>Recent content in Hugo on Will Jessop&#39;s Writings</description>
     
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 18 Apr 2014 17:41:47 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
     
-	  <atom:link href="https://willj.net/tags/aws/rss.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://willj.net/tags/hugo/rss.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

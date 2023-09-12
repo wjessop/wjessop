@@ -112,7 +112,7 @@ img.pixel, canvas.pixel {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges; }
 
-p code:not([data-lang]), li code:not([data-lang]) {
+p > code:not([data-lang]), li > code:not([data-lang]) {
   background-color: #595959;
   color: #e3e2e2;
   padding: 4px 8px;
