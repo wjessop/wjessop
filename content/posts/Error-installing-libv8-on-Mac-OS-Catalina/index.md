@@ -2,7 +2,7 @@
 title: Error installing libv8 on Mac OS Catalina
 date: 2020-02-17T16:23:53Z
 draft: true
-tags: []
+tags: ["ruby", "MacOS", "tech"]
 summary:
 category: ""
 type: Post
