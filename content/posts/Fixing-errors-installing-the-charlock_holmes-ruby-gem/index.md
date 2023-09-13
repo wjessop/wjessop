@@ -5,7 +5,7 @@ draft: false
 tags: ["Ruby", "MacOS", "tech", "programming"]
 summary: The charlock_holmes gem can be hard to install, here's how I solved a common problem
 category: ""
-description: Sometimes installing the charlock_holmes gem results in an error about missing icu4c, here's how to fix it.
+description: How to fix the charlock_holmes gem install error about missing icu4c.
 type: Post
 ---
 

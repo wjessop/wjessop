@@ -77,10 +77,7 @@
     <loc>https://willj.net/tags/electronics/</loc>
     <lastmod>2020-11-30T11:24:00+00:00</lastmod>
   </url><url>
-    <loc>https://willj.net/tags/golang/</loc>
-    <lastmod>2020-11-30T11:24:00+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/raspberrypi/</loc>
+    <loc>https://willj.net/tags/raspberry-pi/</loc>
     <lastmod>2020-11-30T11:24:00+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</loc>
@@ -94,6 +91,12 @@
   </url><url>
     <loc>https://willj.net/posts/welcome-to-my-new-blog/</loc>
     <lastmod>2020-06-24T23:30:40+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/golang/</loc>
+    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/raspberrypi/</loc>
+    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</loc>
     <lastmod>2020-06-24T02:09:43+01:00</lastmod>
@@ -147,9 +150,6 @@
     <lastmod>2014-04-18T17:41:47+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/ping-pong-press/</loc>
-    <lastmod>2013-12-16T18:24:25+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/raspberry-pi/</loc>
     <lastmod>2013-12-16T18:24:25+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/robot-at-rubyconf/</loc>
