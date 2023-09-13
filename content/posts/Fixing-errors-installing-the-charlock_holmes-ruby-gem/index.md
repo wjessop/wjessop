@@ -2,16 +2,17 @@
 title: Fixing errors installing the charlock_holmes ruby gem
 date: 2019-02-13T05:50:52Z
 draft: false
-tags: ["ruby", "MacOS", "tech", "programming"]
+tags: ["Ruby", "MacOS", "tech", "programming"]
 summary: The charlock_holmes gem can be hard to install, here's how I solved a common problem
 category: ""
+description: Sometimes installing the charlock_holmes gem results in an error about missing icu4c, here's how to fix it.
 type: Post
 ---
 
-This gem can be a PITA to install on a mac, this is what worked for me. If you get this error:
+The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:
 
 ```sh
-charlock_holmes -v '0.7.7'
+gem install charlock_holmes -v '0.7.7'
 Building native extensions. This could take a while...
 ERROR:  Error installing charlock_holmes:
 ERROR: Failed to build gem native extension.

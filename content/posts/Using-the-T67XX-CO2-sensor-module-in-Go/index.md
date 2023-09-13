@@ -3,8 +3,9 @@ title: "Using the T67XX CO₂ Sensor Module in Go"
 summary: Getting CO₂ readings and more from the T67XX CO2 Sensor Module in Go
 date: 2020-11-30T11:24:00+00:00
 draft: false
-tags: ["electronics", "raspberrypi", "golang", "programming"]
+tags: ["electronics", "Raspberry Pi", "Go", "programming"]
 category: ""
+description: Wiring up and using the T6713 / T67XX sensor module in Go.
 type: Post
 ---
 
