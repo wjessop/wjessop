@@ -9,7 +9,7 @@ description: How to fix the 'Memory card error' on the Canon IXUS 400 / S3 with 
 type: Post
 ---
 
-_**Update**: the IXUS 400 is getting quite old and if you're looking to update it I recommend the [Canon IXUS 95](http://www.amazon.co.uk/gp/product/B001T9NH5G?ie=UTF8&tag=will_j-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B001T9NH5G), it's pretty close to the IXUS 400, but much better. If you're looking to move up to a digital SLR camera I've since got a [Nikon D40X](http://www.amazon.co.uk/gp/product/B000O0WKUE?ie=UTF8&tag=jokeshellacoc-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B000O0WKUE) that I can also recommend._
+_**Update**: the IXUS 400 is getting quite old and if you're looking to update it I recommend the Canon IXUS 95, it's pretty close to the IXUS 400, but much better. If you're looking to move up to a digital SLR camera I've since got a Nikon D40X that I can also recommend.
 
 The day after my daughter Holly was born my Canon IXUS 400 camera started giving a 'Memory card error' and refused to save anything to the compact flash card. I assumed that this meant that there was an error with the memory card so I bought a brand new one and was slightly cheesed off when the IXUS gave the same 'Memory card error' message after installing it.
 
