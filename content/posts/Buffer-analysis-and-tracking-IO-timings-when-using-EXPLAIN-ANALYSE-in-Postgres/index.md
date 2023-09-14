@@ -86,7 +86,7 @@ The breakdown by section means that you can see where the buffer usage is highes
 
 <aside>
 <h3>Why does it matter if we go to disk instead of the shared cache in memory?</h3>
-Disk (SSD) read speeds are substantially slower than reads from memory, in the region of 450 MB/s for an SSD compared to around 13,000 MB/s for memory (varying depending on the specific hardware). The "Latency numbers every programmer should know" table, originally by [Peter Norvig](http://norvig.com/21-days.html#answers) shows the difference well.
+Disk (SSD) read speeds are substantially slower than reads from memory, in the region of 450 MB/s for an SSD compared to around 13,000 MB/s for memory (varying depending on the specific hardware). The "Latency numbers every programmer should know" table, originally by <a href="http://norvig.com/21-days.html#answers">Peter Norvig</a> shows the difference well.
 
 
 	L1 cache reference ......................... 0.5 ns
