@@ -34,3 +34,8 @@ copyright = "&#169; Will Jessop. All rights reserved."
 [outputFormats]
   [outputFormats.RSS]
     baseName = "rss"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

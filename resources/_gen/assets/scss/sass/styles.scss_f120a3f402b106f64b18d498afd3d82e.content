@@ -6,7 +6,9 @@
   --a-color-visited: #1a0dab;
   --blockquote-bg-color: #f3f3f3;
   --code-bg-color: #f3f3f3;
-  --bg-color-about-me: #e0e0e0; }
+  --bg-color-about-me: #e0e0e0;
+  --bg-color-aside: #e0e0e0;
+  --border-color-aside: #252525; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -16,7 +18,9 @@
     --a-color-visited: #554dac;
     --blockquote-bg-color: #5b5b5b;
     --code-bg-color: #5b5b5b;
-    --bg-color-about-me: #1a1a1a; } }
+    --bg-color-about-me: #1a1a1a;
+    --bg-color-aside: rgb(61, 61, 61);
+    --border-color-aside: #d0d0d0; } }
 
 body {
   font-family: Consolas, Monospace, Courier;
@@ -222,6 +226,16 @@ article table {
 
 article pre {
   background: var(--code-bg-color); }
+
+article aside {
+  border: 1px dashed var(--border-color-aside);
+  padding: 15px;
+  margin: 4ch 0px;
+  background-color: var(--bg-color-aside); }
+  article aside h3 {
+    margin-top: 0px; }
+  article aside :last-child {
+    margin-bottom: 10px; }
 
 .pagination {
   list-style: none;
