@@ -1,7 +1,7 @@
 ---
 title: Tricks of the Trade
 date: 2007-04-12T19:04:33Z
-draft: true
+draft: false
 tags: [meta]
 category:
 summary: An interesting article on tricks of the trade

@@ -1,17 +1,294 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>How to get started sailing on Will Jessop&#39;s Writings</title>
-    <link>https://willj.net/posts/how-to-get-started-sailing/</link>
-    <description>Recent content in How to get started sailing on Will Jessop&#39;s Writings</description>
+    <title>management on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/management/</link>
+    <description>Recent content in management on Will Jessop&#39;s Writings</description>
     
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 16 Aug 2022 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate>
     
-	  <atom:link href="https://willj.net/posts/how-to-get-started-sailing/rss.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://willj.net/tags/management/rss.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Converting a wordpress.com dump to Hugo, including images</title>
+      <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
+      <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
+      <description>&lt;p&gt;There are a few &lt;a href=&#34;https://gohugo.io/tools/migrations/#wordpress&#34;&gt;&amp;ldquo;official&amp;rdquo; options for migrating wordpress content to Hugo&lt;/a&gt;, but they are all either cumbersome (requiring installing wordpress in docker) or don&amp;rsquo;t handle images. I didn&amp;rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.&lt;/p&gt;
+&lt;p&gt;In the end &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I created a somewhat rough, but functional program to do the job&lt;/a&gt; and it was successful.&lt;/p&gt;
+&lt;p&gt;The requirements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extracts tags where there are any on the original post and adds them to the front Hugo matter&lt;/li&gt;
+&lt;li&gt;Maintains the original post date&lt;/li&gt;
+&lt;li&gt;Converts the HTML to Markdown&lt;/li&gt;
+&lt;li&gt;Maintains the directory structure, with images copied to the directory that the post&amp;rsquo;s index.md is in:
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-thing&#34; data-lang=&#34;thing&#34;&gt;basedir/
+  content/
+    posts/
+      Some-post-title/
+        index.md
+        images/
+          post-image-1.jpg
+          post-image-2.png
+     A-different-post-title/
+      index.md
+      images/
+        post-image-for-this-other-arcicle.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are some caveats:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Posts require some fixup&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a little bit of tweaking that I&amp;rsquo;ve had to do to Hugo front matter or the posts, but the program got me mostly all the way. These things could likely be fixed in the code and it would be worth doing so if I was going to run the program more than once, but I&amp;rsquo;m not so it was faster to fix things up manually.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Doesn&amp;rsquo;t write the summary&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I had to write this manually, but I was only dealiing with 10s of posts. If you want to use this then you might want to add something to generate a summary.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Doesn&amp;rsquo;t always get the image URLs right in the markdown (but it&amp;rsquo;s easily fixable)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The code left a few images URLs in the posts pointing to the old wordpress site. It still copied over the images so it was a really simple find and replace to fix these up.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Doesn&amp;rsquo;t do any error checking, just panics&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It didn&amp;rsquo;t error so I didn&amp;rsquo;t put in the time to handle errors as it was a one-off program, it worked for me.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Skips image only posts&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This was delberate, but you might want to add that feature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
+      <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
+      <pubDate>Mon, 11 Sep 2023 17:27:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</guid>
+      <description>&lt;p&gt;A recent update to Firefox changed the order of suggestions when you started typing in the URL bar (or &amp;ldquo;address bar&amp;rdquo;). It used to be that you&amp;rsquo;d get recently visited URLs first but the change caused search suggestions to appear first. I almost always navigate to sites I know by typing the first few letters of the domain name and almost never used the search suggestions so this change cause consternation.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Before.png&#34;
+         alt=&#34;A firefox URL bar suggestions dropdown showing suggested searches before recently visited sites&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The URL bar suggestions after Firefox &amp;#34;Improved&amp;#34; the experience in a recent update and changed the suggestions order&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Fearing for the longevity of my down arrow key caused the wear of all the extra pressing to get down to the recently visited URLs section I searched for a solution. It turns out that you can change the order of the suggestions in the config. To do so:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open a new Firefox tab&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;about:config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Accept any warnings (yolo)&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;browser.urlbar.showSearchSuggestionsFirst&lt;/code&gt; into the search field&lt;/li&gt;
+&lt;li&gt;Toggle the value&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You shouldn&amp;rsquo;t need to restart Firefox for the change to take effect, and should now have your URL history back where it was before the search suggestions.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/After.png&#34;
+         alt=&#34;A firefox URL bar with recently visited sites before search suggestions&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;URL bar suggestion order, now fixed&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
+      <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/DELL-Optiplex-7010-USFF.jpg&#34;
+         alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A Dell OptiPlex 7010 USFF&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I recently bought a &lt;a href=&#34;https://www.dell.com/support/manuals/en-ae/optiplex-7010/opti7010_usff/specifications?guid=guid-157e8495-34d3-4efa-ab61-1d9efba4c90e&amp;amp;lang=en-us&#34;&gt;Dell OptiPlex 7010 Ultra Small Form Factor&lt;/a&gt; PC from eBay. I was Intending on squeezing two of the spare Seagate Barracuda 4TB 3.5&amp;quot; hard drives I have in it with an SSD boot disk and installing &lt;a href=&#34;https://www.truenas.com/&#34;&gt;TrueNAS&lt;/a&gt; to use it as a file store. It&amp;rsquo;s a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the USFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the USFF model I got can only officially fit a single 2.5&amp;quot; SSD in it, and no 3.5&amp;quot; drives at all. Whoops.&lt;/p&gt;
+&lt;p&gt;Opening up the machine it turns out that there was actually a 3.5&amp;quot; drive bay and the eBay seller used a tiny amount of hot glue to just glue a 2.5&amp;quot; SSD into the bay rather than using an adapter. Quality. This didn&amp;rsquo;t help much though, there was still no way of fitting the number of drives I wanted in the machine as it came. Anyway, after removing the SSD, the official Dell drive mounts and the slim CDRW drive I took a look at the situation and figured I could probably rescue this with a bit of 3d printing. Any day that requires you to solve a problem with a bit of 3d printing is generally a good day.&lt;/p&gt;
+&lt;h2 id=&#34;caveat&#34;&gt;Caveat!&lt;/h2&gt;
+&lt;p&gt;This works for my Seagate Barracuda 4TB drives. They&amp;rsquo;re slightly thinner than some of the other drives I&amp;rsquo;ve got, if yours are thicker then it might work for yoiu or it might not.&lt;/p&gt;
+&lt;h2 id=&#34;risers-of-the-machine&#34;&gt;Risers of the Machine&lt;/h2&gt;
+&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;images/Dell-Optiplex-7010-USFF-inside.jpg&#34;
+         alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;View inside a Dell OptiPlex 7010 USFF, there isn&amp;#39;t much room&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/Dell-OptiPlex-7010-motherboard.jpg&#34;
+         alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Once the existing mounts had been removed I could see that there were four screws holding the motherboard in place, and an existing riser, all of which could be re-purposed as places to screw a riser which would allow me to mount drives suspended over the RAM. See the image where I&amp;rsquo;ve marked the locations of these holes with a red circle. The turquoise square is about where the CPU heatsink and fan are, but the heatsink is low profile and draws the heat towards the back of the machine closer to the IO ports where the fan is.&lt;/p&gt;
+&lt;h2 id=&#34;the-curse-of-the-imperial-menace&#34;&gt;The Curse of the Imperial Menace!&lt;/h2&gt;
+&lt;p&gt;Metric is the best and only measurement system anyone should use, but unfortunately PC manufacturers seem to have settled on imperial for at least the bolt hole sizes I need to use which are &lt;a href=&#34;https://en.wikipedia.org/wiki/Unified_Thread_Standard&#34;&gt;6-32 UNC&lt;/a&gt;. The risers I need to incorporate into this design are fairly long too at nearly 40mm. That&amp;rsquo;s about M3.5 * 40mm in metric, but I couldn&amp;rsquo;t find any M3.5 risers of the right height, and I can buy 6-32 UNC bolts on eBay easily enough so I bought some of those. You can probably use M3.5 as a substitute.&lt;/p&gt;
+&lt;h2 id=&#34;to-fusion360&#34;&gt;To Fusion360!&lt;/h2&gt;
+&lt;p&gt;These days my 3d designing tool of choice is Fusion 360 so I opened it up and set to work. Much cursing, and a fair few scrapped prototypes later I came up with this:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Fusion%20360%20design.png&#34;
+         alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It&amp;rsquo;s definitely not going to win any awards for beautiful design, and it&amp;rsquo;s got some problems, but it works. I could certainly have improved the design further, but I was running out of patience with 3d printing prototypes I had to throw away, and time on my Fusion 360 trial (damn you Autodesk!). Anyway, it&amp;rsquo;s ugly, it&amp;rsquo;s flawed, but it works.&lt;/p&gt;
+&lt;h2 id=&#34;the-finished-mount-in-action&#34;&gt;The finished mount in action&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s the first part of the install showing the &amp;ldquo;base&amp;rdquo; of the mount. The SSD is slung underneath with M3 bolts * 12mm, because that was what I had. I should have made the recess for the bolt heads a bit deeper so the bolt heads were further away from the underside of the bottom hard drive, but though it&amp;rsquo;s tight it doesn&amp;rsquo;t touch so I&amp;rsquo;m leaving it.&lt;/p&gt;
+&lt;p&gt;There is about 5mm clearance between the bottom of the mount and the RAM, and enough clearance between the SSD and the CPU cooler for wires to pass comfortably. The SSD could be mounted about 5mm higher, closer to the bottom of the first hard drive, but I only had 12mm bolts in M3.5 and so had to print spacers.&lt;/p&gt;
+&lt;p&gt;There are captive nuts on the top-left of this image underneath the base, nearest the front of the case. These were exactly the right size for the nuts I was using, which meant that the nuts stayed in right up until I used any force at all on them like when I was trying to screw a bolt into them. This was infuriating so I epoxied the nuts in place. If I was to do another version of this I&amp;rsquo;d make the nut traps tighter so the nuts could be safely held in place with a press fit.&lt;/p&gt;
+&lt;p&gt;The two bolts you can see with two nuts on them used as spacers, these are a flaw in the design. In order to prevent the 50mm bolts I was using from bottoming out I could have used shorter bolts and printed recesses, but I didn&amp;rsquo;t want to buy more imperial bolts I was never going to use again. I could have printed spacers, but the nuts worked and they were there. In the end I had to remove one of the nuts from the bottom-left most bolt so it didn&amp;rsquo;t foul the hard drive, but it didn&amp;rsquo;t bottom out even then so it worked out.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5160.jpeg&#34;
+         alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here you can see the 3.5&amp;quot; hard drives in place. There is a gap between the two drives to allow for air flow.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5161.jpeg&#34;
+         alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here you can see how tight it is near the case fan, the tolerances in this design are pretty tight. I couldn&amp;rsquo;t shift the hard drives further away from the front of the case/the case fan because the latch in the removable panel on the case prevents them from moving backwards in the case.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5164.jpeg&#34;
+         alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The front of the case looking in through the old CDRW slot. It doesn&amp;rsquo;t look like it but there is a mm or two clearance between the top of the top hard drive and the case when the lid is on.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5162.jpeg&#34;
+         alt=&#34;Hard drives seen through the front of the PC case&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The same view but with the lit fitted.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5165.jpeg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;parts-list&#34;&gt;Parts list&lt;/h2&gt;
+&lt;p&gt;If you want to make this mount exactly as I did then you will need these parts, or metric equivalent. Just bear in mind that it could be improved, so if you&amp;rsquo;ve got access to a 3d design program and the willingness it could be better. Let me know if you release an improved model and I&amp;rsquo;ll link it here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;4 x 6-32 UNC * 50mm bolts&lt;/li&gt;
+&lt;li&gt;5 x 6-32 UNC nuts (or 2 x if you print out spacers for the risers, see first image and description in &amp;ldquo;The finished mount in action&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;4 x M3 * 12mm flat head bolts for the SSD&lt;/li&gt;
+&lt;li&gt;10 x standard HD mounting screws (8 for the HDs, 2 for the base)&lt;/li&gt;
+&lt;li&gt;SATA cables&lt;/li&gt;
+&lt;li&gt;A SATA power splitter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The SSD bolts looks like this:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/IMG_5238.jpeg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;printing-instructions&#34;&gt;Printing instructions&lt;/h2&gt;
+&lt;p&gt;The design is printed in parts. Print one each of all parts you see in the image above, except you&amp;rsquo;ll need four of the risers (the long thing sticking down on the bottom left of the image) and four of the SSD mounting spacers if you&amp;rsquo;re using the same m3 bolts as me. Adjust or omit these if you have different length M3 bolts.&lt;/p&gt;
+&lt;p&gt;Any 3d printer should work, but all this was printed on a Prusa i3 MK3S, if you&amp;rsquo;re looking for your own 3d printer then the &lt;a href=&#34;https://www.prusa3d.com/category/original-prusa-mk4/&#34;&gt;Prusa i3 MK4&lt;/a&gt; would be a great option.&lt;/p&gt;
+&lt;h2 id=&#34;things-id-do-differently&#34;&gt;Things I&amp;rsquo;d do differently&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The HD Screws aren&amp;rsquo;t really long enough for going through a nut and two layers of 3d print, so where I&amp;rsquo;ve used them to connect the base of the mount the print is a little thin to allow for all the thread to pass through and bite into the thread in the nut. I could have used different screws/bolts or could likely have done this without any screws at all with an interlocking design, but this works and I don&amp;rsquo;t want to re-design it.&lt;/li&gt;
+&lt;li&gt;Make the SSD mounting bolt head recesses very slightly deeper.&lt;/li&gt;
+&lt;li&gt;Made the nut traps tighter, the nuts were loose which made installation a pain.&lt;/li&gt;
+&lt;li&gt;Re-designed to use less 3d printing and to take advantage of the HDs inherant stiffness. The HDs are made of metal, and I didn&amp;rsquo;t need anywhere near as much 3d printed structure to keep them in place, I could have relied on the inherant stiffness of the drives more.&lt;/li&gt;
+&lt;li&gt;Made the risers tighter so they didn&amp;rsquo;t fall off the long bolts on installation.&lt;/li&gt;
+&lt;li&gt;Made the base installable first then the HDs bolt onto that, as it stands there&amp;rsquo;s a fiddly installation process and you have to remove pretty much the whole thing to change a drive.&lt;/li&gt;
+&lt;li&gt;The riser closest to the power button interferes with the HD if you offset it from the base the correct amount, I&amp;rsquo;d re-design that (see first picture and description under &amp;ldquo;The finished mount in action&amp;rdquo;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;things-to-test-later&#34;&gt;Things to test later&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve fully assembled the mount, powered it on, installed TrueNAS and started using it as a file store, so it works. A couple of things I&amp;rsquo;d like to test at some point but haven&amp;rsquo;t got round to:&lt;/p&gt;
+&lt;h3 id=&#34;heat&#34;&gt;Heat&lt;/h3&gt;
+&lt;p&gt;Adding more things into the case means less airflow. I think there&amp;rsquo;s still enough (below the mount, round the side near the case fan, between the hard drives) that it&amp;rsquo;s not going to overheat, but I&amp;rsquo;ll be monitoring the heat using the TrueNAS UI.&lt;/p&gt;
+&lt;h2 id=&#34;power-usage&#34;&gt;Power usage&lt;/h2&gt;
+&lt;p&gt;The PSU is 64W I think, but seems to be fine driving two mirrored 5400 RPM drives and an SSD. I left my power monitor on my boat though so will test when I get the chance.&lt;/p&gt;
+&lt;h2 id=&#34;downloads&#34;&gt;Downloads&lt;/h2&gt;
+&lt;p&gt;The Fusion 360 design file:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;Dell%20Optiplex%207010%20USFF%20HD%20Mount.f3d&#34;&gt;Dell Optiplex 7010 USFF HD Mount.f3d&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;STL:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;stl/Base.stl&#34;&gt;Base&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;stl/Front%20top.stl&#34;&gt;Front top&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;stl/Back%20top.stl&#34;&gt;Back top&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;stl/Riser.stl&#34;&gt;Riser&lt;/a&gt; (print x 4)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;stl/SSD%20Offset.stl&#34;&gt;SSD Offset&lt;/a&gt; (print x 4)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve said it before, but it&amp;rsquo;s worth repeating. This mount works just fine, the drives are well fixed in place, the cables stay in, the case lid closes. However, designing stuff isn&amp;rsquo;t my day job and this design has a number of issues that if someone with more time and who is better at 3d design wanted to build on then it could be greatly improved. If I were to print a new version of this I&amp;rsquo;d probably alter the design quite a lot.&lt;/p&gt;
+&lt;p&gt;All that said, if you want to print this, and have the parts, then I don&amp;rsquo;t see any reason why it shouldn&amp;rsquo;t also work for you, it&amp;rsquo;s working for me.&lt;/p&gt;
+&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Running a specific knapsack test set locally</title>
+      <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
+      <pubDate>Wed, 26 Apr 2023 15:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</guid>
+      <description>&lt;p&gt;Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here&amp;rsquo;s how to do that!&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Grab &lt;code&gt;CI_NODE_TOTAL&lt;/code&gt; and &lt;code&gt;CI_NODE_INDEX&lt;/code&gt; from the test output, it&amp;rsquo;s likely near the top:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;images/ci-node-data.png#full&#34; alt=&#34;Getting the CI node data from CI output&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Grab the seed value, it&amp;rsquo;s probably going to be near the bottom of the output:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;images/seed.png#full&#34; alt=&#34;Getting the seed value from CI output&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Run the command with the interpolated values you got above&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format documentation]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You might also want to add &lt;code&gt;--fail-fast&lt;/code&gt; to the options to cut short the test suite when you hit your error:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=4 bundle exec rake &amp;quot;knapsack:rspec[--seed 43092 --format documentation --fail-fast]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can even &lt;code&gt;rspec bisect&lt;/code&gt; across this set of tests:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES RAILS_ENV=test CI=true CI_NODE_TOTAL=16 CI_NODE_INDEX=13 bundle exec rake &amp;quot;knapsack:rspec[--seed 16837 --bisect]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here I added &lt;code&gt;OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES&lt;/code&gt; as there &lt;a href=&#34;https://stackoverflow.com/questions/52671926/rails-may-have-been-in-progress-in-another-thread-when-fork-was-called&#34;&gt;is bug/issue with Ruby&lt;/a&gt; on OS X, you should be able to remove that environment variable on Linux.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Will&#39;s YouTube sailing channel recommendations</title>
+      <link>https://willj.net/posts/youtube-sailing-channel-recommendations/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/youtube-sailing-channel-recommendations/</guid>
+      <description>&lt;p&gt;I started watching YouTube sailing videos in about 2014 when I discovered &lt;a href=&#34;https://www.youtube.com/channel/UCZdQjaSoLjIzFnWsDQOv4ww&#34;&gt;Sailing la Vagabonde&lt;/a&gt;. I&amp;rsquo;d never really considered that sailing was something I could be interested in, I didn&amp;rsquo;t know anything about it at all. I remember being on holiday with my wife in Greece a few times and seeing sailing yachts moored up in the harbours, and I think there was a curiosity about the boats, and the people eating what I probably assumed were fancy lunches on them. I must have seen yachts in the sea, or in harbours or marinas, but I don&amp;rsquo;t really remember. They were just part of the view, not something to be interacted with. A different world. Billionaire bosses and boat shoes.&lt;/p&gt;
+&lt;p&gt;Anyway, I ignored sailing, and sailing ignored me, until one day a cooking show I watched linked to la Vagabonde. I was suddenly given a peek behind the curtain, a view into a previously unknown world and I was pretty curious, so I kept watching. These people seemed… normal, approachable. I started to consume the la Vagabonde back catalogue, and was curious if there were more people making these videos. A quick google later and I&amp;rsquo;d found Delos, and after a couple of tries (their early videos were hard to get through) I started working my way through their back catalogue too, and so started my interest in sailing that has lasted 8 years, and has now seen us buy &lt;a href=&#34;https://sailingsilvergirl.com&#34;&gt;our own boat&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Over those years I&amp;rsquo;ve gathered a number of YouTube subscriptions and figured I&amp;rsquo;d share them here, save people having to dig through the less great content out there to find some gems.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/c/svdelos&#34;&gt;SV Delos&lt;/a&gt; - Try to push through the earlier videos, this one of the most widely respected sailing channels out there, but the early videos don&amp;rsquo;t do them justice.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/@SailLife&#34;&gt;Sail Life&lt;/a&gt; - First several years are a re-fit (which was very well filmed and I loved), but they&amp;rsquo;re sailing now.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCLYd5EnTTwUKhouIkHoqzMw&#34;&gt;Ran Sailing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCXbWsGV_cjG3gOsSnNJPVlg&#34;&gt;Sailing Uma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UC-e4fYEUg2tVQ0NGL9oD1RQ&#34;&gt;Sailing Millennial Falcon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCUH6fLsV6J7WKEmf7vJKfAw&#34;&gt;Erik Aanderaa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCkExLY1E6CE-GPsMCdSjmxQ&#34;&gt;Sailing Yacht Florence&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCF45qzioJ_0FVdZVG2NJTWg&#34;&gt;Sailing Project Atticus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCS6qLhh5YBeL42HRMh3dc1A&#34;&gt;Christian Williams&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCBczX15IcXx0OqhqwlUtJjw&#34;&gt;Sailing cos I love it&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCTmJcC_Yw3IL7Bvtf_7nTLw&#34;&gt;How to Sail Oceans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/c/SailingSweetRuca&#34;&gt;Sailing Sweet Ruca&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCGFbz7qMXCm28EPCkZWSMKg&#34;&gt;Calico Skies Sailing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/c/SailingMagicCarpet&#34;&gt;Magic Carpet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/c/parlayrevival&#34;&gt;Parlay Revival&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCZdQjaSoLjIzFnWsDQOv4ww&#34;&gt;Sailing La Vagabonde&lt;/a&gt; - I don&amp;rsquo;t watch them as much anymore, they do a lot less stuff I&amp;rsquo;m interested in.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/user/gonewiththewynns&#34;&gt;Gone with the Wynns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCRqsOR0Y2zru-jXSzLcMcxg&#34;&gt;Sailing Soulianis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCE4vct4tqxSuG4JH6vMVZSA&#34;&gt;Sam Holmes Sailing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCvJGfEEg7R04-ifkg_FFnaw&#34;&gt;MJ Sailing&lt;/a&gt; - Currently doing a rather dry, no pun untended, boat build, but see old videos.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCT9U1fPkHj0mJjC4LWGH26g&#34;&gt;Sailing Kittiwake&lt;/a&gt; - They seem to have stopped posting now&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/channel/UC9rRsBE2nFbnUSjtmv6Jq6w&#34;&gt;Sailing Ruby Rose&lt;/a&gt; - Currently rather dry Catamaran videos, but the earlier stuff was good.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some of these are pure sailing, some more &amp;ldquo;lifestyle&amp;rdquo; sailing. I like each for different reasons. Some I tolerate and only watch when I&amp;rsquo;ve run out of other stuff, but see what you like. Bear in mind not everything these people do is a good idea, but it&amp;rsquo;s a pretty easy way of immersing yourself in the scene without any outlay.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
@@ -30,18 +307,6 @@
          alt=&#34;Notifications in action in Apple Mail&#34;/&gt;
 &lt;/figure&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>How to get started sailing</title>
-      <link>https://willj.net/posts/how-to-get-started-sailing/</link>
-      <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>https://willj.net/posts/how-to-get-started-sailing/</guid>
-      <description>&lt;p&gt;Every once in a while someone on &lt;a href=&#34;https://www.reddit.com/r/sailing/&#34;&gt;the sailing subreddit&lt;/a&gt; asks about how to get started sailing. There&amp;rsquo;s a load of advice about joining dinghy/yacht clubs, courses etc. but one of the things that really helped me get started was watching a whole load of YouTube. It&amp;rsquo;s definitely not&lt;/p&gt;
-&lt;p&gt;Before I did any sailing I got started watching a few&lt;/p&gt;
-&lt;p&gt;Link to YouTube post&lt;/p&gt;
 </description>
     </item>
     
@@ -449,7 +714,7 @@
 &lt;p&gt;&lt;img src=&#34;images//blue_snowball_1.jpg#right&#34; alt=&#34;Blue Snowball microphone in the way of my monitor&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I inherited a unwanted Blue Snowball from &lt;a href=&#34;https://37signals.com/&#34;&gt;an old employer&lt;/a&gt; several years ago, and it&amp;rsquo;s been a really fantastic addition to my day to day kit, especially as the number of video calls has increased in recent years. The only problem I had with the microphone started when I upgraded my monitors to some portrait orientation screens. These come almost all the way down to the desk, and as a result the (in my opinion rather ugly) original Blue Snowball microphone stand rather got in the way, even at it&amp;rsquo;s shortest setting.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;img src=&#34;images//blue_snowball_2.jpg#right&#34; alt=&#34;Blue Snowball microphone lying on it&amp;amp;rsquo;s side&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images//blue_snowball_2.jpg#right&#34; alt=&#34;Blue Snowball microphone lying on it&amp;rsquo;s side&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I was able to &amp;ldquo;fix&amp;rdquo; the problem of the microphone being in the way by laying the microphone flat. This wasn&amp;rsquo;t ideal, it took up a lot more room, looked bad, and made it sound like I was lying down. Still, it worked for long enough.&lt;/p&gt;
 &lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;m always looking for a problem where the solution is &amp;ldquo;3D print something&amp;rdquo;, and this seemed like a perfect fit. An hour with Fusion 360 later and I had a stand I liked.&lt;/p&gt;
@@ -557,7 +822,7 @@
       <description>&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/climate.png&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
 &lt;p&gt;A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Buddha%27s_hand&#34;&gt;Buddha&amp;rsquo;s hand tree&lt;/a&gt;. This tree was fairly expensive, and I wanted to maximise it&amp;rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&amp;rsquo;t like cold, but apparently don&amp;rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.&lt;/p&gt;
 &lt;p&gt;It was for this reason that I decided to start experimenting with climate monitoring.&lt;/p&gt;
 &lt;hr&gt;
@@ -714,6 +979,279 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Error installing libv8 on Mac OS Catalina</title>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR:  Error installing libv8:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    current directory: /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/bin/ruby -r ./siteconf20200217-34155-18bho1v.rb extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;creating Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-building-tests.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-werror-on-osx.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-xcode-debugging.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-imply-vfp3-and-armv7.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-MAP_NORESERVE-on-freebsd.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-vfp2.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/fPIC-for-static.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Compiling v8 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x64
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using python 2.7.16
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using compiler: c++ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clang version 11.0.0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unable to find a compiler officially supported by v8.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;It is recommended to use GCC v4.4 or higher
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Beginning compilation. This will take some time.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building v8 with env CXX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++ LINK&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++  /usr/bin/make x64.release ARFLAGS.target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;crs werror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GYP_GENERATORS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;make &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	build/gyp/gyp --generator-output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt; build/all.gyp &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Ibuild/standalone.gypi --depth&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;. &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Dv8_target_arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;x64 &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -S.x64  -Dv8_enable_backtrace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -Dv8_can_use_vfp2_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv2 -Dv8_can_use_vfp3_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv3 -Dwerror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  CXX&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;target&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: include path &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; stdlibc++ headers not found; pass &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-stdlib=libc++&amp;#39;&lt;/span&gt; on the command line to use the libc++ standard library instead &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wstdlibcxx-not-found&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ../src/allocation.cc:33:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;../src/utils.h:33:10: fatal error: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;climits&amp;#39;&lt;/span&gt; file not found
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         ^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; warning and &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;x64.release&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:36:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;block in verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: libv8 did not install properly, expected binary v8 archive &amp;#39;&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in `each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:26:in `install!&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from extconf.rb:7:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extconf failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-19/2.4.0/libv8-3.16.14.19/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;The solution was as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install v8@3.15
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt; -- --with-system-v8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions with: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;--with-system-v8&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed libv8-3.16.14.19
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading ruby-2.6.3.tar.bz2...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-&amp;gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing ruby-2.6.3...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use readline from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;BUILD FAILED &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;OS X 10.14.4 using ruby-build 20190423&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Inspect or clean up the working tree at /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Last &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; log lines:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling error.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling eval.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling file.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling gc.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file.c:23:10: fatal error: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CoreFoundation/CFString.h&amp;#39;&lt;/span&gt; file not found
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;file.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** Waiting &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unfinished jobs....
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The problem is missing headers. To re-install just run this command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, Ruby should install just fine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading ruby-2.6.3.tar.bz2...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;gt;&lt;/span&gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing ruby-2.6.3...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use readline from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 &lt;span style=&#34;color:#e6db74&#34;&gt;``&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Fixing errors installing the charlock_holmes ruby gem</title>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR:  Error installing charlock_holmes:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory: /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.6.1/bin/ruby -I /Users/will/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20190213-34122-e636v8.rb extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unicode/ucnv.h... no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;***************************************************************************************
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*********** icu required &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;brew install icu4c or apt-get install libicu-dev&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; ***********
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;***************************************************************************************
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*** extconf.rb failed ***
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Could not create Makefile due to some reason, probably lack of necessary
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;libraries and/or headers. Check the mkmf.log file &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; more details. You may
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;need configuration options.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Provided configuration options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-include&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;opt-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;opt-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-make-prog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-make-prog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--srcdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--curdir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--ruby&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/Users/will/.rbenv/versions/2.6.1/bin/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;RUBY_BASE_NAME&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-include&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;icu-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;icu-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To see why this extension failed to compile, please check the mkmf.log which can be found here:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/mkmf.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extconf failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;First, make sure you have installed the required dependencies:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install xz icu4c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, install charlock_holmes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gem install charlock_holmes -v=0.7.7 -- --with-opt-dir=/usr/local/opt --with-opt-include=/usr/local/opt/icu4c/include --with-opt-lib=/usr/local/opt/icu4c/lib --with-cxxflags=-std=c++11
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basic pasta sauce</title>
+      <link>https://willj.net/posts/basic-pasta-sauce/</link>
+      <pubDate>Tue, 14 Feb 2017 00:56:16 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/basic-pasta-sauce/</guid>
+      <description>&lt;p&gt;Someone asked on Twitter how I made my pasta sauce, so here is the recipe! The base of my Pasta sauce is largely this recipe, except I mostly don&amp;rsquo;t add mozzarella:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/eabecxMhJlE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;At it&amp;rsquo;s simplest I can make the whole thing for one person in 19 minutes, so it&amp;rsquo;s great for lunch.&lt;/p&gt;
+&lt;h3 id=&#34;ingredients&#34;&gt;Ingredients&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;85g dried pasta per person (50g per child). You can use whatever you want, I prefer spaghetti.&lt;/li&gt;
+&lt;li&gt;1 punnet of good tomatoes, about 225/250g (small ones, eg. baby plum, sunstream etc.)&lt;/li&gt;
+&lt;li&gt;Small bunch of basil or parsely.&lt;/li&gt;
+&lt;li&gt;Salt &amp;amp; Pepper&lt;/li&gt;
+&lt;li&gt;1 clove of garlic&lt;/li&gt;
+&lt;li&gt;1 chilli, I don&amp;rsquo;t de-seed&lt;/li&gt;
+&lt;li&gt;Olive oil&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
+&lt;p&gt;To start, boil some water in a medium pan. Add a decent amount of salt. While the water is coming up to the boil prepare the other ingredients.&lt;/p&gt;
+&lt;p&gt;First, chop the tomatoes, you can leave the skins on. I chop mine in half, I prefer the texture. It is also quicker. Finely chop the garlic and chilli. Roughly chop the basil or parsley.&lt;/p&gt;
+&lt;p&gt;As soon as the water comes to the boil, add your pasta. Now heat some oil over a medium heat in a small frying pan. Add in the chilli and garlic. Make *really* sure not to burn the garlic. Before the garlic browns add in the tomatoes then a good pinch of salt. Stir around for a few seconds. Now add in some water. It&amp;rsquo;s really easy to add in too much, you want just enough to cover the base of the pan, any more and you&amp;rsquo;ll end up with soup. You can always add more if you need to.&lt;/p&gt;
+&lt;p&gt;Next, add the basil or parsley. Stir through. When the pasta is al dente drain it retaining some of the cooking water and add to the sauce, stir around. Add pasta water if needed. You should still be able to work out what each of the individual parts of your sauce are made of. If you can&amp;rsquo;t you cooked it too long and/or added too much water.&lt;/p&gt;
+&lt;p&gt;At this point you can stir in mozzarella, I mostly don&amp;rsquo;t.&lt;/p&gt;
+&lt;p&gt;Slap it on a plate, grate parmesan over it and eat it.&lt;/p&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/z.jpg&#34;
+         alt=&#34;Vegetables and bacon in a pan, the basis for a pasta sauce&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;notes&#34;&gt;Notes&lt;/h3&gt;
+&lt;p&gt;With practice I&amp;rsquo;ve got this down to 19 minutes for the simple version, you might be faster if you can boil water faster than me. Adding more stuff makes it slower obviously.&lt;/p&gt;
+&lt;p&gt;Only get good tomatoes. They have to taste of something, if they don&amp;rsquo;t taste of anything your sauce will be crap. If you can&amp;rsquo;t get good fresh ones (or they have a gazillion air miles on them) use a &lt;em&gt;good&lt;/em&gt; tin. It&amp;rsquo;s not as good and doesn&amp;rsquo;t work as well with the parsley or mozzarella versions, but it&amp;rsquo;s better than the alternative.&lt;/p&gt;
+&lt;p&gt;This sauce is great by itself, but you can add to it as you want. Some black pitted olives from a jar are great. If I&amp;rsquo;ve got other veg lying around, or more than one person eating I will add that too, depending on the density of the vegetable and how finely it is chopped depends when I add it. Chop it finer to cook it quicker. A good addition to bulk it up is a sweet pointed pepper &amp;amp; celery &lt;a href=&#34;https://en.wikipedia.org/wiki/Mirepoix_(cuisine)#Italian_soffritto&#34;&gt;soffritto&lt;/a&gt;. One pointed pepper and 2 celery sticks is about the right balance with one punnet of tomatoes. Fennel and black olive are great too. Just be careful not to overdo it. There&amp;rsquo;s enough sauce with just the tomatoes for one person, less is more when adding extra ingredients.&lt;/p&gt;
+&lt;p&gt;If you do add more veg, try to keep the tomatoes per person ratio the same.&lt;/p&gt;
+&lt;p&gt;In the photo above I went a bit crazy and added:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sweet pointed pepper &amp;amp; celery soffritto&lt;/li&gt;
+&lt;li&gt;1 small bulb of fennel, thinly sliced.&lt;/li&gt;
+&lt;li&gt;Bacon*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was really a bit too much.&lt;/p&gt;
+&lt;p&gt;*Bacon! Aubergine is great for adding some a bulky umami flavour in-place of meat. Chop some aubergine into ~1cm cubes or strips, one handful should be enough, think proportional to the other ingredients. Put on some foil, sprinkle salt on, create a parcel (crimp the edges to keep the water in) and oven cook at ~180°C (?, experiment) until just soft then add to the sauce.&lt;/p&gt;
+&lt;p&gt;I think that&amp;rsquo;s it! Nail the basic sauce then experiment on top of that and you&amp;rsquo;ve got a handy and versatile base!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The security of a system is as strong as it&#39;s weakest component</title>
+      <link>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</link>
+      <pubDate>Fri, 15 Apr 2016 12:47:57 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</guid>
+      <description>&lt;p&gt;The padlock that had seized shut on my back gate was proving hard to remove, the hardened steel U was not yielding to my hacksaw. I noticed some rivets underneath that turned out to be soft steel. 10 minutes of sawing and I was in.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_8951.jpg&#34;
+         alt=&#34;CLoseup of a padlock with a Hardened steel U and body of layered steel plates&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Hardened steel U&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_8950.jpg&#34;
+         alt=&#34;Soft steel rivets on the bottom of the padlock&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Soft steel rivets on the bottom&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_8953.jpg&#34;
+         alt=&#34;The bottom plate of the padlock revealed, lock mechanism removed&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;After removing the rivets, hammering off the bottom plate&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_8955.jpg&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The bottom plate revealed, lock mechanism removed&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_8956.jpg&#34;
+         alt=&#34;An open padlock&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Lock open!&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Random graph</title>
+      <link>https://willj.net/posts/random-graph/</link>
+      <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/random-graph/</guid>
+      <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
+         alt=&#34;A random graph&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
 </description>
     </item>
     

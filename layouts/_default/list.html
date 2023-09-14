@@ -1,7 +1,9 @@
 {{ define "main" }}
 	<ul>
 	{{ $baseurl := .Site.BaseURL }}
-	{{ range $name, $page := .Pages.ByPublishDate.Reverse }}
+	{{ $filteredPages := where .Pages "Params.preview" "!=" true }}
+	{{ range $name, $page := $filteredPages.ByPublishDate.Reverse }}
+
 	{{ if eq .Type "Post" }}
 	<li>
 		{{ if .Draft }}

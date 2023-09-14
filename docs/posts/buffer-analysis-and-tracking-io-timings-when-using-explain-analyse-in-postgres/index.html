@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>
+			
+				Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres
+			
+		</title>
+		<meta
+			name="description"
+			content="Many people are familiar with Postgres&#39; `EXPLAIN` and `EXPLAIN ANALYSE` reports, but there are a couple of useful options available when running them that aren&#39;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times."
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2023-09-14">Thursday, September 14, 2023</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/programming">programming</a> <a href="https://willj.net/tags/postgres">postgres</a> <a href="https://willj.net/tags/performance">performance</a> <a href="https://willj.net/tags/tech">tech</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres</h2>
+
+	<article>
+		<p>In this article I will go through how I used the <code>BUFFERS</code> report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.</p>
+<p>Many people are familiar with running <code>EXPLAIN</code> and <code>EXPLAIN ANALYSE</code> to diagnose Postgres performance issues, but there are a couple of useful options available when running these reports that aren&rsquo;t always commonly known that you might find useful. The first of these is the <code>BUFFERS</code> option.</p>
+<h2 id="buffers">BUFFERS</h2>
+<p>The <code>BUFFERS</code> option can be used when running a simple <code>EXPLAIN</code>, but really comes into it&rsquo;s own when running an <code>EXPLAIN ANALYSE</code>. In summary <code>BUFFERS</code> will give you data on the buffer usage of a query. The postgres docs give a good description of what the data you get tells you:</p>
+<blockquote>
+<p>Include information on buffer usage. Specifically, include the number of shared blocks hit, read, dirtied, and written, the number of local blocks hit, read, dirtied, and written, the number of temp blocks read and written, and the time spent reading and writing data file blocks and temporary file blocks (in milliseconds) if track_io_timing is enabled. A hit means that a read was avoided because the block was found already in cache when needed. Shared blocks contain data from regular tables and indexes; local blocks contain data from temporary tables and indexes; while temporary blocks contain short-term working data used in sorts, hashes, Materialize plan nodes, and similar cases. The number of blocks dirtied indicates the number of previously unmodified blocks that were changed by this query; while the number of blocks written indicates the number of previously-dirtied blocks evicted from cache by this backend during query processing. The number of blocks shown for an upper-level node includes those used by all its child nodes. In text format, only non-zero values are printed. It defaults to FALSE.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.postgresql.org/docs/current/sql-explain.html">https://www.postgresql.org/docs/current/sql-explain.html</a></li>
+</ul>
+<p>Cutting down buffer usage can be a great way to decrease IO resource usage for a query. Let&rsquo;s look at an example query. This is similar to one that I optimised for a client and the exact SQL/data structure isn&rsquo;t important. Note the <code>EXPLAIN (ANALYSE, BUFFERS)</code> at the start of the query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> (<span style="color:#66d9ef">ANALYSE</span>, BUFFERS)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>	events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>	events
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_logs_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>	activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-04&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> (events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.duration <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>	events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">36</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">37</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">762</span>..<span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">763</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Key</span>: events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex; background-color:#3c3d38"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1166</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3117</span> <span style="color:#75715e">-- (0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">35</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">757</span>..<span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">758</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>        Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1166</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3117</span>  <span style="color:#75715e">-- (1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_event_start_and_event_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">325</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">82</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">018</span>..<span style="color:#ae81ff">14</span>.<span style="color:#ae81ff">964</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">315</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: (user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">33</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">116</span> <span style="color:#75715e">-- (2)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_logs_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">221</span>..<span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">221</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">315</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: (activity_logs_id <span style="color:#f92672">=</span> activity_logs.id)
+</span></span><span style="display:flex;"><span>              Filter: ((((event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (duration <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)) <span style="color:#66d9ef">AND</span> (date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2022-12-04&#39;</span>::date))
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Rows</span> Removed <span style="color:#66d9ef">by</span> Filter: <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1133</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3001</span> <span style="color:#75715e">-- (3)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Planning:
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">146</span>
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">427</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">813</span> ms
+</span></span></code></pre></div><p>There&rsquo;s a lot to take in here, but the difference you&rsquo;re looking for compared to a regular EXPLAIN are the lines that look like this:</p>
+<pre><code>Buffers: shared hit=1166 read=3117
+</code></pre>
+<p>I&rsquo;ve marked some of them in the explain output with the markers <code>(0)</code>, <code>(1)</code>, <code>(2)</code> and <code>(3)</code>. This <code>Buffers: …</code> line in the output is telling us that 1166 blocks were satisfied by the shared cache, and 3117 were read from disk. <a href="https://www.postgresql.org/docs/current/runtime-config-preset.html">A block is configurable, but is typically left at the default of 8192 bytes</a>. You can check this on your server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">show</span> block_size;
+</span></span><span style="display:flex;"><span> block_size
+</span></span><span style="display:flex;"><span><span style="color:#75715e">------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#ae81ff">8192</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">1</span> <span style="color:#66d9ef">row</span>)
+</span></span></code></pre></div><p>Taking this value and going back to our Buffers report:</p>
+<pre><code>Buffers: shared hit=1166 read=3117
+</code></pre>
+<p>We can see here that <strong>9,551,872 bytes were provided by the shared cache, but 25,534,464 bytes had to be read from disk</strong>. This was the data reported from the location I marked with <code>(0)</code>, but there are other locations too, marked with <code>(1)</code>, <code>(2)</code> and <code>(3)</code>. The <code>EXPLAIN</code> command breaks down buffer usage by section, and the report is cumulative, so the buffer usage reported in sections <code>(2)</code> and <code>(3)</code> when added together equal the buffer usage reported at the parent in section <code>(1)</code>, and so on.</p>
+<p>The breakdown by section means that you can see where the buffer usage is highest and target your optimisation in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section <code>(3)</code>, the <code>Index Scan using index_events_on_activity_logs_id&quot;</code> and so this area would be a good place to start investigating optimisations.</p>
+<aside>
+<h3>Why does it matter if we go to disk instead of the shared cache in memory?</h3>
+Disk (SSD) read speeds are substantially slower than reads from memory, in the region of 450 MB/s for an SSD compared to around 13,000 MB/s for memory (varying depending on the specific hardware). The "Latency numbers every programmer should know" table, originally by [Peter Norvig](http://norvig.com/21-days.html#answers) shows the difference well.
+<pre><code>L1 cache reference ......................... 0.5 ns
+Branch mispredict ............................ 5 ns
+L2 cache reference ........................... 7 ns
+Mutex lock/unlock ........................... 25 ns
+Main memory reference ...................... 100 ns
+Compress 1K bytes with Zippy ............. 3,000 ns  =   3 µs
+Send 2K bytes over 1 Gbps network ....... 20,000 ns  =  20 µs
+SSD random read ........................ 150,000 ns  = 150 µs
+Read 1 MB sequentially from memory ..... 250,000 ns  = 250 µs
+Round trip within same datacenter ...... 500,000 ns  = 0.5 ms
+Read 1 MB sequentially from SSD ...... 1,000,000 ns  =   1 ms (Assuming ~1GB/sec SSD)
+Disk seek ........................... 10,000,000 ns  =  10 ms
+Read 1 MB sequentially from disk .... 20,000,000 ns  =  20 ms
+Send packet CA-&gt;Netherlands-&gt;CA .... 150,000,000 ns  = 150 ms
+</code></pre>
+</aside>
+<p>Before we get into what this buffers data in the explain output is useful for, let&rsquo;s run the explain again to see what happens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> (<span style="color:#66d9ef">ANALYSE</span>, BUFFERS)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>	events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>	events
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_logs_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>	activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-04&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> (events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.duration <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>	events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">36</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">37</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">150</span>..<span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">151</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>Sort <span style="color:#66d9ef">Key</span>: events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex; background-color:#3c3d38"><span>Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3577</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">35</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">145</span>..<span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">145</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>			Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3577</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_event_start_and_event_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">325</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">82</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">020</span>..<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">350</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">315</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">Index</span> Cond: (user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>)
+</span></span><span style="display:flex;"><span>						Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">45</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_logs_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">018</span>..<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">018</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">315</span>)
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">Index</span> Cond: (activity_logs_id <span style="color:#f92672">=</span> activity_logs.id)
+</span></span><span style="display:flex;"><span>						Filter: ((((event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (duration <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)) <span style="color:#66d9ef">AND</span> (date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2022-12-04&#39;</span>::date))
+</span></span><span style="display:flex;"><span>						<span style="color:#66d9ef">Rows</span> Removed <span style="color:#66d9ef">by</span> Filter: <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>						Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3532</span>
+</span></span><span style="display:flex;"><span>Planning:
+</span></span><span style="display:flex;"><span>Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">148</span>
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">445</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">6</span>.<span style="color:#ae81ff">198</span> ms
+</span></span></code></pre></div><p>What you can see here from the buffer data is that Postgres no-longer has to go to disk. The data that was read in the previous query is now in the shared cache so we&rsquo;re fetching all our data from memory, there is no <code>read=nnnn</code> reported:</p>
+<pre><code>Buffers: shared hit=3577
+</code></pre>
+<p>This results in a much faster query time, the original query took 2291ms and the cached one 6ms ⚡️. Unfortunately even though this query was much faster the second time round we don&rsquo;t always have the luxury of running queries that are cached so we often need to optimise for the cold cache situation, plus if we can reduce the buffers usage of the query we can make it even faster and less resource intensive still, plus pulling if we can trim the data pulled from the shared cache down too that will also help with performance.</p>
+<p>So, what can we use this information for? The query I&rsquo;m using in the example is similar to one I optimised for a client that was the highest IO usage of all queries on their production server at nearly 16% if all IO used.</p>
+<p>When we&rsquo;re trying to improve the performance of this query we can make it faster, and that would be great by itself and is often the main goal of a performance optimisation, but we really want to actually <strong>verify that any changes we make have reduced the IO</strong> which is the larger problem here; we really want to stick to the performance optimisation mantra of &ldquo;measure, change, measure&rdquo;. <strong>With the buffers data we can see what difference we&rsquo;re making</strong>, if any, to the performance of the query as we change it. Here&rsquo;s the same query on a cold cache but with an optimisation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> (<span style="color:#66d9ef">ANALYSE</span>, BUFFERS)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>	events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>	events
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_logs_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>	activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">348927</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-04&#39;</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>	<span style="color:#66d9ef">AND</span> activity_logs.event_start <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;2022-12-10&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> (events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.duration <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>	events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">66</span>..<span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">67</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">855</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">856</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Key</span>: events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">65</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">850</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">851</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_event_start_and_event_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">51</span>.<span style="color:#ae81ff">70</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">12</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">850</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">850</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: ((user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">348927</span>) <span style="color:#66d9ef">AND</span> (event_start <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;2022-12-10&#39;</span>::date))
+</span></span><span style="display:flex;"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_logs_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">99</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (never executed)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: (activity_logs_id <span style="color:#f92672">=</span> activity_logs.id)
+</span></span><span style="display:flex;"><span>              Filter: ((((event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (duration <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)) <span style="color:#66d9ef">AND</span> (date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2022-12-04&#39;</span>::date))
+</span></span><span style="display:flex;"><span>Planning:
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">148</span>
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">427</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">897</span> ms
+</span></span></code></pre></div><p>The specific optimisation isn&rsquo;t relevant here (it&rsquo;s the addition of the condition <code>AND activity_logs.event_start &gt; '2022-12-10'</code> which I highlighted), I&rsquo;ll talk about that in another article, but what you can see if you compare to the earlier uncached query plan is that the &ldquo;Execution Time&rdquo; is far smaller at 1.9ms, down from 2290ms, but also <strong>the amount of data fetched from disk (the &ldquo;read&rdquo; buffers) is far smaller too</strong> at 2 blocks, or 16,384 bytes, down from 25,534,464 bytes before.</p>
+<pre><code>Buffers: shared hit=1166 read=3117
+</code></pre>
+<p>vs:</p>
+<pre><code>Buffers: shared hit=2 read=2
+</code></pre>
+<p>That&rsquo;s a reduction of over 24 MB, a huge IO amount of IO to trim from the query! With this data we have a pretty good idea that we&rsquo;ve made a significant difference to the IO problem.</p>
+<aside>
+<h3>A note on the changing user_id and statistical comparison</h3>
+<p>You might have noticed that the ID of the <code>activity_logs.user_id</code> changed in that last query, and be wondering if the different data returned by the query will alter it's performance characteristics, and that would be correct. Ideally it would be possible to flush the shared cache between tests to make the test fair, but that's hard to do with Postgres. To do so you would need to shut down the Postgres server process, dump linux's cache, and restart Postgres. That's fairly cumbersome so instead what I do is to run the original and changed queries multiple times using different IDs to get a statistical comparison of the effect the change has.
+</p>
+</aside>
+<h2 id="io-timing-tracking">IO timing tracking</h2>
+<p>The second tweak to the default <code>EXPLAIN</code> usage is using IO timing tracking (<a href="https://www.postgresql.org/docs/current/runtime-config-statistics.html">docs</a>). You can set this per session:</p>
+<pre><code>set track_io_timing = on;
+</code></pre>
+<p>Now when you run an <code>EXPLAIN ANALYSE</code> you will get the time in milliseconds that IO operations took to perform, for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> (<span style="color:#66d9ef">ANALYSE</span>, BUFFERS)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>	events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>	events
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_logs_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>	activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-04&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">AND</span> (events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">AND</span> events.duration <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>	events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">36</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">37</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">762</span>..<span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">763</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Key</span>: events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1166</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3117</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>  I<span style="color:#f92672">/</span>O Timings: <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3221</span>.<span style="color:#ae81ff">979</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">35</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">757</span>..<span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">758</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1166</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3117</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>        I<span style="color:#f92672">/</span>O Timings: <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3221</span>.<span style="color:#ae81ff">979</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_event_start_and_event_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">325</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">82</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">018</span>..<span style="color:#ae81ff">14</span>.<span style="color:#ae81ff">964</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">315</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: (user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">83463</span>)
+</span></span><span style="display:flex;"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">33</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">116</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>              I<span style="color:#f92672">/</span>O Timings: <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">137</span>.<span style="color:#ae81ff">986</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_logs_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">221</span>..<span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">221</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">315</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: (activity_logs_id <span style="color:#f92672">=</span> activity_logs.id)
+</span></span><span style="display:flex;"><span>              Filter: ((((event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (duration <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)) <span style="color:#66d9ef">AND</span> (date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2022-12-04&#39;</span>::date))
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Rows</span> Removed <span style="color:#66d9ef">by</span> Filter: <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">1133</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3001</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>              I<span style="color:#f92672">/</span>O Timings: <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3083</span>.<span style="color:#ae81ff">993</span>
+</span></span><span style="display:flex;"><span>Planning:
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">146</span>
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">427</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">2290</span>.<span style="color:#ae81ff">813</span> ms
+</span></span></code></pre></div><p>This isn&rsquo;t something that I&rsquo;ve personally found particularly useful, I suspect it might be useful when diagnosing slow fetches if you&rsquo;re storing data on different backend data stores across tables, but it&rsquo;s interesting to see.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>At scale IO can be a significant performance bottleneck for databases and optimising problem queries that cause large amounts of IO can yield significant benefits. Adding the <code>BUFFERS</code> option when using <code>EXPLAIN ANALYSE</code> can give you a great way to identify problem areas of a query, and to verify when you&rsquo;re done that you&rsquo;ve actually solved the issue.</p>
+
+	</article>
+
+
+
+		<footer>
+	<hr>
+	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned), and <a href="mailto:will@willj.net">Email</a>.</p>
+</footer>
+
+	</body>
+</html>

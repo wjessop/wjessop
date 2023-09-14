@@ -20,7 +20,7 @@
 
 	<post_list>
 		<ul>
-			{{ range (first 10 (where .Site.RegularPages.ByPublishDate.Reverse "Type" "in" "Post")) }}
+			{{ range (first 10 (where (where .Site.RegularPages.ByDate.Reverse "Type" "in" "Post") ".Params.preview" "!=" true)) }}
 			<li>
 				{{ $dateTime := .PublishDate.Format "2006-01-02" }}
 				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}

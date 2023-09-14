@@ -12,7 +12,9 @@
     {{ with .OutputFormats.Get "RSS" }}
 	  {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range first 20 (where .Site.AllPages ".IsPage" true) }}
+    {{ $pages := where .Data.Pages "IsPage" true -}}
+    {{ $noPreview := where $pages "Params.preview" "!=" true -}}
+    {{ range first 20 $noPreview }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
