@@ -3,16 +3,12 @@
     <title>3D Printing on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/3d-printing/</link>
     <description>Recent content in 3D Printing on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/3d-printing/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/3d-printing/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
@@ -134,7 +130,6 @@
 &lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>
       <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
@@ -168,7 +163,6 @@
 &lt;p&gt;If you are printing these yourself due to the fine thread you will likely want to use a fairly high quality print setting.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Robot at RubyConf</title>
       <link>https://willj.net/posts/robot-at-rubyconf/</link>
@@ -216,7 +210,6 @@
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>First robot remote driving test</title>
       <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
@@ -233,7 +226,6 @@
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Rejects and prototypes</title>
       <link>https://willj.net/posts/rejects-and-prototypes/</link>
@@ -249,7 +241,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
       <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
@@ -287,7 +278,6 @@
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>An assembled ping-pong robot hopper</title>
       <link>https://willj.net/posts/an-assembled-hopper/</link>
@@ -323,7 +313,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Testing new motor mounts</title>
       <link>https://willj.net/posts/testing-new-motor-mounts/</link>
@@ -347,7 +336,6 @@
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
@@ -369,7 +357,6 @@
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>New Pi mount, and testing the power requirements</title>
       <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
@@ -398,7 +385,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>First prototype robot base</title>
       <link>https://willj.net/posts/prototype-robot-base/</link>
@@ -435,7 +421,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Trying out the prototype caterpillar track mount</title>
       <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
@@ -451,7 +436,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Printing out a test caterpillar track and motor mount</title>
       <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
@@ -475,7 +459,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Designing a track mount</title>
       <link>https://willj.net/posts/designing-a-track-mount/</link>
@@ -491,6 +474,5 @@
 
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

@@ -1,22 +1,22 @@
-{{ define "main" }}
-	{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-	{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
+{{ define "main" -}}
+	{{ $dateTime := .PublishDate.Format "2006-01-02" -}}
+	{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" -}}
 	<time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-	{{ $baseurl := .Site.BaseURL }}
-	{{ if or .Params.tags .Params.categories .Params.series }}
+	{{ $baseurl := .Site.BaseURL -}}
+	{{ if or .Params.tags .Params.categories .Params.series -}}
 	|
-	{{ end }}
-	{{ if isset .Params "tags" }}
+	{{ end -}}
+	{{ if isset .Params "tags" -}}
 	tags:{{ range .Params.tags }}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
-	{{ end }}
+	{{ end -}}
 
-	{{ if isset .Params "categories" }}
+	{{ if isset .Params "categories" -}}
 	categories:{{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
-	{{ end }}
+	{{ end -}}
 
-	{{ if isset .Params "series" }}
+	{{ if isset .Params "series" -}}
 	series:{{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}
-	{{ end }}
+	{{ end -}}
 
 	<hr />
 
@@ -25,5 +25,4 @@
 	<article>
 		{{ .Content }}
 	</article>
-
-{{ end }}
+{{ end -}}

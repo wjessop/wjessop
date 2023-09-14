@@ -3,16 +3,12 @@
     <title>Go on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/go/</link>
     <description>Recent content in Go on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/go/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/go/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
@@ -67,7 +63,6 @@
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
@@ -277,7 +272,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Secret project</title>
       <link>https://willj.net/posts/secret-project/</link>
@@ -320,7 +314,6 @@
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
       <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
@@ -368,7 +361,6 @@
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Creating BERT dicts in Go</title>
       <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
@@ -543,6 +535,5 @@ slice is a: slice
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yes!&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

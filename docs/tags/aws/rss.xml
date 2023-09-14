@@ -3,16 +3,12 @@
     <title>AWS on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/aws/</link>
     <description>Recent content in AWS on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Fri, 18 Apr 2014 17:41:47 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/aws/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/aws/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
       <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
@@ -59,7 +55,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Cloud email service price comparison</title>
       <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
@@ -108,7 +103,6 @@
 &lt;/ul&gt;
 </description>
     </item>
-    
     <item>
       <title>Should I switch from Sendgrid to Amazon SES?</title>
       <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
@@ -135,6 +129,5 @@
 &lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

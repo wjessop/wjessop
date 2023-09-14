@@ -3,15 +3,11 @@
     <title>Secret project on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/secret-project/</link>
     <description>Recent content in Secret project on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Sat, 07 Sep 2013 12:41:02 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/secret-project/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/secret-project/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

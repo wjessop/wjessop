@@ -3,16 +3,12 @@
     <title>meta on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/meta/</link>
     <description>Recent content in meta on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/meta/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/meta/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
@@ -67,7 +63,6 @@
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Welcome to My New Blog</title>
       <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
@@ -79,7 +74,6 @@
 &lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Tricks of the Trade</title>
       <link>https://willj.net/posts/tricks-of-the-trade/</link>
@@ -97,6 +91,5 @@
 &lt;/blockquote&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

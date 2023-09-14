@@ -3,16 +3,12 @@
     <title>pasta on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/pasta/</link>
     <description>Recent content in pasta on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 14 Feb 2017 00:56:16 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/pasta/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/pasta/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic pasta sauce</title>
       <link>https://willj.net/posts/basic-pasta-sauce/</link>
@@ -63,6 +59,5 @@
 &lt;p&gt;I think that&amp;rsquo;s it! Nail the basic sauce then experiment on top of that and you&amp;rsquo;ve got a handy and versatile base!&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

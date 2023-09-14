@@ -3,16 +3,12 @@
     <title>sailing on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/sailing/</link>
     <description>Recent content in sailing on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/sailing/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/sailing/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Will&#39;s YouTube sailing channel recommendations</title>
       <link>https://willj.net/posts/youtube-sailing-channel-recommendations/</link>
@@ -49,6 +45,5 @@
 &lt;p&gt;Some of these are pure sailing, some more &amp;ldquo;lifestyle&amp;rdquo; sailing. I like each for different reasons. Some I tolerate and only watch when I&amp;rsquo;ve run out of other stuff, but see what you like. Bear in mind not everything these people do is a good idea, but it&amp;rsquo;s a pretty easy way of immersing yourself in the scene without any outlay.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

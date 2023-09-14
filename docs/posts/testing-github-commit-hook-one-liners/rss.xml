@@ -3,15 +3,11 @@
     <title>Testing Github commit hook one liners on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
     <description>Recent content in Testing Github commit hook one liners on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 09 Jun 2014 13:24:11 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/testing-github-commit-hook-one-liners/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/testing-github-commit-hook-one-liners/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

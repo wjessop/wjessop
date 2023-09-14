@@ -3,16 +3,12 @@
     <title>tech on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/tech/</link>
     <description>Recent content in tech on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Thu, 14 Sep 2023 12:00:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/tech/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/tech/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
@@ -67,7 +63,6 @@
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
       <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
@@ -98,7 +93,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
@@ -220,7 +214,6 @@
 &lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
       <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
@@ -281,7 +274,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
       <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
@@ -347,7 +339,6 @@
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
-    
     <item>
       <title>Random graph</title>
       <link>https://willj.net/posts/random-graph/</link>
@@ -363,7 +354,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
       <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
@@ -395,7 +385,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>I got my pan tilt servos working</title>
       <link>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</link>
@@ -411,7 +400,6 @@
 &lt;p&gt;Tomorrow I will print out a prototype gimbal structure.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Testing Github commit hook one liners</title>
       <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
@@ -425,7 +413,6 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
       <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
@@ -472,7 +459,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Ping-Pong Press!</title>
       <link>https://willj.net/posts/ping-pong-press/</link>
@@ -482,7 +468,6 @@
       <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Prototype lifter arm</title>
       <link>https://willj.net/posts/prototype-lifter-arm/</link>
@@ -525,7 +510,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>First robot remote driving test</title>
       <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
@@ -542,7 +526,6 @@
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Rejects and prototypes</title>
       <link>https://willj.net/posts/rejects-and-prototypes/</link>
@@ -558,7 +541,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
       <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
@@ -596,7 +578,6 @@
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
       <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
@@ -614,7 +595,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>An assembled ping-pong robot hopper</title>
       <link>https://willj.net/posts/an-assembled-hopper/</link>
@@ -650,7 +630,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Testing new motor mounts</title>
       <link>https://willj.net/posts/testing-new-motor-mounts/</link>
@@ -674,7 +653,6 @@
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
@@ -696,7 +674,6 @@
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>New Pi mount, and testing the power requirements</title>
       <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
@@ -725,6 +702,5 @@
 
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

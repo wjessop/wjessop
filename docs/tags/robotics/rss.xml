@@ -3,16 +3,12 @@
     <title>robotics on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/robotics/</link>
     <description>Recent content in robotics on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 29 Jul 2014 22:59:02 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/robotics/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/robotics/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>I got my pan tilt servos working</title>
       <link>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</link>
@@ -28,7 +24,6 @@
 &lt;p&gt;Tomorrow I will print out a prototype gimbal structure.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Ping-Pong Press!</title>
       <link>https://willj.net/posts/ping-pong-press/</link>
@@ -38,7 +33,6 @@
       <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Robot at RubyConf</title>
       <link>https://willj.net/posts/robot-at-rubyconf/</link>
@@ -86,7 +80,6 @@
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Prototype lifter arm</title>
       <link>https://willj.net/posts/prototype-lifter-arm/</link>
@@ -129,7 +122,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>First robot remote driving test</title>
       <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
@@ -146,7 +138,6 @@
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Rejects and prototypes</title>
       <link>https://willj.net/posts/rejects-and-prototypes/</link>
@@ -162,7 +153,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
       <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
@@ -200,7 +190,6 @@
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
       <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
@@ -218,7 +207,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>An assembled ping-pong robot hopper</title>
       <link>https://willj.net/posts/an-assembled-hopper/</link>
@@ -254,7 +242,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Testing new motor mounts</title>
       <link>https://willj.net/posts/testing-new-motor-mounts/</link>
@@ -278,7 +265,6 @@
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
@@ -300,7 +286,6 @@
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>New Pi mount, and testing the power requirements</title>
       <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
@@ -329,7 +314,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Lenses</title>
       <link>https://willj.net/posts/lenses/</link>
@@ -352,7 +336,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>First prototype robot base</title>
       <link>https://willj.net/posts/prototype-robot-base/</link>
@@ -389,7 +372,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>OpenSCAD robot base design</title>
       <link>https://willj.net/posts/openscad-robot-base-design/</link>
@@ -413,7 +395,6 @@
 &lt;p&gt;Sketchup was great, really easy to use, the only problem was that it seemed to create invalid model files.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Trying out the prototype caterpillar track mount</title>
       <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
@@ -429,7 +410,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Printing out a test caterpillar track and motor mount</title>
       <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
@@ -453,7 +433,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Designing a track mount</title>
       <link>https://willj.net/posts/designing-a-track-mount/</link>
@@ -469,7 +448,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Secret project - MotorPiTX motor board</title>
       <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
@@ -495,7 +473,6 @@
 &lt;p&gt;Next up, getting the camera working, and figuring out a better power supply/battery.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Secret project</title>
       <link>https://willj.net/posts/secret-project/</link>
@@ -538,6 +515,5 @@
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

@@ -3,15 +3,11 @@
     <title>Robot at RubyConf on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/robot-at-rubyconf/</link>
     <description>Recent content in Robot at RubyConf on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 09 Dec 2013 14:14:11 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/robot-at-rubyconf/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/robot-at-rubyconf/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

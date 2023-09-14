@@ -3,15 +3,11 @@
     <title>Rewriting URL params in nginx on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/rewriting-url-params-in-nginx/</link>
     <description>Recent content in Rewriting URL params in nginx on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Sat, 07 Mar 2009 14:30:37 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/rewriting-url-params-in-nginx/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/rewriting-url-params-in-nginx/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

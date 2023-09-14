@@ -3,17 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<link rel="stylesheet" href="/sass/styles.css">
 		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
 
 		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
 
 		<title>
-			
-				Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres
-			
-		</title>
+			Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres
+			</title>
 		<meta
 			name="description"
 			content="Many people are familiar with Postgres&#39; `EXPLAIN` and `EXPLAIN ANALYSE` reports, but there are a couple of useful options available when running them that aren&#39;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times."
@@ -25,30 +22,14 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		<nav id="nav" class="nav justify-content-center">
 	|
-
-	<a class="nav-link" href="/">Home</a> |
-
-	<a class="nav-link" href="/posts/">Posts</a> |
-
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
 </nav>
 
 
-		
-	
-	
-	<time datetime="2023-09-14">Thursday, September 14, 2023</time>
-	
-	
+		<time datetime="2023-09-14">Thursday, September 14, 2023</time>
 	|
-	
-	
 	tags:<a href="https://willj.net/tags/programming">programming</a> <a href="https://willj.net/tags/postgres">postgres</a> <a href="https://willj.net/tags/performance">performance</a> <a href="https://willj.net/tags/tech">tech</a> 
-	
-
-	
-
-	
-
 	<hr />
 
 	<h2>Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres</h2>
@@ -270,7 +251,6 @@ Send packet CA-&gt;Netherlands-&gt;CA .... 150,000,000 ns  = 150 ms
 <p>At scale IO can be a significant performance bottleneck for databases and optimising problem queries that cause large amounts of IO can yield significant benefits. Adding the <code>BUFFERS</code> option when using <code>EXPLAIN ANALYSE</code> can give you a great way to identify problem areas of a query, and to verify when you&rsquo;re done that you&rsquo;ve actually solved the issue.</p>
 
 	</article>
-
 
 
 		<footer>

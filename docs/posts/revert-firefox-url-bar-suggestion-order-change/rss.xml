@@ -3,15 +3,11 @@
     <title>Reverting Firefox&#39;s recent URL bar suggestion order change on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
     <description>Recent content in Reverting Firefox&#39;s recent URL bar suggestion order change on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 11 Sep 2023 17:27:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

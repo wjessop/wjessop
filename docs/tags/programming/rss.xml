@@ -3,16 +3,12 @@
     <title>programming on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/programming/</link>
     <description>Recent content in programming on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Thu, 14 Sep 2023 12:00:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/programming/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/programming/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
@@ -67,7 +63,6 @@
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Running a specific knapsack test set locally</title>
       <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
@@ -99,7 +94,6 @@
 &lt;/ol&gt;
 </description>
     </item>
-    
     <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
       <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
@@ -119,7 +113,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Effective Github Notifications</title>
       <link>https://willj.net/posts/effective-github-notifications/</link>
@@ -154,7 +147,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
@@ -364,7 +356,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
       <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
@@ -533,7 +524,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
       <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
@@ -594,7 +584,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
       <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
@@ -634,7 +623,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 &lt;span style=&#34;color:#e6db74&#34;&gt;``&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
       <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
@@ -700,7 +688,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
-    
     <item>
       <title>Random graph</title>
       <link>https://willj.net/posts/random-graph/</link>
@@ -716,7 +703,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
       <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
@@ -748,7 +734,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Testing Github commit hook one liners</title>
       <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
@@ -762,7 +747,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
       <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
@@ -809,7 +793,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
       <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
@@ -857,7 +840,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Creating BERT dicts in Go</title>
       <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
@@ -1032,7 +1014,6 @@ slice is a: slice
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yes!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Railsberry animated gifs</title>
       <link>https://willj.net/posts/railsberry-animated-gifs/</link>
@@ -1057,7 +1038,6 @@ slice is a: slice
 
 </description>
     </item>
-    
     <item>
       <title>Testing http over socket connections with socat</title>
       <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
@@ -1098,7 +1078,6 @@ etc.
 &lt;/blockquote&gt;
 </description>
     </item>
-    
     <item>
       <title>99 bottles of Ruby beer on the wall</title>
       <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
@@ -1110,6 +1089,5 @@ etc.
 &lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

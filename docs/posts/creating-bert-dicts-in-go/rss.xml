@@ -3,15 +3,11 @@
     <title>Creating BERT dicts in Go on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
     <description>Recent content in Creating BERT dicts in Go on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Sun, 10 Feb 2013 02:09:06 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/creating-bert-dicts-in-go/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/creating-bert-dicts-in-go/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

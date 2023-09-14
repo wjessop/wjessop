@@ -3,16 +3,12 @@
     <title>Raspberry Pi on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/raspberry-pi/</link>
     <description>Recent content in Raspberry Pi on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 11:24:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/raspberry-pi/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/raspberry-pi/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
@@ -222,7 +218,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Ping-Pong Press!</title>
       <link>https://willj.net/posts/ping-pong-press/</link>
@@ -232,7 +227,6 @@
       <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
       <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
@@ -250,7 +244,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
@@ -272,7 +265,6 @@
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>First prototype robot base</title>
       <link>https://willj.net/posts/prototype-robot-base/</link>
@@ -309,7 +301,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Secret project - MotorPiTX motor board</title>
       <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
@@ -335,7 +326,6 @@
 &lt;p&gt;Next up, getting the camera working, and figuring out a better power supply/battery.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Secret project</title>
       <link>https://willj.net/posts/secret-project/</link>
@@ -378,7 +368,6 @@
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
       <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
@@ -426,6 +415,5 @@
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

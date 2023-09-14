@@ -1,6 +1,6 @@
 <nav id="nav" class="nav justify-content-center">
 	|
-{{ range .Site.Menus.main }}
+{{ range .Site.Menus.main -}}
 	<a class="nav-link" href="{{ .URL }}">{{ .Name | safeHTML }}</a> |
-{{ end }}
+{{ end -}}
 </nav>

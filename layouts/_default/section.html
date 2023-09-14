@@ -1,20 +1,18 @@
-{{ define "main" }}
+{{ define "main" -}}
 	{{ .Content }}
 	<post_list>
-		{{ $filteredPages := where .Pages "Params.preview" "!=" true }}
-		{{ range (.Paginate ($filteredPages.GroupByDate "2006/January")).PageGroups }}
-
+		{{ $filteredPages := where .Pages "Params.preview" "!=" true -}}
+		{{ range (.Paginate ($filteredPages.GroupByDate "2006/January")).PageGroups -}}
 		<h3>{{ .Key }}</h3>
 		<ul>
-		{{ range .Pages.ByDate }}
+		{{ range .Pages.ByDate -}}
 				<li>
 					{{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
 					<p>{{ .Summary }}</p>
 				</li>
-		{{ end }}
+		{{ end -}}
 		</ul>
-		{{ end }}
+		{{ end -}}
 	</post_list>
-
 	{{ template "_internal/pagination.html" (dict "page" . "format" "terse") }}
-{{ end }}
+{{ end -}}

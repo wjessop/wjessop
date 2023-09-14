@@ -3,18 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		{{ $style := resources.Get "sass/styles.scss" | toCSS }}
+		{{ $style := resources.Get "sass/styles.scss" | toCSS -}}
 		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
 
 		<link href="{{ .Site.BaseURL }}rss.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
 		<title>
-			{{ if .Title }}
+			{{ if .Title -}}
 				{{ .Title }}
-			{{ else }}
+			{{ else -}}
 				Will Jessop's Writings; Sailing, Food, Programming, Technology, and other things
-			{{ end }}
+			{{ end -}}
 		</title>
 		<meta
 			name="description"

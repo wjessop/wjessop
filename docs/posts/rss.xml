@@ -3,16 +3,12 @@
     <title>Posts on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/</link>
     <description>Recent content in Posts on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Thu, 14 Sep 2023 12:00:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/posts/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
@@ -67,7 +63,6 @@
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
       <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
@@ -98,7 +93,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
@@ -220,7 +214,6 @@
 &lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Running a specific knapsack test set locally</title>
       <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
@@ -252,7 +245,6 @@
 &lt;/ol&gt;
 </description>
     </item>
-    
     <item>
       <title>Will&#39;s YouTube sailing channel recommendations</title>
       <link>https://willj.net/posts/youtube-sailing-channel-recommendations/</link>
@@ -289,7 +281,6 @@
 &lt;p&gt;Some of these are pure sailing, some more &amp;ldquo;lifestyle&amp;rdquo; sailing. I like each for different reasons. Some I tolerate and only watch when I&amp;rsquo;ve run out of other stuff, but see what you like. Bear in mind not everything these people do is a good idea, but it&amp;rsquo;s a pretty easy way of immersing yourself in the scene without any outlay.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
       <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
@@ -309,7 +300,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Effective Github Notifications</title>
       <link>https://willj.net/posts/effective-github-notifications/</link>
@@ -344,7 +334,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Simple Sourdough Bread</title>
       <link>https://willj.net/posts/simple-sourdough-bread/</link>
@@ -423,7 +412,6 @@
 &lt;p&gt;Start to feed the starter with 50/50 flour and water a few days in advance until you have enough starter to take out the amount you will need while still leaving about 150g that you can then feed and put back in the fridge.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Making a Sourdough Starter</title>
       <link>https://willj.net/posts/making-a-sourdough-starter/</link>
@@ -489,7 +477,6 @@
 &lt;p&gt;If your starter has sat for a while then you will find it will become more liquid, this is OK, you can still make bread with it, it just might not be as good. If there is liquid sitting on top of the starter, mix it in. If you pour it out your starter will be unbalanced.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
@@ -699,7 +686,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>
       <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
@@ -733,7 +719,6 @@
 &lt;p&gt;If you are printing these yourself due to the fine thread you will likely want to use a fairly high quality print setting.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Welcome to My New Blog</title>
       <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
@@ -745,7 +730,6 @@
 &lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
       <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
@@ -812,7 +796,6 @@
 &lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
       <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
@@ -981,7 +964,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
       <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
@@ -1042,7 +1024,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
       <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
@@ -1082,7 +1063,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 &lt;span style=&#34;color:#e6db74&#34;&gt;``&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
       <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
@@ -1148,7 +1128,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
-    
     <item>
       <title>Basic pasta sauce</title>
       <link>https://willj.net/posts/basic-pasta-sauce/</link>
@@ -1199,7 +1178,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I think that&amp;rsquo;s it! Nail the basic sauce then experiment on top of that and you&amp;rsquo;ve got a handy and versatile base!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>The security of a system is as strong as it&#39;s weakest component</title>
       <link>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</link>
@@ -1238,7 +1216,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Random graph</title>
       <link>https://willj.net/posts/random-graph/</link>
@@ -1254,6 +1231,5 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

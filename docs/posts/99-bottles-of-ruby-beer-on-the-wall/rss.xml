@@ -3,15 +3,11 @@
     <title>99 bottles of Ruby beer on the wall on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
     <description>Recent content in 99 bottles of Ruby beer on the wall on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 05 Jul 2006 18:32:24 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

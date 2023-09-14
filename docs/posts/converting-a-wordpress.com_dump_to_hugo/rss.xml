@@ -3,15 +3,11 @@
     <title>Converting a wordpress.com dump to Hugo, including images on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
     <description>Recent content in Converting a wordpress.com dump to Hugo, including images on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

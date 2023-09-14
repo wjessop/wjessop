@@ -3,16 +3,12 @@
     <title>wtf on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/wtf/</link>
     <description>Recent content in wtf on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Thu, 02 Feb 2012 22:00:10 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/wtf/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/wtf/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paula Deen riding things</title>
       <link>https://willj.net/posts/paula-deen-riding-things/</link>
@@ -34,6 +30,5 @@
 
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

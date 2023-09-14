@@ -3,15 +3,11 @@
     <title>Ping-Pong Press! on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/ping-pong-press/</link>
     <description>Recent content in Ping-Pong Press! on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 16 Dec 2013 18:24:25 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/ping-pong-press/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/ping-pong-press/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

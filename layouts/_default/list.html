@@ -1,37 +1,37 @@
 {{ define "main" }}
 	<ul>
-	{{ $baseurl := .Site.BaseURL }}
-	{{ $filteredPages := where .Pages "Params.preview" "!=" true }}
-	{{ range $name, $page := $filteredPages.ByPublishDate.Reverse }}
+	{{ $baseurl := .Site.BaseURL -}}
+	{{ $filteredPages := where .Pages "Params.preview" "!=" true -}}
+	{{ range $name, $page := $filteredPages.ByPublishDate.Reverse -}}
 
-	{{ if eq .Type "Post" }}
+	{{ if eq .Type "Post" -}}
 	<li>
-		{{ if .Draft }}
+		{{ if .Draft -}}
 		DRAFT:
-		{{ end }}
+		{{ end -}}
 		<a href="{{ .Permalink }}">{{ $page.Title }}</a>
 
 		<p>
 		submitted <strong><time datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}" class="post-list timeago">{{ $page.Date.Format "Monday, January 2, 2006" }}</time></strong>
 
-		{{ if or $page.Params.tags $page.Params.categories $page.Params.series }}
+		{{ if or $page.Params.tags $page.Params.categories $page.Params.series -}}
 		to
-		{{ end }}
+		{{ end -}}
 
-		{{ with $page.Params.tags }}
+		{{ with $page.Params.tags -}}
 		tags:[ {{ range $page.Params.tags}}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }}]
-		{{ end }}
+		{{ end -}}
 
-		{{ with $page.Params.categories }}
+		{{ with $page.Params.categories -}}
 		categories:[ {{ range $page.Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}]
-		{{ end }}
+		{{ end -}}
 
-		{{ with $page.Params.series }}
+		{{ with $page.Params.series -}}
 		series:[ {{ range $page.Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}]
-		{{ end }}
+		{{ end -}}
 		</p>
 	</li>
-	{{ end }}
-	{{ end }}
+	{{ end -}}
+	{{ end -}}
 	</ul>
-{{ end }}
+{{ end -}}

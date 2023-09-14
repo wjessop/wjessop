@@ -3,16 +3,12 @@
     <title>electronics on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/electronics/</link>
     <description>Recent content in electronics on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 11:24:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/electronics/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/electronics/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
@@ -222,7 +218,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
       <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
@@ -289,7 +284,6 @@
 &lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
       <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
@@ -458,7 +452,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Robot at RubyConf</title>
       <link>https://willj.net/posts/robot-at-rubyconf/</link>
@@ -506,7 +499,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Prototype lifter arm</title>
       <link>https://willj.net/posts/prototype-lifter-arm/</link>
@@ -549,7 +541,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>First robot remote driving test</title>
       <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
@@ -566,7 +557,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
       <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
@@ -604,7 +594,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
       <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
@@ -622,7 +611,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>Testing new motor mounts</title>
       <link>https://willj.net/posts/testing-new-motor-mounts/</link>
@@ -646,7 +634,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
@@ -668,7 +655,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>New Pi mount, and testing the power requirements</title>
       <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
@@ -697,7 +683,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>Lenses</title>
       <link>https://willj.net/posts/lenses/</link>
@@ -720,7 +705,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-    
     <item>
       <title>Secret project - MotorPiTX motor board</title>
       <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
@@ -746,7 +730,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Next up, getting the camera working, and figuring out a better power supply/battery.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Secret project</title>
       <link>https://willj.net/posts/secret-project/</link>
@@ -789,7 +772,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
       <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
@@ -837,6 +819,5 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

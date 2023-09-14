@@ -20,10 +20,10 @@
 
 	<post_list>
 		<ul>
-			{{ range (first 10 (where (where .Site.RegularPages.ByDate.Reverse "Type" "in" "Post") ".Params.preview" "!=" true)) }}
+			{{ range (first 10 (where (where .Site.RegularPages.ByDate.Reverse "Type" "in" "Post") ".Params.preview" "!=" true)) -}}
 			<li>
-				{{ $dateTime := .PublishDate.Format "2006-01-02" }}
-				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
+				{{ $dateTime := .PublishDate.Format "2006-01-02" -}}
+				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" -}}
 				{{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a href="{{ .Permalink }}">{{ .Title }}</a> - <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
 				<p>{{ .Summary }}</p>
 			</li>

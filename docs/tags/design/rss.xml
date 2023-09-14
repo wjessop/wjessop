@@ -3,16 +3,12 @@
     <title>design on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/design/</link>
     <description>Recent content in design on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/design/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/design/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
@@ -134,6 +130,5 @@
 &lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

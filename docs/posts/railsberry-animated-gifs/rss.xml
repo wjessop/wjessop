@@ -3,15 +3,11 @@
     <title>Railsberry animated gifs on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/railsberry-animated-gifs/</link>
     <description>Recent content in Railsberry animated gifs on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 23 Apr 2012 16:05:30 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/posts/railsberry-animated-gifs/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
+    <atom:link href="https://willj.net/posts/railsberry-animated-gifs/rss.xml" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>

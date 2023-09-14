@@ -3,16 +3,12 @@
     <title>bread on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/bread/</link>
     <description>Recent content in bread on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 13 Jan 2021 02:53:53 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/bread/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/bread/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Sourdough Bread</title>
       <link>https://willj.net/posts/simple-sourdough-bread/</link>
@@ -91,7 +87,6 @@
 &lt;p&gt;Start to feed the starter with 50/50 flour and water a few days in advance until you have enough starter to take out the amount you will need while still leaving about 150g that you can then feed and put back in the fridge.&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Making a Sourdough Starter</title>
       <link>https://willj.net/posts/making-a-sourdough-starter/</link>
@@ -157,6 +152,5 @@
 &lt;p&gt;If your starter has sat for a while then you will find it will become more liquid, this is OK, you can still make bread with it, it just might not be as good. If there is liquid sitting on top of the starter, mix it in. If you pour it out your starter will be unbalanced.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

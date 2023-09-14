@@ -3,16 +3,12 @@
     <title>raspberrypi on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/raspberrypi/</link>
     <description>Recent content in raspberrypi on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 24 Jun 2020 02:09:43 +0100</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/raspberrypi/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/raspberrypi/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
       <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
@@ -79,7 +75,6 @@
 &lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
       <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
@@ -248,6 +243,5 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>

@@ -3,16 +3,12 @@
     <title>github on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/github/</link>
     <description>Recent content in github on Will Jessop&#39;s Writings</description>
-    
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 16 Aug 2022 12:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="https://willj.net/tags/github/rss.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://willj.net/tags/github/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
       <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
@@ -32,7 +28,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Effective Github Notifications</title>
       <link>https://willj.net/posts/effective-github-notifications/</link>
@@ -67,7 +62,6 @@
 
 </description>
     </item>
-    
     <item>
       <title>Testing Github commit hook one liners</title>
       <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
@@ -81,6 +75,5 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
-  </channel>
+    </channel>
 </rss>
