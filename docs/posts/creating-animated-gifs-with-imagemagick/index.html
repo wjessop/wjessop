@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" href="/sass/styles.css">
+		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
+
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
+
+		<title>
+			
+				Creating animated gifs with imagemagick
+			
+		</title>
+		<meta
+			name="description"
+			content="An example command line command to create animated gifs with imagemagick"
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+
+	<a class="nav-link" href="/">Home</a> |
+
+	<a class="nav-link" href="/posts/">Posts</a> |
+
+</nav>
+
+
+		
+	
+	
+	<time datetime="2012-04-24">Tuesday, April 24, 2012</time>
+	
+	
+	|
+	
+	
+	tags:<a href="https://willj.net/tags/tech">tech</a> 
+	
+
+	
+
+	
+
+	<hr />
+
+	<h2>Creating animated gifs with imagemagick</h2>
+
+	<article>
+		<p>In <a href="/posts/railsberry-animated-gifs" title="Railsberry animated gifs">my last post</a> I linked to some animated gifs I made on my mac. It&rsquo;s pretty easy if you have imagemagick installed.</p>
+<p>Simply get a bunch of images together and use the convert command:</p>
+<pre><code>convert -resize 900x -loop 0 -delay 10 DSC_8264.JPG DSC_8265.JPG DSC_8266.JPG DSC_8267.JPG DSC_8268.JPG DSC_8269.JPG DSC_8270.JPG jon_walk.gif
+</code></pre>
+<p>The last argument is the output filename. The options should be self explanatory, but you can check them up in the man page if you want to tweak the values.</p>
+
+	</article>
+
+
+
+		<footer>
+	<hr>
+	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned), and <a href="mailto:will@willj.net">Email</a>.</p>
+</footer>
+
+	</body>
+</html>

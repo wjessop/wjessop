@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email provider comparison, interactive graphs</title>
+		<meta name="description" content="Interactive graphs to help you decide which is the cheaper email service provider between Amazon SES, Sendgrid, Postmark and Mailgun" />
+		<meta name="author" content="Will Jessop">
+    <style type="text/css">
+      p, h2 {
+        margin-left: 20px;
+      }
+
+      h2 {
+        margin-top: 50px;
+      }
+    </style>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      var graph_width = 1500;
+      var graph_height = 900;
+
+      // var graph_width = 700;
+      // var graph_height = 500;
+
+      //
+      //
+      // Sendgrid legacy
+      //
+      //
+      var sg_basic_legacy_price = function(x) {
+        if(x <= 10000) {
+          return 10;
+        } else {
+          return (0.001 * (x-10000)) + 10;
+        }
+      }
+
+      var sg_silver_legacy_price = function(x) {
+        if(x <= 50000) {
+          return 80;
+        } else {
+          return (0.00075 * (x-50000)) + 80;
+        }
+      }
+
+      var sg_gold_legacy_price = function(x) {
+        if(x <= 100000) {
+          return 200;
+        } else {
+          return (0.00050 * (x-100000)) + 200;
+        }
+      }
+
+      var sg_platinum_legacy_price = function(x) {
+        if(x <= 500000) {
+          return 400;
+        } else {
+          return (0.00045 * (x-500000)) + 400;
+        }
+      }
+
+      //
+      //
+      // Amazon
+      //
+      //
+      var amazon_ses_no_free_price = function(x) {
+        return (0.1 * (x/1000));
+      }
+
+      var amazon_ses_2000_free_price = function(x) {
+        if(x <= 2000) {
+          return 0;
+        } else {
+          return (0.1 * ((x-2000)/1000));
+        }
+      }
+
+      //
+      //
+      // Sendgrid
+      //
+      //
+      var sg_lite_price = function(x) {
+        return (0.1 * (x/1000));
+      }
+
+      var sg_bronze_price = function(x) {
+        if(x <= 40000) {
+          return 9.95;
+        } else {
+          return (0.001 * (x-40000)) + 9.95;
+        }
+      }
+
+      var sg_silver_price = function(x) {
+        if(x <= 100000) {
+          return 79.95;
+        } else {
+          return (0.00085 * (x-100000)) + 79.95;
+        }
+      }
+
+      var sg_gold_price = function(x) {
+        if(x <= 300000) {
+          return 199.95;
+        } else {
+          return (0.0005 * (x-300000)) + 199.95;
+        }
+      }
+
+      var sg_platinum_price = function(x) {
+        if(x <= 700000) {
+          return 399.95;
+        } else {
+          return (0.00045 * (x-700000)) + 399.95;
+        }
+      }
+
+      //
+      //
+      // Postmark
+      //
+      //
+      var postmark_price = function(x) {
+        if(x <= 500000) {
+          return 1.5 * (x/1000);
+        } else {
+          return (1.5 * (500000/1000)) + ((x - 500000)/1000);
+        }
+      }
+
+      //
+      //
+      // Mailgun
+      //
+      //
+      var mailgun_basic_price = function(x) {
+        if(x <= 20000) {
+          return 19.99;
+        } else {
+          return ((x-20000)/1000) + 19.99;
+        }
+      }
+
+      var mailgun_pro_price = function(x) {
+        if(x <= 120000) {
+          return 59.99;
+        } else {
+          return (0.5 * ((x-120000)/1000)) + 59.99;
+        }
+      }
+
+      var mailgun_high_vol_price = function(x) {
+        if(x <= 1500000) {
+          return 499.99;
+        } else {
+          return (0.35 * ((x-1500000)/1000)) + 499.99;
+        }
+      }
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(function() {
+        drawMainChart(1600000);
+        drawSendgridChart(800000);
+        drawZoomChart(42000);
+      });
+
+      function drawMainChart(calculate_upto) {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn('string', 'Emails sent');
+        data.addColumn('number', 'Amazon SES');
+        data.addColumn('number', 'Amazon SES (2000 free)');
+        data.addColumn('number', 'Sendgrid Lite');
+        data.addColumn('number', 'Sendgrid Bronze');
+        data.addColumn('number', 'Sendgrid Silver');
+        data.addColumn('number', 'Sendgrid Gold');
+        data.addColumn('number', 'Sendgrid Platinum');
+        data.addColumn('number', 'Postmark');
+        data.addColumn('number', 'Mailgun basic');
+        data.addColumn('number', 'Mailgun pro');
+        data.addColumn('number', 'Mailgun high volume');
+
+        // data.addRows(calculate_upto);
+        for(var x=0; x < (calculate_upto/1000); x++) {
+          var i = x * 1000;
+          data.addRow([
+            i.toString(),
+            amazon_ses_no_free_price(i),
+            amazon_ses_2000_free_price(i),
+            sg_lite_price(i),
+            sg_bronze_price(i),
+            sg_silver_price(i),
+            sg_gold_price(i),
+            sg_platinum_price(i),
+            postmark_price(i),
+            mailgun_basic_price(i),
+            mailgun_pro_price(i),
+            mailgun_high_vol_price(i)
+          ]);
+        }
+
+        var formatter = new google.visualization.NumberFormat(
+          {prefix: '$', negativeColor: 'red', negativeParens: true}
+        );
+
+        for(var x=0; x < 12; x++) {
+          formatter.format(data, x);
+        }
+
+        var chart = new google.visualization.LineChart(document.getElementById('main_chart'));
+        chart.draw(data, {width: graph_width, height: graph_height, vAxis: {title: 'Cost ($)'}, hAxis: {title: 'emails sent'}});
+      }
+
+      function drawSendgridChart(calculate_upto) {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn('string', 'Emails sent');
+
+        data.addColumn('number', 'Sendgrid Basic (legacy)');
+        data.addColumn('number', 'Sendgrid Bronze');
+
+        data.addColumn('number', 'Sendgrid Silver (legacy)');
+        data.addColumn('number', 'Sendgrid Silver');
+
+        data.addColumn('number', 'Sendgrid Gold (legacy)');
+        data.addColumn('number', 'Sendgrid Gold');
+
+        data.addColumn('number', 'Sendgrid Platinum (legacy)');
+        data.addColumn('number', 'Sendgrid Platinum');
+
+        data.addColumn('number', 'Sendgrid Lite');
+
+        // data.addRows(calculate_upto);
+        for(var x=0; x < (calculate_upto/1000); x++) {
+          var i = x * 1000;
+          data.addRow([
+            i.toString(),
+
+            sg_basic_legacy_price(i),
+            sg_bronze_price(i),
+
+            sg_silver_legacy_price(i),
+            sg_silver_price(i),
+
+            sg_gold_legacy_price(i),
+            sg_gold_price(i),
+
+            sg_platinum_legacy_price(i),
+            sg_platinum_price(i),
+
+            sg_lite_price(i),
+          ]);
+        }
+
+        var formatter = new google.visualization.NumberFormat(
+          {prefix: '$', negativeColor: 'red', negativeParens: true}
+        );
+
+        for(var x=0; x < 10; x++) {
+          formatter.format(data, x);
+        }
+
+        var chart = new google.visualization.LineChart(document.getElementById('sendgrid_chart'));
+        chart.draw(data, {width: graph_width, height: graph_height, vAxis: {title: 'Cost ($)'}, hAxis: {title: 'emails sent'}});
+      }
+
+      function drawZoomChart(calculate_upto) {
+        var data = new google.visualization.DataTable();
+
+        data.addColumn('string', 'Emails sent');
+        data.addColumn('number', 'Amazon SES');
+        data.addColumn('number', 'Amazon SES (2000 free)');
+        data.addColumn('number', 'Sendgrid Lite');
+        data.addColumn('number', 'Sendgrid Bronze');
+        data.addColumn('number', 'Postmark');
+        data.addColumn('number', 'Mailgun basic');
+        data.addColumn('number', 'Mailgun pro');
+
+        // data.addRows(calculate_upto);
+        for(var x=0; x < (calculate_upto/1000); x++) {
+          var i = x * 1000;
+          data.addRow([
+            i.toString(),
+            amazon_ses_no_free_price(i),
+            amazon_ses_2000_free_price(i),
+            sg_lite_price(i),
+            sg_bronze_price(i),
+            postmark_price(i),
+            mailgun_basic_price(i),
+            mailgun_pro_price(i)
+          ]);
+        }
+
+        var formatter = new google.visualization.NumberFormat(
+          {prefix: '$', negativeColor: 'red', negativeParens: true}
+        );
+
+        for(var x=0; x < 8; x++) {
+          formatter.format(data, x);
+        }
+
+        var chart = new google.visualization.LineChart(document.getElementById('zoom_chart'));
+        chart.draw(data, {width: graph_width, height: graph_height, vAxis: {title: 'Cost ($)'}, hAxis: {title: 'emails sent'}});
+      }
+    </script>
+  </head>
+
+  <body>
+    <p><a href="https://willj.net/posts/cloud-email-service-price-comparison/">back to the article</a></p>
+
+    <p>Cost and mail quantity are per month, hover over a legend to highlight the line.</p>
+
+    <a id="sendgrid"><h2>Sendgrid old and new price comparison</h2></a>
+    <p>I've kept the old and new plan equivalents next to each other here, hover over the legend to highlight the whole line</p>
+    <p>For the article that goes along with these graphs check out my <a href="https://willj.net/posts/cloud-email-service-price-comparison/" title="cloud email service provider price comparison">cloud email service provider price comparison</a>.
+
+    <div id="sendgrid_chart"></div>
+
+    <a id="comparison"><h2>Sendgrid, Postmark and Amazon SES price comparison</h2></a>
+    <div id="main_chart"></div>
+
+    <a id="zoom"><h2>Zoom in on the origin</h2></a>
+    <div id="zoom_chart"></div>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-87780-2");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>
