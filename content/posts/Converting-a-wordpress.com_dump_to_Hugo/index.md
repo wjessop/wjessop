@@ -2,7 +2,7 @@
 title: Converting a wordpress.com dump to Hugo, including images
 date: 2023-09-12T13:30:00+01:00
 draft: false
-tags: ["programming", "Go", "tech", "Hugo"]
+tags: ["programming", "Go", "tech", "meta"]
 summary: I wanted to convert my old wordpress.com articles to Hugo and all off the "official" methods were cumbersome so I wrote a somewhat rough but fast and simple program to do the conversion for me.
 category: ""
 type: Post

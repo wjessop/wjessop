@@ -149,7 +149,7 @@ What you can see here from the buffer data is that Postgres no-longer has to go 
 
 	Buffers: shared hit=3577
 
-This results in a much faster query time, the original query took 2291ms and the cached one 6ms ⚡️. Unfortunately even though this query was much faster the second time round we don't always have the luxury of running queries that are cached so we often need to optimise for the cold cache situation, plus if we can reduce the buffers usage of the query we can make it even faster and less resource intensive still, plus pulling if we can trim the data pulled from the shared cache down too that will also help with performance.
+This results in a much faster query time, the original query took 2291ms and the cached one 6ms ⚡️. Unfortunately even though this query was much faster the second time round we don't always have the luxury of running queries that are cached so we often need to optimise for the cold cache situation, plus if we can reduce the buffers usage of the query we can make it even faster and less resource intensive still, plus if we can trim the data pulled from the shared cache down too that will also help with performance.
 
 So, what can we use this information for? The query I'm using in the example is similar to one I optimised for a client that was the highest IO usage of all queries on their production server at nearly 16% if all IO used.
 
