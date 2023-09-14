@@ -6,7 +6,7 @@
 		<ul>
 		{{ range .Pages.ByPublishDate }}
 				<li>
-					<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
+					{{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
 						<p>{{ .Summary }}</p>
 				</li>
 		{{ end }}

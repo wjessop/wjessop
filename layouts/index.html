@@ -24,7 +24,7 @@
 			<li>
 				{{ $dateTime := .PublishDate.Format "2006-01-02" }}
 				{{ $dateFormat := .Site.Params.dateFormat | default "Monday, January 2, 2006" }}
-				<a href="{{ .Permalink }}">{{ .Title }}</a> - <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+				{{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a href="{{ .Permalink }}">{{ .Title }}</a> - <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
 				<p>{{ .Summary }}</p>
 			</li>
 			{{ end }}
