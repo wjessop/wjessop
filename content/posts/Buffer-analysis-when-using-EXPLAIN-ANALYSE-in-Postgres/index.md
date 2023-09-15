@@ -1,8 +1,8 @@
 ---
 title: Buffer analysis when using EXPLAIN ANALYSE in Postgres
-date: 2023-09-14T12:00:00+01:00
+date: 2023-09-15T23:49:00+01:00
 draft: false
-preview: true
+preview: false
 tags: ["programming", "postgres", "performance", "tech"]
 summary: Many people are familiar with Postgres' `EXPLAIN` and `EXPLAIN ANALYSE` reports, but there are a couple of useful options available when running them that aren't always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
 description: The BUFFERS option to Postgres' EXPLAIN command can help you work out where queries are using lots of IO. learn how to use this to optimize your SQL.
