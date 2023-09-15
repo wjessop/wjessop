@@ -28,14 +28,17 @@
 	}
 }
 
+
 body {
 	font-family: Consolas,
 							 Monospace, /* Linux = DejaVu Sans Mono */
 							 Courier;   /* MacOSX & Windows = Courier */
-	font-size: 16px;
-	line-height: 1.5;
-	max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
-	padding-left: 2%;
+	// font-size: 17px;
+	// font-size: calc(16px + 0.390625vw);
+	font-size: calc(16px + 0.1vw);
+	line-height: 1.6em;
+	max-width: 950px;  /* For Desktop PC (see @media for Tablets/Phones) */
+	padding-left: 3%;
 	padding-right: 3%;
 	margin: 0 auto;
 	background: var(--bg-color);
@@ -49,6 +52,9 @@ body {
 a {
 	color: var(--a-color-visited);
 	font-weight: bold;
+
+	// Othersise links will cause small displays to scroll
+	word-break: break-word;
 }
 
 a:visited {
@@ -82,17 +88,22 @@ about-me {
 	}
 
 	p {
-		font-size: 21px;
+		font-size: 1.4rem;
 		padding: 0px 5px;
 	}
 }
 
 @media only screen and (max-width: 768px) {
+
+	h1 {
+		line-height: calc(1.5em + 0.1vw);
+	}
+
   about-me {
     padding-left: 30px;
 
 		p {
-			font-size: 16px;
+			font-size: 1.3rem;
 			padding: 0px 5px;
 		}
   }
@@ -116,7 +127,7 @@ pre {
 	font-family: Consolas,
 							 Monospace, /* Linux = DejaVu Sans Mono */
 							 Courier;   /* MacOSX & Windows = Courier */
-	font-size: 16px;
+	font-size: 1rem;
 	background-color: white;
 	border: 1px solid Black;
 	padding-left: 2%;
@@ -128,15 +139,6 @@ pre {
 div.heading {
 	font-weight: bold;
 	text-transform: uppercase;
-}
-
-@media (max-width: 500px) { /* For small screen decices */
-	*{
-		font-size: 12px;
-	}
-	pre {
-	 font-size: 11px;
-	}
 }
 
 .title {
@@ -161,6 +163,18 @@ p, li {
 		padding: 4px 8px;
 		border-radius: 5px;
 	}
+}
+
+/*
+	Fixes iOS font sizing anomaly
+
+	https://github.com/adityatelange/hugo-PaperMod/issues/828
+*/
+code {
+	text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 /* ----- Post list ----- */
@@ -326,6 +340,23 @@ article {
 			margin-bottom: 10px;
 		}
 	}
+
+	aside.thought:before {
+		content: "🤔";
+		font-size: 3em;
+		position: relative;
+		float: right;
+		top: -1.6rem;
+		left: 2rem;
+
+		// Shift the thinker over a bit on an iPhone.
+		@media only screen and (max-width: 768px) {
+			font-size: 2.5em;
+			left: 1.3rem;
+		}
+	}
+
+
 }
 
 .pagination {
