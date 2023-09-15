@@ -1,8 +1,8 @@
 ---
 title: Buffer analysis when using EXPLAIN ANALYSE in Postgres
 date: 2023-09-14T12:00:00+01:00
-draft: true
-preview: false
+draft: false
+preview: true
 tags: ["programming", "postgres", "performance", "tech"]
 summary: Many people are familiar with Postgres' `EXPLAIN` and `EXPLAIN ANALYSE` reports, but there are a couple of useful options available when running them that aren't always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
 description: The BUFFERS option to Postgres' EXPLAIN command can help you work out where queries are using lots of IO. learn how to use this to optimize your SQL.
@@ -12,7 +12,7 @@ type: Post
 
 Many people are familiar with running `EXPLAIN` and `EXPLAIN ANALYSE` to diagnose Postgres performance issues, but there are a couple of useful options available when running these reports that aren't always commonly known that you might find useful. The first of these is the `BUFFERS` option.
 
-In this article I will explain how to measure buffer usage in Postgres using the `BUFFERS` option, and how I used it to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
+In this article I will explain how to measure buffer usage in Postgres using the `BUFFERS` option, and how I used it to help verify that a query optimization to massively reduce the IO demands of a problem query had worked.
 
 ## The BUFFERS option
 
@@ -26,7 +26,7 @@ Cutting down buffer usage can be a great way to decrease IO resource usage for a
 
 ## An example
 
-Let's look at an example query. This is similar to one that I optimised for a client and the exact SQL/data structure isn't important. Note the `EXPLAIN (ANALYSE, BUFFERS)` line at the start of the query:
+Let's look at an example query. This is similar to one that I optimized for a client and the exact SQL/data structure isn't important. Note the `EXPLAIN (ANALYSE, BUFFERS)` line at the start of the query:
 
 ```sql { hl_lines=[21,23,26,31]}
 EXPLAIN (ANALYSE, BUFFERS)
@@ -85,9 +85,15 @@ Blocks are chunks of data of a certain size. [The size is configurable, but is t
 (1 row)
 ```
 </aside>
+
 <aside class="thought">
 <h3>Shared cache vs disk?</h3>
-<p>A hit means that a read was avoided because the block was found already in cache when needed…</p>
+
+Postgres maintains a cache in memory, the "shared buffer cache", where it stores data that it has fetched from disk for faster retrieval later. Fetches from this store are massively faster than fetches from disk when the cache is "missed".
+
+Postgres doesn't just fetch data from either the cache or disk that *it will return*, it fetches data from both stores that it needs *to determine the rows that it will return*. For an unoptimized query it is possible for postgres to fetch a significant amount of data that it never sends to the client. Minimising the data you fetch from disk to determine your eventual result set that is then discarded is key to optimizing the IO usage of your queries.
+
+You can find the [docs for the shared_buffers setting here](https://www.postgresql.org/docs/current/runtime-config-resource.html).
 </aside>
 
 Taking this block size value and going back to our Buffers report:
@@ -96,7 +102,7 @@ Taking this block size value and going back to our Buffers report:
 
 We can see here that **1166 blocks (9,551,872 bytes) were provided by the shared cache**, but **3117 blocks (25,534,464 bytes) had to be read from disk**. This was the data reported from the location I marked with `(0)`, but there are other locations too, marked with `(1)`, `(2)` and `(3)`. The `EXPLAIN` command breaks down buffer usage by section, and the report is cumulative, so the buffer usage reported in sections `(2)` and `(3)` when added together equal the buffer usage reported at the parent node in section `(1)`, and so on.
 
-The breakdown by section means that you can see where the buffer usage is highest and target your optimisation in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section `(3)`, the `Index Scan using index_events_on_activity_logs_id"` and so this area would be a good place to start investigating optimisations.
+The breakdown by section means that you can see where the buffer usage is highest and target your optimization in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section `(3)`, the `Index Scan using index_events_on_activity_logs_id"` and so this area would be a good place to start investigating optimizations.
 
 <aside class="thought">
 <h3>Why does it matter if we go to disk instead of the shared cache in memory?</h3>
@@ -164,11 +170,11 @@ What you can see here from the buffer data is that Postgres no-longer has to go 
 
 	Buffers: shared hit=3577
 
-This results in a much faster query time, the original query took 2291ms and the cached one 6ms ⚡️. Unfortunately even though this query was much faster the second time round we don't always have the luxury of running queries that are cached so we often need to optimise for the cold cache situation, plus if we can reduce the buffers usage of the query we can make it even faster and less resource intensive still, plus if we can trim the data pulled from the shared cache down too that will also help with performance.
+This results in a much faster query time, the original query took 2291ms and the cached one 6ms ⚡️. Unfortunately even though this query was much faster the second time round we don't always have the luxury of running queries that are cached so we often need to optimize for the cold cache situation, plus if we can reduce the buffers usage of the query we can make it even faster and less resource intensive still, plus if we can trim the data pulled from the shared cache down too that will also help with performance.
 
-So, what can we use this information for? The query I'm using in the example is similar to one I optimised for a client that was the highest IO usage of all queries on their production server at nearly 16% if all IO used.
+So, what can we use this information for? The query I'm using in the example is similar to one I optimized for a client that was the highest IO usage of all queries on their production server at nearly 16% if all IO used.
 
-When we're trying to improve the performance of this query we can make it faster, and that would be great by itself and is often the main goal of a performance optimisation, but we really want to actually **verify that any changes we make have reduced the IO** which is the larger problem here; we really want to stick to the performance optimisation mantra of "measure, change, measure". **With the buffers data we can see what difference we're making**, if any, to the performance of the query as we change it. Here's the same query on a cold cache but with an optimisation:
+When we're trying to improve the performance of this query we can make it faster, and that would be great by itself and is often the main goal of a performance optimization, but we really want to actually **verify that any changes we make have reduced the IO** which is the larger problem here; we really want to stick to the performance optimization mantra of "measure, change, measure". **With the buffers data we can see what difference we're making**, if any, to the performance of the query as we change it. Here's the same query on a cold cache but with an optimization:
 
 ```sql {hl_lines=[10]}
 EXPLAIN (ANALYSE, BUFFERS)
@@ -207,7 +213,7 @@ Planning Time: 0.427 ms
 Execution Time: 1.897 ms
 ```
 
-The specific optimisation isn't relevant here (it's the addition of the condition `AND activity_logs.event_start > '2022-12-10'` which I highlighted), I'll talk about that in another article, but what you can see if you compare to the earlier uncached query plan is that the "Execution Time" is far smaller at 1.9ms, down from 2290ms, but also **the amount of data fetched from disk (the "read" buffers) is far smaller too** at 2 blocks, or 16,384 bytes, down from 25,534,464 bytes before.
+The specific optimization isn't relevant here (it's the addition of the condition `AND activity_logs.event_start > '2022-12-10'` which I highlighted), I'll talk about that in another article, but what you can see if you compare to the earlier uncached query plan is that the "Execution Time" is far smaller at 1.9ms, down from 2290ms, but also **the amount of data fetched from disk (the "read" buffers) is far smaller too** at 2 blocks, or 16,384 bytes, down from 25,534,464 bytes before.
 
 	Buffers: shared hit=1166 read=3117
 
@@ -218,7 +224,7 @@ vs:
 That's a reduction of over 24 MB, a huge IO amount of IO to trim from the query! With this data we have a pretty good idea that we've made a significant difference to the IO problem.
 
 <aside class="thought">
-<h3>the changing user_id and statistical comparison</h3>
+<h3>The changing user_id and statistical comparison</h3>
 
 <p>You might have noticed that the ID of the <code>activity_logs.user_id</code> changed in that last query, and be wondering if the different data returned by the query will alter it's performance characteristics, and that would be correct. Ideally it would be possible to flush the shared cache between tests to make the test fair, but that's hard to do with Postgres. To do so you would need to shut down the Postgres server process, dump linux's cache, and restart Postgres. That's fairly cumbersome so instead what I do is to run the original and changed queries multiple times using different IDs to get a statistical comparison of the effect the change has.
 </p>
@@ -226,4 +232,4 @@ That's a reduction of over 24 MB, a huge IO amount of IO to trim from the query!
 
 ## Conclusion
 
-At scale IO can be a significant performance bottleneck for databases and optimising problem queries that cause large amounts of IO can yield significant benefits. Adding the `BUFFERS` option when using `EXPLAIN ANALYSE` can give you a great way to identify problem areas of a query, and to verify when you're done that you've actually solved the issue.
+At scale IO can be a significant performance bottleneck for databases and optimizing problem queries that cause large amounts of IO can yield significant benefits. Adding the `BUFFERS` option when using `EXPLAIN ANALYSE` can give you a great way to identify problem areas of a query, and to verify when you're done that you've actually solved the issue.
