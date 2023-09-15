@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://willj.net/tags/performance/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/postgres/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/posts/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/programming/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/tech/</loc>
-    <lastmod>2023-09-14T12:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</loc>
     <lastmod>2023-09-12T13:30:00+01:00</lastmod>
   </url><url>
@@ -27,6 +9,18 @@
     <lastmod>2023-09-12T13:30:00+01:00</lastmod>
   </url><url>
     <loc>https://willj.net/tags/meta/</loc>
+    <lastmod>2023-09-12T13:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/posts/</loc>
+    <lastmod>2023-09-12T13:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/programming/</loc>
+    <lastmod>2023-09-12T13:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/</loc>
+    <lastmod>2023-09-12T13:30:00+01:00</lastmod>
+  </url><url>
+    <loc>https://willj.net/tags/tech/</loc>
     <lastmod>2023-09-12T13:30:00+01:00</lastmod>
   </url><url>
     <loc>https://willj.net/tags/firefox/</loc>

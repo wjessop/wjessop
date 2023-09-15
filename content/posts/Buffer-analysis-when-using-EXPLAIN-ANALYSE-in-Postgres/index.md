@@ -1,20 +1,20 @@
 ---
-title: Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE in Postgres
+title: Buffer analysis when using EXPLAIN ANALYSE in Postgres
 date: 2023-09-14T12:00:00+01:00
-draft: false
-preview: true
+draft: true
+preview: false
 tags: ["programming", "postgres", "performance", "tech"]
 summary: Many people are familiar with Postgres' `EXPLAIN` and `EXPLAIN ANALYSE` reports, but there are a couple of useful options available when running them that aren't always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
-description: The BUFFERS option to Postgres' EXPLAIN command can help you work out where queries are using lots of IO. Learn how to use this to optimize your SQL.
+description: The BUFFERS option to Postgres' EXPLAIN command can help you work out where queries are using lots of IO. learn how to use this to optimize your SQL.
 category: ""
 type: Post
 ---
 
-In this article I will go through how I used the `BUFFERS` report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
-
 Many people are familiar with running `EXPLAIN` and `EXPLAIN ANALYSE` to diagnose Postgres performance issues, but there are a couple of useful options available when running these reports that aren't always commonly known that you might find useful. The first of these is the `BUFFERS` option.
 
-## BUFFERS
+In this article I will explain how to measure buffer usage in Postgres using the `BUFFERS` option, and how I used it to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.
+
+## The BUFFERS option
 
 The `BUFFERS` option can be used when running a simple `EXPLAIN`, but really comes into it's own when running an `EXPLAIN ANALYSE`. In summary `BUFFERS` will give you data on the buffer usage of a query. The postgres docs give a good description of what the data you get tells you:
 
@@ -22,7 +22,11 @@ The `BUFFERS` option can be used when running a simple `EXPLAIN`, but really com
 
 - https://www.postgresql.org/docs/current/sql-explain.html
 
-Cutting down buffer usage can be a great way to decrease IO resource usage for a query. Let's look at an example query. This is similar to one that I optimised for a client and the exact SQL/data structure isn't important. Note the `EXPLAIN (ANALYSE, BUFFERS)` at the start of the query:
+Cutting down buffer usage can be a great way to decrease IO resource usage for a query.
+
+## An example
+
+Let's look at an example query. This is similar to one that I optimised for a client and the exact SQL/data structure isn't important. Note the `EXPLAIN (ANALYSE, BUFFERS)` line at the start of the query:
 
 ```sql { hl_lines=[21,23,26,31]}
 EXPLAIN (ANALYSE, BUFFERS)
@@ -62,11 +66,16 @@ Planning Time: 0.427 ms
 Execution Time: 2290.813 ms
 ```
 
-There's a lot to take in here, but the difference you're looking for compared to a regular EXPLAIN are the lines that look like this:
+There's a lot to take in here, but the difference you're looking for compared to a regular `EXPLAIN` output are the lines that start with `Buffers: …` I've marked them all in the explain output above with the labels `(0)`, `(1)`, `(2)` and `(3)`. They look like this:
 
 	Buffers: shared hit=1166 read=3117
 
-I've marked some of them in the explain output with the markers `(0)`, `(1)`, `(2)` and `(3)`. This `Buffers: …` line in the output is telling us that 1166 blocks were satisfied by the shared cache, and 3117 were read from disk. [A block is configurable, but is typically left at the default of 8192 bytes](https://www.postgresql.org/docs/current/runtime-config-preset.html). You can check this on your server:
+This line is telling us that **1166 blocks were satisfied by the shared cache**, and **3117 blocks were read from disk**.
+
+<aside class="thought">
+<h3>What is a block?</h3>
+
+Blocks are chunks of data of a certain size. [The size is configurable, but is typically left at the default of 8192 bytes](https://www.postgresql.org/docs/current/runtime-config-preset.html). You can check this on your server:
 
 ```sql
 => show block_size;
@@ -74,17 +83,22 @@ I've marked some of them in the explain output with the markers `(0)`, `(1)`, `(
 ------------
  8192
 (1 row)
-``````
+```
+</aside>
+<aside class="thought">
+<h3>Shared cache vs disk?</h3>
+<p>A hit means that a read was avoided because the block was found already in cache when needed…</p>
+</aside>
 
-Taking this value and going back to our Buffers report:
+Taking this block size value and going back to our Buffers report:
 
 	Buffers: shared hit=1166 read=3117
 
-We can see here that **9,551,872 bytes were provided by the shared cache, but 25,534,464 bytes had to be read from disk**. This was the data reported from the location I marked with `(0)`, but there are other locations too, marked with `(1)`, `(2)` and `(3)`. The `EXPLAIN` command breaks down buffer usage by section, and the report is cumulative, so the buffer usage reported in sections `(2)` and `(3)` when added together equal the buffer usage reported at the parent in section `(1)`, and so on.
+We can see here that **1166 blocks (9,551,872 bytes) were provided by the shared cache**, but **3117 blocks (25,534,464 bytes) had to be read from disk**. This was the data reported from the location I marked with `(0)`, but there are other locations too, marked with `(1)`, `(2)` and `(3)`. The `EXPLAIN` command breaks down buffer usage by section, and the report is cumulative, so the buffer usage reported in sections `(2)` and `(3)` when added together equal the buffer usage reported at the parent node in section `(1)`, and so on.
 
 The breakdown by section means that you can see where the buffer usage is highest and target your optimisation in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section `(3)`, the `Index Scan using index_events_on_activity_logs_id"` and so this area would be a good place to start investigating optimisations.
 
-<aside>
+<aside class="thought">
 <h3>Why does it matter if we go to disk instead of the shared cache in memory?</h3>
 Disk (SSD) read speeds are substantially slower than reads from memory, in the region of 450 MB/s for an SSD compared to around 13,000 MB/s for memory (varying depending on the specific hardware). The "Latency numbers every programmer should know" table, originally by <a href="http://norvig.com/21-days.html#answers">Peter Norvig</a> shows the difference well.
 
@@ -106,7 +120,7 @@ Disk (SSD) read speeds are substantially slower than reads from memory, in the r
 </aside>
 
 
-Before we get into what this buffers data in the explain output is useful for, let's run the explain again to see what happens:
+Before we get into what this buffers data in the explain output is useful for, let's run the explain again with the same parameters to see what happens:
 
 ```sql {hl_lines=[21]}
 EXPLAIN (ANALYSE, BUFFERS)
@@ -203,64 +217,12 @@ vs:
 
 That's a reduction of over 24 MB, a huge IO amount of IO to trim from the query! With this data we have a pretty good idea that we've made a significant difference to the IO problem.
 
-<aside>
-<h3>A note on the changing user_id and statistical comparison</h3>
+<aside class="thought">
+<h3>the changing user_id and statistical comparison</h3>
 
 <p>You might have noticed that the ID of the <code>activity_logs.user_id</code> changed in that last query, and be wondering if the different data returned by the query will alter it's performance characteristics, and that would be correct. Ideally it would be possible to flush the shared cache between tests to make the test fair, but that's hard to do with Postgres. To do so you would need to shut down the Postgres server process, dump linux's cache, and restart Postgres. That's fairly cumbersome so instead what I do is to run the original and changed queries multiple times using different IDs to get a statistical comparison of the effect the change has.
 </p>
 </aside>
-
-## IO timing tracking
-
-The second tweak to the default `EXPLAIN` usage is using IO timing tracking ([docs](https://www.postgresql.org/docs/current/runtime-config-statistics.html)). You can set this per session:
-
-	set track_io_timing = on;
-
-Now when you run an `EXPLAIN ANALYSE` you will get the time in milliseconds that IO operations took to perform, for example:
-
-```sql {hl_lines=[22,25,29,35]}
-EXPLAIN (ANALYSE, BUFFERS)
-SELECT
-	events.*
-FROM
-	events
-	INNER JOIN activity_logs ON events.activity_logs_id = activity_logs.id
-WHERE
-	activity_logs.user_id = 83463
-	AND events.date in ('2022-12-04')
-	AND (events.event_start IS NOT NULL
-		AND events.event_end IS NOT NULL
-		AND events.duration != 0
-		OR events.exception_id IS NOT NULL)
-ORDER BY
-	date ASC,
-	events.event_start DESC NULLS LAST;
-
-	Sort  (cost=10157.36..10157.37 rows=1 width=166) (actual time=2290.762..2290.763 rows=0 loops=1)
-  Sort Key: events.event_start DESC NULLS LAST
-  Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=1166 read=3117
-  I/O Timings: read=3221.979
-  ->  Nested Loop  (cost=1.13..10157.35 rows=1 width=166) (actual time=2290.757..2290.758 rows=0 loops=1)
-        Buffers: shared hit=1166 read=3117
-        I/O Timings: read=3221.979
-        ->  Index Scan using index_activity_logs_on_user_id_and_event_start_and_event_end on activity_logs  (cost=0.56..325.89 rows=82 width=4) (actual time=0.018..14.964 rows=315 loops=1)
-              Index Cond: (user_id = 83463)
-              Buffers: shared hit=33 read=116
-              I/O Timings: read=137.986
-        ->  Index Scan using index_events_on_activity_logs_id on events  (cost=0.57..119.89 rows=1 width=166) (actual time=7.221..7.221 rows=0 loops=315)
-              Index Cond: (activity_logs_id = activity_logs.id)
-              Filter: ((((event_start IS NOT NULL) AND (event_end IS NOT NULL) AND (duration <> '0'::double precision)) OR (exception_id IS NOT NULL)) AND (date = '2022-12-04'::date))
-              Rows Removed by Filter: 11
-              Buffers: shared hit=1133 read=3001
-              I/O Timings: read=3083.993
-Planning:
-  Buffers: shared hit=146
-Planning Time: 0.427 ms
-Execution Time: 2290.813 ms
-```
-
-This isn't something that I've personally found particularly useful, I suspect it might be useful when diagnosing slow fetches if you're storing data on different backend data stores across tables, but it's interesting to see.
 
 ## Conclusion
 
