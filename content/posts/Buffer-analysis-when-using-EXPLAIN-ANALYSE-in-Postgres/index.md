@@ -102,7 +102,7 @@ Taking this block size value and going back to our Buffers report:
 
 We can see here that **1166 blocks (9,551,872 bytes) were provided by the shared cache**, but **3117 blocks (25,534,464 bytes) had to be read from disk**. This was the data reported from the location I marked with `(0)`, but there are other locations too, marked with `(1)`, `(2)` and `(3)`. The `EXPLAIN` command breaks down buffer usage by section, and the report is cumulative, so the buffer usage reported in sections `(2)` and `(3)` when added together equal the buffer usage reported at the parent node in section `(1)`, and so on.
 
-The breakdown by section means that you can see where the buffer usage is highest and target your optimization in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section `(3)`, the `Index Scan using index_events_on_activity_logs_id"` and so this area would be a good place to start investigating optimizations.
+The breakdown by section means that you can see where the buffer usage is highest and target your optimization in that area. For instance in the example query you can see that more than 95% of the buffer usage happens in section `(3)`, the `Index Scan using index_events_on_activity_logs_id` and so this area would be a good place to start investigating optimizations.
 
 <aside class="thought">
 <h3>Why does it matter if we go to disk instead of the shared cache in memory?</h3>
