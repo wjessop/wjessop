@@ -40,6 +40,5 @@ copyright = "&#169; Will Jessop. All rights reserved."
     [markup.goldmark.renderer]
       unsafe = true
 
-# https://sam.hooke.me/note/2018/03/hugo-tag-and-category-pages/
 [taxonomies]
   tag = "tags"
