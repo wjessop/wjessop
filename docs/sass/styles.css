@@ -136,6 +136,22 @@ post_list ul p {
   border-left: 1px solid #3e3e3e;
   font-style: italic; }
 
+/* ----- Tag list ----- */
+.tag-list {
+  list-style-type: none;
+  padding-left: 0; }
+  .tag-list li {
+    margin-bottom: 30px; }
+    .tag-list li a.tag-title {
+      font-size: 1.2em; }
+    .tag-list li .first-post {
+      margin: 10px 0px 0px 40px; }
+      .tag-list li .first-post p.summary {
+        margin: 5px 0px 25px 0px;
+        padding: 0px 0px 0px 15px;
+        border-left: 1px solid #3e3e3e;
+        font-style: italic; }
+
 /* ----- Posts ----- */
 article blockquote {
   background-color: var(--blockquote-bg-color);

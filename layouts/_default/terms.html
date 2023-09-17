@@ -1,0 +1,25 @@
+{{ define "main" -}}
+
+<h2>All tags</h2>
+
+<p>Showing the latest post for each tag</p>
+
+<ol class="tag-list">
+  {{ range .Data.Terms.Alphabetical -}}
+    {{ $count := .Count -}}
+    {{ $tagLink := .Page.Permalink -}}
+    <li>
+      <a class="tag-title" href="{{ $tagLink }}">{{ .Page.Title }}</a> ({{ $count }} posts)
+
+      {{ with index .Pages 0 -}}
+        <div class="first-post">
+          Latest post: {{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+					<p class="summary">{{ .Summary }}</p>
+          {{ if gt $count 1 }}<a class="more-posts" href="{{ $tagLink }}">See {{ printf "%d more %s" (sub $count 1) (cond (le $count 2) "post" "posts") }} with this tag</a>{{ end }}
+        </div>
+      {{ end -}}
+    </li>
+  {{ end -}}
+</ol>
+
+{{ end -}}

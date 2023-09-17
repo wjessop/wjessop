@@ -188,6 +188,32 @@ post_list {
 	}
 }
 
+/* ----- Tag list ----- */
+
+.tag-list {
+  list-style-type: none;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 30px;
+
+		a.tag-title {
+			font-size: 1.2em;
+		}
+
+    .first-post {
+			margin: 10px 0px 0px 40px;
+
+			p.summary {
+				margin: 5px 0px 25px 0px;
+		padding: 0px 0px 0px 15px;
+		border-left: 1px solid #3e3e3e;
+		font-style: italic;
+			}
+    }
+  }
+}
+
 /* ----- Posts ----- */
 
 article {

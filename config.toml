@@ -19,11 +19,11 @@ copyright = "&#169; Will Jessop. All rights reserved."
     pre = "edit"
     url = "/posts/"
     weight = 2
- # [[menu.main]]
- #   name = "Tags"
- #   pre = "tag"
- #   url = "/tags/"
- #   weight = 3
+  [[menu.main]]
+    name = "Tags"
+    pre = "tag"
+    url = "/tags/"
+    weight = 3
 
 [outputs]
   page = ["HTML", "RSS"]
@@ -39,3 +39,8 @@ copyright = "&#169; Will Jessop. All rights reserved."
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# https://sam.hooke.me/note/2018/03/hugo-tag-and-category-pages/
+[taxonomies]
+tag = "tags"
+category = ""
