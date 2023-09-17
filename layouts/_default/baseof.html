@@ -7,7 +7,12 @@
 		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 		<script defer data-domain="willj.net" src="https://plausible.io/js/script.js"></script>
 
-		<link href="{{ .Site.BaseURL }}rss.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+		<link href="{{ .Site.BaseURL }}rss.xml" rel="alternate" type="application/rss+xml" title="All posts | {{ .Site.Title | safeHTML }}" />
+		{{ if eq .Page.Kind "term" -}}
+			{{ range .AlternativeOutputFormats -}}
+			{{ printf `<link rel="%s" type="%s" href="%s" title="%s posts | %s" />` .Rel .MediaType.Type .Permalink $.Title $.Site.Title | safeHTML }}
+			{{ end -}}
+		{{ end -}}
 
 		<title>
 			{{ if .Title -}}

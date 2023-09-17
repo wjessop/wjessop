@@ -3,12 +3,13 @@
     <title>tech on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/tech/</link>
     <description>Recent content in tech on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Fri, 15 Sep 2023 23:49:00 +0100</lastBuildDate>
-    <atom:link href="https://willj.net/tags/tech/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/tech/" rel="self" type="application/rss+xml" />
     <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
@@ -861,6 +862,346 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>New Pi mount, and testing the power requirements</title>
+      <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
+      <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4390.jpg&#34;
+         alt=&#34;Testing the robot power requirements&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Before I pick a battery I need to know what power requirements my robot is going to have so I took it into the &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hackspace&lt;/a&gt; to test. I hooked it up to one of the power supplies then ran all the systems, so Streaming video off the Raspberry Pi over wireless whilst running the motors. I weight it down with a large motor (the big black thing) and then provided resistance, it peaks at about 1.6 amps.&lt;/p&gt;
+&lt;p&gt;In the video you can also see the new side mounted Raspberry Pi and the base of the ping-pong ball hopper.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/rA89dFa6OmU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4392.jpg&#34;
+         alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Lenses</title>
+      <link>https://willj.net/posts/lenses/</link>
+      <pubDate>Fri, 18 Oct 2013 16:17:20 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/lenses/</guid>
+      <description>&lt;p&gt;The Raspberry Pi camera doesn&amp;rsquo;t have a field of view that is wide enough for my robot, I&amp;rsquo;d have to mount it really far from my robot to see enough context to make it drivable so I&amp;rsquo;ve bought some wide angle iPhone lenses to try out.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4386.jpg&#34;
+         alt=&#34;Wide-angle and fish-eye lenses&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a photo taken using the fish-eye lens held up to my iPhone:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4388.jpg&#34;
+         alt=&#34;The view through the fish-eye lens&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>First prototype robot base</title>
+      <link>https://willj.net/posts/prototype-robot-base/</link>
+      <pubDate>Mon, 30 Sep 2013 20:08:56 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/prototype-robot-base/</guid>
+      <description>&lt;p&gt;The robot base design from my previous post printed OK. Here it is printing:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4320.jpg&#34;
+         alt=&#34;A 3d printer printing on a glass sheet&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The finished print. The two small separate objects are the motor covers:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4322.jpg&#34;
+         alt=&#34;A completed 3d print&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Completed robot base print&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The assembled robot, including Raspberry Pi and MotorPiTX:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4330.jpg&#34;
+         alt=&#34;An assembled robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Assembled robot base&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The underside of the robot:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4332.jpg&#34;
+         alt=&#34;The underside of a robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Printing out a test caterpillar track and motor mount</title>
+      <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
+      <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/-1ye-TLipiY&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4289.jpg&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Printing a motor / caterpillar track mount detail&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4290.jpg&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The 3d printer at work&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Designing a track mount</title>
+      <link>https://willj.net/posts/designing-a-track-mount/</link>
+      <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/designing-a-track-mount/</guid>
+      <description>&lt;p&gt;Designing a track mount for my pololu caterpillar tracks. Sketchup is trying very hard to prevent me.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-21-at-23-37-18.png&#34;
+         alt=&#34;Screengrab of an in-progress design for a track mount&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Pololu track mount design in progress&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Creating animated gifs with imagemagick</title>
+      <link>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</link>
+      <pubDate>Tue, 24 Apr 2012 10:49:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://willj.net/posts/railsberry-animated-gifs&#34; title=&#34;Railsberry animated gifs&#34;&gt;my last post&lt;/a&gt; I linked to some animated gifs I made on my mac. It&amp;rsquo;s pretty easy if you have imagemagick installed.&lt;/p&gt;
+&lt;p&gt;Simply get a bunch of images together and use the convert command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;convert -resize 900x -loop 0 -delay 10 DSC_8264.JPG DSC_8265.JPG DSC_8266.JPG DSC_8267.JPG DSC_8268.JPG DSC_8269.JPG DSC_8270.JPG jon_walk.gif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last argument is the output filename. The options should be self explanatory, but you can check them up in the man page if you want to tweak the values.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Testing http over socket connections with socat</title>
+      <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
+      <pubDate>Fri, 02 Dec 2011 22:00:55 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</guid>
+      <description>&lt;p&gt;Sometimes I need to test an http server that is listening on a unix socket. It&amp;rsquo;s really easy to do this using socat, but the socat man page is pretty long. Here it is for anyone who needs it in the future, and me when I inevitably forget.&lt;/p&gt;
+&lt;p&gt;In this case the server is unicorn, but this will work for any http server listening on a socket, for instance thin. The lines beginning with &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; are lines I typed (the 4 lines at the start), remove the &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; when you try this.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ socat - UNIX-CONNECT:/u/apps/app/shared/sockets/unicorn.sock,crnl
+--&amp;gt;GET /session/new HTTP/1.1
+--&amp;gt;Host: thehostname.com
+--&amp;gt;X-Forwarded-Proto: https
+--&amp;gt;
+HTTP/1.1 200 OK
+Date: Fri, 02 Dec 2011 14:37:23 GMT
+Status: 200 OK
+Connection: close
+Strict-Transport-Security: max-age=31536000
+Content-Type: text/html; charset=utf-8
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: &amp;#34;2346c47c7cb3bc37729e42fc8b20c821&amp;#34;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _x_session=blablabla; path=/; HttpOnly; secure
+X-Request-Id: c0a374f460d1b1205df450ab77dd2328
+X-Runtime: 0.159219
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34; data-behavior=&amp;#34;wallpaper&amp;#34;&amp;gt;
+&amp;lt;head&amp;gt;
+etc.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For those interested in the relevance of the crnl option at the end of the socket path, this from the man page:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Converts the default line termination character NL (&amp;rsquo;n&amp;rsquo;, 0x0a)&lt;/li&gt;
+&lt;li&gt;to/from CRNL (&amp;ldquo;rn&amp;rdquo;, 0x0d0a) when writing/reading on this&lt;/li&gt;
+&lt;li&gt;channel (example). Note: socat simply strips all CR characters.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    <item>
+      <title>Cloud email service price comparison</title>
+      <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
+      <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-11-30-at-22-20-15.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
+&lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-52.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-57.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here you can see the Sendgrid Lite plan shadowing Amazon and the Postmark costs heading up rapidly.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;It seems Sendgrid have just added an &amp;lsquo;Amazon SES&amp;rsquo; plan to pull back any customers that would have chosen SES based on price. It&amp;rsquo;s probably a good move, and it will allow easy transition into their more &amp;lsquo;premium&amp;rsquo; plans if you sign up and later decide to change plan.&lt;/p&gt;
+&lt;p&gt;Given the advertised features of Postmark compared to the price it seems hard to consider using them. They seem to have some fairly well known customers though, so if anyone has used Postmark leave a comment with how that is working out for you.&lt;/p&gt;
+&lt;p&gt;So which email cloud provider should you use? Use the graphs I made, but price is only going to be one factor, so check what each provider offers. I&amp;rsquo;ve linked to all the pricing pages below.&lt;/p&gt;
+&lt;h3 id=&#34;price-sources&#34;&gt;Price sources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sendgrid.com/pricing&#34;&gt;Sendgrid prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://postmarkapp.com/pricing&#34;&gt;Postmark prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/ses/pricing&#34;&gt;Amazon SES prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mailgun.com/pricing&#34;&gt;Mailgun prices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Should I switch from Sendgrid to Amazon SES?</title>
+      <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
+      <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/emails-price-comparison1.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
+&lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/email-prices-plus-server.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So, there is no point in spinning up an EC2 instance to take advantage of the 2000 free emails per day.&lt;/p&gt;
+&lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Rewriting URL params in nginx</title>
+      <link>https://willj.net/posts/rewriting-url-params-in-nginx/</link>
+      <pubDate>Sat, 07 Mar 2009 14:30:37 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/rewriting-url-params-in-nginx/</guid>
+      <description>&lt;p&gt;I came across this problem recently, a customer was moving to Ruby on Rails from another framework/language (.NET I think) and needed to re-write a bunch of URLs. Some needed the query parameters rewriting too. One example was rewriting the old search path, so the old URL:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://somedomain.com/OldSearchPath.aspx?qry=things&amp;amp;page=4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;would become:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://somedomain.com/search?query=things&amp;amp;page=4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This should be fairly simple except for the &lt;em&gt;qry&lt;/em&gt; parameter needed to be changed to &lt;em&gt;query&lt;/em&gt;. A bit of googling didn&amp;rsquo;t turn up much but with some experimentation I came up with this using the pre-populated nginx $args variable:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;location /OldSearchPath.aspx {
+  if ($args ~* qry=(.+)) {
+    set $args query=$1;
+  }
+}
+rewrite ^.+$ /search redirect;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It even leaves the other parameters intact, so the pagination will still work.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>A great &#39;site unavailable&#39; message</title>
+      <link>https://willj.net/posts/a-great-site-unavailable-message/</link>
+      <pubDate>Fri, 14 Jul 2006 16:49:02 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/a-great-site-unavailable-message/</guid>
+      <description>&lt;p&gt;Seen on &lt;a href=&#34;https://www.fish4.co.uk/&#34; title=&#34;fish4&#34;&gt;Fish4&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thank you for coming to Fish4 this morning.&lt;/p&gt;
+&lt;p&gt;Unfortunately the fish4 website is unavailable due to the failure of a very expensive piece of Sun hardware (Sun 6900). A Sun engineer is at the data centre but didn&amp;rsquo;t think to bring the replacement part with him.&lt;/p&gt;
+&lt;p&gt;We hope the sun engineer will have repaired the hardware by 12pm, and will update this estimate if necessary as the work progresses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a screengrab of the error:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Fixing the &#39;Memory card error&#39; on the Canon IXUS 400 / S3</title>
+      <link>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</link>
+      <pubDate>Sun, 12 Feb 2006 16:29:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</guid>
+      <description>&lt;p&gt;_&lt;strong&gt;Update&lt;/strong&gt;: the IXUS 400 is getting quite old and if you&amp;rsquo;re looking to update it I recommend the Canon IXUS 95, it&amp;rsquo;s pretty close to the IXUS 400, but much better. If you&amp;rsquo;re looking to move up to a digital SLR camera I&amp;rsquo;ve since got a Nikon D40X that I can also recommend.&lt;/p&gt;
+&lt;p&gt;The day after my daughter Holly was born my Canon IXUS 400 camera started giving a &amp;lsquo;Memory card error&amp;rsquo; and refused to save anything to the compact flash card. I assumed that this meant that there was an error with the memory card so I bought a brand new one and was slightly cheesed off when the IXUS gave the same &amp;lsquo;Memory card error&amp;rsquo; message after installing it.&lt;/p&gt;
+&lt;p&gt;A bit of googling revealed that a number of people have had this error with the Canon IXUS s3 and that the problem was solved by opening the case and removing the internal battery. The specs of the IXUS 400 are similar to that of the S3 and the chassis are practically identical, so I guessed they may well share a fair few components, and therefore problems. I was not that keen on the idea of doing this however until I discovered that Canon wanted to charge me nearly £100 to fix it (including the cost of postage).&lt;/p&gt;
+&lt;p&gt;It seems a bit cheeky asking for that amount of money to fix a problem that is effectively a design flaw, so I went for the DIY option and it seems to have worked, I have only taken about 20 photos, but as the camera would not allow any to be taken before, this is a significant improvement!&lt;/p&gt;
+&lt;p&gt;For anyone wanting to do the same here are some photos of what to look for. This one is the back of the camera with the case taken off.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus.jpg&#34;
+         alt=&#34;A Canon IXUS 400 without it&amp;#39;s case on showing circuitry&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A naked Canon IXUS 400&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;And this one is of the front of the camera. The battery is under the circled bit of metal film which was stuck down and had to be peeled off to get to the battery which is mounted in a clip just underneath.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus_highlighted_battery.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The battery popped out really easily with a small flat screwdriver. I put the battery back in, put the camera back together and the camera worked (I had to format the memory card first).&lt;/p&gt;
+&lt;p&gt;Some tips if you are going to try this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Have a very small flat and cross head screwdriver.&lt;/li&gt;
+&lt;li&gt;Make a note of where the screws came from, many are different lengths.&lt;/li&gt;
+&lt;li&gt;Remember which order the body panels and parts came off.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Don&amp;rsquo;t attempt this if you are not confident in doing so, if you break your camera it is entirely your fault, and this will probably invalidate your warranty (mine had expired already). This whole experience has shaken my confidence in Canon cameras, I will be looking at alternative makes for my next purchase.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>New hard disc</title>
+      <link>https://willj.net/posts/new-hard-disc/</link>
+      <pubDate>Wed, 09 Nov 2005 21:24:40 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/new-hard-disc/</guid>
+      <description>&lt;p&gt;I bought a new hard disc. It probably doesn&amp;rsquo;t work anymore, but then it did only cost me £5.20. I don&amp;rsquo;t care what anyone says, I like it. It is hanging behind my desk at work.&lt;/p&gt;
+&lt;p&gt;Here is the eBay description:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;14&amp;quot; hard disk platter from the 1970s&lt;/p&gt;
+&lt;p&gt;From the days when programmers didn&amp;rsquo;t eat quiche!&lt;/p&gt;
+&lt;p&gt;This platter from a hard disk drive came from a Hull University mainframe in 1978. The disk is 14 inches (35.5cm) in diameter and 1.5mm thick.&lt;/p&gt;
+&lt;p&gt;It is made from a hard aluminium alloy coated with magnetic material. One side is covered with a random collection of supermarket price and product labels of the period. Even though it has been used as a rather lethal frisbee, it is still perfectly flat.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And here are some photos:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_sticker_side.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_2.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_3.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_plain_side.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     </channel>

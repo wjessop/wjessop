@@ -3,12 +3,13 @@
     <title>programming on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/programming/</link>
     <description>Recent content in programming on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Fri, 15 Sep 2023 23:49:00 +0100</lastBuildDate>
-    <atom:link href="https://willj.net/tags/programming/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/programming/" rel="self" type="application/rss+xml" />
     <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
@@ -1339,6 +1340,17 @@ etc.
 
 &lt;p&gt;So, there is no point in spinning up an EC2 instance to take advantage of the 2000 free emails per day.&lt;/p&gt;
 &lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>99 bottles of Ruby beer on the wall</title>
+      <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
+      <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
+      <description>&lt;p&gt;A while back a friend and I had a 99 bottles of beer on the wall one-liner competition in &lt;a href=&#34;http://ruby-lang.org/&#34; title=&#34;Ruby&#34;&gt;Ruby&lt;/a&gt;. I just found this in my home directory and so am claiming it as my entry:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;def b(c)&amp;quot;#{c} bottle#{c&amp;gt;1?&amp;quot;s&amp;quot;:&amp;quot;&amp;quot;} of beer on the wall&amp;quot;end;99.downto(1){|x|$&amp;gt;0?x-1:99)}.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
 </description>
     </item>
     </channel>

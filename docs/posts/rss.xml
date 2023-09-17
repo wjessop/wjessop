@@ -3,12 +3,13 @@
     <title>Posts on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/posts/</link>
     <description>Recent content in Posts on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Fri, 15 Sep 2023 23:49:00 +0100</lastBuildDate>
-    <atom:link href="https://willj.net/posts/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/posts/" rel="self" type="application/rss+xml" />
     <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
@@ -1403,6 +1404,1127 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
         &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Random graph</title>
+      <link>https://willj.net/posts/random-graph/</link>
+      <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/random-graph/</guid>
+      <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
+         alt=&#34;A random graph&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>How to find if two nodes are connected in an RGL graph</title>
+      <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
+      <pubDate>Fri, 25 Sep 2015 16:39:53 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
+      <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/graph.jpg&#34;
+         alt=&#34;a simple graph&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A simple graph&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;How do you find out if there is a path between any of the two nodes? By using a breadth-first search:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;rgl/implicit&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;rgl/traversal&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vertices &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;one&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;two&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;g &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RGL&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ImplicitGraph&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;new &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;g&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  g&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vertex_iterator { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;b&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; vertices&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;map{&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;v&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; b&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call(v) } }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  g&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;adjacent_iterator { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;x, b&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; b&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;call( vertices&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;(vertices&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;index(x) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;abs&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; ) }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  g&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;directed &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;t &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; g&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bfs_search_tree_from(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;one&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;two&amp;#34;&lt;/span&gt;)   &lt;span style=&#34;color:#75715e&#34;&gt;# true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>I got my pan tilt servos working</title>
+      <link>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</link>
+      <pubDate>Tue, 29 Jul 2014 22:59:02 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m making a simple camera gimbal and tonight I wired up the right analog stick on my xbox controller to control the pan/tilt servos:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/C8RJzWzkW0c&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Tomorrow I will print out a prototype gimbal structure.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Testing Github commit hook one liners</title>
+      <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
+      <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-github-commit-hook-one-liners/</guid>
+      <description>&lt;p&gt;A couple of ruby one-liners for dumping out the content of a github commit hook payload:&lt;/p&gt;
+&lt;p&gt;For hooks that use type &lt;strong&gt;application/json&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(request.body.read); end&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For hooks that use type &lt;strong&gt;application/x-www-form-urlencoded&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
+      <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
+      <pubDate>Fri, 18 Apr 2014 17:41:47 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s a good idea to set an IAM access policy for anything that accesses AWS using your account details, I wanted to do this for s3cmd syncing a local directory to an s3 bucket. There are a &lt;a href=&#34;https://www.google.co.uk/search?q=s3cmd+iam+policy&amp;amp;oq=s3cmd+iam&amp;amp;aqs=chrome.0.69i59j69i57j69i60.4378j0j7&amp;amp;sourceid=chrome&amp;amp;es_sm=91&amp;amp;ie=UTF-8&#34;&gt;number of posts&lt;/a&gt; on setting up the IAM policy for s3cmd already but none of the examples worked for me, I got a 403 permission denied error when running the s3cmd sync command.&lt;/p&gt;
+&lt;p&gt;After some digging it turns out that s3cmd now tries to set an ACL on the files it uploads, and this needs to be specifically allowed in the ACL. I&amp;rsquo;m guessing that it didn&amp;rsquo;t in the past, hence the now incorrect IAM advice. So here is the new working IAM policy, complete with the &lt;code&gt;s3:PutObjectAcl&lt;/code&gt; permission added:&lt;/p&gt;
+&lt;p&gt;(See jrantil&amp;rsquo;s comment below on wether &lt;code&gt;s3:ListAllMyBuckets&lt;/code&gt; is needed in this instance)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Sid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Stmt1397834652000&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:ListAllMyBuckets&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::*&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Sid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Stmt1397834745000&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:ListBucket&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:PutObject&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:PutObjectAcl&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::bucketname&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::bucketname/*&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update&#34;&gt;Update!&lt;/h2&gt;
+&lt;p&gt;This post was imported from my original blog where there were comments, and these may be relevant to anyone finding this page now:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/comments.png&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Ping-Pong Press!</title>
+      <link>https://willj.net/posts/ping-pong-press/</link>
+      <pubDate>Mon, 16 Dec 2013 18:24:25 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/ping-pong-press/</guid>
+      <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Robot at RubyConf</title>
+      <link>https://willj.net/posts/robot-at-rubyconf/</link>
+      <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
+      <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
+         alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The view from my hotel balcony&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;First job, putting the robot back together again. I was happy it made it through security. It was the first time I&amp;rsquo;d flown with a small toolkit.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4471.jpg&#34;
+         alt=&#34;The robot dissasembled&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The robot laid bare&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4482.jpg&#34;
+         alt=&#34;Someone using an xbox controller to drive my robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;I was carrying the robot around most of the first day, people constantly asked to try it out&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It worked well on the shiny floor of the lobby. You can just about see the new 3d printed lifter arm:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4486.jpg&#34;
+         alt=&#34;A crowd of people watching someone use my robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The balls went everywhere&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/8RdkD-BATBE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Totally coincidentally Ron Evans also did a great talk on &lt;a href=&#34;http://artoo.io/&#34;&gt;Artoo&lt;/a&gt; and the newly announced &lt;a href=&#34;http://gobot.io/&#34;&gt;Gobotio&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/mhXyNGX38mw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Programmers love robots!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Prototype lifter arm</title>
+      <link>https://willj.net/posts/prototype-lifter-arm/</link>
+      <pubDate>Sat, 02 Nov 2013 22:04:05 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/prototype-lifter-arm/</guid>
+      <description>&lt;p&gt;I added a prototype lifter arm to my robot yesterday. It needs re-doing (it&amp;rsquo;s unreliable and heavy) but it works for now.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m using a new motor driver circuit for it as I burned out the SN754410 motor driver I was using, the lifter motor seems to peak briefly at about 1.5 amps when starting to lift the arm, and that&amp;rsquo;s out of the chips range. I stayed up late making a new motor control circuit with a L298N that can provide a lot more power.&lt;/p&gt;
+&lt;p&gt;Here is the robot picking up 12 ping-pong balls. I was driving, Morwenna was filming:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/doxEBi1UjLg&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is the same run seen through the on-board camera. Almost all of the run was done watching the live feed rather than watching the robot itself:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/T1NwjBEUjio&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is the paper strip-board design for the L298N circuit.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4442.jpg&#34;
+         alt=&#34;Designing tHe motor driver circuit for stripboard&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Designing tHe motor driver circuit for stripboard&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Testing the circuit out on breadboard:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4440.jpg&#34;
+         alt=&#34;A mess of wires and breadboard and stripboard&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Wire everywhere, as often happens when I&amp;#39;m doing electronics projects&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4441.jpg&#34;
+         alt=&#34;A finished circuit on stripbord&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The finished circuit. You can see it bolted to the back of the robot in the video.&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>First robot remote driving test</title>
+      <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
+      <pubDate>Fri, 01 Nov 2013 02:16:09 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/first-robot-remote-driving-test/</guid>
+      <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
+&lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/4YYC7bCiRTI&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Rejects and prototypes</title>
+      <link>https://willj.net/posts/rejects-and-prototypes/</link>
+      <pubDate>Thu, 31 Oct 2013 13:25:19 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/rejects-and-prototypes/</guid>
+      <description>&lt;p&gt;Prototypes and rejects from the 3d printer. All part of the design process for my robot:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4436.jpg&#34;
+         alt=&#34;Rejected and prototype 3D printed robot componenets&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Rejected and prototype 3D printed componenets&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>New robot base design and completed prototype arm assembly</title>
+      <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
+      <pubDate>Thu, 31 Oct 2013 13:16:49 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
+      <description>&lt;p&gt;I spent all day at &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hacman&lt;/a&gt; Tuesday and Wednesday printing and tweaking robot parts. I put it all together when I got home. This is the front, the lifter arm has holes to allow me to screw in different attachments, I&amp;rsquo;ve still not designed that part of the robot yet:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4432.jpg&#34;
+         alt=&#34;The robot, mostly assembled&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here is the back view, you can see the lifter arm gear housing (the curved structure) and the motor that drives it, also the battery (underneath the ball hopper)&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4433.jpg&#34;
+         alt=&#34;The rear of the robot with the hopper in place&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The lifter arm gear system looking through where the hopper would be:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4434.jpg&#34;
+         alt=&#34;The robot without the hopper in place&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I need to design an attachment for the end of the lifter arm. Here I&amp;rsquo;ve created a simple one using meccano. It&amp;rsquo;s too heavy, the bolts catch on the floor and it dumps the ping-pong balls short of the hopper. Other than that it&amp;rsquo;s perfect. You can see the camera with capped lens that I&amp;rsquo;ve just wedged into the structure temporarily:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_44351.jpg&#34;
+         alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Testing the new battery &#43; lifter arm circuit</title>
+      <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
+      <pubDate>Mon, 28 Oct 2013 23:02:01 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</guid>
+      <description>&lt;p&gt;First test of the Raspberry Pi running off battery power with no external supply at all. In the picture the 5000mAh battery is the object at the back with &amp;ldquo;5000&amp;rdquo; written on it. My multimeter is measuring the voltage output. One of the Raspberry Pi (the thing with the red light on it) output pins is connected through the MotorPiTX board (the yellow circuit board on-top of the Raspberry Pi) to the breadboard.&lt;/p&gt;
+&lt;p&gt;The breadboard contains two circuits, the top-right cluster of components is the circuit that turns the output of the Raspberry Pi into something relevant to the motor driver in the bottom left, the bottom left cluster of components is the motor driver itself.&lt;/p&gt;
+&lt;p&gt;The Pi is pulsing the output causing the motor driver to spin the motor. The micro-switch just on the very bottom of the picture is one of the limit switches for the ball lifter arm.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4418.jpg&#34;
+         alt=&#34;A curcuit under test with a multimeter&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>An assembled ping-pong robot hopper</title>
+      <link>https://willj.net/posts/an-assembled-hopper/</link>
+      <pubDate>Thu, 24 Oct 2013 01:27:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/an-assembled-hopper/</guid>
+      <description>&lt;p&gt;Today I printed out and glued together the first iteration of the ping-pong ball hopper that takes up most of the space of the robot.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4405.jpg&#34;
+         alt=&#34;The assembled hopper&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The assembled hopper&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Full of ping-pong balls, I can get 12-14 in without packing them manually. That seems like enough for now, but a larger hopper would be good.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4406.jpg&#34;
+         alt=&#34;The hopper loaded with ping-pong balls&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The hopper loaded with ping-pong balls&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Mounted on the robot. You can see the completed camera mount and Raspberry Pi mounted on the side in the foreground:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4407.jpg&#34;
+         alt=&#34;The ping-pong ball hopper mounted on the robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The ping-pong ball hopper mounted on the robot&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4408.jpg&#34;
+         alt=&#34;The reverse angle&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The reverse angle&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Testing new motor mounts</title>
+      <link>https://willj.net/posts/testing-new-motor-mounts/</link>
+      <pubDate>Thu, 24 Oct 2013 01:22:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-new-motor-mounts/</guid>
+      <description>&lt;p&gt;I needed to re-design the motor mounts on the robot base, they didn&amp;rsquo;t hold the motors securely enough and tended to shift around.&lt;/p&gt;
+&lt;p&gt;The new mounts are better fitting and include a small wedge that fits between one of the gearbox plates where there are no cogs.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4404.jpg&#34;
+         alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4403.jpg&#34;
+         alt=&#34;Two motors fully encased in the motor mounts&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Raspberry Pi camera mount &#43; lens holder</title>
+      <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
+      <pubDate>Thu, 24 Oct 2013 01:15:37 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
+      <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4394.jpg&#34;
+         alt=&#34;Raspberry pi camera holder&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4396.jpg&#34;
+         alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>New Pi mount, and testing the power requirements</title>
+      <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
+      <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4390.jpg&#34;
+         alt=&#34;Testing the robot power requirements&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Before I pick a battery I need to know what power requirements my robot is going to have so I took it into the &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hackspace&lt;/a&gt; to test. I hooked it up to one of the power supplies then ran all the systems, so Streaming video off the Raspberry Pi over wireless whilst running the motors. I weight it down with a large motor (the big black thing) and then provided resistance, it peaks at about 1.6 amps.&lt;/p&gt;
+&lt;p&gt;In the video you can also see the new side mounted Raspberry Pi and the base of the ping-pong ball hopper.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/rA89dFa6OmU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4392.jpg&#34;
+         alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Lenses</title>
+      <link>https://willj.net/posts/lenses/</link>
+      <pubDate>Fri, 18 Oct 2013 16:17:20 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/lenses/</guid>
+      <description>&lt;p&gt;The Raspberry Pi camera doesn&amp;rsquo;t have a field of view that is wide enough for my robot, I&amp;rsquo;d have to mount it really far from my robot to see enough context to make it drivable so I&amp;rsquo;ve bought some wide angle iPhone lenses to try out.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4386.jpg&#34;
+         alt=&#34;Wide-angle and fish-eye lenses&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a photo taken using the fish-eye lens held up to my iPhone:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4388.jpg&#34;
+         alt=&#34;The view through the fish-eye lens&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>First prototype robot base</title>
+      <link>https://willj.net/posts/prototype-robot-base/</link>
+      <pubDate>Mon, 30 Sep 2013 20:08:56 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/prototype-robot-base/</guid>
+      <description>&lt;p&gt;The robot base design from my previous post printed OK. Here it is printing:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4320.jpg&#34;
+         alt=&#34;A 3d printer printing on a glass sheet&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The finished print. The two small separate objects are the motor covers:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4322.jpg&#34;
+         alt=&#34;A completed 3d print&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Completed robot base print&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The assembled robot, including Raspberry Pi and MotorPiTX:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4330.jpg&#34;
+         alt=&#34;An assembled robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Assembled robot base&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The underside of the robot:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4332.jpg&#34;
+         alt=&#34;The underside of a robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>OpenSCAD robot base design</title>
+      <link>https://willj.net/posts/openscad-robot-base-design/</link>
+      <pubDate>Tue, 24 Sep 2013 01:23:15 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/openscad-robot-base-design/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve re-designed a prototype robot mount in OpenSCAD as Sketchup wasn&amp;rsquo;t up to the job. It took a while, you have to program the model in a text editor so there&amp;rsquo;s lots of trial and error. Will have to wait to print it to see if this design will work.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-24-at-02-18-33.png&#34;
+         alt=&#34;A CAD model of a small part of the base of my robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Prototype robot base designed in OpenSCAD&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;https://willj.net/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-22-at-20-27-41.png&#34;
+         alt=&#34;The same robot base as before but in Sketchup&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Robot base designed in Sketchup&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Sketchup was great, really easy to use, the only problem was that it seemed to create invalid model files.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Trying out the prototype caterpillar track mount</title>
+      <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
+      <pubDate>Mon, 23 Sep 2013 18:09:32 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</guid>
+      <description>&lt;p&gt;It works, but it needs more refinement.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4296.jpg&#34;
+         alt=&#34;A Pololu track and motor in a prototype mount&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Testing the new motor mount&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Printing out a test caterpillar track and motor mount</title>
+      <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
+      <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/-1ye-TLipiY&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4289.jpg&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Printing a motor / caterpillar track mount detail&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4290.jpg&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The 3d printer at work&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Designing a track mount</title>
+      <link>https://willj.net/posts/designing-a-track-mount/</link>
+      <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/designing-a-track-mount/</guid>
+      <description>&lt;p&gt;Designing a track mount for my pololu caterpillar tracks. Sketchup is trying very hard to prevent me.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-21-at-23-37-18.png&#34;
+         alt=&#34;Screengrab of an in-progress design for a track mount&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Pololu track mount design in progress&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Secret project - MotorPiTX motor board</title>
+      <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
+      <pubDate>Sun, 08 Sep 2013 00:51:32 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/secret-project-motorpitx-motor-board/</guid>
+      <description>&lt;p&gt;I soldered together my MotorPiTX motor controller today and fitted it to the robot:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4256.jpg&#34;
+         alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It&amp;rsquo;s a hell of a lot neater than my original effort, and only trails one wire. It goes forwards &lt;em&gt;and&lt;/em&gt; backwards now too. To the left of the blue relay near the top you can see my homemade heatsink attached to the voltage regulator:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4257.jpg&#34;
+         alt=&#34;Closeup of a heatsink made of meccano parts&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The robot in action, being driven by a Go program on the Raspberry Pi:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.youtube.com/watch?v=hIabB-AURT0&#34;&gt;http://www.youtube.com/watch?v=hIabB-AURT0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next up, getting the camera working, and figuring out a better power supply/battery.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Secret project</title>
+      <link>https://willj.net/posts/secret-project/</link>
+      <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/secret-project/</guid>
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/41c6bjctp2l1.jpg&#34;
+         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
+&lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
+&lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4248.jpg&#34;
+         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Motor mount&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Seeing if it drives in a straight line:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/JrhgSdsNkCM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Hooked up to the Raspberry Pi, controlled by microswitches. You can see the top of the Custard Pi poking out over the mess of wires that is my breadboard and the cheap wireless dongle/antenna I got from eBay. The voltage regulator circuit makes an appearance being dragged along behind:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/Op8CD11w8OQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4247.jpg&#34;
+         alt=&#34;A PCB with no components on it and a bag of componenets&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>go-piglow, a lib for controlling the piglow in Golang</title>
+      <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
+      <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/piglow.jpg&#34;
+         alt=&#34;A Piglow Raspberry pi board lit up&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;A few days ago I got a &lt;a href=&#34;http://shop.pimoroni.com/products/piglow&#34; title=&#34;Piglow&#34;&gt;Piglow&lt;/a&gt;. It&amp;rsquo;s a fairly useless but fun addon board for the Raspberry Pi that has 18 individual user controllable LEDs arranged in Arms/Legs/Tentacles (whatever you want to call them).&lt;/p&gt;
+&lt;p&gt;There are example programs out there to control the LEDs, but they are all in Python, and on my Pi they are all fairly slow so I wrote my own lib for Go: &lt;a href=&#34;https://github.com/wjessop/go-piglow&#34;&gt;https://github.com/wjessop/go-piglow&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The API is fairly strigthtforward, this sample program just turns on and off some of the LEDS:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/wjessop/go-piglow&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;piglow&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Piglow&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// Create a new Piglow
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;piglow&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewPiglow&lt;/span&gt;(); &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Couldn&amp;#39;t create a Piglow: &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SetLED&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// Set LED 0 to 255 (max brightness)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SetLED&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// Set LED 1 to half brightness
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Apply&lt;/span&gt;(); &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; { &lt;span style=&#34;color:#75715e&#34;&gt;// Apply the changes
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Couldn&amp;#39;t apply changes: &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The lib API allows for controlling individual LEDs, the colour rings, the tentacles, or to display a value bar-graph style on each tentacle.&lt;/p&gt;
+&lt;p&gt;I wrote some more complex example programs to go with the lib to demo these capabilities. A simple program to flash the LEDs, a CPU meter that displays 1, 5 and 15 minute load average on each of the tentacles, and the most fun, a disco program, here is me demonstrating them:&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Creating BERT dicts in Go</title>
+      <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
+      <pubDate>Sun, 10 Feb 2013 02:09:06 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/creating-bert-dicts-in-go/</guid>
+      <description>&lt;p&gt;I’ve been learning Go recently and have written a program to connect to an existing service (written in Ruby) that sends and receives messages serialised as &lt;a href=&#34;http://bert-rpc.org/&#34;&gt;BERT&lt;/a&gt; terms.&lt;/p&gt;
+&lt;p&gt;I’m posting this partly because I had quite a lot of fun figuring it out and partly to document creating BERT dicts in Go should anyone else need to do this in the future and hit the same issues I did.&lt;/p&gt;
+&lt;h2 id=&#34;why-bert&#34;&gt;Why BERT?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m a big fan of BERT. It’s compact, flexible, and there are good libs available for serialisation/de-serialisation. So far I’ve exclusively been using the &lt;a href=&#34;https://github.com/mojombo/bert&#34;&gt;bert gem&lt;/a&gt; (written by Tom Preston-Werner, author of the BERT spec).&lt;/p&gt;
+&lt;h2 id=&#34;creating-bert-dicts&#34;&gt;Creating BERT dicts&lt;/h2&gt;
+&lt;p&gt;One of the great features of BERT is the complex types it supports, including dicts. The equivalent to a dict in Ruby would be a hash, in Go a map. They are really simple to create in Ruby:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bert&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode({&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val&amp;#34;&lt;/span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x83&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;bertd&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;dictl&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x01&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x02&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;keym&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;valj&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can pull this apart and see exactly what the bert gem did to our data. Let&amp;rsquo;s dump the string to an array of 8-bit unsigned integers:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode({&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val&amp;#34;&lt;/span&gt;})&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unpack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C*&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;131&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;98&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;114&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;109&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;109&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;106&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It’s hard to see exactly what happened, but with the BERT docs and the &lt;a href=&#34;http://erlang.org/doc/apps/erts/erl_ext_dist.html&#34;&gt;erlang External Term Format docs&lt;/a&gt; we can see how the hash got encoded.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;magic| tuple |  atom   |       bert     |            |    dict        |  list 1 elem    |      list      |   atom  |      key      |   atom  |      |  val       | nil | nil
+131, 104, 3, 100, 0, 4, 98, 101, 114, 116, 100, 0, 4, 100, 105, 99, 116, 108, 0, 0, 0, 1, 108, 0, 0, 0, 2, 100, 0, 3, 107, 101, 121, 100, 0, 3,       118, 97, 108, 106, 106
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the formatting of that breakdown is messed up &lt;a href=&#34;https://gist.github.com/wjessop/4747914/raw/a7cea5f08b87add27c677145fa49815ed0c98faf/gistfile1.txt&#34;&gt;here’s a raw gist&lt;/a&gt; that may be clearer.&lt;/p&gt;
+&lt;p&gt;What you can see here are what the bytes represent (you can see the breakdown of each data type on the External Term Format &lt;a href=&#34;http://erlang.org/doc/apps/erts/erl_ext_dist.html&#34;&gt;docs&lt;/a&gt;). This is great, but why write a blog post just about dicts? Well, they’re easy to create in Ruby:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode(&lt;span style=&#34;color:#e6db74&#34;&gt;:complex&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:data&lt;/span&gt;, {&lt;span style=&#34;color:#e6db74&#34;&gt;:structures&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;are easy to serialise&amp;#34;&lt;/span&gt;}&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x83&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;bertd&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;dictl&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x01&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x02&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\a&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;complexh&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;bertd&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;dictl&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x01&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x02&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;keyl&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x02&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;datah&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x03&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;bertd&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x04&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;dictl&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x01&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x02&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;structuresm&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\x00\x00\x00\x15&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;are easy to serialisejjjj&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;but it’s not so obvious in Go, and I hit some issues when trying to create them.&lt;/p&gt;
+&lt;h2 id=&#34;serialising-to-bert-in-golang&#34;&gt;Serialising to BERT in Golang&lt;/h2&gt;
+&lt;p&gt;Serialising data to BERT/BERP in Go is pretty easy for simple cases using the &lt;a href=&#34;https://github.com/sethwklein/gobert&#34;&gt;gobert&lt;/a&gt; lib:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/sethwklein/gobert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt; = new(&lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Buffer&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;MarshalResponse&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Bytes&lt;/span&gt;()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This gives us:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 0 0 7 131 100 0 3 102 111 111
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If we run that through the Ruby lib decoder we get:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;131&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;102&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;111&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;111&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;pack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C*&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:foo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(The Ruby bert lib decodes atoms to symbols).&lt;/p&gt;
+&lt;h2 id=&#34;serialising-to-bert-dicts-in-golang&#34;&gt;Serialising to BERT dicts in Golang&lt;/h2&gt;
+&lt;p&gt;However, there is a little more effort involved serialising more complex data structures, in particular dicts, as I found out.&lt;/p&gt;
+&lt;p&gt;You might have thought that you could just pass in a map:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/sethwklein/gobert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;map&lt;/span&gt;[&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key1&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key2&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val2&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt; = new(&lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Buffer&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;MarshalResponse&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;message&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Bytes&lt;/span&gt;()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We get the output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 0 0 1 131
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well, that doesn’t work. What you end up with is a one byte long BERP. It seems that gobert doesn’t automatically serialise maps. No problem, we’ll build one up manually. A quick look at the BERT documentation shows the format of a dict:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Dictionaries (hash tables) are expressed via an array of 2-tuples representing the key/value pairs. The KeysAndValues array is mandatory, such that an empty dict is expressed as {bert, dict, []}. Keys and values may be any term. For example, {bert, dict, [{name, &amp;laquo;“Tom”&amp;raquo;}, {age, 30}]}.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So let&amp;rsquo;s create this special structure manually.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/sethwklein/gobert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;message1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key1&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val1&amp;#34;&lt;/span&gt;)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;message2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key2&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val3&amp;#34;&lt;/span&gt;)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;keys_and_values&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;message1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;message2&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;dict&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;BertAtom&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dict&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;keys_and_values&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt; = new(&lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Buffer&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;MarshalResponse&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;dict&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Bytes&lt;/span&gt;()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The result:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 0 0 51 131 104 3 100 0 4 98 101 114 116 100 0 4 100 105 99 116 104 2 104 2 100 0 4 107 101 121 49 100 0 4 118 97 108 49 104 2 100 0 4 107 101 121 50 100 0 4 118 97 108 51
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It looks better, but it doesn’t decode, using Ruby:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;131&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;98&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;114&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;pack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C*&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;TypeError&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;Invalid&lt;/span&gt; dict spec, &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; an erlang list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We’re still missing something. Let&amp;rsquo;s compare the output of the Ruby bert lib to the output of gobert for the same data structure:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;encode({&lt;span style=&#34;color:#e6db74&#34;&gt;:key1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:val1&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:key2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:val2&lt;/span&gt;})&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unpack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C*&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;131&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;98&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;114&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;106&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We’re definitely missing some data in the gobert output.&lt;/p&gt;
+&lt;p&gt;If you follow along the byte sequences you can see that they start off the same until the 18th byte. In the Ruby output this is ‘108’, or LIST_EXT. In the gobert output it’s 104, a SMALL_TUPLE_EXT. We can see where this difference happens in encode.go in the gobert lib (in the writeTag func):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reflect&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Slice&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;writeSmallTuple&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;w&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reflect&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Array&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;writeList&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;w&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;v&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s decode the BERT data to see where the diversion happens in the underlying data structures:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;magic| tuple  |  atom   |       bert       |   atom   |    dict
+  131, 104, 3, 100, 0, 4, 98, 101, 114, 116, 100, 0, 4, 100, 105, 99, 116
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can see that the “bert” and “dict” atoms are encoded the same, but the keys_and_values array is getting encoded as a SMALL_TUPLE_EXT by gobert when we wanted a LIST_EXT. If we look back at the gobert code we can see that the decision to use SMALL_TUPLE_EXT over LIST_EXT is dependent on a slice or array being present. We can use the go “reflect” package to look at the arrays/slices we are creating and see what they are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;reflect&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/sethwklein/gobert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;slice&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;array_val&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reflect&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ValueOf&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;array&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;slice_val&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reflect&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ValueOf&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;slice&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;array is a: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;array_val&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Kind&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;slice is a: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;slice_val&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Kind&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;array is a: array
+slice is a: slice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;the-fix&#34;&gt;The fix&lt;/h2&gt;
+&lt;p&gt;So, in order to fix our data structure to get gobert to correctly encode the dict we need to change the keys_and_values slice to an array:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/sethwklein/gobert&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;message1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key1&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val1&amp;#34;&lt;/span&gt;)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;message2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;key2&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;val3&amp;#34;&lt;/span&gt;)}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;keys_and_values&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;message1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;message2&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;// Now an array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;dict&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Term&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;BertAtom&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Atom&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dict&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#a6e22e&#34;&gt;keys_and_values&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt; = new(&lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Buffer&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;bert&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;MarshalResponse&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;dict&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;buf&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Bytes&lt;/span&gt;()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The result:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 0 0 55 131 104 3 100 0 4 98 101 114 116 100 0 4 100 105 99 116 108 0 0 0 2 104 2 100 0 4 107 101 121 49 100 0 4 118 97 108 49 104 2 100 0 4 107 101 121 50 100 0 4 118 97 108 51 106
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But more importantly, can we decode the data we encoded?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BERT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;131&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;98&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;114&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;105&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;116&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;107&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;101&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;121&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;118&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;97&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;108&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;106&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;pack(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C*&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;:key1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:val1&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:key2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:val3&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yes!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Creating animated gifs with imagemagick</title>
+      <link>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</link>
+      <pubDate>Tue, 24 Apr 2012 10:49:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://willj.net/posts/railsberry-animated-gifs&#34; title=&#34;Railsberry animated gifs&#34;&gt;my last post&lt;/a&gt; I linked to some animated gifs I made on my mac. It&amp;rsquo;s pretty easy if you have imagemagick installed.&lt;/p&gt;
+&lt;p&gt;Simply get a bunch of images together and use the convert command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;convert -resize 900x -loop 0 -delay 10 DSC_8264.JPG DSC_8265.JPG DSC_8266.JPG DSC_8267.JPG DSC_8268.JPG DSC_8269.JPG DSC_8270.JPG jon_walk.gif
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The last argument is the output filename. The options should be self explanatory, but you can check them up in the man page if you want to tweak the values.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Railsberry animated gifs</title>
+      <link>https://willj.net/posts/railsberry-animated-gifs/</link>
+      <pubDate>Mon, 23 Apr 2012 16:05:30 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/railsberry-animated-gifs/</guid>
+      <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
+&lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/riding_unicorn.gif&#34;
+         alt=&#34;A woman riding someone in a unicorn mask&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/jon_walk.gif&#34;
+         alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/jk.gif&#34;
+         alt=&#34;A man doing something like a jazz hands pose&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Paula Deen riding things</title>
+      <link>https://willj.net/posts/paula-deen-riding-things/</link>
+      <pubDate>Thu, 02 Feb 2012 22:00:10 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/paula-deen-riding-things/</guid>
+      <description>&lt;p&gt;I made some Paula Deen riding… pictures. Because I can.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/paula-deen-sausuage.jpeg&#34;
+         alt=&#34;Paula deen riding a sausage&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/paula-deen-riding-kitten.jpeg&#34;
+         alt=&#34;Paula deen riding a kitten&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/original.jpeg&#34;
+         alt=&#34;Paula deen riding a science cat&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Testing http over socket connections with socat</title>
+      <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
+      <pubDate>Fri, 02 Dec 2011 22:00:55 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</guid>
+      <description>&lt;p&gt;Sometimes I need to test an http server that is listening on a unix socket. It&amp;rsquo;s really easy to do this using socat, but the socat man page is pretty long. Here it is for anyone who needs it in the future, and me when I inevitably forget.&lt;/p&gt;
+&lt;p&gt;In this case the server is unicorn, but this will work for any http server listening on a socket, for instance thin. The lines beginning with &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; are lines I typed (the 4 lines at the start), remove the &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; when you try this.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ socat - UNIX-CONNECT:/u/apps/app/shared/sockets/unicorn.sock,crnl
+--&amp;gt;GET /session/new HTTP/1.1
+--&amp;gt;Host: thehostname.com
+--&amp;gt;X-Forwarded-Proto: https
+--&amp;gt;
+HTTP/1.1 200 OK
+Date: Fri, 02 Dec 2011 14:37:23 GMT
+Status: 200 OK
+Connection: close
+Strict-Transport-Security: max-age=31536000
+Content-Type: text/html; charset=utf-8
+X-UA-Compatible: IE=Edge,chrome=1
+ETag: &amp;#34;2346c47c7cb3bc37729e42fc8b20c821&amp;#34;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _x_session=blablabla; path=/; HttpOnly; secure
+X-Request-Id: c0a374f460d1b1205df450ab77dd2328
+X-Runtime: 0.159219
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34; data-behavior=&amp;#34;wallpaper&amp;#34;&amp;gt;
+&amp;lt;head&amp;gt;
+etc.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For those interested in the relevance of the crnl option at the end of the socket path, this from the man page:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Converts the default line termination character NL (&amp;rsquo;n&amp;rsquo;, 0x0a)&lt;/li&gt;
+&lt;li&gt;to/from CRNL (&amp;ldquo;rn&amp;rdquo;, 0x0d0a) when writing/reading on this&lt;/li&gt;
+&lt;li&gt;channel (example). Note: socat simply strips all CR characters.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    <item>
+      <title>Cloud email service price comparison</title>
+      <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
+      <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-11-30-at-22-20-15.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
+&lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-52.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-57.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here you can see the Sendgrid Lite plan shadowing Amazon and the Postmark costs heading up rapidly.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;It seems Sendgrid have just added an &amp;lsquo;Amazon SES&amp;rsquo; plan to pull back any customers that would have chosen SES based on price. It&amp;rsquo;s probably a good move, and it will allow easy transition into their more &amp;lsquo;premium&amp;rsquo; plans if you sign up and later decide to change plan.&lt;/p&gt;
+&lt;p&gt;Given the advertised features of Postmark compared to the price it seems hard to consider using them. They seem to have some fairly well known customers though, so if anyone has used Postmark leave a comment with how that is working out for you.&lt;/p&gt;
+&lt;p&gt;So which email cloud provider should you use? Use the graphs I made, but price is only going to be one factor, so check what each provider offers. I&amp;rsquo;ve linked to all the pricing pages below.&lt;/p&gt;
+&lt;h3 id=&#34;price-sources&#34;&gt;Price sources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sendgrid.com/pricing&#34;&gt;Sendgrid prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://postmarkapp.com/pricing&#34;&gt;Postmark prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/ses/pricing&#34;&gt;Amazon SES prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mailgun.com/pricing&#34;&gt;Mailgun prices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Should I switch from Sendgrid to Amazon SES?</title>
+      <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
+      <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/emails-price-comparison1.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
+&lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/email-prices-plus-server.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So, there is no point in spinning up an EC2 instance to take advantage of the 2000 free emails per day.&lt;/p&gt;
+&lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Rewriting URL params in nginx</title>
+      <link>https://willj.net/posts/rewriting-url-params-in-nginx/</link>
+      <pubDate>Sat, 07 Mar 2009 14:30:37 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/rewriting-url-params-in-nginx/</guid>
+      <description>&lt;p&gt;I came across this problem recently, a customer was moving to Ruby on Rails from another framework/language (.NET I think) and needed to re-write a bunch of URLs. Some needed the query parameters rewriting too. One example was rewriting the old search path, so the old URL:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://somedomain.com/OldSearchPath.aspx?qry=things&amp;amp;page=4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;would become:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;http://somedomain.com/search?query=things&amp;amp;page=4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This should be fairly simple except for the &lt;em&gt;qry&lt;/em&gt; parameter needed to be changed to &lt;em&gt;query&lt;/em&gt;. A bit of googling didn&amp;rsquo;t turn up much but with some experimentation I came up with this using the pre-populated nginx $args variable:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;location /OldSearchPath.aspx {
+  if ($args ~* qry=(.+)) {
+    set $args query=$1;
+  }
+}
+rewrite ^.+$ /search redirect;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It even leaves the other parameters intact, so the pagination will still work.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Tricks of the Trade</title>
+      <link>https://willj.net/posts/tricks-of-the-trade/</link>
+      <pubDate>Thu, 12 Apr 2007 19:04:33 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/tricks-of-the-trade/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.themorningnews.org/archives/how_to/tricks_of_the_trade.php&#34; title=&#34;Tricks of the trade&#34;&gt;Interesting article&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;hellip;I recently asked readers for their &amp;ldquo;tricks of the trade,&amp;rdquo; and was amazed by the response. It seems every profession is rich with clever little occupational secrets.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is one:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Juggler&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;With any routine under seven minutes (which is almost all of them), you only really need one thing: a good closer. And there are only two things you really need to know about a great closer. First, it needs to be impressive. That sounds obvious, but most beginning jugglers think &amp;ldquo;difficult&amp;rdquo; and &amp;ldquo;impressive&amp;rdquo; are synonymous. Your closer must &lt;em&gt;look&lt;/em&gt; hard, but there’s no real reason it has to &lt;em&gt;be&lt;/em&gt; hard. Secondly, you should intentionally blow your closer on the first two tries. If you get it on the first try it looks too easy, but if you &amp;ldquo;miss&amp;rdquo; it a few times it looks harder and builds tension.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    <item>
+      <title>A great &#39;site unavailable&#39; message</title>
+      <link>https://willj.net/posts/a-great-site-unavailable-message/</link>
+      <pubDate>Fri, 14 Jul 2006 16:49:02 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/a-great-site-unavailable-message/</guid>
+      <description>&lt;p&gt;Seen on &lt;a href=&#34;https://www.fish4.co.uk/&#34; title=&#34;fish4&#34;&gt;Fish4&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Thank you for coming to Fish4 this morning.&lt;/p&gt;
+&lt;p&gt;Unfortunately the fish4 website is unavailable due to the failure of a very expensive piece of Sun hardware (Sun 6900). A Sun engineer is at the data centre but didn&amp;rsquo;t think to bring the replacement part with him.&lt;/p&gt;
+&lt;p&gt;We hope the sun engineer will have repaired the hardware by 12pm, and will update this estimate if necessary as the work progresses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here is a screengrab of the error:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>99 bottles of Ruby beer on the wall</title>
+      <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
+      <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
+      <description>&lt;p&gt;A while back a friend and I had a 99 bottles of beer on the wall one-liner competition in &lt;a href=&#34;http://ruby-lang.org/&#34; title=&#34;Ruby&#34;&gt;Ruby&lt;/a&gt;. I just found this in my home directory and so am claiming it as my entry:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;def b(c)&amp;quot;#{c} bottle#{c&amp;gt;1?&amp;quot;s&amp;quot;:&amp;quot;&amp;quot;} of beer on the wall&amp;quot;end;99.downto(1){|x|$&amp;gt;0?x-1:99)}.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Fixing the &#39;Memory card error&#39; on the Canon IXUS 400 / S3</title>
+      <link>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</link>
+      <pubDate>Sun, 12 Feb 2006 16:29:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</guid>
+      <description>&lt;p&gt;_&lt;strong&gt;Update&lt;/strong&gt;: the IXUS 400 is getting quite old and if you&amp;rsquo;re looking to update it I recommend the Canon IXUS 95, it&amp;rsquo;s pretty close to the IXUS 400, but much better. If you&amp;rsquo;re looking to move up to a digital SLR camera I&amp;rsquo;ve since got a Nikon D40X that I can also recommend.&lt;/p&gt;
+&lt;p&gt;The day after my daughter Holly was born my Canon IXUS 400 camera started giving a &amp;lsquo;Memory card error&amp;rsquo; and refused to save anything to the compact flash card. I assumed that this meant that there was an error with the memory card so I bought a brand new one and was slightly cheesed off when the IXUS gave the same &amp;lsquo;Memory card error&amp;rsquo; message after installing it.&lt;/p&gt;
+&lt;p&gt;A bit of googling revealed that a number of people have had this error with the Canon IXUS s3 and that the problem was solved by opening the case and removing the internal battery. The specs of the IXUS 400 are similar to that of the S3 and the chassis are practically identical, so I guessed they may well share a fair few components, and therefore problems. I was not that keen on the idea of doing this however until I discovered that Canon wanted to charge me nearly £100 to fix it (including the cost of postage).&lt;/p&gt;
+&lt;p&gt;It seems a bit cheeky asking for that amount of money to fix a problem that is effectively a design flaw, so I went for the DIY option and it seems to have worked, I have only taken about 20 photos, but as the camera would not allow any to be taken before, this is a significant improvement!&lt;/p&gt;
+&lt;p&gt;For anyone wanting to do the same here are some photos of what to look for. This one is the back of the camera with the case taken off.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus.jpg&#34;
+         alt=&#34;A Canon IXUS 400 without it&amp;#39;s case on showing circuitry&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;A naked Canon IXUS 400&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;And this one is of the front of the camera. The battery is under the circled bit of metal film which was stuck down and had to be peeled off to get to the battery which is mounted in a clip just underneath.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus_highlighted_battery.jpg&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The battery popped out really easily with a small flat screwdriver. I put the battery back in, put the camera back together and the camera worked (I had to format the memory card first).&lt;/p&gt;
+&lt;p&gt;Some tips if you are going to try this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Have a very small flat and cross head screwdriver.&lt;/li&gt;
+&lt;li&gt;Make a note of where the screws came from, many are different lengths.&lt;/li&gt;
+&lt;li&gt;Remember which order the body panels and parts came off.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Don&amp;rsquo;t attempt this if you are not confident in doing so, if you break your camera it is entirely your fault, and this will probably invalidate your warranty (mine had expired already). This whole experience has shaken my confidence in Canon cameras, I will be looking at alternative makes for my next purchase.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>New hard disc</title>
+      <link>https://willj.net/posts/new-hard-disc/</link>
+      <pubDate>Wed, 09 Nov 2005 21:24:40 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/new-hard-disc/</guid>
+      <description>&lt;p&gt;I bought a new hard disc. It probably doesn&amp;rsquo;t work anymore, but then it did only cost me £5.20. I don&amp;rsquo;t care what anyone says, I like it. It is hanging behind my desk at work.&lt;/p&gt;
+&lt;p&gt;Here is the eBay description:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;14&amp;quot; hard disk platter from the 1970s&lt;/p&gt;
+&lt;p&gt;From the days when programmers didn&amp;rsquo;t eat quiche!&lt;/p&gt;
+&lt;p&gt;This platter from a hard disk drive came from a Hull University mainframe in 1978. The disk is 14 inches (35.5cm) in diameter and 1.5mm thick.&lt;/p&gt;
+&lt;p&gt;It is made from a hard aluminium alloy coated with magnetic material. One side is covered with a random collection of supermarket price and product labels of the period. Even though it has been used as a rather lethal frisbee, it is still perfectly flat.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And here are some photos:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_sticker_side.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_2.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_3.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_plain_side.jpg&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     </channel>

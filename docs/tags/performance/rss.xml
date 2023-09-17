@@ -3,12 +3,13 @@
     <title>performance on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/performance/</link>
     <description>Recent content in performance on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Fri, 15 Sep 2023 23:49:00 +0100</lastBuildDate>
-    <atom:link href="https://willj.net/tags/performance/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/performance/" rel="self" type="application/rss+xml" />
     <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>

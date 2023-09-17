@@ -1,12 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Will Jessop&#39;s Writings</title>
-    <link>https://willj.net/index.html</link>
+    <link>https://willj.net/</link>
     <description>Recent content on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <atom:link href="https://willj.net/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jun 2020 18:03:31 +0100</lastBuildDate>
+    <atom:link href="https://willj.net/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Posts</title>
+      <link>https://willj.net/posts/</link>
+      <pubDate>Fri, 15 Sep 2023 23:49:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/</guid>
+      <description></description>
+    </item>
     </channel>
 </rss>

@@ -3,18 +3,15 @@
     <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
-    {{ with .Site.LanguageCode -}}
+    <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
     <language>{{.}}</language>{{end}}{{ with .Site.Author.email }}
     <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}
     <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Copyright }}
     <copyright>{{.}}</copyright>{{end}}{{ if not .Date.IsZero }}
     <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
-    {{ with .OutputFormats.Get "RSS" -}}
-	  {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
-    {{ end -}}
-    {{ $pages := where .Data.Pages "IsPage" true -}}
-    {{ $noPreview := where $pages "Params.preview" "!=" true -}}
-    {{ range first 20 $noPreview -}}
+    <atom:link href="{{.Permalink}}" rel="self" type="application/rss+xml" />
+    {{ $noPreview := where .Data.Pages "Params.preview" "!=" true -}}
+    {{ range .Data.Pages -}}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>

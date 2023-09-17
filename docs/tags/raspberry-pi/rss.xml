@@ -3,12 +3,13 @@
     <title>Raspberry Pi on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/raspberry-pi/</link>
     <description>Recent content in Raspberry Pi on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 11:24:00 +0000</lastBuildDate>
-    <atom:link href="https://willj.net/tags/raspberry-pi/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/raspberry-pi/" rel="self" type="application/rss+xml" />
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
