@@ -2,7 +2,7 @@
 title: "Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go"
 date: 2020-06-23T20:26:10+01:00
 draft: false
-tags: ["electronics", "raspberrypi", "golang", "programming"]
+tags: ["electronics", "Raspberry Pi", "Go", "programming"]
 category: ""
 summary: I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make.
 type: Post

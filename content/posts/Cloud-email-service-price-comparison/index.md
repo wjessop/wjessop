@@ -2,7 +2,7 @@
 title: Cloud email service price comparison
 date: 2011-11-30T21:27:42Z
 draft: false
-tags: [aws, email, postmark, sendgrid, ses, tech]
+tags: [aws, programming, tech]
 summary: A comparison of Sendgrid, AES SES, Postmark and Mailgun pricing
 category: ""
 type: Post

@@ -2,7 +2,7 @@
 title: "Writing to an Lcd Panel Using Go and a Raspberry Pi"
 date: 2020-06-24T02:09:43+01:00
 draft: false
-tags: ["electronics", "raspberrypi", "golang"]
+tags: ["electronics", "Raspberry Pi", "Go"]
 category: ""
 summary: Writing data to an LCM1602 based multiline LCD display connected to a Raspberry Pi using Go
 outputs:

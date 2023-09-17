@@ -2,7 +2,7 @@
 title: "Making a Sourdough Starter"
 date: 2021-01-13T02:53:52Z
 draft: false
-tags: ["baking", "cooking", "bread"]
+tags: ["baking", "cooking"]
 summary: A simple method for making a sourdough starter
 category: ""
 type: Post

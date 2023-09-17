@@ -2,7 +2,7 @@
 title: Should I switch from Sendgrid to Amazon SES?
 date: 2011-01-25T21:53:07Z
 draft: false
-tags: [aws, sendgrid, ses, web service, tech]
+tags: [aws, programming, tech]
 summary: I compared all Sendgrid and Amazon SES prices to see who was cheaper
 category: ""
 type: Post

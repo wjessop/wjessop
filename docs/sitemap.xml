@@ -71,9 +71,6 @@
     <loc>https://willj.net/tags/baking/</loc>
     <lastmod>2021-01-13T02:53:53+00:00</lastmod>
   </url><url>
-    <loc>https://willj.net/tags/bread/</loc>
-    <lastmod>2021-01-13T02:53:53+00:00</lastmod>
-  </url><url>
     <loc>https://willj.net/tags/cooking/</loc>
     <lastmod>2021-01-13T02:53:53+00:00</lastmod>
   </url><url>
@@ -97,12 +94,6 @@
   </url><url>
     <loc>https://willj.net/posts/welcome-to-my-new-blog/</loc>
     <lastmod>2020-06-24T23:30:40+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/golang/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/raspberrypi/</loc>
-    <lastmod>2020-06-24T02:09:43+01:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</loc>
     <lastmod>2020-06-24T02:09:43+01:00</lastmod>
@@ -239,22 +230,7 @@
     <loc>https://willj.net/posts/cloud-email-service-price-comparison/</loc>
     <lastmod>2011-11-30T21:27:42+00:00</lastmod>
   </url><url>
-    <loc>https://willj.net/tags/email/</loc>
-    <lastmod>2011-11-30T21:27:42+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/postmark/</loc>
-    <lastmod>2011-11-30T21:27:42+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/sendgrid/</loc>
-    <lastmod>2011-11-30T21:27:42+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/ses/</loc>
-    <lastmod>2011-11-30T21:27:42+00:00</lastmod>
-  </url><url>
     <loc>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</loc>
-    <lastmod>2011-01-25T21:53:07+00:00</lastmod>
-  </url><url>
-    <loc>https://willj.net/tags/web-service/</loc>
     <lastmod>2011-01-25T21:53:07+00:00</lastmod>
   </url><url>
     <loc>https://willj.net/posts/rewriting-url-params-in-nginx/</loc>

@@ -3,7 +3,7 @@ title: "Simple Sourdough Bread"
 summary: A simple, fast and reliable method for making sourdough bread
 date: 2021-01-13T02:53:53Z
 draft: false
-tags: ["baking", "cooking", "bread"]
+tags: ["baking", "cooking"]
 category: ""
 type: Post
 ---
