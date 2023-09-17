@@ -26,7 +26,7 @@ copyright = "&#169; Will Jessop. All rights reserved."
     weight = 3
 
 [outputs]
-  page = ["HTML", "RSS"]
+  page = ["HTML"]
   home = ["HTML", "RSS"]
   section = ["HTML","RSS"]
   taxonomy = ["HTML", "RSS"]
