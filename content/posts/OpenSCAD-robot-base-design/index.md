@@ -2,7 +2,7 @@
 title: OpenSCAD robot base design
 date: 2013-09-24T01:23:15Z
 draft: false
-tags: [robotics, 3D Pringing, CAD]
+tags: [robotics, 3D Printing, CAD]
 summary: I switched from Sketchup to OpenSCAD
 category: ""
 type: Post
