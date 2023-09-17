@@ -42,5 +42,4 @@ copyright = "&#169; Will Jessop. All rights reserved."
 
 # https://sam.hooke.me/note/2018/03/hugo-tag-and-category-pages/
 [taxonomies]
-tag = "tags"
-category = ""
+  tag = "tags"
