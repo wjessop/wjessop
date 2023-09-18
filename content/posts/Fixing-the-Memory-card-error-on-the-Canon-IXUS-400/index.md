@@ -21,7 +21,7 @@ For anyone wanting to do the same here are some photos of what to look for. This
 
 And this one is of the front of the camera. The battery is under the circled bit of metal film which was stuck down and had to be peeled off to get to the battery which is mounted in a clip just underneath.
 
-{{< figure src="images/naked_ixus_highlighted_battery.jpg" alt="" title="" class="full" >}}
+{{< figure src="images/naked_ixus_highlighted_battery.jpg" alt="A camera without it's case on with a red circle added to show battery location" title="The battery is under the metal film which can be peeled back carefully" class="full" >}}
 
 The battery popped out really easily with a small flat screwdriver. I put the battery back in, put the camera back together and the camera worked (I had to format the memory card first).
 

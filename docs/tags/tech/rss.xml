@@ -1168,7 +1168,10 @@ rewrite ^.+$ /search redirect;
 &lt;/figure&gt;
 
 &lt;p&gt;And this one is of the front of the camera. The battery is under the circled bit of metal film which was stuck down and had to be peeled off to get to the battery which is mounted in a clip just underneath.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus_highlighted_battery.jpg&#34;/&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/naked_ixus_highlighted_battery.jpg&#34;
+         alt=&#34;A camera without it&amp;#39;s case on with a red circle added to show battery location&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;The battery is under the metal film which can be peeled back carefully&lt;/h4&gt;
+        &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The battery popped out really easily with a small flat screwdriver. I put the battery back in, put the camera back together and the camera worked (I had to format the memory card first).&lt;/p&gt;
