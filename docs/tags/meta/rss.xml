@@ -46,7 +46,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Doesn&amp;rsquo;t write the summary&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;I had to write this manually, but I was only dealiing with 10s of posts. If you want to use this then you might want to add something to generate a summary.&lt;/p&gt;
+&lt;p&gt;I had to write this manually, but I was only dealing with 10s of posts. If you want to use this then you might want to add something to generate a summary.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Doesn&amp;rsquo;t always get the image URLs right in the markdown (but it&amp;rsquo;s easily fixable)&lt;/strong&gt;&lt;/p&gt;

@@ -42,7 +42,7 @@ There are some caveats:
 
 - **Doesn't write the summary**
 
-	I had to write this manually, but I was only dealiing with 10s of posts. If you want to use this then you might want to add something to generate a summary.
+	I had to write this manually, but I was only dealing with 10s of posts. If you want to use this then you might want to add something to generate a summary.
 
 - **Doesn't always get the image URLs right in the markdown (but it's easily fixable)**
 
