@@ -233,3 +233,5 @@ That's a reduction of over 24 MB, a huge IO amount of IO to trim from the query!
 ## Conclusion
 
 At scale IO can be a significant performance bottleneck for databases and optimizing problem queries that cause large amounts of IO can yield significant benefits. Adding the `BUFFERS` option when using `EXPLAIN ANALYSE` can give you a great way to identify problem areas of a query, and to verify when you're done that you've actually solved the issue.
+
+If you've found this interesting you might be interested in second part of this article, [Measuring IO timings when using EXPLAIN ANALYSE in Postgres](/posts/measuring-io-timing-for-postgres-explain-analyse).

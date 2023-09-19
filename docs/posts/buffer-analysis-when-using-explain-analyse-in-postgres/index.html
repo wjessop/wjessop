@@ -221,6 +221,7 @@ Send packet CA-&gt;Netherlands-&gt;CA .... 150,000,000 ns  = 150 ms
 </aside>
 <h2 id="conclusion">Conclusion</h2>
 <p>At scale IO can be a significant performance bottleneck for databases and optimizing problem queries that cause large amounts of IO can yield significant benefits. Adding the <code>BUFFERS</code> option when using <code>EXPLAIN ANALYSE</code> can give you a great way to identify problem areas of a query, and to verify when you&rsquo;re done that you&rsquo;ve actually solved the issue.</p>
+<p>If you&rsquo;ve found this interesting you might be interested in second part of this article, <a href="/posts/measuring-io-timing-for-postgres-explain-analyse">Measuring IO timings when using EXPLAIN ANALYSE in Postgres</a>.</p>
 
 	</article>
 
