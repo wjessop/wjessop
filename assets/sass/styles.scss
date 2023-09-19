@@ -171,6 +171,10 @@ p, li {
 	}
 }
 
+pre{
+		margin-bottom: 4ch;
+}
+
 div.open-to-contracts {
 	border-radius: 10px;
 	background-color: var(--bg-color-contracts);
@@ -240,10 +244,8 @@ article {
 
 		padding: 2ch;
 
-		// margin-right: 2ch;
-		margin-left: 2ch;
-		margin-bottom: 2ch;
-		margin-top: 0ch;
+		margin: 2ch 0ch 4ch 2ch;
+
 
 		p:last-child {
 			margin-bottom: 0px;

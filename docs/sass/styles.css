@@ -122,6 +122,9 @@ p > code:not([data-lang]), li > code:not([data-lang]) {
   padding: 4px 8px;
   border-radius: 5px; }
 
+pre {
+  margin-bottom: 4ch; }
+
 div.open-to-contracts {
   border-radius: 10px;
   background-color: var(--bg-color-contracts);
@@ -171,9 +174,7 @@ article blockquote {
   font-style: italic;
   text-align: justify;
   padding: 2ch;
-  margin-left: 2ch;
-  margin-bottom: 2ch;
-  margin-top: 0ch; }
+  margin: 2ch 0ch 4ch 2ch; }
   article blockquote p:last-child {
     margin-bottom: 0px; }
 
