@@ -32,7 +32,7 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		{{ partial "nav.html" . }}
 
-		{{ if .Site.Params.OpenToContracts -}}
+		{{ if and (.Site.Params.OpenToContracts) (ne false .Params.opentocontracts) -}}
 		<div class="open-to-contracts">
 		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
 		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
