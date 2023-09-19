@@ -4,6 +4,9 @@ title = "Will Jessop's Writings"
 rssLimit = 20
 copyright = "&#169; Will Jessop. All rights reserved."
 
+[Params]
+  OpenToContracts = true
+
 [author]
     name = "Will Jessop"
     email = "will@willj.net"

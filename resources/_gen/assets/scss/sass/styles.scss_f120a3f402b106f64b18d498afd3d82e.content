@@ -8,7 +8,9 @@
   --code-bg-color: #f3f3f3;
   --bg-color-about-me: #e0e0e0;
   --bg-color-aside: #e0e0e0;
-  --border-color-aside: #252525; }
+  --border-color-aside: #252525;
+  --bg-color-contracts: #767676;
+  --text-color-contracts: #ededed; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -20,7 +22,9 @@
     --code-bg-color: #5b5b5b;
     --bg-color-about-me: #1a1a1a;
     --bg-color-aside: rgb(61, 61, 61);
-    --border-color-aside: #d0d0d0; } }
+    --border-color-aside: #d0d0d0;
+    --bg-color-contracts: #767676;
+    --text-color-contracts: #ededed; } }
 
 body {
   font-family: Consolas, Monospace, Courier;
@@ -117,6 +121,14 @@ p > code:not([data-lang]), li > code:not([data-lang]) {
   color: #e3e2e2;
   padding: 4px 8px;
   border-radius: 5px; }
+
+div.open-to-contracts {
+  border-radius: 10px;
+  background-color: var(--bg-color-contracts);
+  color: var(--text-color-contracts);
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.2rem; }
 
 /*
 	Fixes iOS font sizing anomaly
