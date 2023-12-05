@@ -21,6 +21,10 @@
 				Will Jessop's Writings; Sailing, Food, Programming, Technology, and other things
 			{{ end -}}
 		</title>
+		{{ if eq true .Params.noindex -}}
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
+		{{ end -}}
 		<meta
 			name="description"
 			content="{{ if .Params.description }}{{ .Params.description }}{{ else if .Params.summary }}{{ .Params.summary }}{{ else if .Title }}{{ .Title }}{{ else }}I write about Ruby on Rails and Postgres scaling, performance and upgrade work, Ruby, Go and other programming topics, as well as sailing and cooking.{{ end }}"
