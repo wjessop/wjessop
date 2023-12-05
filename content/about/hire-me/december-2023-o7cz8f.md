@@ -1,7 +1,7 @@
 ---
 title: Hire Me
 date: 2023-09-18T17:30:00+01:00
-draft: true
+draft: false
 preview: false
 type: Static
 opentocontracts: false
