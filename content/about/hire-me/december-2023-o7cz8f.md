@@ -16,7 +16,7 @@ Hi, I am Will Jessop, an extensively experienced programmer, sysadmin and techni
 - Ruby on Rails upgrades, including handling upgrades directly, introducing processes to make upgrades sustainable and documenting changes to help teams split up and handle large upgrades themselves.
 - Consulting on engineering organisation structure and process with the aim of improving project outcomes, engineer focus and happiness, and generally increasing the effectiveness of engineering departments.
 
-I am also open to longer term senior technical leadership roles.
+I open to technical leadership, performance/scaling and Ruby on Rails upgrade roles.
 
 ---
 
