@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://willj.net/about/</loc>
+    <lastmod>2023-12-07T17:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</loc>
     <lastmod>2023-09-19T23:21:00+01:00</lastmod>
   </url><url>
