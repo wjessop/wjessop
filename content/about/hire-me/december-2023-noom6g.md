@@ -10,7 +10,7 @@ noindex: true
 
 I am Will Jessop, a programmer, sysadmin, and technical leader with a focus on Ruby on Rails performance, application scaling, and Postgres optimization.
 
-I am the current (now part time) CTO at Impactive where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2022 and then the mid-terms in 2022 when we peaked at over 1000 req/s.
+I am the current (now part time) CTO at Impactive where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2020 and then the mid-term elections in 2022 when we peaked at over 1000 req/s.
 
 I also led a complete overhaul of Impactive's engineering department and product pipeline. This re-organization improved project outcomes, engineer focus, and overall happiness, and led to an increase in the quality of the codebase and application. Key initiatives included introducing an eight-week development cycle, restructured meetings, and a new process for assigning work.
 
