@@ -10,7 +10,7 @@ noindex: true
 
 A programmer, technical leader, and sysadmin with a focus on Ruby on Rails performance, application scaling, and [Postgres optimization](https://willj.net/tags/performance/). I am currently open to new contracts in all these areas.
 
-I am the current (now part time) CTO at [Impactive](https://www.impactive.io/) where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2020 and then the mid-term elections in 2022 when we peaked at over 1000 req/s to the Ruby on Rails application.
+I am the current (now part time) CTO at [Impactive](https://www.impactive.io/) where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020 and midterms in 2022. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2020 and then the mid-term elections in 2022 when we peaked at over 1000 req/s to the Ruby on Rails application.
 
 I also led a complete overhaul of Impactive's engineering department and product pipeline. This re-organization improved project outcomes, engineer focus, and overall happiness, and led to an increase in the quality of the codebase and application. Key initiatives included introducing an eight-week development cycle, restructured meetings, and a new process for assigning work.
 
