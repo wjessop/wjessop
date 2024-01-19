@@ -8,15 +8,15 @@ opentocontracts: false
 noindex: true
 ---
 
-A programmer, technical leader, and sysadmin with a focus on Ruby on Rails performance, application scaling, and Postgres optimization. I am currently open to new contracts in all these areas.
+A programmer, technical leader, and sysadmin with a focus on Ruby on Rails performance, application scaling, and [Postgres optimization](https://willj.net/tags/performance/). I am currently open to new contracts in all these areas.
 
-I am the current (now part time) CTO at Impactive where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2020 and then the mid-term elections in 2022 when we peaked at over 1000 req/s to the Ruby on Rails application.
+I am the current (now part time) CTO at [Impactive](https://www.impactive.io/) where I tackled urgent scaling and re-architecting challenges, playing a key role in handling the traffic for the Biden campaign in 2020. This involved significantly optimizing Postgres database usage, introducing performance monitoring, and re-architecting systems for scalability. My efforts led to successful handling of peak traffic during the midterm elections in 2020 and then the mid-term elections in 2022 when we peaked at over 1000 req/s to the Ruby on Rails application.
 
 I also led a complete overhaul of Impactive's engineering department and product pipeline. This re-organization improved project outcomes, engineer focus, and overall happiness, and led to an increase in the quality of the codebase and application. Key initiatives included introducing an eight-week development cycle, restructured meetings, and a new process for assigning work.
 
 During this time I also established a culture of quality by implementing a better code review process, encouraging better Pull Request structuring, and implementing end-to-end testing for critical paths. This led to a significant reduction in bugs and outages, and an increase in engineer confidence and job satisfaction.
 
-In other roles, I have focused on Postgres database performance at Tanda, guided architectural direction and upgrade processes at Procore, and executed seamless Rails upgrades at Stuart. My tenure at 37signals/Basecamp involved security initiatives and sysadmin duties, while at Engineyard, I led customer migrations to AWS and the Terramark cloud.
+In other roles, I have focused on Postgres database performance at [Tanda](https://www.tanda.co/), guided architectural direction and upgrade processes at [Procore](https://www.procore.com/), and executed seamless Rails upgrades at [Stuart](https://stuart.com/). My tenure at [37signals](https://37signals.com/)/[Basecamp](https://basecamp.com/) involved security initiatives and sysadmin duties, while at [Engineyard](https://www.engineyard.com/), I led customer migrations to AWS and the Terramark cloud.
 
 ### Experience
 
