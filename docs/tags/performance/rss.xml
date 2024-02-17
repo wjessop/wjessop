@@ -8,7 +8,7 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 19 Sep 2023 23:21:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2024 17:25:00 +0000</lastBuildDate>
     <atom:link href="https://willj.net/tags/performance/" rel="self" type="application/rss+xml" />
     <item>
       <title>Measuring IO timings when using EXPLAIN ANALYSE in Postgres</title>
