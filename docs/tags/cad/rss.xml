@@ -1,0 +1,52 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CAD on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/cad/</link>
+    <description>Recent content in CAD on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>will@willj.net (Will Jessop)</managingEditor>
+    <webMaster>will@willj.net (Will Jessop)</webMaster>
+    <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 24 Sep 2013 01:23:15 +0000</lastBuildDate>
+    <atom:link href="https://willj.net/tags/cad/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenSCAD robot base design</title>
+      <link>https://willj.net/posts/openscad-robot-base-design/</link>
+      <pubDate>Tue, 24 Sep 2013 01:23:15 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/openscad-robot-base-design/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve re-designed a prototype robot mount in OpenSCAD as Sketchup wasn&amp;rsquo;t up to the job. It took a while, you have to program the model in a text editor so there&amp;rsquo;s lots of trial and error. Will have to wait to print it to see if this design will work.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-24-at-02-18-33.png&#34;
+         alt=&#34;A CAD model of a small part of the base of my robot&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Prototype robot base designed in OpenSCAD&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;https://willj.net/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-22-at-20-27-41.png&#34;
+         alt=&#34;The same robot base as before but in Sketchup&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Robot base designed in Sketchup&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Sketchup was great, really easy to use, the only problem was that it seemed to create invalid model files.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Designing a track mount</title>
+      <link>https://willj.net/posts/designing-a-track-mount/</link>
+      <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/designing-a-track-mount/</guid>
+      <description>&lt;p&gt;Designing a track mount for my pololu caterpillar tracks. Sketchup is trying very hard to prevent me.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2013-09-21-at-23-37-18.png&#34;
+         alt=&#34;Screengrab of an in-progress design for a track mount&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Pololu track mount design in progress&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    </channel>
+</rss>

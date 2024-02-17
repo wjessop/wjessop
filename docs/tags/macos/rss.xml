@@ -1,0 +1,178 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/macos/</link>
+    <description>Recent content in MacOS on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>will@willj.net (Will Jessop)</managingEditor>
+    <webMaster>will@willj.net (Will Jessop)</webMaster>
+    <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 17 Feb 2020 16:23:53 +0000</lastBuildDate>
+    <atom:link href="https://willj.net/tags/macos/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error installing libv8 on Mac OS Catalina</title>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR:  Error installing libv8:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    current directory: /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/bin/ruby -r ./siteconf20200217-34155-18bho1v.rb extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;creating Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-building-tests.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-werror-on-osx.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/disable-xcode-debugging.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-imply-vfp3-and-armv7.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-MAP_NORESERVE-on-freebsd.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/do-not-use-vfp2.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Applying /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/patches/fPIC-for-static.patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Compiling v8 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x64
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using python 2.7.16
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Using compiler: c++ &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clang version 11.0.0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Unable to find a compiler officially supported by v8.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;It is recommended to use GCC v4.4 or higher
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Beginning compilation. This will take some time.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building v8 with env CXX&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++ LINK&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++  /usr/bin/make x64.release ARFLAGS.target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;crs werror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GYP_GENERATORS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;make &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	build/gyp/gyp --generator-output&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;out&amp;#34;&lt;/span&gt; build/all.gyp &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Ibuild/standalone.gypi --depth&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;. &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -Dv8_target_arch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;x64 &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	              -S.x64  -Dv8_enable_backtrace&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; -Dv8_can_use_vfp2_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv2 -Dv8_can_use_vfp3_instructions&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true -Darm_fpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;vfpv3 -Dwerror&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  CXX&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;target&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: include path &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; stdlibc++ headers not found; pass &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-stdlib=libc++&amp;#39;&lt;/span&gt; on the command line to use the libc++ standard library instead &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wstdlibcxx-not-found&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ../src/allocation.cc:33:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;../src/utils.h:33:10: fatal error: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;climits&amp;#39;&lt;/span&gt; file not found
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         ^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; warning and &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;x64.release&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:36:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;block in verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: libv8 did not install properly, expected binary v8 archive &amp;#39;&lt;/span&gt;/Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in `each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:35:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;verify_installation!&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	from /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/ext/libv8/location.rb:26:in `install!&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	from extconf.rb:7:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extconf failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-19/2.4.0/libv8-3.16.14.19/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;The solution was as follows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install v8@3.15
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt; -- --with-system-v8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions with: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;--with-system-v8&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed libv8-3.16.14.19
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading ruby-2.6.3.tar.bz2...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-&amp;gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing ruby-2.6.3...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use readline from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;BUILD FAILED &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;OS X 10.14.4 using ruby-build 20190423&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Inspect or clean up the working tree at /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Last &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; log lines:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling error.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling eval.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling file.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling gc.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;file.c:23:10: fatal error: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CoreFoundation/CFString.h&amp;#39;&lt;/span&gt; file not found
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;file.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** Waiting &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unfinished jobs....
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The problem is missing headers. To re-install just run this command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, Ruby should install just fine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Downloading ruby-2.6.3.tar.bz2...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;gt;&lt;/span&gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing ruby-2.6.3...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use readline from homebrew
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 &lt;span style=&#34;color:#e6db74&#34;&gt;``&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Fixing errors installing the charlock_holmes ruby gem</title>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR:  Error installing charlock_holmes:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory: /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.6.1/bin/ruby -I /Users/will/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20190213-34122-e636v8.rb extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unicode/ucnv.h... no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;***************************************************************************************
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*********** icu required &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;brew install icu4c or apt-get install libicu-dev&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; ***********
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;***************************************************************************************
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*** extconf.rb failed ***
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Could not create Makefile due to some reason, probably lack of necessary
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;libraries and/or headers. Check the mkmf.log file &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; more details. You may
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;need configuration options.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Provided configuration options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-include&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;opt-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-opt-lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;opt-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-make-prog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-make-prog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--srcdir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--curdir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--ruby&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/Users/will/.rbenv/versions/2.6.1/bin/&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;RUBY_BASE_NAME&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-include&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;icu-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icu-lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icu-lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;icu-dir&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--without-icui18nlib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To see why this extension failed to compile, please check the mkmf.log which can be found here:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/mkmf.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extconf failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/charlock_holmes-0.7.7 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-18/2.6.0-static/charlock_holmes-0.7.7/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;First, make sure you have installed the required dependencies:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install xz icu4c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, install charlock_holmes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gem install charlock_holmes -v=0.7.7 -- --with-opt-dir=/usr/local/opt --with-opt-include=/usr/local/opt/icu4c/include --with-opt-lib=/usr/local/opt/icu4c/lib --with-cxxflags=-std=c++11
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    </channel>
+</rss>

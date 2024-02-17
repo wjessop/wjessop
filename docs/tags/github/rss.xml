@@ -1,0 +1,80 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/github/</link>
+    <description>Recent content in github on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>will@willj.net (Will Jessop)</managingEditor>
+    <webMaster>will@willj.net (Will Jessop)</webMaster>
+    <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 16 Aug 2022 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://willj.net/tags/github/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Full-height Github &#34;checks&#34; box in Firefox</title>
+      <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
+      <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/full-height-github-checks-box-in-firefox/</guid>
+      <description>&lt;p&gt;The scrolling checks box on Github &lt;strong&gt;really&lt;/strong&gt; irritates me. Follow these instructions to make it full height on Firefox.&lt;/p&gt;
+&lt;h2 id=&#34;1-take-this-css&#34;&gt;1. Take this CSS:&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list-wrapper&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;max-height&lt;/span&gt;: fit-content &lt;span style=&#34;color:#75715e&#34;&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
+&lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/full-height-github-checks-box.png&#34;
+         alt=&#34;Notifications in action in Apple Mail&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Effective Github Notifications</title>
+      <link>https://willj.net/posts/effective-github-notifications/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/effective-github-notifications/</guid>
+      <description>&lt;p&gt;Github notifications can be overwhelming, but with effective email filtering they can be turned from an encumbrance to being highly valuable. Here&amp;rsquo;s some filters to get you started (in Mail.app on a mac) to make them more useful.&lt;/p&gt;
+&lt;p&gt;Luckily Github provides us with the tools to make this filtering relatively easy. All email notifications sent from Github are automatically CCed to a Github email address that describes what they are, and this is the hook we use to create our filters.&lt;/p&gt;
+&lt;p&gt;All email addresses here are @github.com, even though in some examples they are hidden, and these rules can be added to the GMail web UI too if needed.&lt;/p&gt;
+&lt;h2 id=&#34;flag-high-priority-notifications&#34;&gt;Flag high priority notifications&lt;/h2&gt;
+&lt;p&gt;Mark &lt;strong&gt;assignments&lt;/strong&gt;, &lt;strong&gt;review requests&lt;/strong&gt;, &lt;strong&gt;mentions&lt;/strong&gt; or &lt;strong&gt;author actions&lt;/strong&gt; as high priority and flag them. This will put them at the top of your inbox:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Github-1.png&#34;
+         alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;change-the-colour-of-medium-priority-items-so-they-stand-out&#34;&gt;Change the colour of medium priority items so they stand out&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Comments&lt;/strong&gt;, &lt;strong&gt;your activity&lt;/strong&gt;, and when a &lt;strong&gt;team mentions&lt;/strong&gt; you are in is mentioned.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Github-2.png&#34;
+         alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;hide-low-priority-notifications&#34;&gt;Hide low priority notifications&lt;/h2&gt;
+&lt;p&gt;Things you might want to go and check once in a while but aren&amp;rsquo;t directly involved in we can put in a folder so they don&amp;rsquo;t demand attention throughout the day.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Github-3.png&#34;
+         alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;What you should end up with after doing this is an inbox that shows you all the things that need your attention or you&amp;rsquo;d be interested, but hides the everyday torrent of Github spam in a folder that you can check if you want later.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/Github-4.png&#34;
+         alt=&#34;Notifications in action in Apple Mail&#34;/&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Testing Github commit hook one liners</title>
+      <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
+      <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/testing-github-commit-hook-one-liners/</guid>
+      <description>&lt;p&gt;A couple of ruby one-liners for dumping out the content of a github commit hook payload:&lt;/p&gt;
+&lt;p&gt;For hooks that use type &lt;strong&gt;application/json&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(request.body.read); end&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For hooks that use type &lt;strong&gt;application/x-www-form-urlencoded&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    </channel>
+</rss>

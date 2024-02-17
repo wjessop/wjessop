@@ -1,0 +1,134 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on Will Jessop&#39;s Writings</title>
+    <link>https://willj.net/tags/aws/</link>
+    <description>Recent content in AWS on Will Jessop&#39;s Writings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>will@willj.net (Will Jessop)</managingEditor>
+    <webMaster>will@willj.net (Will Jessop)</webMaster>
+    <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 18 Apr 2014 17:41:47 +0000</lastBuildDate>
+    <atom:link href="https://willj.net/tags/aws/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
+      <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
+      <pubDate>Fri, 18 Apr 2014 17:41:47 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s a good idea to set an IAM access policy for anything that accesses AWS using your account details, I wanted to do this for s3cmd syncing a local directory to an s3 bucket. There are a &lt;a href=&#34;https://www.google.co.uk/search?q=s3cmd+iam+policy&amp;amp;oq=s3cmd+iam&amp;amp;aqs=chrome.0.69i59j69i57j69i60.4378j0j7&amp;amp;sourceid=chrome&amp;amp;es_sm=91&amp;amp;ie=UTF-8&#34;&gt;number of posts&lt;/a&gt; on setting up the IAM policy for s3cmd already but none of the examples worked for me, I got a 403 permission denied error when running the s3cmd sync command.&lt;/p&gt;
+&lt;p&gt;After some digging it turns out that s3cmd now tries to set an ACL on the files it uploads, and this needs to be specifically allowed in the ACL. I&amp;rsquo;m guessing that it didn&amp;rsquo;t in the past, hence the now incorrect IAM advice. So here is the new working IAM policy, complete with the &lt;code&gt;s3:PutObjectAcl&lt;/code&gt; permission added:&lt;/p&gt;
+&lt;p&gt;(See jrantil&amp;rsquo;s comment below on wether &lt;code&gt;s3:ListAllMyBuckets&lt;/code&gt; is needed in this instance)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Statement&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Sid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Stmt1397834652000&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:ListAllMyBuckets&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::*&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Sid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Stmt1397834745000&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:ListBucket&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:PutObject&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s3:PutObjectAcl&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::bucketname&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;arn:aws:s3:::bucketname/*&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update&#34;&gt;Update!&lt;/h2&gt;
+&lt;p&gt;This post was imported from my original blog where there were comments, and these may be relevant to anyone finding this page now:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/comments.png&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    <item>
+      <title>Cloud email service price comparison</title>
+      <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
+      <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-11-30-at-22-20-15.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
+&lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-52.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/screen-shot-2011-12-01-at-00-42-57.png&#34;
+         alt=&#34;graph showing cost of email service providers&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here you can see the Sendgrid Lite plan shadowing Amazon and the Postmark costs heading up rapidly.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;It seems Sendgrid have just added an &amp;lsquo;Amazon SES&amp;rsquo; plan to pull back any customers that would have chosen SES based on price. It&amp;rsquo;s probably a good move, and it will allow easy transition into their more &amp;lsquo;premium&amp;rsquo; plans if you sign up and later decide to change plan.&lt;/p&gt;
+&lt;p&gt;Given the advertised features of Postmark compared to the price it seems hard to consider using them. They seem to have some fairly well known customers though, so if anyone has used Postmark leave a comment with how that is working out for you.&lt;/p&gt;
+&lt;p&gt;So which email cloud provider should you use? Use the graphs I made, but price is only going to be one factor, so check what each provider offers. I&amp;rsquo;ve linked to all the pricing pages below.&lt;/p&gt;
+&lt;h3 id=&#34;price-sources&#34;&gt;Price sources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sendgrid.com/pricing&#34;&gt;Sendgrid prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://postmarkapp.com/pricing&#34;&gt;Postmark prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://aws.amazon.com/ses/pricing&#34;&gt;Amazon SES prices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mailgun.com/pricing&#34;&gt;Mailgun prices&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    <item>
+      <title>Should I switch from Sendgrid to Amazon SES?</title>
+      <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
+      <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/emails-price-comparison1.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
+&lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/email-prices-plus-server.png&#34;
+         alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;/&gt;&lt;figcaption&gt;
+            &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So, there is no point in spinning up an EC2 instance to take advantage of the 2000 free emails per day.&lt;/p&gt;
+&lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
+</description>
+    </item>
+    </channel>
+</rss>
