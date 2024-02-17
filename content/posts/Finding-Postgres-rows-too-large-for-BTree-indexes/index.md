@@ -2,7 +2,7 @@
 title: Finding Postgres rows too large for BTree indexes
 date: 2024-02-17T17:25:00+00:00
 draft: false
-preview: true
+preview: false
 tags: ["programming", "postgres", "performance", "tech"]
 summary: How I found and fixed the rows in our database that exceeded the BTree index size, preventing our migration to AlloyDB.
 description: A Ruby program to find rows in a Postgres database that are too large for BTree indexes.
