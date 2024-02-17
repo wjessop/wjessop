@@ -23,6 +23,8 @@ SELECT * FROM table_name WHERE octet_length(column_name) > 2704
 Simple enough, out popped 5 rows where the data in `column_name` was too large. This data was junk so NULLing it out fixed the bad data I knew about, but I wanted to make sure that there weren't more indexes with this issue, replicating our database to AlloyDB takes time and egress cost from AWS so fixing any known issues before we do this makes a lot of sense. To do this I wrote this Ruby program. The program scans through all column combinations for each table where the combined data _could_ be too large for an index and outputs a warning if the data it finds _is_ too large, allowing you to then run a select to get the specific data that caused the problem.
 
 ```ruby
+# This code is MIT licensed
+
 require "pg"
 
 dsn = ARGV[0]
