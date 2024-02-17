@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writing to an Lcd Panel Using Go and a Raspberry Pi on Will Jessop&#39;s Writings</title>
@@ -10,6 +9,6 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 24 Jun 2020 02:09:43 +0100</lastBuildDate>
-    <atom:link href="https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/rss.xml" rel="self" type="application/rss+xml" />
-  </channel>
+    <atom:link href="https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/" rel="self" type="application/rss+xml" />
+    </channel>
 </rss>
