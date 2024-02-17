@@ -40,12 +40,12 @@
 	<h2>Finding Postgres rows too large for BTree indexes</h2>
 
 	<article>
-		<p>We are currently migrating our main application database from AWS Aurora Postgres to Google AlloyDB Postgres (it&rsquo;s a cost decision) and I&rsquo;m using Google&rsquo;s database Migration tool to do the work. At some point last week the migration failed with an error:</p>
+		<p>We are currently migrating our main application database from AWS Aurora Postgres to Google AlloyDB Postgres (it&rsquo;s a cost decision) and I&rsquo;m using Google&rsquo;s database Migration tool to do the work. At some point last week the migration failed on Google&rsquo;s side with an error:</p>
 <pre><code>index row size 2712 exceeds btree version 4 maximum 2704 for index index_name_column_name
 </code></pre>
 <p>I&rsquo;ve not seen this before, but it was easy to find the problem rows affecting this specific index/column:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">octet_length</span>(<span style="color:#66d9ef">column_name</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2704</span>
-</span></span></code></pre></div><p>Simple enough, out popped 5 rows where the data in <code>column_name</code> was too large. This data was junk so NULLing it out fixed the bad data I knew about, but I wanted to make sure that there weren&rsquo;t more indexes with this issue, replicating our database to AlloyDB takes time and egress cost from AWS so fixing any known issues before we do this makes a lot of sense. To do this I wrote this Ruby script:</p>
+</span></span></code></pre></div><p>Simple enough, out popped 5 rows where the data in <code>column_name</code> was too large. This data was junk so NULLing it out fixed the bad data I knew about, but I wanted to make sure that there weren&rsquo;t more indexes with this issue, replicating our database to AlloyDB takes time and egress cost from AWS so fixing any known issues before we do this makes a lot of sense. To do this I wrote this Ruby program. The program scans through all column combinations for each table where the combined data <em>could</em> be too large for an index and outputs a warning if the data it finds <em>is</em> too large, allowing you to then run a select to get the specific data that caused the problem.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>require <span style="color:#e6db74">&#34;pg&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>dsn <span style="color:#f92672">=</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span>
@@ -186,13 +186,14 @@
 <pre><code>$ ruby script_name.rb your_postgres_dsn
 </code></pre>
 <p>It may take quite a lot of time to run, it effectively sequential scans all of your tables where there is a row that could be larger than the allowed row size for a BTree index, and as such you may want to run it against a replica and/or out of hours to avoid production impact, but other than that it&rsquo;s safe. For us it did find about a hundred rows in another table that were too large for the index allowing us to fix these before re-starting the migration process.</p>
-<pre><code>WARNING: some_other_table (some_index_name_idx): user_id, email, phone, approved: Maximum Size: 28586.0 bytes exceeds the max index size
+<pre><code>WARNING: some_other_table (some_index_name_idx): user_id, email, phone, approved: Maximum Size: 28586 bytes exceeds the max index size
 </code></pre>
-<p>Yeah, some people had suspiciously long emails. We&rsquo;re adding size constraints on the columns that were missing them now.</p>
-<p>Some highlights:</p>
+<p>Yeah, some people had suspiciously long emails. We&rsquo;re adding size constraints on the columns that were missing them now. If you get a warning like this then you can craft a query to find the problem rows, eg.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> some_other_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">octet_length</span>(email) <span style="color:#f92672">+</span> <span style="color:#66d9ef">octet_length</span>(phone) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2704</span>
+</span></span></code></pre></div><p>Some highlights:</p>
 <ul>
 <li>The program will sum the octet_length of all fields in an index, so if you have an index with two columns in it and it&rsquo;s only the sum of the octet_lengths that will push the row over the BTree row size this program will still find the issue.</li>
-<li>The program prunes indexes and tables where there are no indexes that could be large enough to be over the limit, effectively cutting the number of table scans it needs to do. If you&rsquo;ve got an index with 676 int fields in it then the assumption this relies on will break down, but I&rsquo;ve never seen that, and never want to.</li>
+<li>The program prunes indexes and tables where there are no indexes that could be large enough to be over the limit, effectively cutting the number of table scans it needs to do. If you&rsquo;ve got an index with 677 int fields in it then the assumption this relies on will break down, but I&rsquo;ve never seen that, and never want to.</li>
 </ul>
 <p>Some caveats:</p>
 <ul>
