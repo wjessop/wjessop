@@ -6,10 +6,12 @@
 		<h3>{{ .Key }}</h3>
 		<ul>
 		{{ range .Pages.ByDate.Reverse -}}
+		{{ if not (eq (default false .Params.noindex) true) }}
 				<li>
 					{{ if .Draft }}<strong>DRAFT:</strong> {{ end }}<a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
 					<p>{{ .Summary }}</p>
 				</li>
+		{{ end -}}
 		{{ end -}}
 		</ul>
 		{{ end -}}
