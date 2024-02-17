@@ -10,11 +10,12 @@
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 23 Jun 2020 18:03:31 +0100</lastBuildDate>
     <atom:link href="https://willj.net/" rel="self" type="application/rss+xml" />
-          <item>
-          <item>
-          <item>
-          <item>
       
+      
+      
+      
+      
+      <item>
       <title>Measuring IO timings when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</link>
       <pubDate>Tue, 19 Sep 2023 23:21:00 +0100</pubDate>
@@ -73,8 +74,9 @@
 &lt;p&gt;This isn&amp;rsquo;t something that I&amp;rsquo;ve personally found particularly useful, I suspect it might be useful when diagnosing slow fetches if you&amp;rsquo;re storing data on different backend data stores across tables, but it&amp;rsquo;s interesting to see.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
       <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
       <pubDate>Fri, 15 Sep 2023 23:49:00 +0100</pubDate>
@@ -264,8 +266,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;If you&amp;rsquo;ve found this interesting you might be interested in second part of this article, &lt;a href=&#34;https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse&#34;&gt;Measuring IO timings when using EXPLAIN ANALYSE in Postgres&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
       <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
       <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
@@ -319,8 +322,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;Anyway, the code got me 90% of the way to where I wanted the posts to get so worked well for what I wanted it to do and I&amp;rsquo;d call it a success. &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I&amp;rsquo;ve put the code up on Github&lt;/a&gt;, I likely won&amp;rsquo;t need to run this code again, but if it&amp;rsquo;s useful to you please feel free to submit PRs.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
       <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
       <pubDate>Mon, 11 Sep 2023 17:27:00 +0100</pubDate>
@@ -350,8 +354,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
       <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
@@ -472,8 +477,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Running a specific knapsack test set locally</title>
       <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
       <pubDate>Wed, 26 Apr 2023 15:00:00 +0000</pubDate>
@@ -504,8 +510,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/ol&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Will&#39;s YouTube sailing channel recommendations</title>
       <link>https://willj.net/posts/youtube-sailing-channel-recommendations/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
@@ -541,8 +548,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;Some of these are pure sailing, some more &amp;ldquo;lifestyle&amp;rdquo; sailing. I like each for different reasons. Some I tolerate and only watch when I&amp;rsquo;ve run out of other stuff, but see what you like. Bear in mind not everything these people do is a good idea, but it&amp;rsquo;s a pretty easy way of immersing yourself in the scene without any outlay.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
       <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
       <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
@@ -561,8 +569,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Effective Github Notifications</title>
       <link>https://willj.net/posts/effective-github-notifications/</link>
       <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
@@ -596,8 +605,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Simple Sourdough Bread</title>
       <link>https://willj.net/posts/simple-sourdough-bread/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:53 +0000</pubDate>
@@ -675,8 +685,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;Start to feed the starter with 50/50 flour and water a few days in advance until you have enough starter to take out the amount you will need while still leaving about 150g that you can then feed and put back in the fridge.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Making a Sourdough Starter</title>
       <link>https://willj.net/posts/making-a-sourdough-starter/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:52 +0000</pubDate>
@@ -741,8 +752,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;If your starter has sat for a while then you will find it will become more liquid, this is OK, you can still make bread with it, it just might not be as good. If there is liquid sitting on top of the starter, mix it in. If you pour it out your starter will be unbalanced.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
       <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
       <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
@@ -951,8 +963,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! There&amp;rsquo;s a few more functions that the library provides, such as enabling calibration and setting the I²C bus address, you can check them out at the repo.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>
       <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
       <pubDate>Wed, 25 Nov 2020 04:59:00 +0000</pubDate>
@@ -985,8 +998,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;If you are printing these yourself due to the fine thread you will likely want to use a fairly high quality print setting.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Welcome to My New Blog</title>
       <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
       <pubDate>Wed, 24 Jun 2020 23:30:40 +0100</pubDate>
@@ -997,8 +1011,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
       <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
       <pubDate>Wed, 24 Jun 2020 02:09:43 +0100</pubDate>
@@ -1064,8 +1079,9 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
       <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
       <pubDate>Tue, 23 Jun 2020 20:26:10 +0100</pubDate>
@@ -1233,8 +1249,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
       <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
       <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
@@ -1294,8 +1311,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
       <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
       <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
@@ -1334,8 +1352,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 &lt;span style=&#34;color:#e6db74&#34;&gt;``&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
       <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
       <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
@@ -1400,8 +1419,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Basic pasta sauce</title>
       <link>https://willj.net/posts/basic-pasta-sauce/</link>
       <pubDate>Tue, 14 Feb 2017 00:56:16 +0000</pubDate>
@@ -1451,8 +1471,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I think that&amp;rsquo;s it! Nail the basic sauce then experiment on top of that and you&amp;rsquo;ve got a handy and versatile base!&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>The security of a system is as strong as it&#39;s weakest component</title>
       <link>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</link>
       <pubDate>Fri, 15 Apr 2016 12:47:57 +0000</pubDate>
@@ -1490,8 +1511,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Random graph</title>
       <link>https://willj.net/posts/random-graph/</link>
       <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
@@ -1506,8 +1528,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
       <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
       <pubDate>Fri, 25 Sep 2015 16:39:53 +0000</pubDate>
@@ -1538,8 +1561,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-        <item>
+    
       
+      <item>
       <title>I got my pan tilt servos working</title>
       <link>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</link>
       <pubDate>Tue, 29 Jul 2014 22:59:02 +0000</pubDate>
@@ -1554,8 +1578,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Tomorrow I will print out a prototype gimbal structure.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Testing Github commit hook one liners</title>
       <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
       <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
@@ -1568,8 +1593,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(params[:payload]); end&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-        <item>
+    
       
+      <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
       <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
       <pubDate>Fri, 18 Apr 2014 17:41:47 +0000</pubDate>
@@ -1615,8 +1641,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Ping-Pong Press!</title>
       <link>https://willj.net/posts/ping-pong-press/</link>
       <pubDate>Mon, 16 Dec 2013 18:24:25 +0000</pubDate>
@@ -1625,8 +1652,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Robot at RubyConf</title>
       <link>https://willj.net/posts/robot-at-rubyconf/</link>
       <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
@@ -1673,8 +1701,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Prototype lifter arm</title>
       <link>https://willj.net/posts/prototype-lifter-arm/</link>
       <pubDate>Sat, 02 Nov 2013 22:04:05 +0000</pubDate>
@@ -1716,8 +1745,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>First robot remote driving test</title>
       <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
       <pubDate>Fri, 01 Nov 2013 02:16:09 +0000</pubDate>
@@ -1733,8 +1763,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Rejects and prototypes</title>
       <link>https://willj.net/posts/rejects-and-prototypes/</link>
       <pubDate>Thu, 31 Oct 2013 13:25:19 +0000</pubDate>
@@ -1749,8 +1780,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>New robot base design and completed prototype arm assembly</title>
       <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
       <pubDate>Thu, 31 Oct 2013 13:16:49 +0000</pubDate>
@@ -1787,8 +1819,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
       <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
       <pubDate>Mon, 28 Oct 2013 23:02:01 +0000</pubDate>
@@ -1805,8 +1838,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>An assembled ping-pong robot hopper</title>
       <link>https://willj.net/posts/an-assembled-hopper/</link>
       <pubDate>Thu, 24 Oct 2013 01:27:44 +0000</pubDate>
@@ -1841,8 +1875,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Testing new motor mounts</title>
       <link>https://willj.net/posts/testing-new-motor-mounts/</link>
       <pubDate>Thu, 24 Oct 2013 01:22:00 +0000</pubDate>
@@ -1865,8 +1900,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
       <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
       <pubDate>Thu, 24 Oct 2013 01:15:37 +0000</pubDate>
@@ -1887,8 +1923,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>New Pi mount, and testing the power requirements</title>
       <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
       <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
@@ -1916,8 +1953,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Lenses</title>
       <link>https://willj.net/posts/lenses/</link>
       <pubDate>Fri, 18 Oct 2013 16:17:20 +0000</pubDate>
@@ -1939,8 +1977,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>First prototype robot base</title>
       <link>https://willj.net/posts/prototype-robot-base/</link>
       <pubDate>Mon, 30 Sep 2013 20:08:56 +0000</pubDate>
@@ -1976,8 +2015,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>OpenSCAD robot base design</title>
       <link>https://willj.net/posts/openscad-robot-base-design/</link>
       <pubDate>Tue, 24 Sep 2013 01:23:15 +0000</pubDate>
@@ -2000,8 +2040,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Sketchup was great, really easy to use, the only problem was that it seemed to create invalid model files.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Trying out the prototype caterpillar track mount</title>
       <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
       <pubDate>Mon, 23 Sep 2013 18:09:32 +0000</pubDate>
@@ -2016,8 +2057,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Printing out a test caterpillar track and motor mount</title>
       <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
       <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
@@ -2040,8 +2082,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Designing a track mount</title>
       <link>https://willj.net/posts/designing-a-track-mount/</link>
       <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
@@ -2056,8 +2099,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Secret project - MotorPiTX motor board</title>
       <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
       <pubDate>Sun, 08 Sep 2013 00:51:32 +0000</pubDate>
@@ -2082,8 +2126,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Next up, getting the camera working, and figuring out a better power supply/battery.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Secret project</title>
       <link>https://willj.net/posts/secret-project/</link>
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
@@ -2125,8 +2170,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
       <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
@@ -2173,8 +2219,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Creating BERT dicts in Go</title>
       <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
       <pubDate>Sun, 10 Feb 2013 02:09:06 +0000</pubDate>
@@ -2348,8 +2395,9 @@ slice is a: slice
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Yes!&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Creating animated gifs with imagemagick</title>
       <link>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</link>
       <pubDate>Tue, 24 Apr 2012 10:49:42 +0000</pubDate>
@@ -2362,8 +2410,9 @@ slice is a: slice
 &lt;p&gt;The last argument is the output filename. The options should be self explanatory, but you can check them up in the man page if you want to tweak the values.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Railsberry animated gifs</title>
       <link>https://willj.net/posts/railsberry-animated-gifs/</link>
       <pubDate>Mon, 23 Apr 2012 16:05:30 +0000</pubDate>
@@ -2387,8 +2436,9 @@ slice is a: slice
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Paula Deen riding things</title>
       <link>https://willj.net/posts/paula-deen-riding-things/</link>
       <pubDate>Thu, 02 Feb 2012 22:00:10 +0000</pubDate>
@@ -2409,8 +2459,9 @@ slice is a: slice
 
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Testing http over socket connections with socat</title>
       <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
       <pubDate>Fri, 02 Dec 2011 22:00:55 +0000</pubDate>
@@ -2450,8 +2501,9 @@ etc.
 &lt;/blockquote&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Cloud email service price comparison</title>
       <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
       <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
@@ -2499,8 +2551,9 @@ etc.
 &lt;/ul&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Should I switch from Sendgrid to Amazon SES?</title>
       <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
       <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
@@ -2526,8 +2579,9 @@ etc.
 &lt;p&gt;I will be interested in SendGrid&amp;rsquo;s response to this. Possibly lowering prices? For me certainly their value-add isn&amp;rsquo;t worth the extra cost over Amazon SES.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Rewriting URL params in nginx</title>
       <link>https://willj.net/posts/rewriting-url-params-in-nginx/</link>
       <pubDate>Sat, 07 Mar 2009 14:30:37 +0000</pubDate>
@@ -2547,8 +2601,9 @@ rewrite ^.+$ /search redirect;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It even leaves the other parameters intact, so the pagination will still work.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Tricks of the Trade</title>
       <link>https://willj.net/posts/tricks-of-the-trade/</link>
       <pubDate>Thu, 12 Apr 2007 19:04:33 +0000</pubDate>
@@ -2565,8 +2620,9 @@ rewrite ^.+$ /search redirect;
 &lt;/blockquote&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>A great &#39;site unavailable&#39; message</title>
       <link>https://willj.net/posts/a-great-site-unavailable-message/</link>
       <pubDate>Fri, 14 Jul 2006 16:49:02 +0000</pubDate>
@@ -2582,8 +2638,9 @@ rewrite ^.+$ /search redirect;
 &lt;p&gt;&lt;a href=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>99 bottles of Ruby beer on the wall</title>
       <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
       <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
@@ -2594,8 +2651,9 @@ rewrite ^.+$ /search redirect;
 &lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>Fixing the &#39;Memory card error&#39; on the Canon IXUS 400 / S3</title>
       <link>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</link>
       <pubDate>Sun, 12 Feb 2006 16:29:42 +0000</pubDate>
@@ -2628,8 +2686,9 @@ rewrite ^.+$ /search redirect;
 &lt;p&gt;Don&amp;rsquo;t attempt this if you are not confident in doing so, if you break your camera it is entirely your fault, and this will probably invalidate your warranty (mine had expired already). This whole experience has shaken my confidence in Canon cameras, I will be looking at alternative makes for my next purchase.&lt;/p&gt;
 </description>
     </item>
-        <item>
+    
       
+      <item>
       <title>New hard disc</title>
       <link>https://willj.net/posts/new-hard-disc/</link>
       <pubDate>Wed, 09 Nov 2005 21:24:40 +0000</pubDate>
