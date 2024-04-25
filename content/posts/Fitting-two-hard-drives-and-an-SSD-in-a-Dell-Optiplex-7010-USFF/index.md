@@ -1,16 +1,24 @@
 ---
-title: Fitting two hard drives and an SSD in a Dell OptiPlex 7010 USFF
+title: Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF
 date: 2023-05-28T00:00:00Z
 draft: false
 tags: ["3D Printing", "design", "tech"]
-summary: The Dell OptiPlex 7010 USFF officially only has room for one 2.5" hard drive internally, I fitted two 3.25" hard drives and a 2.5" SSD in one.
+summary: The Dell OptiPlex 7010 SFF officially only has room for one 2.5" hard drive internally, I fitted two 3.25" hard drives and a 2.5" SSD in one.
 category: ""
 type: Post
 ---
 
-{{< figure src="images/DELL-Optiplex-7010-USFF.jpg" title="A Dell OptiPlex 7010 USFF" class="right" alt="A Dell OptiPlex 7010 Ultra Small Form Factor">}}
+-------
 
-I recently bought a [Dell OptiPlex 7010 Ultra Small Form Factor](https://www.dell.com/support/manuals/en-ae/optiplex-7010/opti7010_usff/specifications?guid=guid-157e8495-34d3-4efa-ab61-1d9efba4c90e&lang=en-us) PC from eBay. I was Intending on squeezing two of the spare Seagate Barracuda 4TB 3.5" hard drives I have in it with an SSD boot disk and installing [TrueNAS](https://www.truenas.com/) to use it as a file store. It's a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the USFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the USFF model I got can only officially fit a single 2.5" SSD in it, and no 3.5" drives at all. Whoops.
+# Update!
+
+It turns out that this is a Dell OptiPlex 7010 SFF, not a USFF (as advertised by the eBay seller)!
+
+-------
+
+{{< figure src="images/DELL-Optiplex-7010-SFF.jpg" title="A Dell OptiPlex 7010 SFF" class="right" alt="A Dell OptiPlex 7010 Ultra Small Form Factor">}}
+
+I recently bought a [Dell OptiPlex 7010 Small Form Factor](https://www.dell.com/support/kbdoc/en-uk/000212008/dell-optiplex-small-form-factor-7010-system-guide) PC from eBay. I was Intending on squeezing two of the spare Seagate Barracuda 4TB 3.5" hard drives I have in it with an SSD boot disk and installing [TrueNAS](https://www.truenas.com/) to use it as a file store. It's a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the SFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the SFF model I got can only officially fit a single 2.5" SSD in it, and no 3.5" drives at all. Whoops.
 
 Opening up the machine it turns out that there was actually a 3.5" drive bay and the eBay seller used a tiny amount of hot glue to just glue a 2.5" SSD into the bay rather than using an adapter. Quality. This didn't help much though, there was still no way of fitting the number of drives I wanted in the machine as it came. Anyway, after removing the SSD, the official Dell drive mounts and the slim CDRW drive I took a look at the situation and figured I could probably rescue this with a bit of 3d printing. Any day that requires you to solve a problem with a bit of 3d printing is generally a good day.
 
@@ -20,7 +28,7 @@ This works for my Seagate Barracuda 4TB drives. They're slightly thinner than so
 
 ## Risers of the Machine
 
-{{< figure src="images/Dell-Optiplex-7010-USFF-inside.jpg" title="View inside a Dell OptiPlex 7010 USFF, there isn't much room" class="left" alt="View inside a Dell OptiPlex 7010 Ultra Small Form Factor">}}
+{{< figure src="images/Dell-Optiplex-7010-SFF-inside.jpg" title="View inside a Dell OptiPlex 7010 SFF, there isn't much room" class="left" alt="View inside a Dell OptiPlex 7010 Ultra Small Form Factor">}}
 
 {{< figure src="images/Dell-OptiPlex-7010-motherboard.jpg" title="The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are" class="right" alt="A Dell OptiPlex 7010 Ultra Small Form Factor motherboard">}}
 
@@ -113,7 +121,7 @@ The PSU is 64W I think, but seems to be fine driving two mirrored 5400 RPM drive
 
 The Fusion 360 design file:
 
-- [Dell Optiplex 7010 USFF HD Mount.f3d](<Dell Optiplex 7010 USFF HD Mount.f3d>)
+- [Dell Optiplex 7010 SFF HD Mount.f3d](<Dell Optiplex 7010 SFF HD Mount.f3d>)
 
 STL:
 
