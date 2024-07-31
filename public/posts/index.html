@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
-	<head>
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<link rel="stylesheet" href="/sass/styles.css">
 
-		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
-
-		<title>Posts</title>
-		<meta name="description" content="Posts">
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Posts
+			</title>
+		<meta
+			name="description"
+			content="Posts"
+		/>
 		<meta name="author" content="Will Jessop">
 	</head>
 	<body>
@@ -17,74 +20,113 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		<nav id="nav" class="nav justify-content-center">
 	|
-
-	<a class="nav-link" href="/">Home</a> |
-
-	<a class="nav-link" href="/posts/">Posts</a> |
-
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
 </nav>
 
 
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
 		
-	
-
 	<post_list>
+		<h3>2024/July</h3>
 		<ul>
 		
 				<li>
-					<a class="font-125" href="/posts/youtube-sailing-channel-recommendations/">Will&#39;s YouTube sailing channel recommendations</a>
-						<p>A list of YouTube sailing channels that Will recommends to either learn more about sailing, or just to live vicariously through the experiences of others.</p>
+					<strong>DRAFT:</strong> <a class="font-125" href="/posts/you-should-use-the-rails-logger-block-syntax/">You should use the Ruby on Rails logger block syntax</a>
+					<p>Many people are familiar with Postgres&rsquo; <code>EXPLAIN</code> and <code>EXPLAIN ANALYSE</code> reports, but there are a couple of useful options available when running them that aren&rsquo;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the <code>BUFFERS</code> report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.</p>
 				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/full-height-github-checks-box-in-firefox/">Full-height Github &#34;checks&#34; box in Firefox</a>
-						<p>No more scolling the checks box on Github when you have plenty of screen space to display it</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/effective-github-notifications/">Effective Github Notifications</a>
-						<p>Taming the torrent of Github notification emails</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/simple-sourdough-bread/">Simple Sourdough Bread</a>
-						<p>A simple, fast and reliable method for making sourdough bread</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/making-a-sourdough-starter/">Making a Sourdough Starter</a>
-						<p>A simple method for making a sourdough starter</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/using-the-t67xx-co2-sensor-module-in-go/">Using the T67XX CO₂ Sensor Module in Go</a>
-						<p>Getting CO₂ readings and more from the T67XX CO2 Sensor Module in Go</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/custom-blue-snowball-microphone-desk-stand/">Custom 3D printed Blue Snowball desk stand</a>
-						<p>I wasn&rsquo;t happy with the original Blue Snowball microphone desk stand, so I designed and printed a new one</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/welcome-to-my-new-blog/">Welcome to My New Blog</a>
-						<p>I used to blog on wordpress, but now I don&rsquo;t</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/">Writing to an Lcd Panel Using Go and a Raspberry Pi</a>
-						<p>Writing data to an LCM1602 based multiline LCD display connected to a Raspberry Pi using Go</p>
-				</li>
-		
-				<li>
-					<a class="font-125" href="/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</a>
-						<p>I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make.</p>
-				</li>
-		
 		</ul>
-	</post_list>
-
-
+		<h3>2024/February</h3>
+		<ul>
 		
+				<li>
+					<a class="font-125" href="/posts/finding-postgres-rows-too-large-for-btree-indexes/">Finding Postgres rows too large for BTree indexes</a>
+					<p>How I found and fixed the rows in our database that exceeded the BTree index size, preventing our migration to AlloyDB.</p>
+				</li>
+		</ul>
+		<h3>2023/October</h3>
+		<ul>
+		
+				<li>
+					<strong>DRAFT:</strong> <a class="font-125" href="/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/">Giving Postgres a handle adding query parameters to help the query planner</a>
+					<p>Increasing postgres query performance with additional parameters There&rsquo;s a lot to take in here so feel free to skip ahead to the &ldquo;Improving the performance&rdquo; section if you are getting lost or falling asleep.
+In Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE I promised to dig deeper into the specifics of the optimisation that we put in place. This post will go into the details, and hopefully give you some more ideas for helping to optimise your queries in the future.</p>
+				</li>
+		</ul>
+		<h3>2023/September</h3>
+		<ul>
+		
+				<li>
+					<a class="font-125" href="/posts/measuring-io-timing-for-postgres-explain-analyse/">Measuring IO timings when using EXPLAIN ANALYSE in Postgres</a>
+					<p>A followup to my post about using <code>BUFFERS</code> with <code>EXPLAIN ANALYSE</code> I talk about the IO timing tracking option in Postgres which can give you an exact breakdown of how long each part of a query took in milliseconds of IO time.</p>
+				</li>
+		
+				<li>
+					<a class="font-125" href="/posts/buffer-analysis-when-using-explain-analyse-in-postgres/">Buffer analysis when using EXPLAIN ANALYSE in Postgres</a>
+					<p>Many people are familiar with Postgres&rsquo; <code>EXPLAIN</code> and <code>EXPLAIN ANALYSE</code> reports, but there are a couple of useful options available when running them that aren&rsquo;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the <code>BUFFERS</code> report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.</p>
+				</li>
+		
+				<li>
+					<a class="font-125" href="/posts/converting-a-wordpress.com_dump_to_hugo/">Converting a wordpress.com dump to Hugo, including images</a>
+					<p>I wanted to convert my old wordpress.com articles to Hugo and all off the &ldquo;official&rdquo; methods were cumbersome so I wrote a somewhat rough but fast and simple program to do the conversion for me.</p>
+				</li>
+		
+				<li>
+					<a class="font-125" href="/posts/revert-firefox-url-bar-suggestion-order-change/">Reverting Firefox&#39;s recent URL bar suggestion order change</a>
+					<p>In a recent update Firefox changed the order of it&rsquo;s URL bar suggestions order to make search suggestions appear first before recently visited URLs. This is annoying so I changed it back.</p>
+				</li>
+		</ul>
+		<h3>2023/August</h3>
+		<ul>
+		
+				<li>
+					<strong>DRAFT:</strong> <a class="font-125" href="/posts/always-document-your-magic-values/">Always document your magic values</a>
+					<p>As applications grow and the userbase gets larger so does the application data, and this can mean scaling problems. Here are some simple ideas to design scalability into the application from the start, leading to faster pages, better UX and happier customers.</p>
+				</li>
+		
+				<li>
+					<strong>DRAFT:</strong> <a class="font-125" href="/posts/designing-your-application-for-scale/">Designing your application for scale</a>
+					<p>As applications grow and the userbase gets larger so does the application data, and this can mean scaling problems. Here are some simple ideas to design scalability into the application from the start, leading to faster pages, better UX and happier customers.</p>
+				</li>
+		</ul>
+		<h3>2023/May</h3>
+		<ul>
+		
+				<li>
+					<a class="font-125" href="/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/">Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</a>
+					<p>The Dell OptiPlex 7010 SFF officially only has room for one 2.5&quot; hard drive internally, I fitted two 3.25&quot; hard drives and a 2.5&quot; SSD in one.</p>
+				</li>
+		</ul>
+		</post_list>
+	
+    <ul class="pagination pagination-terse">
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/7/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
 	</body>
 </html>

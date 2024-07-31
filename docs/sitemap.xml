@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</loc>
+    <lastmod>2024-07-31T17:00:00+01:00</lastmod>
+  </url>
+  <url>
     <loc>https://willj.net/posts/finding-postgres-rows-too-large-for-btree-indexes/</loc>
     <lastmod>2024-02-17T17:25:00+00:00</lastmod>
   </url>

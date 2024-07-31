@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Finding Postgres rows too large for BTree indexes
+			</title>
+		<meta
+			name="description"
+			content="A Ruby program to find rows in a Postgres database that are too large for BTree indexes."
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2024-02-17">Saturday, February 17, 2024</time>
+	|
+	tags:<a href="http://localhost:1313/tags/programming">programming</a> <a href="http://localhost:1313/tags/postgres">postgres</a> <a href="http://localhost:1313/tags/performance">performance</a> <a href="http://localhost:1313/tags/tech">tech</a> 
+	<hr />
+
+	<h2>Finding Postgres rows too large for BTree indexes</h2>
+
+	<article>
+		<p>We are currently migrating our main application database from AWS Aurora Postgres to Google AlloyDB Postgres (it&rsquo;s a cost decision) and I&rsquo;m using Google&rsquo;s database Migration tool to do the work. At some point last week the migration failed on Google&rsquo;s side with an error:</p>
+<pre><code>index row size 2712 exceeds btree version 4 maximum 2704 for index index_name_column_name
+</code></pre>
+<p>I&rsquo;ve not seen this before, but it was easy to find the problem rows affecting this specific index/column:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">octet_length</span>(<span style="color:#66d9ef">column_name</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2704</span>
+</span></span></code></pre></div><p>Simple enough, out popped 5 rows where the data in <code>column_name</code> was too large. This data was junk so NULLing it out fixed the bad data I knew about, but I wanted to make sure that there weren&rsquo;t more indexes with this issue, replicating our database to AlloyDB takes time and egress cost from AWS so fixing any known issues before we do this makes a lot of sense. To do this I wrote this Ruby program. The program scans through all column combinations for each table where the combined data <em>could</em> be too large for an index and outputs a warning if the data it finds <em>is</em> too large, allowing you to then run a select to get the specific data that caused the problem.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#75715e"># This code is MIT licensed</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#34;pg&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dsn <span style="color:#f92672">=</span> <span style="color:#66d9ef">ARGV</span><span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>conn <span style="color:#f92672">=</span> <span style="color:#66d9ef">PG</span><span style="color:#f92672">.</span>connect(dsn)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># So our postgres array gets converted to a Ruby array</span>
+</span></span><span style="display:flex;"><span>conn<span style="color:#f92672">.</span>type_map_for_results <span style="color:#f92672">=</span> <span style="color:#66d9ef">PG</span><span style="color:#f92672">::</span><span style="color:#66d9ef">BasicTypeMapForResults</span><span style="color:#f92672">.</span>new(conn)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># I&#39;ve seen various figures for the maximum index entry size including 2712</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># bytes, 2713 bytes, and block_size/3 (which for the default block size of 8 kB</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># is ~2730 bytes), however 2704 bytes is the figure given by the error from</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AlloyDB, so is the one we&#39;re using here.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You might need to change this value if you are using a different block size.</span>
+</span></span><span style="display:flex;"><span>max_index_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2704</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a cache for column size lookups. Column sizes will be in two types:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   1. &#34;static&#34; types, eg. int. These won&#39;t change no-matter what data is stored</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#      in them so we can just return the size for the type, eg. int =&gt; 4 bytes.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   2. &#34;dynamic&#34; types, eg. text. The octet_length of these will change</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#      depending on what is stored in them, and so we can&#39;t store a fixed</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#      integer byte size and need to scan the database to find the max size. As</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#      such rather than storing a fixed size we will store the query to find the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#      max length.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We cache the values as we will be doing the opereration per index, and for the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># same table a column can appear in multiple indexes, but the static/dynamic</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># nature of the column will not changed so we can save a little work by cacheing</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the result.</span>
+</span></span><span style="display:flex;"><span>@column_type_length_cache <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Query to find all indexes in the &#39;public&#39; schema that contain columns that are</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;dynamic&#34;, eg. text or jsonb expressions. Indexes that contain &#34;static&#34; data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># types, eg. integer alone aren&#39;t interesting as it&#39;s unlikely that you will</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># exceed the max BTree index entry size with things like UUIDs or integers</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># alone.</span>
+</span></span><span style="display:flex;"><span>query_indexes <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;~</span><span style="color:#66d9ef">SQL</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>relname <span style="color:#66d9ef">AS</span> table_name,
+</span></span><span style="display:flex;"><span>    ix<span style="color:#f92672">.</span>relname <span style="color:#66d9ef">AS</span> index_name,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ARRAY_AGG</span>(a<span style="color:#f92672">.</span>attname) <span style="color:#66d9ef">AS</span> column_name,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">CASE</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">WHEN</span> i<span style="color:#f92672">.</span>indexprs <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">THEN</span> pg_get_expr(i<span style="color:#f92672">.</span>indexprs, i<span style="color:#f92672">.</span>indrelid)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">ELSE</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">END</span> <span style="color:#66d9ef">AS</span> index_expression
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>    pg_class t
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">JOIN</span> pg_catalog<span style="color:#f92672">.</span>pg_index i <span style="color:#66d9ef">ON</span> t<span style="color:#f92672">.</span>oid <span style="color:#f92672">=</span> i<span style="color:#f92672">.</span>indrelid
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">JOIN</span> pg_catalog<span style="color:#f92672">.</span>pg_class ix <span style="color:#66d9ef">ON</span> ix<span style="color:#f92672">.</span>oid <span style="color:#f92672">=</span> i<span style="color:#f92672">.</span>indexrelid
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">JOIN</span> pg_attribute a <span style="color:#66d9ef">ON</span> a<span style="color:#f92672">.</span>attrelid <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>oid
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">AND</span> a<span style="color:#f92672">.</span>attnum <span style="color:#f92672">=</span> <span style="color:#66d9ef">ANY</span> (i<span style="color:#f92672">.</span>indkey)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">JOIN</span> pg_am am <span style="color:#66d9ef">ON</span> am<span style="color:#f92672">.</span>oid <span style="color:#f92672">=</span> ix<span style="color:#f92672">.</span>relam
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>    i<span style="color:#f92672">.</span>indexrelid <span style="color:#66d9ef">IN</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">--</span> <span style="color:#66d9ef">Select</span> any indexes that contain at least one field type we care about,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">--</span> excluding field types that we know, <span style="color:#66d9ef">when</span> used alone, will <span style="color:#f92672">not</span> be larger
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">--</span> than an index entry, <span style="color:#66d9ef">unless</span> you are doing something especially fruity<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>        distinct(c<span style="color:#f92672">.</span>oid)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>      pg_catalog<span style="color:#f92672">.</span>pg_class c
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">JOIN</span> pg_catalog<span style="color:#f92672">.</span>pg_index i <span style="color:#66d9ef">ON</span> c<span style="color:#f92672">.</span>oid <span style="color:#f92672">=</span> i<span style="color:#f92672">.</span>indexrelid
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">JOIN</span> pg_catalog<span style="color:#f92672">.</span>pg_namespace ns <span style="color:#66d9ef">ON</span> c<span style="color:#f92672">.</span>relnamespace <span style="color:#f92672">=</span> ns<span style="color:#f92672">.</span>oid
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">JOIN</span> pg_catalog<span style="color:#f92672">.</span>pg_attribute a <span style="color:#66d9ef">ON</span> a<span style="color:#f92672">.</span>attrelid <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span>oid
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>        relkind <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;i&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">AND</span> indisprimary <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">AND</span> ns<span style="color:#f92672">.</span>nspname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;public&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">AND</span> a<span style="color:#f92672">.</span>atttypid <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">IN</span> (
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">16</span>,   <span style="color:#f92672">--</span> boolean
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">20</span>,   <span style="color:#f92672">--</span> bigint
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">21</span>,   <span style="color:#f92672">--</span> smallint
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">23</span>,   <span style="color:#f92672">--</span> integer
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1082</span>, <span style="color:#f92672">--</span> date
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">1114</span>, <span style="color:#f92672">--</span> timestamp without timezone
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">2950</span>  <span style="color:#f92672">--</span> uuid
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> am<span style="color:#f92672">.</span>amname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;btree&#39;</span> <span style="color:#f92672">--</span> I am only concerned about btree types as that was the error we are dealing with
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> table_name, index_name, index_expression
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SQL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>indexes_result <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>exec(query_indexes)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:values</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">column_octet_length_query</span>(conn, column)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;max(octet_length(&#39;</span><span style="color:#e6db74">#{</span>conn<span style="color:#f92672">.</span>quote_ident(column)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;))&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">expression_octet_length_query</span>(expression)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;max(octet_length(</span><span style="color:#e6db74">#{</span>expression<span style="color:#e6db74">}</span><span style="color:#e6db74">))&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fetch_column_type_length</span>(conn, table_name, column_name)
+</span></span><span style="display:flex;"><span>  cache_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>table_name<span style="color:#e6db74">}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">#{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># We can have multiple indexes on the same table that reference the same</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># column so let&#39;s cache the lookups for a column</span>
+</span></span><span style="display:flex;"><span>  @column_type_length_cache<span style="color:#f92672">[</span>cache_key<span style="color:#f92672">]</span> <span style="color:#f92672">||=</span> <span style="color:#66d9ef">begin</span>
+</span></span><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;~</span><span style="color:#66d9ef">SQL</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>        a<span style="color:#f92672">.</span>atttypid,
+</span></span><span style="display:flex;"><span>        t<span style="color:#f92672">.</span>typlen
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">FROM</span> pg_attribute a
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">JOIN</span> pg_type t <span style="color:#66d9ef">ON</span> a<span style="color:#f92672">.</span>atttypid <span style="color:#f92672">=</span> t<span style="color:#f92672">.</span>oid
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">JOIN</span> pg_class c <span style="color:#66d9ef">ON</span> a<span style="color:#f92672">.</span>attrelid <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span>oid
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">WHERE</span> c<span style="color:#f92672">.</span>relname <span style="color:#f92672">=</span> $1 <span style="color:#66d9ef">AND</span> a<span style="color:#f92672">.</span>attname <span style="color:#f92672">=</span> $2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SQL</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>exec_params(query, <span style="color:#f92672">[</span>table_name, column_name<span style="color:#f92672">]</span>)
+</span></span><span style="display:flex;"><span>    typlen <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>first<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;typlen&#39;</span><span style="color:#f92672">].</span>to_i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    typlen<span style="color:#f92672">.</span>positive? ? typlen : column_octet_length_query(conn, column_name)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>indexes_result<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>table_name, index_name, column_names, index_expression<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>  index_expression <span style="color:#f92672">||=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">begin</span>
+</span></span><span style="display:flex;"><span>    regular_column_size_queries <span style="color:#f92672">=</span> column_names<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>cn<span style="color:#f92672">|</span> fetch_column_type_length(conn, table_name, cn) }
+</span></span><span style="display:flex;"><span>    expression_size_queries <span style="color:#f92672">=</span> index_expression<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;, &#34;</span>)<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>e<span style="color:#f92672">|</span> expression_octet_length_query(e) }
+</span></span><span style="display:flex;"><span>    all_size_queries_string <span style="color:#f92672">=</span> (regular_column_size_queries <span style="color:#f92672">+</span> expression_size_queries)<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39; + &#39;</span>)
+</span></span><span style="display:flex;"><span>    compound_size_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT </span><span style="color:#e6db74">#{</span>all_size_queries_string<span style="color:#e6db74">}</span><span style="color:#e6db74"> AS max_size FROM </span><span style="color:#e6db74">#{</span>conn<span style="color:#f92672">.</span>quote_ident(table_name)<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    max_size <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>exec(compound_size_query)<span style="color:#f92672">.</span>first<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;max_size&#34;</span><span style="color:#f92672">].</span>to_i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> max_size <span style="color:#f92672">&gt;</span> max_index_size
+</span></span><span style="display:flex;"><span>      puts <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[31mWARNING: </span><span style="color:#e6db74">#{</span>table_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">#{</span>index_name<span style="color:#e6db74">}</span><span style="color:#e6db74">): </span><span style="color:#e6db74">#{</span>column_names<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;, &#39;</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">: Maximum Size: </span><span style="color:#e6db74">#{</span>max_size<span style="color:#e6db74">}</span><span style="color:#e6db74"> bytes exceeds the max index size</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">rescue</span> <span style="color:#66d9ef">PG</span><span style="color:#f92672">::</span><span style="color:#66d9ef">InsufficientPrivilege</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># We have some tables that I can&#39;t access with the user this runs as, but I don&#39;t care about them.</span>
+</span></span><span style="display:flex;"><span>    puts <span style="color:#e6db74">&#34;Permission denied for table </span><span style="color:#e6db74">#{</span>table_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conn<span style="color:#f92672">.</span>close
+</span></span></code></pre></div><p>You run it using:</p>
+<pre><code>$ ruby script_name.rb your_postgres_dsn
+</code></pre>
+<p>It may take quite a lot of time to run, it effectively sequential scans all of your tables where there is a row that could be larger than the allowed row size for a BTree index, and as such you may want to run it against a replica and/or out of hours to avoid production impact, but other than that it&rsquo;s safe. For us it did find about a hundred rows in another table that were too large for the index allowing us to fix these before re-starting the migration process.</p>
+<pre><code>WARNING: some_other_table (some_index_name_idx): user_id, email, phone, approved: Maximum Size: 28586 bytes exceeds the max index size
+</code></pre>
+<p>Yeah, some people had suspiciously long emails. We&rsquo;re adding size constraints on the columns that were missing them now. If you get a warning like this then you can craft a query to find the problem rows, eg.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> some_other_table <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">octet_length</span>(email) <span style="color:#f92672">+</span> <span style="color:#66d9ef">octet_length</span>(phone) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2704</span>
+</span></span></code></pre></div><p>Some highlights:</p>
+<ul>
+<li>The program will sum the octet_length of all fields in an index, so if you have an index with two columns in it and it&rsquo;s only the sum of the octet_lengths that will push the row over the BTree row size this program will still find the issue.</li>
+<li>The program prunes indexes and tables where there are no indexes that could be large enough to be over the limit, effectively cutting the number of table scans it needs to do. If you&rsquo;ve got an index with 677 int fields in it then the assumption this relies on will break down, but I&rsquo;ve never seen that, and never want to.</li>
+</ul>
+<p>Some caveats:</p>
+<ul>
+<li>
+<p>Table names and column names are escaped, but don&rsquo;t run this if you have untrusted third-parties who can control any expressions you have in your database. For instance if you&rsquo;re indexing into JSON with a user supplied key, eg. <code>(comments -&gt;&gt; 'user_supplied_value'::text)</code>. You&rsquo;re probably not doing this, I&rsquo;ve never seen it, but just be aware.</p>
+</li>
+<li>
+<p>This program finds rows that violate the size constraints, it doesn&rsquo;t find situations where a row <em>could</em> violate the size limit if you were to put in the maximum amount of data allowed by the types.</p>
+</li>
+<li>
+<p>I believe this program works if you are indexing into multiple JSONB fields in one index, but I&rsquo;ve not tested it with those as we only have indexes into a single JSONB field, eg:</p>
+<pre><code>&quot;index_name&quot; btree (some_id, (comments -&gt;&gt; 'some_key'::text))
+</code></pre>
+</li>
+</ul>
+<p>Please let me know if you run this and have success and/or issues, or if you come up with a more efficient way of doing the same thing.</p>
+
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>

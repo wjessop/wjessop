@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>baking on Will Jessop&#39;s Writings</title>
+    <title>Baking on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/baking/</link>
-    <description>Recent content in baking on Will Jessop&#39;s Writings</description>
+    <description>Recent content in Baking on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
@@ -48,9 +48,12 @@
 &lt;h3 id=&#34;day-1&#34;&gt;Day 1&lt;/h3&gt;
 &lt;p&gt;Stir the starter before use in case it has separated at all. If any water has accumulated, stir that in too. Put all the ingredients into a bowl and mix. Once mixed you need to knead it. I use a stand mixer (kitchenaid) on setting 2 for 5 minutes. Hand kneading works too, but it&amp;rsquo;s harder to fiddle with your phone while you do it and you&amp;rsquo;ll need to knead for more like 10 minutes.&lt;/p&gt;
 
-&lt;div class=&#34;youtube-embed&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/U8mvFYiuvqs&#34; allowfullscreen title=&#34;Me making sourdough&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div class=&#34;youtube-embed&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/U8mvFYiuvqs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; title=&#34;Me making sourdough&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;While the bread is kneading, or afterwards if you&amp;rsquo;re doing it by hand, top up the starter with 75g flour and 75g water. If you used more than 150g starter, for instance if you made a larger loaf, alter these quantities respectively. Mix, cover with your cloth and put back in the fridge.&lt;/p&gt;
 &lt;p&gt;After kneading do a few stretch and folds (see elsewhere for description), then leave the dough in the bowl covered with a slightly damp tea towel at room temperature for several hours, eight is good to aim for. I often make bread sometime between 11 AM and early evening, then deal with it at about 10PM, but it&amp;rsquo;s pretty robust. You can leave it a longer or shorter time and it should be fine. Don&amp;rsquo;t leave it out overnight, it will develop a dry crust. If you forget and do leave it out overnight though, don&amp;rsquo;t worry about it, you can still use it, it might just not be as good.&lt;/p&gt;
@@ -58,9 +61,9 @@
 &lt;p&gt;Now, put it in the fridge. I use a banneton, they&amp;rsquo;re about £12 on amazon, but you can probably use some other dish. Flour the inside of it, drop the dough top of the loaf side down in the receptacle, cover, place in the fridge overnight.&lt;/p&gt;
 &lt;p&gt;These steps in total will take about 10 minutes for the initial mix and a few minutes for the step in the evening.&lt;/p&gt;
 &lt;h3 id=&#34;day-2&#34;&gt;Day 2&lt;/h3&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/finished_bread.jpg&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A finished loaf.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/simple-sourdough-bread/images/finished_bread.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A finished loaf.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The next day at some point (there&amp;rsquo;s no hard rules about how long to leave it), take the dough out of the fridge, pre-heat the oven to 250°C with a lidded dutch oven inside or similar, lined with baking paper.&lt;/p&gt;
@@ -97,10 +100,10 @@
       <description>&lt;p&gt;The absolutely best way of making a starter if you don&amp;rsquo;t already have one is to not make one at all. If you can, ask someone who already has one for a bit of theirs. Most people will be happy to donate a bit, and this is a far shorter way of starting. There&amp;rsquo;s nothing heroic about creating your own, it&amp;rsquo;s mostly just a pain in the butt. If you&amp;rsquo;ve not got one though, here&amp;rsquo;s how make your own.&lt;/p&gt;
 &lt;p&gt;Already made your starter and want to make bread? &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;Head over to the bread recipe!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;things-you-will-need&#34;&gt;Things you will need&lt;/h2&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/the_jar.jpg&#34;
-         alt=&#34;Sourdough container with a banana propped against it at a jaunty angle&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;My sourdough container, banana for scale.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/the_jar.jpg&#34;
+    alt=&#34;Sourdough container with a banana propped against it at a jaunty angle&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;My sourdough container, banana for scale.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;To make a starter you&amp;rsquo;ll need only four things.&lt;/p&gt;
@@ -114,9 +117,9 @@
 &lt;p&gt;The container should be a glass, plastic or non-reactive metal, about one banana in height (see image). It should be very clean and free from dirt or any cleaning product residue. You will also need some sort of cloth to cover it, and an elastic band to keep the cloth in place.&lt;/p&gt;
 &lt;h2 id=&#34;the-method&#34;&gt;The Method&lt;/h2&gt;
 &lt;p&gt;Make sure to be exact with the measurements, no eyeballing quantities or using weird measurements like &amp;ldquo;cups&amp;rdquo; or anything like that. Also, use a set of digital scales with 1g accuracy if you can, they make baking much easier.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/starter_progress.jpg&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Sourdough progression. Inactive starter on the left, some activity in the middle, the same starter 24 hours later.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_progress.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Sourdough progression. Inactive starter on the left, some activity in the middle, the same starter 24 hours later.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;day-1&#34;&gt;Day 1&lt;/h3&gt;
@@ -128,14 +131,14 @@
 &lt;p&gt;You should start to see some bubbling activity on about day 4 and if everything went right you should have a starter after about a week. You should end up with something that smells slightly sour and a bit like yoghurt.&lt;/p&gt;
 &lt;p&gt;It might take a little bit longer, it&amp;rsquo;s going to depend on the flour and temperature. If it&amp;rsquo;s not doing anything by about two weeks or it smells like it&amp;rsquo;s gone off then you might need to restart.&lt;/p&gt;
 &lt;p&gt;Once it&amp;rsquo;s done, keep the cloth cover on and put it in the fridge until you need it. It will keep about a week without attention in a cold fridge.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;images/completed_starter.jpg&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A working starter.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/completed_starter.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A working starter.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/starter_with_lid.jpg&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Use a cloth lid for your starter to allow it to breath.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_with_lid.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Use a cloth lid for your starter to allow it to breath.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;maintaining-your-starter&#34;&gt;Maintaining your starter&lt;/h2&gt;
@@ -145,9 +148,12 @@
 &lt;p&gt;If you think you might want to make a larger, or multiple loaves in a few days, just add more water and flour over a couple of days until you&amp;rsquo;ve got the amount of starter you will need without taking too much.&lt;/p&gt;
 &lt;p&gt;When you take the starter out ideally it will be fairly stiff and coagulated, see about 30s into this video (you don&amp;rsquo;t have to stir it for ages, I was just fiddling). Ignore the rest of the video, my technique has changed in some spots, see the &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;bread recipe&lt;/a&gt; for the updated method.&lt;/p&gt;
 
-&lt;div class=&#34;youtube-embed&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/7OCz-usKlgc&#34; allowfullscreen title=&#34;Me making sourdough&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div class=&#34;youtube-embed&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/7OCz-usKlgc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; title=&#34;Me making sourdough&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;The starter should be good to use every day, but if you don&amp;rsquo;t need to make bread for a while it should keep in the fridge for over a week without use. When it&amp;rsquo;s been left for longer than that without being refreshed you can still make bread with it, but it gets harder to get good results. If you leave it too long though it might die and you&amp;rsquo;ll need to start from scratch.&lt;/p&gt;
 &lt;p&gt;If your starter has sat for a while then you will find it will become more liquid, this is OK, you can still make bread with it, it just might not be as good. If there is liquid sitting on top of the starter, mix it in. If you pour it out your starter will be unbalanced.&lt;/p&gt;

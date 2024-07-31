@@ -39,10 +39,10 @@
 	<h2>go-piglow, a lib for controlling the piglow in Golang</h2>
 
 	<article>
-		<figure class="full"><img src="images/piglow.jpg"
-         alt="A Piglow Raspberry pi board lit up"/><figcaption>
-            <h4>A Piglow glowing</h4>
-        </figcaption>
+		<figure class="full"><img src="/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg"
+    alt="A Piglow Raspberry pi board lit up"><figcaption>
+      <h4>A Piglow glowing</h4>
+    </figcaption>
 </figure>
 
 <p>A few days ago I got a <a href="http://shop.pimoroni.com/products/piglow" title="Piglow">Piglow</a>. It&rsquo;s a fairly useless but fun addon board for the Raspberry Pi that has 18 individual user controllable LEDs arranged in Arms/Legs/Tentacles (whatever you want to call them).</p>
@@ -73,9 +73,12 @@
 </span></span></code></pre></div><p>The lib API allows for controlling individual LEDs, the colour rings, the tentacles, or to display a value bar-graph style on each tentacle.</p>
 <p>I wrote some more complex example programs to go with the lib to demo these capabilities. A simple program to flash the LEDs, a CPU meter that displays 1, 5 and 15 minute load average on each of the tentacles, and the most fun, a disco program, here is me demonstrating them:</p>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/1EmJIwzhJwQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1EmJIwzhJwQ?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
 
 <p>Right now i&rsquo;m running <a href="https://github.com/wjessop/piglow-fader" title="piglow-fader">this program</a> on my Pi to slowly fade between the colour rings.</p>
 

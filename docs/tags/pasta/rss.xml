@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pasta on Will Jessop&#39;s Writings</title>
+    <title>Pasta on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/pasta/</link>
-    <description>Recent content in pasta on Will Jessop&#39;s Writings</description>
+    <description>Recent content in Pasta on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
@@ -18,9 +18,12 @@
       <guid>https://willj.net/posts/basic-pasta-sauce/</guid>
       <description>&lt;p&gt;Someone asked on Twitter how I made my pasta sauce, so here is the recipe! The base of my Pasta sauce is largely this recipe, except I mostly don&amp;rsquo;t add mozzarella:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/eabecxMhJlE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/eabecxMhJlE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;At it&amp;rsquo;s simplest I can make the whole thing for one person in 19 minutes, so it&amp;rsquo;s great for lunch.&lt;/p&gt;
 &lt;h3 id=&#34;ingredients&#34;&gt;Ingredients&lt;/h3&gt;
@@ -40,8 +43,8 @@
 &lt;p&gt;Next, add the basil or parsley. Stir through. When the pasta is al dente drain it retaining some of the cooking water and add to the sauce, stir around. Add pasta water if needed. You should still be able to work out what each of the individual parts of your sauce are made of. If you can&amp;rsquo;t you cooked it too long and/or added too much water.&lt;/p&gt;
 &lt;p&gt;At this point you can stir in mozzarella, I mostly don&amp;rsquo;t.&lt;/p&gt;
 &lt;p&gt;Slap it on a plate, grate parmesan over it and eat it.&lt;/p&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/z.jpg&#34;
-         alt=&#34;Vegetables and bacon in a pan, the basis for a pasta sauce&#34;/&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/basic-pasta-sauce/images/z.jpg&#34;
+    alt=&#34;Vegetables and bacon in a pan, the basis for a pasta sauce&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;notes&#34;&gt;Notes&lt;/h3&gt;

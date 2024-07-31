@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Cloud email service price comparison
+			</title>
+		<meta
+			name="description"
+			content="A comparison of Sendgrid, AES SES, Postmark and Mailgun pricing"
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2011-11-30">Wednesday, November 30, 2011</time>
+	|
+	tags:<a href="http://localhost:1313/tags/aws">aws</a> <a href="http://localhost:1313/tags/programming">programming</a> <a href="http://localhost:1313/tags/tech">tech</a> 
+	<hr />
+
+	<h2>Cloud email service price comparison</h2>
+
+	<article>
+		<p><strong>Larger interactive versions of all the graphs on this page are available <a href="cloud_email_provider_price_comparison.html">here</a>.</strong> <strong>Update:</strong> Added <a href="https://www.mailgun.com/" title="Mailgun">Mailgun</a> to the <a href="http://willj.net/static/cloud_email_provider_price_comparison.html">graphs</a>.</p>
+<p>Earlier this year I posted a <a href="/posts/should-i-switch-from-sendgrid-to-amazon-ses" title="Sendgrid and Amazone SES price comparison">price comparison</a> between <a href="https://sendgrid.com/" title="Sendgrid">Sendgrid</a>, and the then newly available <a href="http://aws.amazon.com/ses/" title="Amazon SES">Amazon SES</a>.</p>
+<p>Tim Falls commented on the post saying that Sendgrid had updated their pricing:</p>
+<blockquote>
+<p>Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.</p>
+</blockquote>
+<p>That was back in June, so it&rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:</p>
+<figure class="full"><img src="/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png"
+    alt="graph showing cost of email service providers"><figcaption>
+      <h4>Comparison of old and new Sendgrid prices</h4>
+    </figcaption>
+</figure>
+
+<p>Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.</p>
+<p>More interesting is how these new prices compare to the competitors. I&rsquo;ve added in Amazon SES, and Postmark too:</p>
+<figure class="full"><img src="/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png"
+    alt="graph showing cost of email service providers"><figcaption>
+      <h4>Sendgrid, Postmark and Amazon SES price comparison</h4>
+    </figcaption>
+</figure>
+
+<p>The most notable differences here are the inclusion of <a href="http://postmarkapp.com/" title="Postmark">Postmark</a>, and the the Sendgrid Lite plan that shadows Amazon SES. I&rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&rsquo;s a zoom on the origin:</p>
+<figure class="full"><img src="/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png"
+    alt="graph showing cost of email service providers"><figcaption>
+      <h4>Price comparison for small numbers of emails sent</h4>
+    </figcaption>
+</figure>
+
+<p>Here you can see the Sendgrid Lite plan shadowing Amazon and the Postmark costs heading up rapidly.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It seems Sendgrid have just added an &lsquo;Amazon SES&rsquo; plan to pull back any customers that would have chosen SES based on price. It&rsquo;s probably a good move, and it will allow easy transition into their more &lsquo;premium&rsquo; plans if you sign up and later decide to change plan.</p>
+<p>Given the advertised features of Postmark compared to the price it seems hard to consider using them. They seem to have some fairly well known customers though, so if anyone has used Postmark leave a comment with how that is working out for you.</p>
+<p>So which email cloud provider should you use? Use the graphs I made, but price is only going to be one factor, so check what each provider offers. I&rsquo;ve linked to all the pricing pages below.</p>
+<h3 id="price-sources">Price sources</h3>
+<ul>
+<li><a href="https://sendgrid.com/pricing">Sendgrid prices</a></li>
+<li><a href="https://postmarkapp.com/pricing">Postmark prices</a></li>
+<li><a href="https://aws.amazon.com/ses/pricing">Amazon SES prices</a></li>
+<li><a href="https://www.mailgun.com/pricing">Mailgun prices</a></li>
+</ul>
+
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>

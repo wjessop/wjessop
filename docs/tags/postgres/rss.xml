@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>postgres on Will Jessop&#39;s Writings</title>
+    <title>Postgres on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/postgres/</link>
-    <description>Recent content in postgres on Will Jessop&#39;s Writings</description>
+    <description>Recent content in Postgres on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>

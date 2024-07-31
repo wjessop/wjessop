@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>electronics on Will Jessop&#39;s Writings</title>
+    <title>Electronics on Will Jessop&#39;s Writings</title>
     <link>https://willj.net/tags/electronics/</link>
-    <description>Recent content in electronics on Will Jessop&#39;s Writings</description>
+    <description>Recent content in Electronics on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
@@ -461,41 +461,47 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
-         alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The view from my hotel balcony&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The view from my hotel balcony&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;First job, putting the robot back together again. I was happy it made it through security. It was the first time I&amp;rsquo;d flown with a small toolkit.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4471.jpg&#34;
-         alt=&#34;The robot dissasembled&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The robot laid bare&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;The robot dissasembled&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The robot laid bare&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4482.jpg&#34;
-         alt=&#34;Someone using an xbox controller to drive my robot&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;I was carrying the robot around most of the first day, people constantly asked to try it out&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;Someone using an xbox controller to drive my robot&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;I was carrying the robot around most of the first day, people constantly asked to try it out&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It worked well on the shiny floor of the lobby. You can just about see the new 3d printed lifter arm:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4486.jpg&#34;
-         alt=&#34;A crowd of people watching someone use my robot&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The balls went everywhere&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;A crowd of people watching someone use my robot&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The balls went everywhere&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/8RdkD-BATBE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8RdkD-BATBE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Totally coincidentally Ron Evans also did a great talk on &lt;a href=&#34;http://artoo.io/&#34;&gt;Artoo&lt;/a&gt; and the newly announced &lt;a href=&#34;http://gobot.io/&#34;&gt;Gobotio&lt;/a&gt;.&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/mhXyNGX38mw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/mhXyNGX38mw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
@@ -510,34 +516,40 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I&amp;rsquo;m using a new motor driver circuit for it as I burned out the SN754410 motor driver I was using, the lifter motor seems to peak briefly at about 1.5 amps when starting to lift the arm, and that&amp;rsquo;s out of the chips range. I stayed up late making a new motor control circuit with a L298N that can provide a lot more power.&lt;/p&gt;
 &lt;p&gt;Here is the robot picking up 12 ping-pong balls. I was driving, Morwenna was filming:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/doxEBi1UjLg&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/doxEBi1UjLg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Here is the same run seen through the on-board camera. Almost all of the run was done watching the live feed rather than watching the robot itself:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/T1NwjBEUjio&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/T1NwjBEUjio?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Here is the paper strip-board design for the L298N circuit.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4442.jpg&#34;
-         alt=&#34;Designing tHe motor driver circuit for stripboard&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Designing tHe motor driver circuit for stripboard&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;Designing tHe motor driver circuit for stripboard&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Designing tHe motor driver circuit for stripboard&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Testing the circuit out on breadboard:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4440.jpg&#34;
-         alt=&#34;A mess of wires and breadboard and stripboard&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Wire everywhere, as often happens when I&amp;#39;m doing electronics projects&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;A mess of wires and breadboard and stripboard&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Wire everywhere, as often happens when I&amp;#39;m doing electronics projects&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/11/img_4441.jpg&#34;
-         alt=&#34;A finished circuit on stripbord&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The finished circuit. You can see it bolted to the back of the robot in the video.&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    alt=&#34;A finished circuit on stripbord&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The finished circuit. You can see it bolted to the back of the robot in the video.&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -551,9 +563,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
 &lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/4YYC7bCiRTI&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
 </description>
@@ -565,31 +580,31 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
       <description>&lt;p&gt;I spent all day at &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hacman&lt;/a&gt; Tuesday and Wednesday printing and tweaking robot parts. I put it all together when I got home. This is the front, the lifter arm has holes to allow me to screw in different attachments, I&amp;rsquo;ve still not designed that part of the robot yet:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4432.jpg&#34;
-         alt=&#34;The robot, mostly assembled&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
+    alt=&#34;The robot, mostly assembled&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here is the back view, you can see the lifter arm gear housing (the curved structure) and the motor that drives it, also the battery (underneath the ball hopper)&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4433.jpg&#34;
-         alt=&#34;The rear of the robot with the hopper in place&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
+    alt=&#34;The rear of the robot with the hopper in place&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The lifter arm gear system looking through where the hopper would be:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4434.jpg&#34;
-         alt=&#34;The robot without the hopper in place&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
+    alt=&#34;The robot without the hopper in place&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I need to design an attachment for the end of the lifter arm. Here I&amp;rsquo;ve created a simple one using meccano. It&amp;rsquo;s too heavy, the bolts catch on the floor and it dumps the ping-pong balls short of the hopper. Other than that it&amp;rsquo;s perfect. You can see the camera with capped lens that I&amp;rsquo;ve just wedged into the structure temporarily:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_44351.jpg&#34;
-         alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
+    alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Next-up&lt;/strong&gt;: better lifter attachment design, a couple of re-prints with tweaks and some software.&lt;/p&gt;
@@ -604,10 +619,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <description>&lt;p&gt;First test of the Raspberry Pi running off battery power with no external supply at all. In the picture the 5000mAh battery is the object at the back with &amp;ldquo;5000&amp;rdquo; written on it. My multimeter is measuring the voltage output. One of the Raspberry Pi (the thing with the red light on it) output pins is connected through the MotorPiTX board (the yellow circuit board on-top of the Raspberry Pi) to the breadboard.&lt;/p&gt;
 &lt;p&gt;The breadboard contains two circuits, the top-right cluster of components is the circuit that turns the output of the Raspberry Pi into something relevant to the motor driver in the bottom left, the bottom left cluster of components is the motor driver itself.&lt;/p&gt;
 &lt;p&gt;The Pi is pulsing the output causing the motor driver to spin the motor. The micro-switch just on the very bottom of the picture is one of the limit switches for the ball lifter arm.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4418.jpg&#34;
-         alt=&#34;A curcuit under test with a multimeter&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
+    alt=&#34;A curcuit under test with a multimeter&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -620,16 +635,16 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <guid>https://willj.net/posts/testing-new-motor-mounts/</guid>
       <description>&lt;p&gt;I needed to re-design the motor mounts on the robot base, they didn&amp;rsquo;t hold the motors securely enough and tended to shift around.&lt;/p&gt;
 &lt;p&gt;The new mounts are better fitting and include a small wedge that fits between one of the gearbox plates where there are no cogs.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4404.jpg&#34;
-         alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
+    alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4403.jpg&#34;
-         alt=&#34;Two motors fully encased in the motor mounts&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
+    alt=&#34;Two motors fully encased in the motor mounts&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;One of the great things about 3d printing is being able to pull out part of a design and iterate over in isolation, then when you&amp;rsquo;re done incorporate it back into your main design.&lt;/p&gt;
@@ -642,16 +657,16 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
       <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4394.jpg&#34;
-         alt=&#34;Raspberry pi camera holder&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
+    alt=&#34;Raspberry pi camera holder&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4396.jpg&#34;
-         alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
+    alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 </description>
@@ -662,24 +677,27 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4390.jpg&#34;
-         alt=&#34;Testing the robot power requirements&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
-        &lt;/figcaption&gt;
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
+    alt=&#34;Testing the robot power requirements&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Before I pick a battery I need to know what power requirements my robot is going to have so I took it into the &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hackspace&lt;/a&gt; to test. I hooked it up to one of the power supplies then ran all the systems, so Streaming video off the Raspberry Pi over wireless whilst running the motors. I weight it down with a large motor (the big black thing) and then provided resistance, it peaks at about 1.6 amps.&lt;/p&gt;
 &lt;p&gt;In the video you can also see the new side mounted Raspberry Pi and the base of the ping-pong ball hopper.&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/rA89dFa6OmU&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rA89dFa6OmU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4392.jpg&#34;
-         alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
+    alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -691,17 +709,17 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/lenses/</guid>
       <description>&lt;p&gt;The Raspberry Pi camera doesn&amp;rsquo;t have a field of view that is wide enough for my robot, I&amp;rsquo;d have to mount it really far from my robot to see enough context to make it drivable so I&amp;rsquo;ve bought some wide angle iPhone lenses to try out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4386.jpg&#34;
-         alt=&#34;Wide-angle and fish-eye lenses&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4386.jpg&#34;
+    alt=&#34;Wide-angle and fish-eye lenses&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a photo taken using the fish-eye lens held up to my iPhone:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4388.jpg&#34;
-         alt=&#34;The view through the fish-eye lens&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4388.jpg&#34;
+    alt=&#34;The view through the fish-eye lens&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -713,17 +731,17 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/secret-project-motorpitx-motor-board/</guid>
       <description>&lt;p&gt;I soldered together my MotorPiTX motor controller today and fitted it to the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4256.jpg&#34;
-         alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
+    alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s a hell of a lot neater than my original effort, and only trails one wire. It goes forwards &lt;em&gt;and&lt;/em&gt; backwards now too. To the left of the blue relay near the top you can see my homemade heatsink attached to the voltage regulator:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4257.jpg&#34;
-         alt=&#34;Closeup of a heatsink made of meccano parts&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
+    alt=&#34;Closeup of a heatsink made of meccano parts&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The robot in action, being driven by a Go program on the Raspberry Pi:&lt;/p&gt;
@@ -737,37 +755,43 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/secret-project/</guid>
-      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/41c6bjctp2l1.jpg&#34;
-         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
-        &lt;/figcaption&gt;
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
+    alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
 &lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
 &lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4248.jpg&#34;
-         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Motor mount&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4248.jpg&#34;
+    alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Motor mount&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Seeing if it drives in a straight line:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/JrhgSdsNkCM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/JrhgSdsNkCM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Hooked up to the Raspberry Pi, controlled by microswitches. You can see the top of the Custard Pi poking out over the mess of wires that is my breadboard and the cheap wireless dongle/antenna I got from eBay. The voltage regulator circuit makes an appearance being dragged along behind:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/Op8CD11w8OQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4247.jpg&#34;
-         alt=&#34;A PCB with no components on it and a bag of componenets&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/Op8CD11w8OQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4247.jpg&#34;
+    alt=&#34;A PCB with no components on it and a bag of componenets&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
@@ -779,10 +803,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/piglow.jpg&#34;
-         alt=&#34;A Piglow Raspberry pi board lit up&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
-        &lt;/figcaption&gt;
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+    alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;A few days ago I got a &lt;a href=&#34;http://shop.pimoroni.com/products/piglow&#34; title=&#34;Piglow&#34;&gt;Piglow&lt;/a&gt;. It&amp;rsquo;s a fairly useless but fun addon board for the Raspberry Pi that has 18 individual user controllable LEDs arranged in Arms/Legs/Tentacles (whatever you want to call them).&lt;/p&gt;
@@ -813,9 +837,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The lib API allows for controlling individual LEDs, the colour rings, the tentacles, or to display a value bar-graph style on each tentacle.&lt;/p&gt;
 &lt;p&gt;I wrote some more complex example programs to go with the lib to demo these capabilities. A simple program to flash the LEDs, a CPU meter that displays 1, 5 and 15 minute load average on each of the tentacles, and the most fun, a disco program, here is me demonstrating them:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>

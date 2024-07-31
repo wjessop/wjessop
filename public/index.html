@@ -1,16 +1,19 @@
 <!doctype html>
 <html lang="en">
 	<head>
-	<meta name="generator" content="Hugo 0.102.3" />
+	<meta name="generator" content="Hugo 0.128.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<link rel="stylesheet" href="/sass/styles.css">
 
-		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
-
-		<title></title>
-		<meta name="description" content="">
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Will Jessop's Writings; Sailing, Food, Programming, Technology, and other things
+			</title>
+		<meta
+			name="description"
+			content="I write about Ruby on Rails and Postgres scaling, performance and upgrade work, Ruby, Go and other programming topics, as well as sailing and cooking."
+		/>
 		<meta name="author" content="Will Jessop">
 	</head>
 	<body>
@@ -18,97 +21,79 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		<nav id="nav" class="nav justify-content-center">
 	|
-
-	<a class="nav-link" href="/">Home</a> |
-
-	<a class="nav-link" href="/posts/">Posts</a> |
-
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
 </nav>
 
 
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
 		
 	<h2></h2>
+	<p>	</p>
 
-	<p>	<p>A place for Will Jessop to write things down on the Web.</p>
-</p>
+	<about-me>
+		<img class="mugshot" width="400" height="434" src="img/me_sailing.jpeg" alt="Me on a sailing yacht">
 
-	<h3>About me</h3>
+		<h2>About me</h3>
 
-	<p>I am Will Jessop, a Ruby on Rails upgrade and performance consultant.</p>
+		<p>I am Will Jessop, CTO of <a href="https://impactive.io">Impactive</a>
+		and a Ruby on Rails and Postgres upgrade and performance consultant. I run <a href="https://ownandship.io">Own&Ship</a>,
+		an app for tracking Ruby and Rails deprecations and helping manage upgrades.</p>
+
+		<p>I blog sporadically about my sailing adventures over at <a href="https://sailingsilvergirl.com/">the Silver Girl website</a>.</p>
+
+		<div class="clearfix"></div>
+	</about-me>
 
 	<h3>Recent posts</h3>
 
 	<post_list>
 		<ul>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/youtube-sailing-channel-recommendations/">Will&#39;s YouTube sailing channel recommendations</a> - <time datetime="2022-09-15">Thursday, September 15, 2022</time>
-				<p>A list of YouTube sailing channels that Will recommends to either learn more about sailing, or just to live vicariously through the experiences of others.</p>
+				<strong>DRAFT:</strong> <a href="http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/">You should use the Ruby on Rails logger block syntax</a> - <time datetime="2024-07-09">Tuesday, July 9, 2024</time>
+				<p>Many people are familiar with Postgres&rsquo; <code>EXPLAIN</code> and <code>EXPLAIN ANALYSE</code> reports, but there are a couple of useful options available when running them that aren&rsquo;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the <code>BUFFERS</code> report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/full-height-github-checks-box-in-firefox/">Full-height Github &#34;checks&#34; box in Firefox</a> - <time datetime="2022-08-16">Tuesday, August 16, 2022</time>
-				<p>No more scolling the checks box on Github when you have plenty of screen space to display it</p>
+				<a href="http://localhost:1313/posts/finding-postgres-rows-too-large-for-btree-indexes/">Finding Postgres rows too large for BTree indexes</a> - <time datetime="2024-02-17">Saturday, February 17, 2024</time>
+				<p>How I found and fixed the rows in our database that exceeded the BTree index size, preventing our migration to AlloyDB.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/effective-github-notifications/">Effective Github Notifications</a> - <time datetime="2022-08-16">Tuesday, August 16, 2022</time>
-				<p>Taming the torrent of Github notification emails</p>
+				<strong>DRAFT:</strong> <a href="http://localhost:1313/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/">Giving Postgres a handle adding query parameters to help the query planner</a> - <time datetime="2023-10-15">Sunday, October 15, 2023</time>
+				<p>Increasing postgres query performance with additional parameters There&rsquo;s a lot to take in here so feel free to skip ahead to the &ldquo;Improving the performance&rdquo; section if you are getting lost or falling asleep.
+In Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE I promised to dig deeper into the specifics of the optimisation that we put in place. This post will go into the details, and hopefully give you some more ideas for helping to optimise your queries in the future.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/simple-sourdough-bread/">Simple Sourdough Bread</a> - <time datetime="2021-01-13">Wednesday, January 13, 2021</time>
-				<p>A simple, fast and reliable method for making sourdough bread</p>
+				<a href="http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse/">Measuring IO timings when using EXPLAIN ANALYSE in Postgres</a> - <time datetime="2023-09-19">Tuesday, September 19, 2023</time>
+				<p>A followup to my post about using <code>BUFFERS</code> with <code>EXPLAIN ANALYSE</code> I talk about the IO timing tracking option in Postgres which can give you an exact breakdown of how long each part of a query took in milliseconds of IO time.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/making-a-sourdough-starter/">Making a Sourdough Starter</a> - <time datetime="2021-01-13">Wednesday, January 13, 2021</time>
-				<p>A simple method for making a sourdough starter</p>
+				<a href="http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/">Buffer analysis when using EXPLAIN ANALYSE in Postgres</a> - <time datetime="2023-09-15">Friday, September 15, 2023</time>
+				<p>Many people are familiar with Postgres&rsquo; <code>EXPLAIN</code> and <code>EXPLAIN ANALYSE</code> reports, but there are a couple of useful options available when running them that aren&rsquo;t always commonly known that can help you identify and fix potential problem areas. In this article I will go through how I used the <code>BUFFERS</code> report to help massively reduce the IO demands of a problem query, speeding up the query by nearly 1208 times.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/">Using the T67XX CO₂ Sensor Module in Go</a> - <time datetime="2020-11-30">Monday, November 30, 2020</time>
-				<p>Getting CO₂ readings and more from the T67XX CO2 Sensor Module in Go</p>
+				<a href="http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/">Converting a wordpress.com dump to Hugo, including images</a> - <time datetime="2023-09-12">Tuesday, September 12, 2023</time>
+				<p>I wanted to convert my old wordpress.com articles to Hugo and all off the &ldquo;official&rdquo; methods were cumbersome so I wrote a somewhat rough but fast and simple program to do the conversion for me.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/">Custom 3D printed Blue Snowball desk stand</a> - <time datetime="2020-11-25">Wednesday, November 25, 2020</time>
-				<p>I wasn&rsquo;t happy with the original Blue Snowball microphone desk stand, so I designed and printed a new one</p>
+				<a href="http://localhost:1313/posts/revert-firefox-url-bar-suggestion-order-change/">Reverting Firefox&#39;s recent URL bar suggestion order change</a> - <time datetime="2023-09-11">Monday, September 11, 2023</time>
+				<p>In a recent update Firefox changed the order of it&rsquo;s URL bar suggestions order to make search suggestions appear first before recently visited URLs. This is annoying so I changed it back.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/welcome-to-my-new-blog/">Welcome to My New Blog</a> - <time datetime="2020-06-24">Wednesday, June 24, 2020</time>
-				<p>I used to blog on wordpress, but now I don&rsquo;t</p>
+				<strong>DRAFT:</strong> <a href="http://localhost:1313/posts/designing-your-application-for-scale/">Designing your application for scale</a> - <time datetime="2023-08-15">Tuesday, August 15, 2023</time>
+				<p>As applications grow and the userbase gets larger so does the application data, and this can mean scaling problems. Here are some simple ideas to design scalability into the application from the start, leading to faster pages, better UX and happier customers.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/">Writing to an Lcd Panel Using Go and a Raspberry Pi</a> - <time datetime="2020-06-24">Wednesday, June 24, 2020</time>
-				<p>Writing data to an LCM1602 based multiline LCD display connected to a Raspberry Pi using Go</p>
+				<strong>DRAFT:</strong> <a href="http://localhost:1313/posts/always-document-your-magic-values/">Always document your magic values</a> - <time datetime="2023-08-15">Tuesday, August 15, 2023</time>
+				<p>As applications grow and the userbase gets larger so does the application data, and this can mean scaling problems. Here are some simple ideas to design scalability into the application from the start, leading to faster pages, better UX and happier customers.</p>
 			</li>
-			
 			<li>
-				
-				
-				<a href="https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</a> - <time datetime="2020-06-23">Tuesday, June 23, 2020</time>
-				<p>I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make.</p>
+				<a href="http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/">Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</a> - <time datetime="2023-05-28">Sunday, May 28, 2023</time>
+				<p>The Dell OptiPlex 7010 SFF officially only has room for one 2.5&quot; hard drive internally, I fitted two 3.25&quot; hard drives and a 2.5&quot; SSD in one.</p>
 			</li>
 			
 		</ul>
@@ -118,9 +103,11 @@
 
 	<h3>Getting in touch</h3>
 
-	<p>You can find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, <a href="https://twitter.com/will_j">Twitter</a>, and <a href="mailto:will@willj.net">Email</a>.</p>
 
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
 
-		
 	</body>
 </html>

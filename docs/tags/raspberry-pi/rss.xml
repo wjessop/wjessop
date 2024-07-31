@@ -471,10 +471,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <description>&lt;p&gt;First test of the Raspberry Pi running off battery power with no external supply at all. In the picture the 5000mAh battery is the object at the back with &amp;ldquo;5000&amp;rdquo; written on it. My multimeter is measuring the voltage output. One of the Raspberry Pi (the thing with the red light on it) output pins is connected through the MotorPiTX board (the yellow circuit board on-top of the Raspberry Pi) to the breadboard.&lt;/p&gt;
 &lt;p&gt;The breadboard contains two circuits, the top-right cluster of components is the circuit that turns the output of the Raspberry Pi into something relevant to the motor driver in the bottom left, the bottom left cluster of components is the motor driver itself.&lt;/p&gt;
 &lt;p&gt;The Pi is pulsing the output causing the motor driver to spin the motor. The micro-switch just on the very bottom of the picture is one of the limit switches for the ball lifter arm.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4418.jpg&#34;
-         alt=&#34;A curcuit under test with a multimeter&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
+    alt=&#34;A curcuit under test with a multimeter&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -486,16 +486,16 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
       <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4394.jpg&#34;
-         alt=&#34;Raspberry pi camera holder&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
+    alt=&#34;Raspberry pi camera holder&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4396.jpg&#34;
-         alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
+    alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 </description>
@@ -507,31 +507,31 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/prototype-robot-base/</guid>
       <description>&lt;p&gt;The robot base design from my previous post printed OK. Here it is printing:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4320.jpg&#34;
-         alt=&#34;A 3d printer printing on a glass sheet&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4320.jpg&#34;
+    alt=&#34;A 3d printer printing on a glass sheet&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The finished print. The two small separate objects are the motor covers:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4322.jpg&#34;
-         alt=&#34;A completed 3d print&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Completed robot base print&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4322.jpg&#34;
+    alt=&#34;A completed 3d print&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Completed robot base print&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The assembled robot, including Raspberry Pi and MotorPiTX:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4330.jpg&#34;
-         alt=&#34;An assembled robot&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Assembled robot base&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4330.jpg&#34;
+    alt=&#34;An assembled robot&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Assembled robot base&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The underside of the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4332.jpg&#34;
-         alt=&#34;The underside of a robot&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4332.jpg&#34;
+    alt=&#34;The underside of a robot&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -543,17 +543,17 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/secret-project-motorpitx-motor-board/</guid>
       <description>&lt;p&gt;I soldered together my MotorPiTX motor controller today and fitted it to the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4256.jpg&#34;
-         alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
+    alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s a hell of a lot neater than my original effort, and only trails one wire. It goes forwards &lt;em&gt;and&lt;/em&gt; backwards now too. To the left of the blue relay near the top you can see my homemade heatsink attached to the voltage regulator:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4257.jpg&#34;
-         alt=&#34;Closeup of a heatsink made of meccano parts&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
+    alt=&#34;Closeup of a heatsink made of meccano parts&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The robot in action, being driven by a Go program on the Raspberry Pi:&lt;/p&gt;
@@ -567,37 +567,43 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/secret-project/</guid>
-      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;images/41c6bjctp2l1.jpg&#34;
-         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
-        &lt;/figcaption&gt;
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
+    alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
 &lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
 &lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4248.jpg&#34;
-         alt=&#34;A very small motor with an in-built gearbox&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;Motor mount&lt;/h4&gt;
-        &lt;/figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4248.jpg&#34;
+    alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;Motor mount&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Seeing if it drives in a straight line:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/JrhgSdsNkCM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/JrhgSdsNkCM?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Hooked up to the Raspberry Pi, controlled by microswitches. You can see the top of the Custard Pi poking out over the mess of wires that is my breadboard and the cheap wireless dongle/antenna I got from eBay. The voltage regulator circuit makes an appearance being dragged along behind:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/Op8CD11w8OQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/img_4247.jpg&#34;
-         alt=&#34;A PCB with no components on it and a bag of componenets&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
-        &lt;/figcaption&gt;
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/Op8CD11w8OQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4247.jpg&#34;
+    alt=&#34;A PCB with no components on it and a bag of componenets&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Right now it only goes forwards because I didn&amp;rsquo;t have the circuitry for anything else, but I got my MotorPiTX in the mail this morning so that will change soon.&lt;/p&gt;
@@ -609,10 +615,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;images/piglow.jpg&#34;
-         alt=&#34;A Piglow Raspberry pi board lit up&#34;/&gt;&lt;figcaption&gt;
-            &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
-        &lt;/figcaption&gt;
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+    alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
+    &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;A few days ago I got a &lt;a href=&#34;http://shop.pimoroni.com/products/piglow&#34; title=&#34;Piglow&#34;&gt;Piglow&lt;/a&gt;. It&amp;rsquo;s a fairly useless but fun addon board for the Raspberry Pi that has 18 individual user controllable LEDs arranged in Arms/Legs/Tentacles (whatever you want to call them).&lt;/p&gt;
@@ -643,9 +649,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The lib API allows for controlling individual LEDs, the colour rings, the tentacles, or to display a value bar-graph style on each tentacle.&lt;/p&gt;
 &lt;p&gt;I wrote some more complex example programs to go with the lib to demo these capabilities. A simple program to flash the LEDs, a CPU meter that displays 1, 5 and 15 minute load average on each of the tentacles, and the most fun, a disco program, here is me demonstrating them:&lt;/p&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>

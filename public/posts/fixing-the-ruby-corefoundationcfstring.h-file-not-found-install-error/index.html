@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error
+			</title>
+		<meta
+			name="description"
+			content="You just need to install the headers"
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2019-05-01">Wednesday, May 1, 2019</time>
+	|
+	tags:<a href="http://localhost:1313/tags/ruby">ruby</a> <a href="http://localhost:1313/tags/programming">programming</a> <a href="http://localhost:1313/tags/macos">MacOS</a> 
+	<hr />
+
+	<h2>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</h2>
+
+	<article>
+		<p>I hit this error installing the latest Ruby using rbenv:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
+</span></span><span style="display:flex;"><span>ruby-build: use openssl from homebrew
+</span></span><span style="display:flex;"><span>Downloading ruby-2.6.3.tar.bz2...
+</span></span><span style="display:flex;"><span>-&gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+</span></span><span style="display:flex;"><span>Installing ruby-2.6.3...
+</span></span><span style="display:flex;"><span>ruby-build: use readline from homebrew
+</span></span><span style="display:flex;"><span>BUILD FAILED <span style="color:#f92672">(</span>OS X 10.14.4 using ruby-build 20190423<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Inspect or clean up the working tree at /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977
+</span></span><span style="display:flex;"><span>Results logged to /var/folders/r7/kjzbwmx533b20hcf1_s9kc9c0000gn/T/ruby-build.20190501131413.33977.log
+</span></span><span style="display:flex;"><span>Last <span style="color:#ae81ff">10</span> log lines:
+</span></span><span style="display:flex;"><span>compiling error.c
+</span></span><span style="display:flex;"><span>compiling eval.c
+</span></span><span style="display:flex;"><span>compiling file.c
+</span></span><span style="display:flex;"><span>compiling gc.c
+</span></span><span style="display:flex;"><span>file.c:23:10: fatal error: <span style="color:#e6db74">&#39;CoreFoundation/CFString.h&#39;</span> file not found
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span>
+</span></span><span style="display:flex;"><span>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> error generated.
+</span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>file.o<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>make: *** Waiting <span style="color:#66d9ef">for</span> unfinished jobs....
+</span></span></code></pre></div><p>The problem is missing headers. To re-install just run this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+</span></span></code></pre></div><p>Now, Ruby should install just fine:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
+</span></span><span style="display:flex;"><span>ruby-build: use openssl from homebrew
+</span></span><span style="display:flex;"><span>Downloading ruby-2.6.3.tar.bz2...
+</span></span><span style="display:flex;"><span>-<span style="color:#ae81ff">\&gt;</span> https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
+</span></span><span style="display:flex;"><span>Installing ruby-2.6.3...
+</span></span><span style="display:flex;"><span>ruby-build: use readline from homebrew
+</span></span><span style="display:flex;"><span>Installed ruby-2.6.3 to /Users/will/.rbenv/versions/2.6.3 <span style="color:#e6db74">``</span>
+</span></span></code></pre></div>
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>

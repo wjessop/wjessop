@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Giving Postgres a handle adding query parameters to help the query planner
+			</title>
+		<meta
+			name="description"
+			content="Giving Postgres a handle adding query parameters to help the query planner"
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2023-10-15">Sunday, October 15, 2023</time>
+	|
+	tags:<a href="http://localhost:1313/tags/programming">programming</a> <a href="http://localhost:1313/tags/postgres">postgres</a> <a href="http://localhost:1313/tags/performance">performance</a> <a href="http://localhost:1313/tags/tech">tech</a> 
+	<hr />
+
+	<h2>DRAFT: Giving Postgres a handle adding query parameters to help the query planner</h2>
+
+	<article>
+		<h1 id="increasing-postgres-query-performance-with-additional-parameters">Increasing postgres query performance with additional parameters</h1>
+<p>There&rsquo;s a lot to take in here so feel free to skip ahead to the &ldquo;Improving the performance&rdquo; section if you are getting lost or falling asleep.</p>
+<p>In <a href="/posts/buffer-analysis-when-using-explain-analyse-in-postgres/">Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE</a> I promised to dig deeper into the specifics of the optimisation that we put in place. This post will go into the details, and hopefully give you some more ideas for helping to optimise your queries in the future.</p>
+<p>Let&rsquo;s go back and look at the original query, with the query plan it looked something like this (I&rsquo;ve removed the buffers data for brevity):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> <span style="color:#66d9ef">ANALYSE</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>    events
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_log_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>    activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-31&#39;</span>, <span style="color:#e6db74">&#39;2023-01-01&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> (
+</span></span><span style="display:flex;"><span>      events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">AND</span> events.shift_length <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>    date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>    events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">36</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">37</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2420</span>.<span style="color:#ae81ff">736</span>..<span style="color:#ae81ff">2420</span>.<span style="color:#ae81ff">737</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Key</span>: events.date, events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex; background-color:#3c3d38"><span>  <span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">10157</span>.<span style="color:#ae81ff">35</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2420</span>.<span style="color:#ae81ff">731</span>..<span style="color:#ae81ff">2420</span>.<span style="color:#ae81ff">731</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">-- (1)
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e"></span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_start_and_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">325</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">82</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>.<span style="color:#ae81ff">046</span>..<span style="color:#ae81ff">16</span>.<span style="color:#ae81ff">946</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">316</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e">-- (2)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>              <span style="color:#66d9ef">Index</span> Cond: (user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">9372632</span>)
+</span></span><span style="display:flex; background-color:#3c3d38"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_log_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">89</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">603</span>..<span style="color:#ae81ff">7</span>.<span style="color:#ae81ff">603</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">316</span>) <span style="color:#75715e">-- (3)
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e"></span>              <span style="color:#66d9ef">Index</span> Cond: (activity_log_id <span style="color:#f92672">=</span> activity_logs.id) <span style="color:#75715e">-- (4)
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e"></span>              Filter: ((date <span style="color:#f92672">=</span> <span style="color:#66d9ef">ANY</span> (<span style="color:#e6db74">&#39;{2022-12-31,2023-01-01}&#39;</span>::date[])) <span style="color:#66d9ef">AND</span> (((<span style="color:#66d9ef">start</span> <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (<span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (shift_length <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>))) <span style="color:#75715e">-- (5)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>              <span style="color:#66d9ef">Rows</span> Removed <span style="color:#66d9ef">by</span> Filter: <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>Planning:
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">422</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">2420</span>.<span style="color:#ae81ff">779</span> ms
+</span></span></code></pre></div><p>This query was run on a cold cache. It&rsquo;s not a particularly complex query, but it took 2.4 seconds to run, that&rsquo;s not great in general, but worse for a query that&rsquo;s run as often as this one. At it&rsquo;s peak it ran over 4000 times per minute. So, what can be done to improve performance here? Let&rsquo;s break down the query plan to see what&rsquo;s happening, it&rsquo;s approximately like this:</p>
+<p>Step 1</p>
+<p>Postgres pulls data on all <code>activity_logs</code> that match the condition <code>activity_logs.user_id = 9372632</code>, there are 316 rows in total, you can see this in the <code>rows=316</code> entry at mark (2) in the query plan above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span> activity_log_id <span style="color:#f92672">|</span> user_id
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--------------+---------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#ae81ff">310366</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">316650</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">324602</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">330221</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">337458</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">344498</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">352023</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">359360</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">367422</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">374930</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>snip <span style="color:#ae81ff">296</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22069105</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22193550</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22317324</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22447556</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22596124</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22788358</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">22881229</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">23011303</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">23158612</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">23307676</span> <span style="color:#f92672">|</span>   <span style="color:#ae81ff">9372632</span>
+</span></span></code></pre></div><p>Step 2</p>
+<p>This is where the &ldquo;Nested Loop&rdquo; hits. For every row found in Step 1, postgres looks up the <code>activity_logs.id</code> entry in the <code>index_events_on_activity_log_id</code> index (where I&rsquo;ve marked (3) and (4)) and then filters these rows out (5) using the conditions present in the <code>WHERE</code> clause. There are 5552 rows in the events table that match the <code>activity_log_ids</code> returned in the first step, on average 18 per <code>activity_log_id</code> in the nested loop.</p>
+<p>Step 3</p>
+<p>This is where any data that would be returned will be sent back to the client on the database connection, but in this case there are 0 rows returned.</p>
+<h2 id="improving-the-performance">Improving the performance</h2>
+<p>So this query runs for 2.4 seconds and pulls back 25MB (see calculation in the linked post) of data from disk to return 0 rows, that&rsquo;s not great, but even though this is a really simple query, just one join, we can help postgres out, a lot. The way we do this is by knowing that for this query the only <code>activity_logs</code> that can be relevant are those that start on or after the activity start date (where the query originates) @start_date, end before the definition of &ldquo;end_of_week + 1.day&rdquo; in the class. activity_logs outside that range aren&rsquo;t relevant so this gives us data we can feed back into the query. The new query with the timesheet date constraints (picking some sample dates for the parameters) is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">EXPLAIN</span> (<span style="color:#66d9ef">ANALYSE</span>, BUFFERS)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>    events.<span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>    events
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> activity_logs <span style="color:#66d9ef">ON</span> events.activity_log_id <span style="color:#f92672">=</span> activity_logs.id
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>    activity_logs.user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">9372632</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>    <span style="color:#66d9ef">AND</span> activity_logs.event_start <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;2022-12-31&#39;</span> <span style="color:#75715e">-- New parameter!
+</span></span></span><span style="display:flex; background-color:#3c3d38"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">AND</span> <span style="color:#e6db74">&#39;2023-01-08&#39;</span> <span style="color:#f92672">&lt;=</span> activity_logs.event_end   <span style="color:#75715e">-- New parameter!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">AND</span> events.date <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;2022-12-31&#39;</span>, <span style="color:#e6db74">&#39;2023-01-01&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> (
+</span></span><span style="display:flex;"><span>      events.event_start <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">AND</span> events.event_end <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">AND</span> events.shift_length <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">OR</span> events.exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>    date <span style="color:#66d9ef">ASC</span>,
+</span></span><span style="display:flex;"><span>    events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Sort  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">66</span>..<span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">67</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">420</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">421</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Key</span>: events.event_start <span style="color:#66d9ef">DESC</span> NULLS <span style="color:#66d9ef">LAST</span>
+</span></span><span style="display:flex;"><span>  Sort <span style="color:#66d9ef">Method</span>: quicksort  Memory: <span style="color:#ae81ff">25</span>kB
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-&gt;</span>  Nested Loop  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">13</span>..<span style="color:#ae81ff">1491</span>.<span style="color:#ae81ff">65</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">415</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">415</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_activity_logs_on_user_id_and_start_and_end <span style="color:#66d9ef">on</span> activity_logs  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">56</span>..<span style="color:#ae81ff">51</span>.<span style="color:#ae81ff">70</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">12</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) (actual time<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">414</span>..<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">414</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> loops<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">Index</span> Cond: ((user_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">70142</span>) <span style="color:#66d9ef">AND</span> (<span style="color:#66d9ef">start</span> <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;2022-06-18&#39;</span>::date))
+</span></span><span style="display:flex;"><span>              Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> <span style="color:#66d9ef">read</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex; background-color:#3c3d38"><span>        <span style="color:#f92672">-&gt;</span>  <span style="color:#66d9ef">Index</span> Scan <span style="color:#66d9ef">using</span> index_events_on_activity_log_id <span style="color:#66d9ef">on</span> events  (cost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">57</span>..<span style="color:#ae81ff">119</span>.<span style="color:#ae81ff">99</span> <span style="color:#66d9ef">rows</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> width<span style="color:#f92672">=</span><span style="color:#ae81ff">166</span>) (never executed) <span style="color:#75715e">-- (6)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>              <span style="color:#66d9ef">Index</span> Cond: (activity_log_id <span style="color:#f92672">=</span> activity_logs.id)
+</span></span><span style="display:flex;"><span>              Filter: ((((<span style="color:#66d9ef">start</span> <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (<span style="color:#e6db74">&#34;end&#34;</span> <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>) <span style="color:#66d9ef">AND</span> (shift_length <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;0&#39;</span>::double <span style="color:#66d9ef">precision</span>)) <span style="color:#66d9ef">OR</span> (exception_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)) <span style="color:#66d9ef">AND</span> (date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2023-01-18&#39;</span>::date))
+</span></span><span style="display:flex;"><span>Planning:
+</span></span><span style="display:flex;"><span>  Buffers: shared hit<span style="color:#f92672">=</span><span style="color:#ae81ff">150</span>
+</span></span><span style="display:flex;"><span>Planning Time: <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">430</span> ms
+</span></span><span style="display:flex;"><span>Execution Time: <span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">461</span> ms
+</span></span></code></pre></div><p>This is also on a cold cache. So what&rsquo;s the difference here? The obvious thing is end result of the execution time, 1.5ms instead of 2400ms, that&rsquo;s 0.06% of the time taken, but what&rsquo;s the breakdown of where we saved time? If you follow the overall plan laid out earlier you can see that compared to Step 1. Postgres is still trying to pull back timesheet rows out of the <code>activity_logs</code> table, it&rsquo;s even using the same index, but it&rsquo;s added a <code>activity_logs.event_start</code> condition to the index lookup, and it return 0 rows, compared to the 316 rows returned by the previous query. Because Postgres has pulled back no rows here it doesn&rsquo;t need to run the loop in Step 2 316 times at all, see mark (6). This is great, not running code at all is the best optimisation we can do as after all, no code is faster than no code. This new query also pulled back far less data, 8k vs 25MB greatly reducing the IO load on the database server, which was what got this query noticed in the first place.</p>
+<p>Some of you might have noticed that we&rsquo;ve picked a couple of fairly old <code>user_ids</code> here (9372632, 70142) that may well not have many recent activity_logs or events, and that&rsquo;s true, these users only have <code>activity_logs</code> that go up to October/November 2021, but they were picked for a reason. They&rsquo;re pretty close to the worst case and it&rsquo;s not like these are much of an outlier, there are <code>user_ids</code> going down to 18 that have activity_logs in the period we&rsquo;re testing here. Often when testing it&rsquo;s easier to see the difference you&rsquo;re making when you pick the worst performing dats, as long as you test it on a range of data to verify the results on less &ldquo;troublesome&rdquo; data.</p>
+<p>The ultimate proof though is when it goes to production which is when we finally get to see if the changes we made have helped. It&rsquo;s important to track the changes you make to production because for all the testing on staging or locally that you do there could still be something about the volume or shape of data, different memory or configuration parameters on production that ultimately cause your new query to run slower. It doesn&rsquo;t happen often, but it does happen. Thankfully PGAnalyse shows us that this optimisation was successful, it&rsquo;s not dissapeared from the problem queries list completely:</p>
+<p>picture.</p>
+<h2 id="some-final-notes">Some final notes</h2>
+<h3 id="what-if-theres-no-well-defined-start-and-end-date">What if there&rsquo;s no well defined start and end date?</h3>
+<p>Here we used both a start and end date to limit the data, and these dates are tightly scoped by the shift/timesheet relationship, but that&rsquo;s not always possible. The key here was limiting the scope on the activity_logs table, so any field you can add as a parameter will give the query planner more to go off. Previously I&rsquo;ve picked a sensible but arbitrary cutoff date for queries (in an SMS messaging system only looking for message threads newer than n months when handling incoming messages for instance). This is related to the next point:</p>
+<h3 id="add-more-conditions-if-you-can">Add more conditions if you can</h3>
+<p>There&rsquo;s a good rule of thumb which is to add as many parameters to the query as you can to give the query planner more to work on. For instance status on activity_logs isn&rsquo;t indexed, but a condition on that field could filter rows in Step 1, potentially cutting down the nested loops. If you don&rsquo;t add a condition with a parameter then Postgres can&rsquo;t use it. This doesn&rsquo;t always work, Postgres can pick the wrong execution plan, but that&rsquo;s pretty rare.</p>
+<p>An example of this, though we added a start and end date to the optimised query above you can see from the query plan that postgres only queried the timesheet index for the start date:</p>
+<pre><code>Index Cond: ((user_id = 70142) AND (start &gt; '2022-06-18'::date))
+</code></pre>
+<p>That&rsquo;s OK, we can leave the end data in, postgres might be able to make use of it later for different data. In fact, checking a different user_id now I can see that postgres /has/ used the end date on the index lookup in this instance (7):</p>
+<pre><code>                                                                                             QUERY PLAN
+</code></pre>
+<hr>
+<p>Repeated testing shows this additional use of the end query parameter to cut about 0.04ms from the query. It&rsquo;s not a lot, but we may as well, it&rsquo;s free!</p>
+<h3 id="design-query-scope-into-the-product-early">Design query scope into the product early</h3>
+<p>If you can, think about how to limit data returned at the product design stage. It&rsquo;s easy to forget when you&rsquo;re first starting out with a feature that the data will (hopefully) be acumulating for years to come (the oldest shift was created on 2012-10-14). Consider building in constraints where possible early, such as &ldquo;last 30 days of widget_sales&rdquo; rather than just &ldquo;List all widget_sales&rdquo;. You set the expectations of users early, and it&rsquo;s easier to expand the conditions later than it is to constrict them.</p>
+<h1 id="size-and-shape-of-data-is-important">Size /and/ shape of data is important</h1>
+<p>When you&rsquo;re optimising queries the amount of data you are testing against matters, this is the more obvious thing, but &ldquo;shape&rdquo; matters too. For example low cardinality in a table that in production has high cardinality. If you&rsquo;re testing on production data this isn&rsquo;t an issue, the data you&rsquo;re testing against /is/ the data you&rsquo;re going to be running the query against eventually, but if you&rsquo;re using generated data (for instance if production data is siloed and unavailable) then generating enough data that is as closely matched in it&rsquo;s shape and relationship as production is important.</p>
+
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>

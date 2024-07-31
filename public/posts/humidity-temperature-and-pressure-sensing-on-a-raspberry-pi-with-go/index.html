@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
-	<head>
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<link rel="stylesheet" href="/sass/styles.css">
 
-		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
-
-		<title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
-		<meta name="description" content="Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go">
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go
+			</title>
+		<meta
+			name="description"
+			content="I have recently started playing around with climate sensing using some relatively cheap sensors, some Raspberry Pis, and Go. In this post I will briefly touch on why I am doing this, the setup and systems I have working currently, and the improvements I plan to make."
+		/>
 		<meta name="author" content="Will Jessop">
 	</head>
 	<body>
@@ -17,30 +20,20 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		<nav id="nav" class="nav justify-content-center">
 	|
-
-	<a class="nav-link" href="/">Home</a> |
-
-	<a class="nav-link" href="/posts/">Posts</a> |
-
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
 </nav>
 
 
-		
-	
-	
-	<time datetime="2020-06-23">Tuesday, June 23, 2020</time>
-	
-	
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2020-06-23">Tuesday, June 23, 2020</time>
 	|
-	
-	
-	tags:<a href="https://willj.net/tags/electronics">electronics</a> <a href="https://willj.net/tags/raspberrypi">raspberrypi</a> <a href="https://willj.net/tags/golang">golang</a> 
-	
-
-	
-
-	
-
+	tags:<a href="http://localhost:1313/tags/electronics">electronics</a> <a href="http://localhost:1313/tags/raspberry-pi">Raspberry Pi</a> <a href="http://localhost:1313/tags/go">Go</a> <a href="http://localhost:1313/tags/programming">programming</a> 
 	<hr />
 
 	<h2>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</h2>
@@ -49,7 +42,7 @@
 		<p><a href="/img/posts/climate.png"><img src="/img/posts/climate.png#full" alt="Office climate graphs"></a> (click for a higher resolution image)</p>
 <hr>
 <h3 id="background">Background</h3>
-<p><img src="/img/posts/buddhas-hand.jpg#right" alt="Buddha&amp;rsquo;s Hand"></p>
+<p><img src="/img/posts/buddhas-hand.jpg#right" alt="Buddha&rsquo;s Hand"></p>
 <p>A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a <a href="https://en.wikipedia.org/wiki/Buddha%27s_hand">Buddha&rsquo;s hand tree</a>. This tree was fairly expensive, and I wanted to maximise it&rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&rsquo;t like cold, but apparently don&rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.</p>
 <p>It was for this reason that I decided to start experimenting with climate monitoring.</p>
 <hr>
@@ -205,12 +198,15 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 <h3 id="improvements">Improvements</h3>
 <p>Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in <a href="https://github.com/tenderlove/esp8266aq">Aarons project</a> so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.</p>
 <p>Because the Raspberry Pi was meant to be temporary I&rsquo;ve left it bare, I&rsquo;ll 3d print some cases for everything when my <a href="https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html">3d printer arrives</a>.</p>
-<p>In my <a href="https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/">next post</a> I discuss how I added an LCD display to show the climate data.</p>
+<p>In my <a href="http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/">next post</a> I discuss how I added an LCD display to show the climate data.</p>
 
 	</article>
 
 
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
 
-		
 	</body>
 </html>

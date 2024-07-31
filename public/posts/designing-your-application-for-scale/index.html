@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Designing your application for scale
+			</title>
+		<meta
+			name="description"
+			content="As applications grow and the userbase gets larger so does the application data, and this can mean scaling problems. Here are some simple ideas to design scalability into the application from the start, leading to faster pages, better UX and happier customers."
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2023-08-15">Tuesday, August 15, 2023</time>
+	|
+	tags:<a href="http://localhost:1313/tags/management">management</a> <a href="http://localhost:1313/tags/design">design</a> <a href="http://localhost:1313/tags/tech">tech</a> 
+	<hr />
+
+	<h2>DRAFT: Designing your application for scale</h2>
+
+	<article>
+		<h2 id="the-trap">The Trap</h2>
+<p>Picture a startup, recently launched, a sales tracking application called WidgetSalesTrackr. There are 10s of customers signed up, a similar number of users, and customers are using the application to track sales that they are making on their e-commerce platforms. Data is coming in from an API endpoint but it&rsquo;s happening at the rate of 100s of sales per day and the data is still pretty small. They&rsquo;ve been going 3 months so far and have in the region of 10,000 sales in the sales table.</p>
+<p>It&rsquo;s looking promising but it&rsquo;s still small, the founders haven&rsquo;t quit their main jobs yet but they have high hopes that things are going to take off because feedback is really positive.</p>
+<p>Early on someone added pagination to the pages where sales are listed, but only after someone pointed out that having a few thousand sales on one page was a bit cumbersome. Whoops. Still, it was easy to add, and is fairly simple to use and understand:</p>
+<p><img src="images/simple-pagination.png" alt="Some basic pagination used on a website"></p>
+<p>There&rsquo;s a button to skip to the first couple of pages, buttons to skip to the last couple of pages, and buttons to skip to the next and previous pages. Standard stuff.</p>
+<p><img src="images/5-years-later-cropped.jpeg#full" alt="Spongebob timecard, 5 years later"></p>
+<p>Some years have passed and things have taken off. WidgetSalesTrackr has a team of 10 engineers plus the usual design, product, sales and marketing departments you&rsquo;d expect.</p>
+<p>The original 100s of sales per day ingested by the API has grown massively and now peaks at closer to 100 per second. Month on month they&rsquo;re adding 50 million records to the sales table, and the records are getting updated now too as order statuses change. The database is starting to creak a little and it&rsquo;s the sales table, the biggest table with the highest insert and update rate, that is the cause of most of the problems.</p>
+<p>So what&rsquo;s the problem here?</p>
+<p>There is talk of moving sales data to another store, like DynamoDB or similar, but it&rsquo;s a huge task.</p>
+<p>Scaling problems are good though right! Yes, but that doesn&rsquo;t mean you have to walk deliberately and directly into a pit trap full of them.
+distracting</p>
+<p>there is no time to be dealing with this. There are more important projects to complete</p>
+<p>Listen to customers:
+&ldquo;I go back through the list of sales and calculate the average order total for all sales in the previous year&rdquo;</p>
+<p>Control access to the data</p>
+<hr>
+<h1 id="notes">Notes</h1>
+<p>Hyrum&rsquo;s Law</p>
+<p>With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.</p>
+<p>I&rsquo;ve seen this problem many times now.</p>
+<ul>
+<li>BOUND IT!</li>
+<li>Total Number of sales <add today></li>
+<li>archived data, can be available more offline?</li>
+<li>Go through the regular motions. Add indexes, cacheing, faster hardware, database partitions etc.</li>
+<li>Postgres partitioning mention in talk, moving partitions out of the way</li>
+</ul>
+
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>

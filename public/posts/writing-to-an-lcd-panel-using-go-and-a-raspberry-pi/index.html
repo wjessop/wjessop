@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
-	<head>
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
 		<link rel="stylesheet" href="/sass/styles.css">
 
-		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="Will Jessop&#39;s Writings" />
-
-		<title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
-		<meta name="description" content="Writing to an Lcd Panel Using Go and a Raspberry Pi">
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			Writing to an Lcd Panel Using Go and a Raspberry Pi
+			</title>
+		<meta
+			name="description"
+			content="Writing data to an LCM1602 based multiline LCD display connected to a Raspberry Pi using Go"
+		/>
 		<meta name="author" content="Will Jessop">
 	</head>
 	<body>
@@ -17,37 +20,27 @@
 		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
 		<nav id="nav" class="nav justify-content-center">
 	|
-
-	<a class="nav-link" href="/">Home</a> |
-
-	<a class="nav-link" href="/posts/">Posts</a> |
-
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
 </nav>
 
 
-		
-	
-	
-	<time datetime="2020-06-24">Wednesday, June 24, 2020</time>
-	
-	
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2020-06-24">Wednesday, June 24, 2020</time>
 	|
-	
-	
-	tags:<a href="https://willj.net/tags/electronics">electronics</a> <a href="https://willj.net/tags/raspberrypi">raspberrypi</a> <a href="https://willj.net/tags/golang">golang</a> 
-	
-
-	
-
-	
-
+	tags:<a href="http://localhost:1313/tags/electronics">electronics</a> <a href="http://localhost:1313/tags/raspberry-pi">Raspberry Pi</a> <a href="http://localhost:1313/tags/go">Go</a> 
 	<hr />
 
 	<h2>Writing to an Lcd Panel Using Go and a Raspberry Pi</h2>
 
 	<article>
 		<p><img src="/img/posts/lcd.jpg#right" alt="LCD display showing climate data"></p>
-<p>In my <a href="https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">last post</a> I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.</p>
+<p>In my <a href="http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">last post</a> I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.</p>
 <h3 id="why-tho">Why tho</h3>
 <p>Why indeed! It&rsquo;s not particularly useful, I know it&rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&rsquo;t. It&rsquo;s quite <em>interesting</em> to know how hot it is in here (my wife <em>definitely</em> agrees on this) and just being able to know by glancing at an LCD display is quite convenient.</p>
 <p>But that&rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.</p>
@@ -108,7 +101,10 @@
 	</article>
 
 
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
 
-		
 	</body>
 </html>

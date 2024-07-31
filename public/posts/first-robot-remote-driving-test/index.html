@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/sass/styles.css">
+
+		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<title>
+			First robot remote driving test
+			</title>
+		<meta
+			name="description"
+			content="I control my robot remotely for the first time."
+		/>
+		<meta name="author" content="Will Jessop">
+	</head>
+	<body>
+		<h1>Will Jessop&#39;s Writings</h1>
+		<em></srong><p>Sailing, Food, Programming, Technology, and other things</p></em>
+		<nav id="nav" class="nav justify-content-center">
+	|
+<a class="nav-link" href="/">Home</a> |
+<a class="nav-link" href="/posts/">Posts</a> |
+<a class="nav-link" href="/tags/">Tags</a> |
+</nav>
+
+
+		<div class="open-to-contracts">
+		Do you have a Ruby on Rails application you'd like to be faster, more scalable, or just upgraded safely?
+		I'm currently open to new contracts doing Ruby on Rails and Postgres scaling and performance work, and Rails upgrades.
+		Contact me at <a href="mailto:will@willj.net?subject=Contract%20opportunity">will@willj.net</a> to get started.
+		</div>
+		<time datetime="2013-11-01">Friday, November 1, 2013</time>
+	|
+	tags:<a href="http://localhost:1313/tags/tech">tech</a> <a href="http://localhost:1313/tags/robotics">robotics</a> <a href="http://localhost:1313/tags/electronics">electronics</a> <a href="http://localhost:1313/tags/3d-printing">3D Printing</a> 
+	<hr />
+
+	<h2>First robot remote driving test</h2>
+
+	<article>
+		<p>I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my <a href="https://github.com/wjessop/gamepad">gamepad ruby gem</a> and an Xbox 1 controller. It worked OK. It was a bit jerky, there&rsquo;s no PWM so no acceleration, it&rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&rsquo;t show enough of the robot so it&rsquo;s hard to get a real idea of where the robot is.</p>
+<p>I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.</p>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+<p>The robot is also prone to shed a track if the &ldquo;half turn&rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&rsquo;t run the Raspberry Pi CPU.</p>
+
+	</article>
+
+
+		<footer>
+	<hr>
+	<p>You can contact me by <a href="mailto:will@willj.net">Email</a> and find me on <a href="https://github.com/wjessop/">Github</a>, <a rel="me" href="https://ruby.social/@wj">Mastodon</a>, and <a href="https://twitter.com/will_j">Twitter</a> (now largely abandoned).</p>
+</footer>
+
+	</body>
+</html>
