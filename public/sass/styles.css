@@ -317,3 +317,60 @@ article aside.thought:before {
   .page-link:hover {
     background: var(--a-color);
     color: var(--bg-color); } }
+
+/*
+
+Testimonials
+
+*/
+testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; }
+  testimonials testimonial {
+    overflow: hidden;
+    border: 1px solid var(--border-color-aside);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: var(--bg-color-about-me);
+    color: var(--main-color); }
+    testimonials testimonial blockquote {
+      padding: 15px;
+      margin: 0;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      position: relative;
+      min-height: 80px; }
+      testimonials testimonial blockquote .testimonial-photo {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        float: left;
+        /* Change from position: absolute to float */
+        margin-right: 15px;
+        /* Add some space between the image and the text */ }
+    testimonials testimonial footer {
+      padding: 10px 20px 5px 20px; }
+      testimonials testimonial footer cite {
+        font-weight: bold;
+        font-size: 1.1rem; }
+      testimonials testimonial footer p {
+        font-style: italic; }
+
+@media (prefers-color-scheme: dark) {
+  testimonials testimonial {
+    background-color: var(--bg-color-about-me);
+    color: var(--main-color-dark); }
+    testimonials testimonial footer cite, testimonials testimonial footer p {
+      color: var(--main-color-dark); } }
+
+@media only screen and (max-width: 768px) {
+  testimonials testimonial {
+    width: 100%; } }
