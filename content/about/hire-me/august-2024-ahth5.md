@@ -18,6 +18,8 @@ During this time I also established a culture of quality by implementing a bette
 
 In other roles, I have focused on Postgres database performance at [Tanda](https://www.tanda.co/), guided architectural direction and upgrade processes at [Procore](https://www.procore.com/) (via [Rubytune](https://rubytune.com)), and executed seamless Rails upgrades at [Stuart](https://stuart.com/). My tenure at [37signals](https://37signals.com/)/[Basecamp](https://basecamp.com/) involved security initiatives and sysadmin duties, while at [Engineyard](https://www.engineyard.com/), I led customer migrations to AWS and the Terramark cloud.
 
+I also have some [Rails core commits](https://contributors.rubyonrails.org/contributors/will-jessop/commits).
+
 ### Things people have said about me
 
 <testimonials>
@@ -42,7 +44,6 @@ In other roles, I have focused on Postgres database performance at [Tanda](https
     </footer>
   </testimonial>
 </testimonials>
-
 
 ### Experience
 
