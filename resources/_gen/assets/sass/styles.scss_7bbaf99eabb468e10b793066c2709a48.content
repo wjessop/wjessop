@@ -1,0 +1,376 @@
+@charset "UTF-8";
+:root {
+  --main-color: #3e3e3e;
+  --bg-color: #F5F5F0;
+  --a-color: rgb(0, 102, 204);
+  --a-color-visited: #1a0dab;
+  --blockquote-bg-color: #f3f3f3;
+  --code-bg-color: #f3f3f3;
+  --bg-color-about-me: #e0e0e0;
+  --bg-color-aside: #e0e0e0;
+  --border-color-aside: #252525;
+  --bg-color-contracts: #767676;
+  --text-color-contracts: #ededed; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: #d0d0d0;
+    --bg-color: #252525;
+    --a-color: #8798e2;
+    --a-color-visited: #554dac;
+    --blockquote-bg-color: #5b5b5b;
+    --code-bg-color: #5b5b5b;
+    --bg-color-about-me: #1a1a1a;
+    --bg-color-aside: rgb(61, 61, 61);
+    --border-color-aside: #d0d0d0;
+    --bg-color-contracts: #767676;
+    --text-color-contracts: #ededed; } }
+
+body {
+  font-family: Consolas, Monospace, Courier;
+  /* MacOSX & Windows = Courier */
+  font-size: calc(16px + 0.1vw);
+  line-height: 1.6em;
+  max-width: 950px;
+  /* For Desktop PC (see @media for Tablets/Phones) */
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0 auto;
+  background: var(--bg-color);
+  color: var(--main-color); }
+  body nav {
+    margin-bottom: 20px; }
+
+a {
+  color: var(--a-color-visited);
+  font-weight: bold;
+  word-break: break-word; }
+
+a:visited {
+  color: var(--a-color);
+  font-weight: bold; }
+
+a:hover {
+  text-decoration: none; }
+
+img {
+  border: none; }
+
+div.clearfix {
+  clear: both; }
+
+about-me {
+  display: block;
+  background-color: var(--bg-color-about-me);
+  padding: 10px;
+  padding-left: 20px; }
+  about-me img {
+    max-width: 100%;
+    height: auto;
+    float: right;
+    margin: 10px; }
+  about-me p {
+    font-size: 1.4rem;
+    padding: 0px 5px; }
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    line-height: calc(1.5em + 0.1vw); }
+  about-me {
+    padding-left: 30px; }
+    about-me p {
+      font-size: 1.3rem;
+      padding: 0px 5px; } }
+
+hr {
+  clear: both; }
+
+p {
+  margin-top: 0px;
+  margin-bottom: 4ch; }
+
+sup {
+  vertical-align: 0.3em;
+  font-size: 0.65em; }
+
+pre {
+  font-family: Consolas, Monospace, Courier;
+  /* MacOSX & Windows = Courier */
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid Black;
+  padding-left: 2%;
+  padding-top: 1ch;
+  padding-bottom: 1ch;
+  overflow: scroll; }
+
+div.heading {
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.title {
+  text-decoration: none; }
+
+img.pixel, canvas.pixel {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges; }
+
+p > code:not([data-lang]), li > code:not([data-lang]), aside > code:not([data-lang]) {
+  background-color: #595959;
+  color: #e3e2e2;
+  padding: 4px 8px;
+  border-radius: 5px; }
+
+pre {
+  margin-bottom: 4ch; }
+
+div.open-to-contracts {
+  border-radius: 10px;
+  background-color: var(--bg-color-contracts);
+  color: var(--text-color-contracts);
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.2rem; }
+
+/*
+	Fixes iOS font sizing anomaly
+
+	https://github.com/adityatelange/hugo-PaperMod/issues/828
+*/
+code {
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+/* ----- Post list ----- */
+post_list ul p {
+  margin: 5px 0px 25px 0px;
+  padding: 0px 0px 0px 15px;
+  border-left: 1px solid #3e3e3e;
+  font-style: italic; }
+
+/* ----- Tag list ----- */
+.tag-list {
+  list-style-type: none;
+  padding-left: 0; }
+  .tag-list li {
+    margin-bottom: 30px; }
+    .tag-list li a.tag-title {
+      font-size: 1.2em; }
+    .tag-list li .first-post {
+      margin: 10px 0px 0px 40px; }
+      .tag-list li .first-post p.summary {
+        margin: 5px 0px 25px 0px;
+        padding: 0px 0px 0px 15px;
+        border-left: 1px solid #3e3e3e;
+        font-style: italic; }
+
+/* ----- Posts ----- */
+article blockquote {
+  background-color: var(--blockquote-bg-color);
+  border: dashed 1px grey;
+  font-style: italic;
+  text-align: justify;
+  padding: 2ch;
+  margin: 2ch 0ch 4ch 2ch; }
+  article blockquote p:last-child {
+    margin-bottom: 0px; }
+
+article blockquote div {
+  text-transform: none;
+  text-align: right;
+  width: 100%; }
+
+article h1, article h2 {
+  clear: both; }
+
+article hr {
+  width: 100%;
+  height: 1px;
+  border: 0px;
+  background-color: #a1a1a1; }
+
+article figure {
+  margin: 0px 0px 4ch 0px;
+  max-width: 100%; }
+
+article figcaption {
+  max-width: 100%; }
+  article figcaption h4 {
+    margin: 0px; }
+
+article .right {
+  float: right;
+  margin: 10px 0px 40px 40px;
+  max-width: 400px; }
+
+article .left {
+  float: left;
+  margin: 10px 40px 40px 0px;
+  max-width: 400px; }
+
+article .full {
+  width: 100%; }
+  article .full img {
+    max-width: 100%; }
+
+article .youtube-embed {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 30px; }
+  article .youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; }
+
+article img {
+  max-width: 400px;
+  margin: 10px 0px; }
+
+article img[src$='#full'] {
+  max-width: 100%; }
+
+article img[src$='#right'] {
+  float: right;
+  margin: 10px 0px 40px 40px; }
+
+article img[src$='#left'] {
+  float: left;
+  margin: 10px 40px 40px 0px; }
+
+article figure figcaption p {
+  margin-left: 30px; }
+
+article figure figcaption h4:before {
+  content: "⤴ "; }
+
+article ul {
+  clear: both; }
+  article ul li p {
+    margin-bottom: 0px; }
+
+article table {
+  margin-bottom: 40px; }
+
+article pre {
+  background: var(--code-bg-color); }
+
+article aside {
+  border: 1px dashed var(--border-color-aside);
+  padding: 15px;
+  margin: 4ch 0px;
+  background-color: var(--bg-color-aside); }
+  article aside h3 {
+    margin-top: 0px; }
+  article aside :last-child {
+    margin-bottom: 10px; }
+
+article aside.thought:before {
+  content: "🤔";
+  font-size: 3em;
+  position: relative;
+  float: right;
+  top: -1.6rem;
+  left: 2rem; }
+  @media only screen and (max-width: 768px) {
+    article aside.thought:before {
+      font-size: 2.5em;
+      left: 1.3rem; } }
+.pagination {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0; }
+
+.page-item {
+  margin-right: 10px; }
+
+.page-link {
+  display: block;
+  padding: 10px;
+  background: var(--bg-color);
+  color: var(--main-color); }
+
+.page-item.active .page-link {
+  background: var(--main-color);
+  color: var(--bg-color); }
+
+.page-link:hover {
+  background: var(--a-color);
+  color: var(--bg-color); }
+
+@media (prefers-color-scheme: dark) {
+  .page-link {
+    background: var(--bg-color);
+    color: var(--main-color); }
+  .page-item.active .page-link {
+    background: var(--main-color);
+    color: var(--bg-color); }
+  .page-link:hover {
+    background: var(--a-color);
+    color: var(--bg-color); } }
+
+/*
+
+Testimonials
+
+*/
+testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; }
+  testimonials testimonial {
+    overflow: hidden;
+    border: 1px solid var(--border-color-aside);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: var(--bg-color-about-me);
+    color: var(--main-color); }
+    testimonials testimonial blockquote {
+      padding: 15px;
+      margin: 0;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      position: relative;
+      min-height: 80px; }
+      testimonials testimonial blockquote .testimonial-photo {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        float: left;
+        /* Change from position: absolute to float */
+        margin-right: 15px;
+        /* Add some space between the image and the text */ }
+    testimonials testimonial footer {
+      padding: 10px 20px 5px 20px; }
+      testimonials testimonial footer cite {
+        font-weight: bold;
+        font-size: 1.1rem; }
+      testimonials testimonial footer p {
+        font-style: italic; }
+
+@media (prefers-color-scheme: dark) {
+  testimonials testimonial {
+    background-color: var(--bg-color-about-me);
+    color: var(--main-color-dark); }
+    testimonials testimonial footer cite, testimonials testimonial footer p {
+      color: var(--main-color-dark); } }
+
+@media only screen and (max-width: 768px) {
+  testimonials testimonial {
+    width: 100%; } }
