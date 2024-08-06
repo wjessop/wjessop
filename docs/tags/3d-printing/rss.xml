@@ -8,8 +8,25 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2024 10:00:00 +0100</lastBuildDate>
     <atom:link href="https://willj.net/tags/3d-printing/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Final robot photos</title>
+      <link>https://willj.net/posts/final-robot-photos/</link>
+      <pubDate>Tue, 06 Aug 2024 10:00:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/final-robot-photos/</guid>
+      <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot back in about 2014 but never posted the final photos of it anywhere, these are the final photos I took of the finished robot.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+    alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+    alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</title>
       <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>

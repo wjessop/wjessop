@@ -13,6 +13,25 @@
       
       
       <item>
+      <title>Final robot photos</title>
+      <link>https://willj.net/posts/final-robot-photos/</link>
+      <pubDate>Tue, 06 Aug 2024 10:00:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/final-robot-photos/</guid>
+      <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot back in about 2014 but never posted the final photos of it anywhere, these are the final photos I took of the finished robot.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+    alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+    alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+      
+      <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
       <link>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</link>
       <pubDate>Wed, 31 Jul 2024 17:00:00 +0100</pubDate>

@@ -8,8 +8,25 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 29 Jul 2014 22:59:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2015 00:00:00 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/robotics/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Final robot photos</title>
+      <link>http://localhost:1313/posts/final-robot-photos/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>http://localhost:1313/posts/final-robot-photos/</guid>
+      <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot, these are the final finished photos I took of it.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+    alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+    alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
     <item>
       <title>I got my pan tilt servos working</title>
       <link>http://localhost:1313/posts/i-got-my-pan-tilt-servos-working/</link>
