@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Baking on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/baking/</link>
+    <link>https://willj.net/tags/baking/</link>
     <description>Recent content in Baking on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 13 Jan 2021 02:53:53 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/baking/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/baking/" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Sourdough Bread</title>
-      <link>http://localhost:1313/posts/simple-sourdough-bread/</link>
+      <link>https://willj.net/posts/simple-sourdough-bread/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/simple-sourdough-bread/</guid>
+      <guid>https://willj.net/posts/simple-sourdough-bread/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/Hero.jpg#full&#34; alt=&#34;Two sourdough boules&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;images/Search.jpg#right&#34; alt=&#34;Two sourdough boules&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I make sourdough bread usually at least once a week and sometimes post pictures of the result to &lt;a href=&#34;https://twitter.com/will_j&#34;&gt;Twitter&lt;/a&gt; and get asked pretty frequently about my technique. There&amp;rsquo;s a lot written about sourdough bread on the Internet these days, and plenty of YouTube videos on the subject too, but my technique is slightly different to many of them in that it is simple and takes the smallest amount of time possible while still getting great results. I don&amp;rsquo;t have the time to dedicate an entire week to the creation of a loaf of bread, I haven&amp;rsquo;t the patience to softly sing to the dough five times a day, and will not be spending several hours gently cupping the proving basket whispering encouraging thoughts long into the night.&lt;/p&gt;
@@ -28,7 +28,7 @@
 &lt;p&gt;Though it&amp;rsquo;s fashionable to add your entire life story as the preamble to any recipe posted on the Web these days, let&amp;rsquo;s draw a line under this introduction and move on to the method. If you&amp;rsquo;re pushed for time to make bread then you&amp;rsquo;re not going to want to read about how a particularly nutty focaccia I ate when I was four set me on the path to posting marginally iterative recipes that I&amp;rsquo;ve made my own &amp;ldquo;with a twist&amp;rdquo; many years later.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-starter&#34;&gt;The starter&lt;/h2&gt;
-&lt;p&gt;You&amp;rsquo;re going to need a starter. If you&amp;rsquo;ve not got one already, &lt;a href=&#34;http://localhost:1313/posts/making-a-sourdough-starter/&#34;&gt;head over to my article on making one&lt;/a&gt;, otherwise, read on!&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;re going to need a starter. If you&amp;rsquo;ve not got one already, &lt;a href=&#34;https://willj.net/posts/making-a-sourdough-starter/&#34;&gt;head over to my article on making one&lt;/a&gt;, otherwise, read on!&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-method&#34;&gt;The Method&lt;/h2&gt;
 &lt;p&gt;You will need:&lt;/p&gt;
@@ -61,7 +61,7 @@
 &lt;p&gt;Now, put it in the fridge. I use a banneton, they&amp;rsquo;re about £12 on amazon, but you can probably use some other dish. Flour the inside of it, drop the dough top of the loaf side down in the receptacle, cover, place in the fridge overnight.&lt;/p&gt;
 &lt;p&gt;These steps in total will take about 10 minutes for the initial mix and a few minutes for the step in the evening.&lt;/p&gt;
 &lt;h3 id=&#34;day-2&#34;&gt;Day 2&lt;/h3&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/simple-sourdough-bread/images/finished_bread.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/simple-sourdough-bread/images/finished_bread.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A finished loaf.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -93,14 +93,14 @@
     </item>
     <item>
       <title>Making a Sourdough Starter</title>
-      <link>http://localhost:1313/posts/making-a-sourdough-starter/</link>
+      <link>https://willj.net/posts/making-a-sourdough-starter/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/making-a-sourdough-starter/</guid>
+      <guid>https://willj.net/posts/making-a-sourdough-starter/</guid>
       <description>&lt;p&gt;The absolutely best way of making a starter if you don&amp;rsquo;t already have one is to not make one at all. If you can, ask someone who already has one for a bit of theirs. Most people will be happy to donate a bit, and this is a far shorter way of starting. There&amp;rsquo;s nothing heroic about creating your own, it&amp;rsquo;s mostly just a pain in the butt. If you&amp;rsquo;ve not got one though, here&amp;rsquo;s how make your own.&lt;/p&gt;
-&lt;p&gt;Already made your starter and want to make bread? &lt;a href=&#34;http://localhost:1313/posts/simple-sourdough-bread/&#34;&gt;Head over to the bread recipe!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Already made your starter and want to make bread? &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;Head over to the bread recipe!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;things-you-will-need&#34;&gt;Things you will need&lt;/h2&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/the_jar.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/the_jar.jpg&#34;
     alt=&#34;Sourdough container with a banana propped against it at a jaunty angle&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;My sourdough container, banana for scale.&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -117,7 +117,7 @@
 &lt;p&gt;The container should be a glass, plastic or non-reactive metal, about one banana in height (see image). It should be very clean and free from dirt or any cleaning product residue. You will also need some sort of cloth to cover it, and an elastic band to keep the cloth in place.&lt;/p&gt;
 &lt;h2 id=&#34;the-method&#34;&gt;The Method&lt;/h2&gt;
 &lt;p&gt;Make sure to be exact with the measurements, no eyeballing quantities or using weird measurements like &amp;ldquo;cups&amp;rdquo; or anything like that. Also, use a set of digital scales with 1g accuracy if you can, they make baking much easier.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/starter_progress.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_progress.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Sourdough progression. Inactive starter on the left, some activity in the middle, the same starter 24 hours later.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -131,12 +131,12 @@
 &lt;p&gt;You should start to see some bubbling activity on about day 4 and if everything went right you should have a starter after about a week. You should end up with something that smells slightly sour and a bit like yoghurt.&lt;/p&gt;
 &lt;p&gt;It might take a little bit longer, it&amp;rsquo;s going to depend on the flour and temperature. If it&amp;rsquo;s not doing anything by about two weeks or it smells like it&amp;rsquo;s gone off then you might need to restart.&lt;/p&gt;
 &lt;p&gt;Once it&amp;rsquo;s done, keep the cloth cover on and put it in the fridge until you need it. It will keep about a week without attention in a cold fridge.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/completed_starter.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/completed_starter.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A working starter.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/starter_with_lid.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_with_lid.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Use a cloth lid for your starter to allow it to breath.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -146,7 +146,7 @@
 &lt;p&gt;I found that my starter keeps best when kept in the fridge as it turns over too fast when any warmer.&lt;/p&gt;
 &lt;p&gt;When you use some of the starter, replace what you took with 50/50 water and flour. For example, if you take 150g starter to make a loaf of bread, replace what you took with 75g water and 75g flour. Try to keep the ratios exact. If you bias towards more water for instance each time you&amp;rsquo;re going to end up with wet bread, but bear in mind that over time your starter will suffer from evaporation, so you may need to add a little extra water every once in a while.&lt;/p&gt;
 &lt;p&gt;If you think you might want to make a larger, or multiple loaves in a few days, just add more water and flour over a couple of days until you&amp;rsquo;ve got the amount of starter you will need without taking too much.&lt;/p&gt;
-&lt;p&gt;When you take the starter out ideally it will be fairly stiff and coagulated, see about 30s into this video (you don&amp;rsquo;t have to stir it for ages, I was just fiddling). Ignore the rest of the video, my technique has changed in some spots, see the &lt;a href=&#34;http://localhost:1313/posts/simple-sourdough-bread/&#34;&gt;bread recipe&lt;/a&gt; for the updated method.&lt;/p&gt;
+&lt;p&gt;When you take the starter out ideally it will be fairly stiff and coagulated, see about 30s into this video (you don&amp;rsquo;t have to stir it for ages, I was just fiddling). Ignore the rest of the video, my technique has changed in some spots, see the &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;bread recipe&lt;/a&gt; for the updated method.&lt;/p&gt;
 
 
     

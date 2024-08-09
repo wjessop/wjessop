@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/</link>
+    <link>https://willj.net/</link>
     <description>Recent content on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,22 +9,21 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 23 Jun 2020 18:03:31 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/" rel="self" type="application/rss+xml" />
-      
+    <atom:link href="https://willj.net/" rel="self" type="application/rss+xml" />
       
       
       <item>
       <title>Final robot photos</title>
-      <link>http://localhost:1313/posts/final-robot-photos/</link>
+      <link>https://willj.net/posts/final-robot-photos/</link>
       <pubDate>Tue, 06 Aug 2024 10:00:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/final-robot-photos/</guid>
+      <guid>https://willj.net/posts/final-robot-photos/</guid>
       <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot back in about 2014 but never posted the final photos of it anywhere, these are the final photos I took of the finished robot.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0594.JPG&#34;
     alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0595.JPG&#34;
     alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
 &lt;/figure&gt;
 
@@ -34,10 +33,10 @@
       
       <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
-      <link>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</link>
+      <link>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</link>
       <pubDate>Wed, 31 Jul 2024 17:00:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</guid>
+      <guid>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;Passing strings to the Rails logger methods (eg. &lt;code&gt;Rails.logger.info(…)&lt;/code&gt;) causes unecessary object allocations, and if you&amp;rsquo;re calling methods to generate data for your log messages then it can cause unecessary CPU work too. In this post I&amp;rsquo;ll show you how to use block syntax when using your logger with Rails to save object allocations and CPU time.&lt;/p&gt;
 &lt;h2 id=&#34;the-context&#34;&gt;The Context&lt;/h2&gt;
@@ -159,10 +158,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       
       <item>
       <title>Finding Postgres rows too large for BTree indexes</title>
-      <link>http://localhost:1313/posts/finding-postgres-rows-too-large-for-btree-indexes/</link>
+      <link>https://willj.net/posts/finding-postgres-rows-too-large-for-btree-indexes/</link>
       <pubDate>Sat, 17 Feb 2024 17:25:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/finding-postgres-rows-too-large-for-btree-indexes/</guid>
+      <guid>https://willj.net/posts/finding-postgres-rows-too-large-for-btree-indexes/</guid>
       <description>&lt;p&gt;We are currently migrating our main application database from AWS Aurora Postgres to Google AlloyDB Postgres (it&amp;rsquo;s a cost decision) and I&amp;rsquo;m using Google&amp;rsquo;s database Migration tool to do the work. At some point last week the migration failed on Google&amp;rsquo;s side with an error:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;index row size 2712 exceeds btree version 4 maximum 2704 for index index_name_column_name
 &lt;/code&gt;&lt;/pre&gt;
@@ -344,148 +343,12 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       
       
       <item>
-      <title>Giving Postgres a handle adding query parameters to help the query planner</title>
-      <link>http://localhost:1313/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/</link>
-      <pubDate>Sun, 15 Oct 2023 23:49:00 +0100</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/</guid>
-      <description>&lt;h1 id=&#34;increasing-postgres-query-performance-with-additional-parameters&#34;&gt;Increasing postgres query performance with additional parameters&lt;/h1&gt;
-&lt;p&gt;There&amp;rsquo;s a lot to take in here so feel free to skip ahead to the &amp;ldquo;Improving the performance&amp;rdquo; section if you are getting lost or falling asleep.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/&#34;&gt;Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE&lt;/a&gt; I promised to dig deeper into the specifics of the optimisation that we put in place. This post will go into the details, and hopefully give you some more ideas for helping to optimise your queries in the future.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s go back and look at the original query, with the query plan it looked something like this (I&amp;rsquo;ve removed the buffers data for brevity):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPLAIN&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ANALYSE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;INNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; activity_logs &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; events.activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    activity_logs.user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.date &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-01&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.event_end &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.shift_length &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; events.exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    date &lt;span style=&#34;color:#66d9ef&#34;&gt;ASC&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sort  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;36&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;37&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;736&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;737&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Key&lt;/span&gt;: events.date, events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Method&lt;/span&gt;: quicksort  Memory: &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;kB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  Nested Loop  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;731&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;731&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (1)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_activity_logs_on_user_id_and_start_and_end &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; activity_logs  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;325&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;82&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;046&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;946&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;316&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (2)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_events_on_activity_log_id &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; events  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;119&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;603&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;603&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;316&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (3)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id) &lt;span style=&#34;color:#75715e&#34;&gt;-- (4)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              Filter: ((date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ANY&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{2022-12-31,2023-01-01}&amp;#39;&lt;/span&gt;::date[])) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (((&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;end&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (shift_length &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;::double &lt;span style=&#34;color:#66d9ef&#34;&gt;precision&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; (exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;))) &lt;span style=&#34;color:#75715e&#34;&gt;-- (5)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Rows&lt;/span&gt; Removed &lt;span style=&#34;color:#66d9ef&#34;&gt;by&lt;/span&gt; Filter: &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;422&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Execution Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;779&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This query was run on a cold cache. It&amp;rsquo;s not a particularly complex query, but it took 2.4 seconds to run, that&amp;rsquo;s not great in general, but worse for a query that&amp;rsquo;s run as often as this one. At it&amp;rsquo;s peak it ran over 4000 times per minute. So, what can be done to improve performance here? Let&amp;rsquo;s break down the query plan to see what&amp;rsquo;s happening, it&amp;rsquo;s approximately like this:&lt;/p&gt;
-&lt;p&gt;Step 1&lt;/p&gt;
-&lt;p&gt;Postgres pulls data on all &lt;code&gt;activity_logs&lt;/code&gt; that match the condition &lt;code&gt;activity_logs.user_id = 9372632&lt;/code&gt;, there are 316 rows in total, you can see this in the &lt;code&gt;rows=316&lt;/code&gt; entry at mark (2) in the query plan above.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; user_id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;--------------+---------
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;310366&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;316650&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;324602&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;330221&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;337458&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;344498&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;352023&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;359360&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;367422&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;374930&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;snip &lt;span style=&#34;color:#ae81ff&#34;&gt;296&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22069105&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22193550&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22317324&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22447556&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22596124&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22788358&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22881229&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23011303&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23158612&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23307676&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Step 2&lt;/p&gt;
-&lt;p&gt;This is where the &amp;ldquo;Nested Loop&amp;rdquo; hits. For every row found in Step 1, postgres looks up the &lt;code&gt;activity_logs.id&lt;/code&gt; entry in the &lt;code&gt;index_events_on_activity_log_id&lt;/code&gt; index (where I&amp;rsquo;ve marked (3) and (4)) and then filters these rows out (5) using the conditions present in the &lt;code&gt;WHERE&lt;/code&gt; clause. There are 5552 rows in the events table that match the &lt;code&gt;activity_log_ids&lt;/code&gt; returned in the first step, on average 18 per &lt;code&gt;activity_log_id&lt;/code&gt; in the nested loop.&lt;/p&gt;
-&lt;p&gt;Step 3&lt;/p&gt;
-&lt;p&gt;This is where any data that would be returned will be sent back to the client on the database connection, but in this case there are 0 rows returned.&lt;/p&gt;
-&lt;h2 id=&#34;improving-the-performance&#34;&gt;Improving the performance&lt;/h2&gt;
-&lt;p&gt;So this query runs for 2.4 seconds and pulls back 25MB (see calculation in the linked post) of data from disk to return 0 rows, that&amp;rsquo;s not great, but even though this is a really simple query, just one join, we can help postgres out, a lot. The way we do this is by knowing that for this query the only &lt;code&gt;activity_logs&lt;/code&gt; that can be relevant are those that start on or after the activity start date (where the query originates) @start_date, end before the definition of &amp;ldquo;end_of_week + 1.day&amp;rdquo; in the class. activity_logs outside that range aren&amp;rsquo;t relevant so this gives us data we can feed back into the query. The new query with the timesheet date constraints (picking some sample dates for the parameters) is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPLAIN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;ANALYSE&lt;/span&gt;, BUFFERS)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;INNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; activity_logs &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; events.activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    activity_logs.user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; activity_logs.event_start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;-- New parameter!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-08&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; activity_logs.event_end   &lt;span style=&#34;color:#75715e&#34;&gt;-- New parameter!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.date &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-01&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.event_end &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.shift_length &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; events.exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    date &lt;span style=&#34;color:#66d9ef&#34;&gt;ASC&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sort  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;66&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;420&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;421&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Key&lt;/span&gt;: events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Method&lt;/span&gt;: quicksort  Memory: &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;kB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  Nested Loop  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;65&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;415&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;415&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_activity_logs_on_user_id_and_start_and_end &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; activity_logs  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;70&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;414&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;414&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: ((user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;70142&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-06-18&amp;#39;&lt;/span&gt;::date))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_events_on_activity_log_id &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; events  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;119&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (never executed) &lt;span style=&#34;color:#75715e&#34;&gt;-- (6)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              Filter: ((((&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;end&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (shift_length &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;::double &lt;span style=&#34;color:#66d9ef&#34;&gt;precision&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; (exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-18&amp;#39;&lt;/span&gt;::date))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;430&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Execution Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;461&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is also on a cold cache. So what&amp;rsquo;s the difference here? The obvious thing is end result of the execution time, 1.5ms instead of 2400ms, that&amp;rsquo;s 0.06% of the time taken, but what&amp;rsquo;s the breakdown of where we saved time? If you follow the overall plan laid out earlier you can see that compared to Step 1. Postgres is still trying to pull back timesheet rows out of the &lt;code&gt;activity_logs&lt;/code&gt; table, it&amp;rsquo;s even using the same index, but it&amp;rsquo;s added a &lt;code&gt;activity_logs.event_start&lt;/code&gt; condition to the index lookup, and it return 0 rows, compared to the 316 rows returned by the previous query. Because Postgres has pulled back no rows here it doesn&amp;rsquo;t need to run the loop in Step 2 316 times at all, see mark (6). This is great, not running code at all is the best optimisation we can do as after all, no code is faster than no code. This new query also pulled back far less data, 8k vs 25MB greatly reducing the IO load on the database server, which was what got this query noticed in the first place.&lt;/p&gt;
-&lt;p&gt;Some of you might have noticed that we&amp;rsquo;ve picked a couple of fairly old &lt;code&gt;user_ids&lt;/code&gt; here (9372632, 70142) that may well not have many recent activity_logs or events, and that&amp;rsquo;s true, these users only have &lt;code&gt;activity_logs&lt;/code&gt; that go up to October/November 2021, but they were picked for a reason. They&amp;rsquo;re pretty close to the worst case and it&amp;rsquo;s not like these are much of an outlier, there are &lt;code&gt;user_ids&lt;/code&gt; going down to 18 that have activity_logs in the period we&amp;rsquo;re testing here. Often when testing it&amp;rsquo;s easier to see the difference you&amp;rsquo;re making when you pick the worst performing dats, as long as you test it on a range of data to verify the results on less &amp;ldquo;troublesome&amp;rdquo; data.&lt;/p&gt;
-&lt;p&gt;The ultimate proof though is when it goes to production which is when we finally get to see if the changes we made have helped. It&amp;rsquo;s important to track the changes you make to production because for all the testing on staging or locally that you do there could still be something about the volume or shape of data, different memory or configuration parameters on production that ultimately cause your new query to run slower. It doesn&amp;rsquo;t happen often, but it does happen. Thankfully PGAnalyse shows us that this optimisation was successful, it&amp;rsquo;s not dissapeared from the problem queries list completely:&lt;/p&gt;
-&lt;p&gt;picture.&lt;/p&gt;
-&lt;h2 id=&#34;some-final-notes&#34;&gt;Some final notes&lt;/h2&gt;
-&lt;h3 id=&#34;what-if-theres-no-well-defined-start-and-end-date&#34;&gt;What if there&amp;rsquo;s no well defined start and end date?&lt;/h3&gt;
-&lt;p&gt;Here we used both a start and end date to limit the data, and these dates are tightly scoped by the shift/timesheet relationship, but that&amp;rsquo;s not always possible. The key here was limiting the scope on the activity_logs table, so any field you can add as a parameter will give the query planner more to go off. Previously I&amp;rsquo;ve picked a sensible but arbitrary cutoff date for queries (in an SMS messaging system only looking for message threads newer than n months when handling incoming messages for instance). This is related to the next point:&lt;/p&gt;
-&lt;h3 id=&#34;add-more-conditions-if-you-can&#34;&gt;Add more conditions if you can&lt;/h3&gt;
-&lt;p&gt;There&amp;rsquo;s a good rule of thumb which is to add as many parameters to the query as you can to give the query planner more to work on. For instance status on activity_logs isn&amp;rsquo;t indexed, but a condition on that field could filter rows in Step 1, potentially cutting down the nested loops. If you don&amp;rsquo;t add a condition with a parameter then Postgres can&amp;rsquo;t use it. This doesn&amp;rsquo;t always work, Postgres can pick the wrong execution plan, but that&amp;rsquo;s pretty rare.&lt;/p&gt;
-&lt;p&gt;An example of this, though we added a start and end date to the optimised query above you can see from the query plan that postgres only queried the timesheet index for the start date:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Index Cond: ((user_id = 70142) AND (start &amp;gt; &#39;2022-06-18&#39;::date))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That&amp;rsquo;s OK, we can leave the end data in, postgres might be able to make use of it later for different data. In fact, checking a different user_id now I can see that postgres /has/ used the end date on the index lookup in this instance (7):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;                                                                                             QUERY PLAN
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;Repeated testing shows this additional use of the end query parameter to cut about 0.04ms from the query. It&amp;rsquo;s not a lot, but we may as well, it&amp;rsquo;s free!&lt;/p&gt;
-&lt;h3 id=&#34;design-query-scope-into-the-product-early&#34;&gt;Design query scope into the product early&lt;/h3&gt;
-&lt;p&gt;If you can, think about how to limit data returned at the product design stage. It&amp;rsquo;s easy to forget when you&amp;rsquo;re first starting out with a feature that the data will (hopefully) be acumulating for years to come (the oldest shift was created on 2012-10-14). Consider building in constraints where possible early, such as &amp;ldquo;last 30 days of widget_sales&amp;rdquo; rather than just &amp;ldquo;List all widget_sales&amp;rdquo;. You set the expectations of users early, and it&amp;rsquo;s easier to expand the conditions later than it is to constrict them.&lt;/p&gt;
-&lt;h1 id=&#34;size-and-shape-of-data-is-important&#34;&gt;Size /and/ shape of data is important&lt;/h1&gt;
-&lt;p&gt;When you&amp;rsquo;re optimising queries the amount of data you are testing against matters, this is the more obvious thing, but &amp;ldquo;shape&amp;rdquo; matters too. For example low cardinality in a table that in production has high cardinality. If you&amp;rsquo;re testing on production data this isn&amp;rsquo;t an issue, the data you&amp;rsquo;re testing against /is/ the data you&amp;rsquo;re going to be running the query against eventually, but if you&amp;rsquo;re using generated data (for instance if production data is siloed and unavailable) then generating enough data that is as closely matched in it&amp;rsquo;s shape and relationship as production is important.&lt;/p&gt;
-</description>
-    </item>
-    
-      
-      <item>
       <title>Measuring IO timings when using EXPLAIN ANALYSE in Postgres</title>
-      <link>http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse/</link>
+      <link>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</link>
       <pubDate>Tue, 19 Sep 2023 23:21:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres&#34;&gt;an earlier post about using &lt;code&gt;BUFFERS&lt;/code&gt; with &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt;&lt;/a&gt; I mentioned that there were a couple of options to &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; that were not widely known, but I only talked about one, the &lt;code&gt;BUFFERS&lt;/code&gt; option. In this article I will dig into that second option; IO timing tracking.&lt;/p&gt;
+      <guid>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres&#34;&gt;an earlier post about using &lt;code&gt;BUFFERS&lt;/code&gt; with &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt;&lt;/a&gt; I mentioned that there were a couple of options to &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; that were not widely known, but I only talked about one, the &lt;code&gt;BUFFERS&lt;/code&gt; option. In this article I will dig into that second option; IO timing tracking.&lt;/p&gt;
 &lt;h2 id=&#34;io-timing-tracking&#34;&gt;IO timing tracking&lt;/h2&gt;
 &lt;p&gt;The second tweak to the default &lt;code&gt;EXPLAIN&lt;/code&gt; usage is using IO timing tracking. You can set this per session:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;set track_io_timing = on;
@@ -542,10 +405,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       
       <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
-      <link>http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
+      <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
       <pubDate>Fri, 15 Sep 2023 23:49:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</guid>
+      <guid>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</guid>
       <description>&lt;p&gt;Many people are familiar with running &lt;code&gt;EXPLAIN&lt;/code&gt; and &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; to diagnose Postgres performance issues, but there are a couple of useful options available when running these reports that aren&amp;rsquo;t always commonly known that you might find useful. The first of these is the &lt;code&gt;BUFFERS&lt;/code&gt; option.&lt;/p&gt;
 &lt;p&gt;In this article I will explain how to measure buffer usage in Postgres using the &lt;code&gt;BUFFERS&lt;/code&gt; option, and how I used it to help verify that a query optimization to massively reduce the IO demands of a problem query had worked.&lt;/p&gt;
 &lt;h2 id=&#34;the-buffers-option&#34;&gt;The BUFFERS option&lt;/h2&gt;
@@ -727,17 +590,17 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/aside&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;At scale IO can be a significant performance bottleneck for databases and optimizing problem queries that cause large amounts of IO can yield significant benefits. Adding the &lt;code&gt;BUFFERS&lt;/code&gt; option when using &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; can give you a great way to identify problem areas of a query, and to verify when you&amp;rsquo;re done that you&amp;rsquo;ve actually solved the issue.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;ve found this interesting you might be interested in second part of this article, &lt;a href=&#34;http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse&#34;&gt;Measuring IO timings when using EXPLAIN ANALYSE in Postgres&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;ve found this interesting you might be interested in second part of this article, &lt;a href=&#34;https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse&#34;&gt;Measuring IO timings when using EXPLAIN ANALYSE in Postgres&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
       
       <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
-      <link>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</link>
+      <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
       <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
+      <guid>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
       <description>&lt;p&gt;There are a few &lt;a href=&#34;https://gohugo.io/tools/migrations/#wordpress&#34;&gt;&amp;ldquo;official&amp;rdquo; options for migrating wordpress content to Hugo&lt;/a&gt;, but they are all either cumbersome (requiring installing wordpress in docker) or don&amp;rsquo;t handle images. I didn&amp;rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.&lt;/p&gt;
 &lt;p&gt;In the end &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I created a somewhat rough, but functional program to do the job&lt;/a&gt; and it was successful.&lt;/p&gt;
 &lt;p&gt;The requirements:&lt;/p&gt;
@@ -790,12 +653,12 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
       
       <item>
       <title>Reverting Firefox&#39;s recent URL bar suggestion order change</title>
-      <link>http://localhost:1313/posts/revert-firefox-url-bar-suggestion-order-change/</link>
+      <link>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</link>
       <pubDate>Mon, 11 Sep 2023 17:27:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/revert-firefox-url-bar-suggestion-order-change/</guid>
+      <guid>https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/</guid>
       <description>&lt;p&gt;A recent update to Firefox changed the order of suggestions when you started typing in the URL bar (or &amp;ldquo;address bar&amp;rdquo;). It used to be that you&amp;rsquo;d get recently visited URLs first but the change caused search suggestions to appear first. I almost always navigate to sites I know by typing the first few letters of the domain name and almost never used the search suggestions so this change cause consternation.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/revert-firefox-url-bar-suggestion-order-change/images/Before.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/images/Before.png&#34;
     alt=&#34;A firefox URL bar suggestions dropdown showing suggested searches before recently visited sites&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The URL bar suggestions after Firefox &amp;#34;Improved&amp;#34; the experience in a recent update and changed the suggestions order&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -810,7 +673,7 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;li&gt;Toggle the value&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;You shouldn&amp;rsquo;t need to restart Firefox for the change to take effect, and should now have your URL history back where it was before the search suggestions.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/revert-firefox-url-bar-suggestion-order-change/images/After.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/revert-firefox-url-bar-suggestion-order-change/images/After.png&#34;
     alt=&#34;A firefox URL bar with recently visited sites before search suggestions&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;URL bar suggestion order, now fixed&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -821,74 +684,16 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
     
       
       <item>
-      <title>Always document your magic values</title>
-      <link>http://localhost:1313/posts/always-document-your-magic-values/</link>
-      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/always-document-your-magic-values/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;Having to write down documentation for the value makes you think about the value more, forces you to justify it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Chestertons fence
-Many programmers know this instinctively&lt;/p&gt;
-&lt;p&gt;Marina story, also instinctive?&lt;/p&gt;
-&lt;p&gt;Sometimes using the defaults can be documentable too, why did you choose the default? I prefer explicitly stating the value and why it was chosen.&lt;/p&gt;
-&lt;p&gt;Documenting no decision taken might be possible. No decision made on retry, will leave it to sidekiq etc. Better than no docs.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/G._K._Chesterton#Chesterton&#39;s_fence&#34;&gt;https://en.wikipedia.org/wiki/G._K._Chesterton#Chesterton&#39;s_fence&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-      
-      <item>
-      <title>Designing your application for scale</title>
-      <link>http://localhost:1313/posts/designing-your-application-for-scale/</link>
-      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/designing-your-application-for-scale/</guid>
-      <description>&lt;h2 id=&#34;the-trap&#34;&gt;The Trap&lt;/h2&gt;
-&lt;p&gt;Picture a startup, recently launched, a sales tracking application called WidgetSalesTrackr. There are 10s of customers signed up, a similar number of users, and customers are using the application to track sales that they are making on their e-commerce platforms. Data is coming in from an API endpoint but it&amp;rsquo;s happening at the rate of 100s of sales per day and the data is still pretty small. They&amp;rsquo;ve been going 3 months so far and have in the region of 10,000 sales in the sales table.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s looking promising but it&amp;rsquo;s still small, the founders haven&amp;rsquo;t quit their main jobs yet but they have high hopes that things are going to take off because feedback is really positive.&lt;/p&gt;
-&lt;p&gt;Early on someone added pagination to the pages where sales are listed, but only after someone pointed out that having a few thousand sales on one page was a bit cumbersome. Whoops. Still, it was easy to add, and is fairly simple to use and understand:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/simple-pagination.png&#34; alt=&#34;Some basic pagination used on a website&#34;&gt;&lt;/p&gt;
-&lt;p&gt;There&amp;rsquo;s a button to skip to the first couple of pages, buttons to skip to the last couple of pages, and buttons to skip to the next and previous pages. Standard stuff.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/5-years-later-cropped.jpeg#full&#34; alt=&#34;Spongebob timecard, 5 years later&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Some years have passed and things have taken off. WidgetSalesTrackr has a team of 10 engineers plus the usual design, product, sales and marketing departments you&amp;rsquo;d expect.&lt;/p&gt;
-&lt;p&gt;The original 100s of sales per day ingested by the API has grown massively and now peaks at closer to 100 per second. Month on month they&amp;rsquo;re adding 50 million records to the sales table, and the records are getting updated now too as order statuses change. The database is starting to creak a little and it&amp;rsquo;s the sales table, the biggest table with the highest insert and update rate, that is the cause of most of the problems.&lt;/p&gt;
-&lt;p&gt;So what&amp;rsquo;s the problem here?&lt;/p&gt;
-&lt;p&gt;There is talk of moving sales data to another store, like DynamoDB or similar, but it&amp;rsquo;s a huge task.&lt;/p&gt;
-&lt;p&gt;Scaling problems are good though right! Yes, but that doesn&amp;rsquo;t mean you have to walk deliberately and directly into a pit trap full of them.
-distracting&lt;/p&gt;
-&lt;p&gt;there is no time to be dealing with this. There are more important projects to complete&lt;/p&gt;
-&lt;p&gt;Listen to customers:
-&amp;ldquo;I go back through the list of sales and calculate the average order total for all sales in the previous year&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Control access to the data&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;notes&#34;&gt;Notes&lt;/h1&gt;
-&lt;p&gt;Hyrum&amp;rsquo;s Law&lt;/p&gt;
-&lt;p&gt;With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve seen this problem many times now.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BOUND IT!&lt;/li&gt;
-&lt;li&gt;Total Number of sales &lt;add today&gt;&lt;/li&gt;
-&lt;li&gt;archived data, can be available more offline?&lt;/li&gt;
-&lt;li&gt;Go through the regular motions. Add indexes, cacheing, faster hardware, database partitions etc.&lt;/li&gt;
-&lt;li&gt;Postgres partitioning mention in talk, moving partitions out of the way&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-      
-      <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</title>
-      <link>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
+      <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
       <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
+      <guid>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
       <description>&lt;hr&gt;
 &lt;h1 id=&#34;update&#34;&gt;Update!&lt;/h1&gt;
 &lt;p&gt;It turns out that this is a Dell OptiPlex 7010 SFF, not a USFF (as advertised by the eBay seller)!&lt;/p&gt;
 &lt;hr&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Dell OptiPlex 7010 SFF&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -899,13 +704,13 @@ distracting&lt;/p&gt;
 &lt;h2 id=&#34;caveat&#34;&gt;Caveat!&lt;/h2&gt;
 &lt;p&gt;This works for my Seagate Barracuda 4TB drives. They&amp;rsquo;re slightly thinner than some of the other drives I&amp;rsquo;ve got, if yours are thicker then it might work for yoiu or it might not.&lt;/p&gt;
 &lt;h2 id=&#34;risers-of-the-machine&#34;&gt;Risers of the Machine&lt;/h2&gt;
-&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
+&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
     alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;View inside a Dell OptiPlex 7010 SFF, there isn&amp;#39;t much room&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -916,7 +721,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;Metric is the best and only measurement system anyone should use, but unfortunately PC manufacturers seem to have settled on imperial for at least the bolt hole sizes I need to use which are &lt;a href=&#34;https://en.wikipedia.org/wiki/Unified_Thread_Standard&#34;&gt;6-32 UNC&lt;/a&gt;. The risers I need to incorporate into this design are fairly long too at nearly 40mm. That&amp;rsquo;s about M3.5 * 40mm in metric, but I couldn&amp;rsquo;t find any M3.5 risers of the right height, and I can buy 6-32 UNC bolts on eBay easily enough so I bought some of those. You can probably use M3.5 as a substitute.&lt;/p&gt;
 &lt;h2 id=&#34;to-fusion360&#34;&gt;To Fusion360!&lt;/h2&gt;
 &lt;p&gt;These days my 3d designing tool of choice is Fusion 360 so I opened it up and set to work. Much cursing, and a fair few scrapped prototypes later I came up with this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
     alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -928,27 +733,27 @@ distracting&lt;/p&gt;
 &lt;p&gt;There is about 5mm clearance between the bottom of the mount and the RAM, and enough clearance between the SSD and the CPU cooler for wires to pass comfortably. The SSD could be mounted about 5mm higher, closer to the bottom of the first hard drive, but I only had 12mm bolts in M3.5 and so had to print spacers.&lt;/p&gt;
 &lt;p&gt;There are captive nuts on the top-left of this image underneath the base, nearest the front of the case. These were exactly the right size for the nuts I was using, which meant that the nuts stayed in right up until I used any force at all on them like when I was trying to screw a bolt into them. This was infuriating so I epoxied the nuts in place. If I was to do another version of this I&amp;rsquo;d make the nut traps tighter so the nuts could be safely held in place with a press fit.&lt;/p&gt;
 &lt;p&gt;The two bolts you can see with two nuts on them used as spacers, these are a flaw in the design. In order to prevent the 50mm bolts I was using from bottoming out I could have used shorter bolts and printed recesses, but I didn&amp;rsquo;t want to buy more imperial bolts I was never going to use again. I could have printed spacers, but the nuts worked and they were there. In the end I had to remove one of the nuts from the bottom-left most bolt so it didn&amp;rsquo;t foul the hard drive, but it didn&amp;rsquo;t bottom out even then so it worked out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
     alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see the 3.5&amp;quot; hard drives in place. There is a gap between the two drives to allow for air flow.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
     alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see how tight it is near the case fan, the tolerances in this design are pretty tight. I couldn&amp;rsquo;t shift the hard drives further away from the front of the case/the case fan because the latch in the removable panel on the case prevents them from moving backwards in the case.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
     alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The front of the case looking in through the old CDRW slot. It doesn&amp;rsquo;t look like it but there is a mm or two clearance between the top of the top hard drive and the case when the lid is on.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
     alt=&#34;Hard drives seen through the front of the PC case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The same view but with the lit fitted.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;parts-list&#34;&gt;Parts list&lt;/h2&gt;
@@ -962,7 +767,7 @@ distracting&lt;/p&gt;
 &lt;li&gt;A SATA power splitter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The SSD bolts looks like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;printing-instructions&#34;&gt;Printing instructions&lt;/h2&gt;
@@ -1000,17 +805,17 @@ distracting&lt;/p&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve said it before, but it&amp;rsquo;s worth repeating. This mount works just fine, the drives are well fixed in place, the cables stay in, the case lid closes. However, designing stuff isn&amp;rsquo;t my day job and this design has a number of issues that if someone with more time and who is better at 3d design wanted to build on then it could be greatly improved. If I were to print a new version of this I&amp;rsquo;d probably alter the design quite a lot.&lt;/p&gt;
 &lt;p&gt;All that said, if you want to print this, and have the parts, then I don&amp;rsquo;t see any reason why it shouldn&amp;rsquo;t also work for you, it&amp;rsquo;s working for me.&lt;/p&gt;
-&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;http://localhost:1313/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
       
       <item>
       <title>Running a specific knapsack test set locally</title>
-      <link>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</link>
+      <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
       <pubDate>Wed, 26 Apr 2023 15:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</guid>
+      <guid>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</guid>
       <description>&lt;p&gt;Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here&amp;rsquo;s how to do that!&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Grab &lt;code&gt;CI_NODE_TOTAL&lt;/code&gt; and &lt;code&gt;CI_NODE_INDEX&lt;/code&gt; from the test output, it&amp;rsquo;s likely near the top:&lt;/li&gt;
@@ -1040,10 +845,10 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Will&#39;s YouTube sailing channel recommendations</title>
-      <link>http://localhost:1313/posts/youtube-sailing-channel-recommendations/</link>
+      <link>https://willj.net/posts/youtube-sailing-channel-recommendations/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/youtube-sailing-channel-recommendations/</guid>
+      <guid>https://willj.net/posts/youtube-sailing-channel-recommendations/</guid>
       <description>&lt;p&gt;I started watching YouTube sailing videos in about 2014 when I discovered &lt;a href=&#34;https://www.youtube.com/channel/UCZdQjaSoLjIzFnWsDQOv4ww&#34;&gt;Sailing la Vagabonde&lt;/a&gt;. I&amp;rsquo;d never really considered that sailing was something I could be interested in, I didn&amp;rsquo;t know anything about it at all. I remember being on holiday with my wife in Greece a few times and seeing sailing yachts moored up in the harbours, and I think there was a curiosity about the boats, and the people eating what I probably assumed were fancy lunches on them. I must have seen yachts in the sea, or in harbours or marinas, but I don&amp;rsquo;t really remember. They were just part of the view, not something to be interacted with. A different world. Billionaire bosses and boat shoes.&lt;/p&gt;
 &lt;p&gt;Anyway, I ignored sailing, and sailing ignored me, until one day a cooking show I watched linked to la Vagabonde. I was suddenly given a peek behind the curtain, a view into a previously unknown world and I was pretty curious, so I kept watching. These people seemed… normal, approachable. I started to consume the la Vagabonde back catalogue, and was curious if there were more people making these videos. A quick google later and I&amp;rsquo;d found Delos, and after a couple of tries (their early videos were hard to get through) I started working my way through their back catalogue too, and so started my interest in sailing that has lasted 8 years, and has now seen us buy &lt;a href=&#34;https://sailingsilvergirl.com&#34;&gt;our own boat&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Over those years I&amp;rsquo;ve gathered a number of YouTube subscriptions and figured I&amp;rsquo;d share them here, save people having to dig through the less great content out there to find some gems.&lt;/p&gt;
@@ -1078,10 +883,10 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
-      <link>http://localhost:1313/posts/full-height-github-checks-box-in-firefox/</link>
+      <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
       <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/full-height-github-checks-box-in-firefox/</guid>
+      <guid>https://willj.net/posts/full-height-github-checks-box-in-firefox/</guid>
       <description>&lt;p&gt;The scrolling checks box on Github &lt;strong&gt;really&lt;/strong&gt; irritates me. Follow these instructions to make it full height on Firefox.&lt;/p&gt;
 &lt;h2 id=&#34;1-take-this-css&#34;&gt;1. Take this CSS:&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list-wrapper&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt; {
@@ -1089,7 +894,7 @@ distracting&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
 &lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
     alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
@@ -1098,47 +903,34 @@ distracting&lt;/p&gt;
     
       
       <item>
-      <title>How to get started sailing</title>
-      <link>http://localhost:1313/posts/how-to-get-started-sailing/</link>
-      <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/how-to-get-started-sailing/</guid>
-      <description>&lt;p&gt;Every once in a while someone on &lt;a href=&#34;https://www.reddit.com/r/sailing/&#34;&gt;the sailing subreddit&lt;/a&gt; asks about how to get started sailing. There&amp;rsquo;s a load of advice about joining dinghy/yacht clubs, courses etc. but one of the things that really helped me get started was watching a whole load of YouTube. It&amp;rsquo;s definitely not&lt;/p&gt;
-&lt;p&gt;Before I did any sailing I got started watching a few&lt;/p&gt;
-&lt;p&gt;Link to YouTube post&lt;/p&gt;
-</description>
-    </item>
-    
-      
-      <item>
       <title>Effective Github Notifications</title>
-      <link>http://localhost:1313/posts/effective-github-notifications/</link>
+      <link>https://willj.net/posts/effective-github-notifications/</link>
       <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/effective-github-notifications/</guid>
+      <guid>https://willj.net/posts/effective-github-notifications/</guid>
       <description>&lt;p&gt;Github notifications can be overwhelming, but with effective email filtering they can be turned from an encumbrance to being highly valuable. Here&amp;rsquo;s some filters to get you started (in Mail.app on a mac) to make them more useful.&lt;/p&gt;
 &lt;p&gt;Luckily Github provides us with the tools to make this filtering relatively easy. All email notifications sent from Github are automatically CCed to a Github email address that describes what they are, and this is the hook we use to create our filters.&lt;/p&gt;
 &lt;p&gt;All email addresses here are @github.com, even though in some examples they are hidden, and these rules can be added to the GMail web UI too if needed.&lt;/p&gt;
 &lt;h2 id=&#34;flag-high-priority-notifications&#34;&gt;Flag high priority notifications&lt;/h2&gt;
 &lt;p&gt;Mark &lt;strong&gt;assignments&lt;/strong&gt;, &lt;strong&gt;review requests&lt;/strong&gt;, &lt;strong&gt;mentions&lt;/strong&gt; or &lt;strong&gt;author actions&lt;/strong&gt; as high priority and flag them. This will put them at the top of your inbox:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-1.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-1.png&#34;
     alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;change-the-colour-of-medium-priority-items-so-they-stand-out&#34;&gt;Change the colour of medium priority items so they stand out&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Comments&lt;/strong&gt;, &lt;strong&gt;your activity&lt;/strong&gt;, and when a &lt;strong&gt;team mentions&lt;/strong&gt; you are in is mentioned.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-2.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-2.png&#34;
     alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;hide-low-priority-notifications&#34;&gt;Hide low priority notifications&lt;/h2&gt;
 &lt;p&gt;Things you might want to go and check once in a while but aren&amp;rsquo;t directly involved in we can put in a folder so they don&amp;rsquo;t demand attention throughout the day.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-3.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-3.png&#34;
     alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;What you should end up with after doing this is an inbox that shows you all the things that need your attention or you&amp;rsquo;d be interested, but hides the everyday torrent of Github spam in a folder that you can check if you want later.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-4.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-4.png&#34;
     alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
@@ -1148,10 +940,10 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Simple Sourdough Bread</title>
-      <link>http://localhost:1313/posts/simple-sourdough-bread/</link>
+      <link>https://willj.net/posts/simple-sourdough-bread/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/simple-sourdough-bread/</guid>
+      <guid>https://willj.net/posts/simple-sourdough-bread/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/Hero.jpg#full&#34; alt=&#34;Two sourdough boules&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;images/Search.jpg#right&#34; alt=&#34;Two sourdough boules&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I make sourdough bread usually at least once a week and sometimes post pictures of the result to &lt;a href=&#34;https://twitter.com/will_j&#34;&gt;Twitter&lt;/a&gt; and get asked pretty frequently about my technique. There&amp;rsquo;s a lot written about sourdough bread on the Internet these days, and plenty of YouTube videos on the subject too, but my technique is slightly different to many of them in that it is simple and takes the smallest amount of time possible while still getting great results. I don&amp;rsquo;t have the time to dedicate an entire week to the creation of a loaf of bread, I haven&amp;rsquo;t the patience to softly sing to the dough five times a day, and will not be spending several hours gently cupping the proving basket whispering encouraging thoughts long into the night.&lt;/p&gt;
@@ -1164,7 +956,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;Though it&amp;rsquo;s fashionable to add your entire life story as the preamble to any recipe posted on the Web these days, let&amp;rsquo;s draw a line under this introduction and move on to the method. If you&amp;rsquo;re pushed for time to make bread then you&amp;rsquo;re not going to want to read about how a particularly nutty focaccia I ate when I was four set me on the path to posting marginally iterative recipes that I&amp;rsquo;ve made my own &amp;ldquo;with a twist&amp;rdquo; many years later.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-starter&#34;&gt;The starter&lt;/h2&gt;
-&lt;p&gt;You&amp;rsquo;re going to need a starter. If you&amp;rsquo;ve not got one already, &lt;a href=&#34;http://localhost:1313/posts/making-a-sourdough-starter/&#34;&gt;head over to my article on making one&lt;/a&gt;, otherwise, read on!&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;re going to need a starter. If you&amp;rsquo;ve not got one already, &lt;a href=&#34;https://willj.net/posts/making-a-sourdough-starter/&#34;&gt;head over to my article on making one&lt;/a&gt;, otherwise, read on!&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;the-method&#34;&gt;The Method&lt;/h2&gt;
 &lt;p&gt;You will need:&lt;/p&gt;
@@ -1197,7 +989,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;Now, put it in the fridge. I use a banneton, they&amp;rsquo;re about £12 on amazon, but you can probably use some other dish. Flour the inside of it, drop the dough top of the loaf side down in the receptacle, cover, place in the fridge overnight.&lt;/p&gt;
 &lt;p&gt;These steps in total will take about 10 minutes for the initial mix and a few minutes for the step in the evening.&lt;/p&gt;
 &lt;h3 id=&#34;day-2&#34;&gt;Day 2&lt;/h3&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/simple-sourdough-bread/images/finished_bread.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/simple-sourdough-bread/images/finished_bread.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A finished loaf.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1231,14 +1023,14 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Making a Sourdough Starter</title>
-      <link>http://localhost:1313/posts/making-a-sourdough-starter/</link>
+      <link>https://willj.net/posts/making-a-sourdough-starter/</link>
       <pubDate>Wed, 13 Jan 2021 02:53:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/making-a-sourdough-starter/</guid>
+      <guid>https://willj.net/posts/making-a-sourdough-starter/</guid>
       <description>&lt;p&gt;The absolutely best way of making a starter if you don&amp;rsquo;t already have one is to not make one at all. If you can, ask someone who already has one for a bit of theirs. Most people will be happy to donate a bit, and this is a far shorter way of starting. There&amp;rsquo;s nothing heroic about creating your own, it&amp;rsquo;s mostly just a pain in the butt. If you&amp;rsquo;ve not got one though, here&amp;rsquo;s how make your own.&lt;/p&gt;
-&lt;p&gt;Already made your starter and want to make bread? &lt;a href=&#34;http://localhost:1313/posts/simple-sourdough-bread/&#34;&gt;Head over to the bread recipe!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Already made your starter and want to make bread? &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;Head over to the bread recipe!&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;things-you-will-need&#34;&gt;Things you will need&lt;/h2&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/the_jar.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/the_jar.jpg&#34;
     alt=&#34;Sourdough container with a banana propped against it at a jaunty angle&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;My sourdough container, banana for scale.&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1255,7 +1047,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;The container should be a glass, plastic or non-reactive metal, about one banana in height (see image). It should be very clean and free from dirt or any cleaning product residue. You will also need some sort of cloth to cover it, and an elastic band to keep the cloth in place.&lt;/p&gt;
 &lt;h2 id=&#34;the-method&#34;&gt;The Method&lt;/h2&gt;
 &lt;p&gt;Make sure to be exact with the measurements, no eyeballing quantities or using weird measurements like &amp;ldquo;cups&amp;rdquo; or anything like that. Also, use a set of digital scales with 1g accuracy if you can, they make baking much easier.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/starter_progress.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_progress.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Sourdough progression. Inactive starter on the left, some activity in the middle, the same starter 24 hours later.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1269,12 +1061,12 @@ distracting&lt;/p&gt;
 &lt;p&gt;You should start to see some bubbling activity on about day 4 and if everything went right you should have a starter after about a week. You should end up with something that smells slightly sour and a bit like yoghurt.&lt;/p&gt;
 &lt;p&gt;It might take a little bit longer, it&amp;rsquo;s going to depend on the flour and temperature. If it&amp;rsquo;s not doing anything by about two weeks or it smells like it&amp;rsquo;s gone off then you might need to restart.&lt;/p&gt;
 &lt;p&gt;Once it&amp;rsquo;s done, keep the cloth cover on and put it in the fridge until you need it. It will keep about a week without attention in a cold fridge.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/completed_starter.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;p&gt;&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/completed_starter.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A working starter.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/making-a-sourdough-starter/images/starter_with_lid.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/making-a-sourdough-starter/images/starter_with_lid.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Use a cloth lid for your starter to allow it to breath.&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1284,7 +1076,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;I found that my starter keeps best when kept in the fridge as it turns over too fast when any warmer.&lt;/p&gt;
 &lt;p&gt;When you use some of the starter, replace what you took with 50/50 water and flour. For example, if you take 150g starter to make a loaf of bread, replace what you took with 75g water and 75g flour. Try to keep the ratios exact. If you bias towards more water for instance each time you&amp;rsquo;re going to end up with wet bread, but bear in mind that over time your starter will suffer from evaporation, so you may need to add a little extra water every once in a while.&lt;/p&gt;
 &lt;p&gt;If you think you might want to make a larger, or multiple loaves in a few days, just add more water and flour over a couple of days until you&amp;rsquo;ve got the amount of starter you will need without taking too much.&lt;/p&gt;
-&lt;p&gt;When you take the starter out ideally it will be fairly stiff and coagulated, see about 30s into this video (you don&amp;rsquo;t have to stir it for ages, I was just fiddling). Ignore the rest of the video, my technique has changed in some spots, see the &lt;a href=&#34;http://localhost:1313/posts/simple-sourdough-bread/&#34;&gt;bread recipe&lt;/a&gt; for the updated method.&lt;/p&gt;
+&lt;p&gt;When you take the starter out ideally it will be fairly stiff and coagulated, see about 30s into this video (you don&amp;rsquo;t have to stir it for ages, I was just fiddling). Ignore the rest of the video, my technique has changed in some spots, see the &lt;a href=&#34;https://willj.net/posts/simple-sourdough-bread/&#34;&gt;bread recipe&lt;/a&gt; for the updated method.&lt;/p&gt;
 
 
     
@@ -1301,10 +1093,10 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
-      <link>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
+      <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
       <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
+      <guid>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/T67XX.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So, you bought four T67XX CO₂ sensors and only once they were delivered started to work out how to get values from them huh? Well I&amp;rsquo;m right there with you because so did I. and I carefully deposited the results in a new Go lib. Announcing the &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;Go T67XX CO₂ sensor library&lt;/a&gt;! This post will give you some details about what these sensors can do, then introduce the library and how to use it.&lt;/p&gt;
 &lt;hr&gt;
@@ -1512,10 +1304,10 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>
-      <link>http://localhost:1313/posts/custom-blue-snowball-microphone-desk-stand/</link>
+      <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
       <pubDate>Wed, 25 Nov 2020 04:59:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/custom-blue-snowball-microphone-desk-stand/</guid>
+      <guid>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</guid>
       <description>&lt;h1 id=&#34;introducing-an-all-new-super-sleek-blue-snowball-microphone-desk-stand&#34;&gt;Introducing, an all-new, super-sleek Blue Snowball microphone desk stand!&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;images/blue_snowball_0.jpg#left&#34; alt=&#34;Blue snowball microphone on the new stand&#34;&gt;
 &lt;img src=&#34;images/microphone_stand_0.jpg#right&#34; alt=&#34;Closeup of the blue snowball stand showing the threads&#34;&gt;&lt;/p&gt;
@@ -1547,11 +1339,11 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Welcome to My New Blog</title>
-      <link>http://localhost:1313/posts/welcome-to-my-new-blog/</link>
+      <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
       <pubDate>Wed, 24 Jun 2020 23:30:40 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/welcome-to-my-new-blog/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/me_rotterdam_round.png#right&#34; alt=&#34;Me in Rotterdam&#34;&gt;&lt;/p&gt;
+      <guid>https://willj.net/posts/welcome-to-my-new-blog/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/me_rotterdam_round.png#right&#34; alt=&#34;Me in Rotterdam&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Welcome to my new site! If you want to see my old writings you can still find them at &lt;a href=&#34;https://blog.willj.net/&#34;&gt;my Wordpress blog site&lt;/a&gt; which is still up. I may at some point attempt to copy the posts over from there, but I don&amp;rsquo;t have time right now.&lt;/p&gt;
 &lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
 </description>
@@ -1560,16 +1352,16 @@ distracting&lt;/p&gt;
       
       <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
-      <link>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
+      <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
       <pubDate>Wed, 24 Jun 2020 02:09:43 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
+      <guid>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
 &lt;h3 id=&#34;why-tho&#34;&gt;Why tho&lt;/h3&gt;
 &lt;p&gt;Why indeed! It&amp;rsquo;s not particularly useful, I know it&amp;rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&amp;rsquo;t. It&amp;rsquo;s quite &lt;em&gt;interesting&lt;/em&gt; to know how hot it is in here (my wife &lt;em&gt;definitely&lt;/em&gt; agrees on this) and just being able to know by glancing at an LCD display is quite convenient.&lt;/p&gt;
 &lt;p&gt;But that&amp;rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;the-display&#34;&gt;The display&lt;/h3&gt;
 &lt;p&gt;The display is an LCM1602 20 character by 4 line LCD. Attached to the back of the LCD is a &amp;ldquo;backpack&amp;rdquo;. This backpack connects to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt;, for example like the ones on either an Arduino or Raspberry Pi.&lt;/p&gt;
 &lt;h3 id=&#34;making-the-dislay-show-text&#34;&gt;Making the dislay show text&lt;/h3&gt;
@@ -1621,26 +1413,26 @@ distracting&lt;/p&gt;
 &lt;h3 id=&#34;thats-it&#34;&gt;That&amp;rsquo;s it!&lt;/h3&gt;
 &lt;p&gt;I&amp;rsquo;ll probably keep the LCD displaying climate data in my office, as I&amp;rsquo;m basically addicted to knowing what the temperature and humidity is now. If you decide to get your own LCD screen, make sure you grab one that has the backpack, as you&amp;rsquo;ll have a hard time using it if it doesn&amp;rsquo;t have one.&lt;/p&gt;
 &lt;p&gt;Just for fun, here&amp;rsquo;s a photo of the back of the LCD with the backlight shining through the circuit board:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
       
       <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
-      <link>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
+      <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
       <pubDate>Tue, 23 Jun 2020 20:26:10 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/climate.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
+      <guid>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/climate.png&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
 &lt;p&gt;A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Buddha%27s_hand&#34;&gt;Buddha&amp;rsquo;s hand tree&lt;/a&gt;. This tree was fairly expensive, and I wanted to maximise it&amp;rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&amp;rsquo;t like cold, but apparently don&amp;rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.&lt;/p&gt;
 &lt;p&gt;It was for this reason that I decided to start experimenting with climate monitoring.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I was originally planning on making some sensor units as described in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aaron Paterson&amp;rsquo;s ESP8266 + Plantower AQ sensor project&lt;/a&gt;, so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha&amp;rsquo;s Hand tree had already arrived I decided to get some &lt;a href=&#34;https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;BME280 temperature, humidity and pressure sensors from Amazon&lt;/a&gt; as they don&amp;rsquo;t cost too much and would allow me to get a jump start on checking that my trees were safe.&lt;/p&gt;
 &lt;p&gt;These BME280 sensors use &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;the I²C bus&lt;/a&gt;, which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.&lt;/p&gt;
 &lt;h4 id=&#34;required-equipment&#34;&gt;Required equipment&lt;/h4&gt;
@@ -1786,22 +1578,22 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;hr&gt;
 &lt;h3 id=&#34;the-finished-device&#34;&gt;The Finished Device&lt;/h3&gt;
 &lt;p&gt;Here is the working sensor and Pi in place in my conservatory, running the Go program, Influx DB and Grafana. I have now added a second Pi in my study that reports it&amp;rsquo;s sensor readings to the Influx DB on this machine too.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
     
       
       <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
-      <link>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
       <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
       <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -1860,10 +1652,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
-      <link>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
       <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
       <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
@@ -1901,10 +1693,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
-      <link>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
       <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
       <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -1968,10 +1760,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Basic pasta sauce</title>
-      <link>http://localhost:1313/posts/basic-pasta-sauce/</link>
+      <link>https://willj.net/posts/basic-pasta-sauce/</link>
       <pubDate>Tue, 14 Feb 2017 00:56:16 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/basic-pasta-sauce/</guid>
+      <guid>https://willj.net/posts/basic-pasta-sauce/</guid>
       <description>&lt;p&gt;Someone asked on Twitter how I made my pasta sauce, so here is the recipe! The base of my Pasta sauce is largely this recipe, except I mostly don&amp;rsquo;t add mozzarella:&lt;/p&gt;
 
 
@@ -1999,7 +1791,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;Next, add the basil or parsley. Stir through. When the pasta is al dente drain it retaining some of the cooking water and add to the sauce, stir around. Add pasta water if needed. You should still be able to work out what each of the individual parts of your sauce are made of. If you can&amp;rsquo;t you cooked it too long and/or added too much water.&lt;/p&gt;
 &lt;p&gt;At this point you can stir in mozzarella, I mostly don&amp;rsquo;t.&lt;/p&gt;
 &lt;p&gt;Slap it on a plate, grate parmesan over it and eat it.&lt;/p&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/basic-pasta-sauce/images/z.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/basic-pasta-sauce/images/z.jpg&#34;
     alt=&#34;Vegetables and bacon in a pan, the basis for a pasta sauce&#34;&gt;
 &lt;/figure&gt;
 
@@ -2023,35 +1815,35 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>The security of a system is as strong as it&#39;s weakest component</title>
-      <link>http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</link>
+      <link>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</link>
       <pubDate>Fri, 15 Apr 2016 12:47:57 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</guid>
+      <guid>https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/</guid>
       <description>&lt;p&gt;The padlock that had seized shut on my back gate was proving hard to remove, the hardened steel U was not yielding to my hacksaw. I noticed some rivets underneath that turned out to be soft steel. 10 minutes of sawing and I was in.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8951.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8951.jpg&#34;
     alt=&#34;CLoseup of a padlock with a Hardened steel U and body of layered steel plates&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Hardened steel U&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8950.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8950.jpg&#34;
     alt=&#34;Soft steel rivets on the bottom of the padlock&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Soft steel rivets on the bottom&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8953.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8953.jpg&#34;
     alt=&#34;The bottom plate of the padlock revealed, lock mechanism removed&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;After removing the rivets, hammering off the bottom plate&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8955.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8955.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The bottom plate revealed, lock mechanism removed&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8956.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/the-security-of-a-system-is-as-strong-as-its-weakest-component/images/img_8956.jpg&#34;
     alt=&#34;An open padlock&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Lock open!&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2063,10 +1855,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Random graph</title>
-      <link>http://localhost:1313/posts/random-graph/</link>
+      <link>https://willj.net/posts/random-graph/</link>
       <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/random-graph/</guid>
+      <guid>https://willj.net/posts/random-graph/</guid>
       <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
     alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
@@ -2080,12 +1872,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
-      <link>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
+      <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
       <pubDate>Fri, 25 Sep 2015 16:39:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
+      <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
       <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
     alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A simple graph&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2113,10 +1905,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>I got my pan tilt servos working</title>
-      <link>http://localhost:1313/posts/i-got-my-pan-tilt-servos-working/</link>
+      <link>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</link>
       <pubDate>Tue, 29 Jul 2014 22:59:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/i-got-my-pan-tilt-servos-working/</guid>
+      <guid>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m making a simple camera gimbal and tonight I wired up the right analog stick on my xbox controller to control the pan/tilt servos:&lt;/p&gt;
 
 
@@ -2133,10 +1925,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Testing Github commit hook one liners</title>
-      <link>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</link>
+      <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
       <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</guid>
+      <guid>https://willj.net/posts/testing-github-commit-hook-one-liners/</guid>
       <description>&lt;p&gt;A couple of ruby one-liners for dumping out the content of a github commit hook payload:&lt;/p&gt;
 &lt;p&gt;For hooks that use type &lt;strong&gt;application/json&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(request.body.read); end&amp;#39;&lt;/span&gt;
@@ -2148,10 +1940,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
-      <link>http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
+      <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
       <pubDate>Fri, 18 Apr 2014 17:41:47 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
+      <guid>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s a good idea to set an IAM access policy for anything that accesses AWS using your account details, I wanted to do this for s3cmd syncing a local directory to an s3 bucket. There are a &lt;a href=&#34;https://www.google.co.uk/search?q=s3cmd+iam+policy&amp;amp;oq=s3cmd+iam&amp;amp;aqs=chrome.0.69i59j69i57j69i60.4378j0j7&amp;amp;sourceid=chrome&amp;amp;es_sm=91&amp;amp;ie=UTF-8&#34;&gt;number of posts&lt;/a&gt; on setting up the IAM policy for s3cmd already but none of the examples worked for me, I got a 403 permission denied error when running the s3cmd sync command.&lt;/p&gt;
 &lt;p&gt;After some digging it turns out that s3cmd now tries to set an ACL on the files it uploads, and this needs to be specifically allowed in the ACL. I&amp;rsquo;m guessing that it didn&amp;rsquo;t in the past, hence the now incorrect IAM advice. So here is the new working IAM policy, complete with the &lt;code&gt;s3:PutObjectAcl&lt;/code&gt; permission added:&lt;/p&gt;
 &lt;p&gt;(See jrantil&amp;rsquo;s comment below on wether &lt;code&gt;s3:ListAllMyBuckets&lt;/code&gt; is needed in this instance)&lt;/p&gt;
@@ -2185,7 +1977,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update&#34;&gt;Update!&lt;/h2&gt;
 &lt;p&gt;This post was imported from my original blog where there were comments, and these may be relevant to anyone finding this page now:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/images/comments.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/images/comments.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2196,10 +1988,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Ping-Pong Press!</title>
-      <link>http://localhost:1313/posts/ping-pong-press/</link>
+      <link>https://willj.net/posts/ping-pong-press/</link>
       <pubDate>Mon, 16 Dec 2013 18:24:25 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/ping-pong-press/</guid>
+      <guid>https://willj.net/posts/ping-pong-press/</guid>
       <description>&lt;p&gt;My robot was written about recently on the &lt;a href=&#34;http://www.raspberrypi.org/archives/5398&#34;&gt;Raspberry Pi foundation blog&lt;/a&gt; (now seemingly removed 😢, but &lt;a href=&#34;https://web.archive.org/web/20140330202855/https://www.raspberrypi.org/archives/5398&#34;&gt;still available on archive.org&lt;/a&gt;), and now on &lt;a href=&#34;http://www.pololu.com/blog/266/ping-pong-ball-collecting-robot-makes-appearance-at-rubyconf&#34;&gt;the Pololu blog&lt;/a&gt; too, the place I originally got my tracks from!&lt;/p&gt;
 </description>
     </item>
@@ -2207,10 +1999,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Robot at RubyConf</title>
-      <link>http://localhost:1313/posts/robot-at-rubyconf/</link>
+      <link>https://willj.net/posts/robot-at-rubyconf/</link>
       <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/robot-at-rubyconf/</guid>
+      <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
     alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
@@ -2262,10 +2054,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Prototype lifter arm</title>
-      <link>http://localhost:1313/posts/prototype-lifter-arm/</link>
+      <link>https://willj.net/posts/prototype-lifter-arm/</link>
       <pubDate>Sat, 02 Nov 2013 22:04:05 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/prototype-lifter-arm/</guid>
+      <guid>https://willj.net/posts/prototype-lifter-arm/</guid>
       <description>&lt;p&gt;I added a prototype lifter arm to my robot yesterday. It needs re-doing (it&amp;rsquo;s unreliable and heavy) but it works for now.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m using a new motor driver circuit for it as I burned out the SN754410 motor driver I was using, the lifter motor seems to peak briefly at about 1.5 amps when starting to lift the arm, and that&amp;rsquo;s out of the chips range. I stayed up late making a new motor control circuit with a L298N that can provide a lot more power.&lt;/p&gt;
 &lt;p&gt;Here is the robot picking up 12 ping-pong balls. I was driving, Morwenna was filming:&lt;/p&gt;
@@ -2312,10 +2104,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>First robot remote driving test</title>
-      <link>http://localhost:1313/posts/first-robot-remote-driving-test/</link>
+      <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
       <pubDate>Fri, 01 Nov 2013 02:16:09 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/first-robot-remote-driving-test/</guid>
+      <guid>https://willj.net/posts/first-robot-remote-driving-test/</guid>
       <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
 &lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
 
@@ -2333,12 +2125,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Rejects and prototypes</title>
-      <link>http://localhost:1313/posts/rejects-and-prototypes/</link>
+      <link>https://willj.net/posts/rejects-and-prototypes/</link>
       <pubDate>Thu, 31 Oct 2013 13:25:19 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/rejects-and-prototypes/</guid>
+      <guid>https://willj.net/posts/rejects-and-prototypes/</guid>
       <description>&lt;p&gt;Prototypes and rejects from the 3d printer. All part of the design process for my robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/rejects-and-prototypes/images/img_4436.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/rejects-and-prototypes/images/img_4436.jpg&#34;
     alt=&#34;Rejected and prototype 3D printed robot componenets&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Rejected and prototype 3D printed componenets&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2350,33 +2142,33 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>New robot base design and completed prototype arm assembly</title>
-      <link>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
+      <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
       <pubDate>Thu, 31 Oct 2013 13:16:49 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
+      <guid>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
       <description>&lt;p&gt;I spent all day at &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hacman&lt;/a&gt; Tuesday and Wednesday printing and tweaking robot parts. I put it all together when I got home. This is the front, the lifter arm has holes to allow me to screw in different attachments, I&amp;rsquo;ve still not designed that part of the robot yet:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
     alt=&#34;The robot, mostly assembled&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here is the back view, you can see the lifter arm gear housing (the curved structure) and the motor that drives it, also the battery (underneath the ball hopper)&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
     alt=&#34;The rear of the robot with the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The lifter arm gear system looking through where the hopper would be:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
     alt=&#34;The robot without the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I need to design an attachment for the end of the lifter arm. Here I&amp;rsquo;ve created a simple one using meccano. It&amp;rsquo;s too heavy, the bolts catch on the floor and it dumps the ping-pong balls short of the hopper. Other than that it&amp;rsquo;s perfect. You can see the camera with capped lens that I&amp;rsquo;ve just wedged into the structure temporarily:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
     alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2389,14 +2181,14 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
-      <link>http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
+      <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
       <pubDate>Mon, 28 Oct 2013 23:02:01 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/</guid>
+      <guid>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</guid>
       <description>&lt;p&gt;First test of the Raspberry Pi running off battery power with no external supply at all. In the picture the 5000mAh battery is the object at the back with &amp;ldquo;5000&amp;rdquo; written on it. My multimeter is measuring the voltage output. One of the Raspberry Pi (the thing with the red light on it) output pins is connected through the MotorPiTX board (the yellow circuit board on-top of the Raspberry Pi) to the breadboard.&lt;/p&gt;
 &lt;p&gt;The breadboard contains two circuits, the top-right cluster of components is the circuit that turns the output of the Raspberry Pi into something relevant to the motor driver in the bottom left, the bottom left cluster of components is the motor driver itself.&lt;/p&gt;
 &lt;p&gt;The Pi is pulsing the output causing the motor driver to spin the motor. The micro-switch just on the very bottom of the picture is one of the limit switches for the ball lifter arm.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
     alt=&#34;A curcuit under test with a multimeter&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2408,32 +2200,32 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>An assembled ping-pong robot hopper</title>
-      <link>http://localhost:1313/posts/an-assembled-hopper/</link>
+      <link>https://willj.net/posts/an-assembled-hopper/</link>
       <pubDate>Thu, 24 Oct 2013 01:27:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/an-assembled-hopper/</guid>
+      <guid>https://willj.net/posts/an-assembled-hopper/</guid>
       <description>&lt;p&gt;Today I printed out and glued together the first iteration of the ping-pong ball hopper that takes up most of the space of the robot.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4405.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4405.jpg&#34;
     alt=&#34;The assembled hopper&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The assembled hopper&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Full of ping-pong balls, I can get 12-14 in without packing them manually. That seems like enough for now, but a larger hopper would be good.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4406.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4406.jpg&#34;
     alt=&#34;The hopper loaded with ping-pong balls&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The hopper loaded with ping-pong balls&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Mounted on the robot. You can see the completed camera mount and Raspberry Pi mounted on the side in the foreground:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4407.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4407.jpg&#34;
     alt=&#34;The ping-pong ball hopper mounted on the robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The ping-pong ball hopper mounted on the robot&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4408.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4408.jpg&#34;
     alt=&#34;The reverse angle&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The reverse angle&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2445,19 +2237,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Testing new motor mounts</title>
-      <link>http://localhost:1313/posts/testing-new-motor-mounts/</link>
+      <link>https://willj.net/posts/testing-new-motor-mounts/</link>
       <pubDate>Thu, 24 Oct 2013 01:22:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-new-motor-mounts/</guid>
+      <guid>https://willj.net/posts/testing-new-motor-mounts/</guid>
       <description>&lt;p&gt;I needed to re-design the motor mounts on the robot base, they didn&amp;rsquo;t hold the motors securely enough and tended to shift around.&lt;/p&gt;
 &lt;p&gt;The new mounts are better fitting and include a small wedge that fits between one of the gearbox plates where there are no cogs.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
     alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
     alt=&#34;Two motors fully encased in the motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2470,18 +2262,18 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
-      <link>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
+      <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
       <pubDate>Thu, 24 Oct 2013 01:15:37 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
+      <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
       <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
     alt=&#34;Raspberry pi camera holder&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
     alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2493,11 +2285,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>New Pi mount, and testing the power requirements</title>
-      <link>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</link>
+      <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
       <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
+      <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
     alt=&#34;Testing the robot power requirements&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2514,7 +2306,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     &lt;/div&gt;
 
 &lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
     alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2526,19 +2318,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Lenses</title>
-      <link>http://localhost:1313/posts/lenses/</link>
+      <link>https://willj.net/posts/lenses/</link>
       <pubDate>Fri, 18 Oct 2013 16:17:20 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/lenses/</guid>
+      <guid>https://willj.net/posts/lenses/</guid>
       <description>&lt;p&gt;The Raspberry Pi camera doesn&amp;rsquo;t have a field of view that is wide enough for my robot, I&amp;rsquo;d have to mount it really far from my robot to see enough context to make it drivable so I&amp;rsquo;ve bought some wide angle iPhone lenses to try out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/lenses/images/img_4386.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4386.jpg&#34;
     alt=&#34;Wide-angle and fish-eye lenses&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a photo taken using the fish-eye lens held up to my iPhone:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/lenses/images/img_4388.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4388.jpg&#34;
     alt=&#34;The view through the fish-eye lens&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2550,33 +2342,33 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>First prototype robot base</title>
-      <link>http://localhost:1313/posts/prototype-robot-base/</link>
+      <link>https://willj.net/posts/prototype-robot-base/</link>
       <pubDate>Mon, 30 Sep 2013 20:08:56 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/prototype-robot-base/</guid>
+      <guid>https://willj.net/posts/prototype-robot-base/</guid>
       <description>&lt;p&gt;The robot base design from my previous post printed OK. Here it is printing:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4320.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4320.jpg&#34;
     alt=&#34;A 3d printer printing on a glass sheet&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The finished print. The two small separate objects are the motor covers:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4322.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4322.jpg&#34;
     alt=&#34;A completed 3d print&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Completed robot base print&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The assembled robot, including Raspberry Pi and MotorPiTX:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4330.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4330.jpg&#34;
     alt=&#34;An assembled robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Assembled robot base&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The underside of the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4332.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4332.jpg&#34;
     alt=&#34;The underside of a robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2588,19 +2380,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>OpenSCAD robot base design</title>
-      <link>http://localhost:1313/posts/openscad-robot-base-design/</link>
+      <link>https://willj.net/posts/openscad-robot-base-design/</link>
       <pubDate>Tue, 24 Sep 2013 01:23:15 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/openscad-robot-base-design/</guid>
+      <guid>https://willj.net/posts/openscad-robot-base-design/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve re-designed a prototype robot mount in OpenSCAD as Sketchup wasn&amp;rsquo;t up to the job. It took a while, you have to program the model in a text editor so there&amp;rsquo;s lots of trial and error. Will have to wait to print it to see if this design will work.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/openscad-robot-base-design/images/screen-shot-2013-09-24-at-02-18-33.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/openscad-robot-base-design/images/screen-shot-2013-09-24-at-02-18-33.png&#34;
     alt=&#34;A CAD model of a small part of the base of my robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Prototype robot base designed in OpenSCAD&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;http://localhost:1313/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/openscad-robot-base-design/images/screen-shot-2013-09-22-at-20-27-41.png&#34;
+&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;https://willj.net/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/openscad-robot-base-design/images/screen-shot-2013-09-22-at-20-27-41.png&#34;
     alt=&#34;The same robot base as before but in Sketchup&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Robot base designed in Sketchup&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2613,12 +2405,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Trying out the prototype caterpillar track mount</title>
-      <link>http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
+      <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
       <pubDate>Mon, 23 Sep 2013 18:09:32 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/</guid>
+      <guid>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</guid>
       <description>&lt;p&gt;It works, but it needs more refinement.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/images/img_4296.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/images/img_4296.jpg&#34;
     alt=&#34;A Pololu track and motor in a prototype mount&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Testing the new motor mount&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2630,10 +2422,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Printing out a test caterpillar track and motor mount</title>
-      <link>http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
+      <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
       <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
+      <guid>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
       <description>
 
     
@@ -2642,12 +2434,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4289.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4289.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Printing a motor / caterpillar track mount detail&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4290.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4290.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The 3d printer at work&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2658,12 +2450,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Designing a track mount</title>
-      <link>http://localhost:1313/posts/designing-a-track-mount/</link>
+      <link>https://willj.net/posts/designing-a-track-mount/</link>
       <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/designing-a-track-mount/</guid>
+      <guid>https://willj.net/posts/designing-a-track-mount/</guid>
       <description>&lt;p&gt;Designing a track mount for my pololu caterpillar tracks. Sketchup is trying very hard to prevent me.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/designing-a-track-mount/images/screen-shot-2013-09-21-at-23-37-18.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/designing-a-track-mount/images/screen-shot-2013-09-21-at-23-37-18.png&#34;
     alt=&#34;Screengrab of an in-progress design for a track mount&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Pololu track mount design in progress&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2675,19 +2467,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Secret project - MotorPiTX motor board</title>
-      <link>http://localhost:1313/posts/secret-project-motorpitx-motor-board/</link>
+      <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
       <pubDate>Sun, 08 Sep 2013 00:51:32 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/secret-project-motorpitx-motor-board/</guid>
+      <guid>https://willj.net/posts/secret-project-motorpitx-motor-board/</guid>
       <description>&lt;p&gt;I soldered together my MotorPiTX motor controller today and fitted it to the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
     alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s a hell of a lot neater than my original effort, and only trails one wire. It goes forwards &lt;em&gt;and&lt;/em&gt; backwards now too. To the left of the blue relay near the top you can see my homemade heatsink attached to the voltage regulator:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
     alt=&#34;Closeup of a heatsink made of meccano parts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2702,11 +2494,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Secret project</title>
-      <link>http://localhost:1313/posts/secret-project/</link>
+      <link>https://willj.net/posts/secret-project/</link>
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/secret-project/</guid>
-      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
+      <guid>https://willj.net/posts/secret-project/</guid>
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2715,7 +2507,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
 &lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
 &lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4248.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4248.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Motor mount&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2739,7 +2531,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4247.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4247.jpg&#34;
     alt=&#34;A PCB with no components on it and a bag of componenets&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2752,11 +2544,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
-      <link>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
+      <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+      <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
     alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -2804,10 +2596,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       
       <item>
       <title>Creating BERT dicts in Go</title>
-      <link>http://localhost:1313/posts/creating-bert-dicts-in-go/</link>
+      <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
       <pubDate>Sun, 10 Feb 2013 02:09:06 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/creating-bert-dicts-in-go/</guid>
+      <guid>https://willj.net/posts/creating-bert-dicts-in-go/</guid>
       <description>&lt;p&gt;I’ve been learning Go recently and have written a program to connect to an existing service (written in Ruby) that sends and receives messages serialised as &lt;a href=&#34;http://bert-rpc.org/&#34;&gt;BERT&lt;/a&gt; terms.&lt;/p&gt;
 &lt;p&gt;I’m posting this partly because I had quite a lot of fun figuring it out and partly to document creating BERT dicts in Go should anyone else need to do this in the future and hit the same issues I did.&lt;/p&gt;
 &lt;h2 id=&#34;why-bert&#34;&gt;Why BERT?&lt;/h2&gt;
@@ -2980,11 +2772,11 @@ slice is a: slice
       
       <item>
       <title>Creating animated gifs with imagemagick</title>
-      <link>http://localhost:1313/posts/creating-animated-gifs-with-imagemagick/</link>
+      <link>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</link>
       <pubDate>Tue, 24 Apr 2012 10:49:42 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/creating-animated-gifs-with-imagemagick/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/railsberry-animated-gifs&#34; title=&#34;Railsberry animated gifs&#34;&gt;my last post&lt;/a&gt; I linked to some animated gifs I made on my mac. It&amp;rsquo;s pretty easy if you have imagemagick installed.&lt;/p&gt;
+      <guid>https://willj.net/posts/creating-animated-gifs-with-imagemagick/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://willj.net/posts/railsberry-animated-gifs&#34; title=&#34;Railsberry animated gifs&#34;&gt;my last post&lt;/a&gt; I linked to some animated gifs I made on my mac. It&amp;rsquo;s pretty easy if you have imagemagick installed.&lt;/p&gt;
 &lt;p&gt;Simply get a bunch of images together and use the convert command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;convert -resize 900x -loop 0 -delay 10 DSC_8264.JPG DSC_8265.JPG DSC_8266.JPG DSC_8267.JPG DSC_8268.JPG DSC_8269.JPG DSC_8270.JPG jon_walk.gif
 &lt;/code&gt;&lt;/pre&gt;
@@ -2995,23 +2787,23 @@ slice is a: slice
       
       <item>
       <title>Railsberry animated gifs</title>
-      <link>http://localhost:1313/posts/railsberry-animated-gifs/</link>
+      <link>https://willj.net/posts/railsberry-animated-gifs/</link>
       <pubDate>Mon, 23 Apr 2012 16:05:30 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/railsberry-animated-gifs/</guid>
+      <guid>https://willj.net/posts/railsberry-animated-gifs/</guid>
       <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
 &lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
     alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
     alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jk.gif&#34;
     alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
 &lt;/figure&gt;
 
@@ -3021,20 +2813,20 @@ slice is a: slice
       
       <item>
       <title>Paula Deen riding things</title>
-      <link>http://localhost:1313/posts/paula-deen-riding-things/</link>
+      <link>https://willj.net/posts/paula-deen-riding-things/</link>
       <pubDate>Thu, 02 Feb 2012 22:00:10 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/paula-deen-riding-things/</guid>
+      <guid>https://willj.net/posts/paula-deen-riding-things/</guid>
       <description>&lt;p&gt;I made some Paula Deen riding… pictures. Because I can.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/paula-deen-riding-things/images/paula-deen-sausuage.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/paula-deen-riding-things/images/paula-deen-sausuage.jpeg&#34;
     alt=&#34;Paula deen riding a sausage&#34;&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/paula-deen-riding-things/images/paula-deen-riding-kitten.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/paula-deen-riding-things/images/paula-deen-riding-kitten.jpeg&#34;
     alt=&#34;Paula deen riding a kitten&#34;&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/paula-deen-riding-things/images/original.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/paula-deen-riding-things/images/original.jpeg&#34;
     alt=&#34;Paula deen riding a science cat&#34;&gt;
 &lt;/figure&gt;
 
@@ -3044,10 +2836,10 @@ slice is a: slice
       
       <item>
       <title>Testing http over socket connections with socat</title>
-      <link>http://localhost:1313/posts/testing-http-over-socket-connections-with-socat/</link>
+      <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
       <pubDate>Fri, 02 Dec 2011 22:00:55 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-http-over-socket-connections-with-socat/</guid>
+      <guid>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</guid>
       <description>&lt;p&gt;Sometimes I need to test an http server that is listening on a unix socket. It&amp;rsquo;s really easy to do this using socat, but the socat man page is pretty long. Here it is for anyone who needs it in the future, and me when I inevitably forget.&lt;/p&gt;
 &lt;p&gt;In this case the server is unicorn, but this will work for any http server listening on a socket, for instance thin. The lines beginning with &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; are lines I typed (the 4 lines at the start), remove the &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; when you try this.&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ socat - UNIX-CONNECT:/u/apps/app/shared/sockets/unicorn.sock,crnl
@@ -3086,18 +2878,18 @@ etc.
       
       <item>
       <title>Cloud email service price comparison</title>
-      <link>http://localhost:1313/posts/cloud-email-service-price-comparison/</link>
+      <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
       <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/cloud-email-service-price-comparison/</guid>
+      <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -3105,14 +2897,14 @@ etc.
 
 &lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
 &lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -3136,13 +2928,13 @@ etc.
       
       <item>
       <title>Should I switch from Sendgrid to Amazon SES?</title>
-      <link>http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
+      <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
       <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
+      <guid>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/emails-price-comparison1.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/emails-price-comparison1.png&#34;
     alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -3150,7 +2942,7 @@ etc.
 
 &lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
 &lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/email-prices-plus-server.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/email-prices-plus-server.png&#34;
     alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -3164,10 +2956,10 @@ etc.
       
       <item>
       <title>Rewriting URL params in nginx</title>
-      <link>http://localhost:1313/posts/rewriting-url-params-in-nginx/</link>
+      <link>https://willj.net/posts/rewriting-url-params-in-nginx/</link>
       <pubDate>Sat, 07 Mar 2009 14:30:37 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/rewriting-url-params-in-nginx/</guid>
+      <guid>https://willj.net/posts/rewriting-url-params-in-nginx/</guid>
       <description>&lt;p&gt;I came across this problem recently, a customer was moving to Ruby on Rails from another framework/language (.NET I think) and needed to re-write a bunch of URLs. Some needed the query parameters rewriting too. One example was rewriting the old search path, so the old URL:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;http://somedomain.com/OldSearchPath.aspx?qry=things&amp;amp;page=4&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;would become:&lt;/p&gt;
@@ -3186,10 +2978,10 @@ rewrite ^.+$ /search redirect;
       
       <item>
       <title>Tricks of the Trade</title>
-      <link>http://localhost:1313/posts/tricks-of-the-trade/</link>
+      <link>https://willj.net/posts/tricks-of-the-trade/</link>
       <pubDate>Thu, 12 Apr 2007 19:04:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/tricks-of-the-trade/</guid>
+      <guid>https://willj.net/posts/tricks-of-the-trade/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.themorningnews.org/archives/how_to/tricks_of_the_trade.php&#34; title=&#34;Tricks of the trade&#34;&gt;Interesting article&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;hellip;I recently asked readers for their &amp;ldquo;tricks of the trade,&amp;rdquo; and was amazed by the response. It seems every profession is rich with clever little occupational secrets.&lt;/p&gt;
@@ -3205,10 +2997,10 @@ rewrite ^.+$ /search redirect;
       
       <item>
       <title>A great &#39;site unavailable&#39; message</title>
-      <link>http://localhost:1313/posts/a-great-site-unavailable-message/</link>
+      <link>https://willj.net/posts/a-great-site-unavailable-message/</link>
       <pubDate>Fri, 14 Jul 2006 16:49:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/a-great-site-unavailable-message/</guid>
+      <guid>https://willj.net/posts/a-great-site-unavailable-message/</guid>
       <description>&lt;p&gt;Seen on &lt;a href=&#34;https://www.fish4.co.uk/&#34; title=&#34;fish4&#34;&gt;Fish4&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Thank you for coming to Fish4 this morning.&lt;/p&gt;
@@ -3223,10 +3015,10 @@ rewrite ^.+$ /search redirect;
       
       <item>
       <title>99 bottles of Ruby beer on the wall</title>
-      <link>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
+      <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
       <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
+      <guid>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
       <description>&lt;p&gt;A while back a friend and I had a 99 bottles of beer on the wall one-liner competition in &lt;a href=&#34;http://ruby-lang.org/&#34; title=&#34;Ruby&#34;&gt;Ruby&lt;/a&gt;. I just found this in my home directory and so am claiming it as my entry:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;def b(c)&amp;quot;#{c} bottle#{c&amp;gt;1?&amp;quot;s&amp;quot;:&amp;quot;&amp;quot;} of beer on the wall&amp;quot;end;99.downto(1){|x|$&amp;gt;0?x-1:99)}.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
@@ -3236,22 +3028,22 @@ rewrite ^.+$ /search redirect;
       
       <item>
       <title>Fixing the &#39;Memory card error&#39; on the Canon IXUS 400 / S3</title>
-      <link>http://localhost:1313/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</link>
+      <link>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</link>
       <pubDate>Sun, 12 Feb 2006 16:29:42 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</guid>
+      <guid>https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/</guid>
       <description>&lt;p&gt;The day after my daughter Holly was born my Canon IXUS 400 camera started giving a &amp;lsquo;Memory card error&amp;rsquo; and refused to save anything to the compact flash card. I assumed that this meant that there was an error with the memory card so I bought a brand new one and was slightly cheesed off when the IXUS gave the same &amp;lsquo;Memory card error&amp;rsquo; message after installing it.&lt;/p&gt;
 &lt;p&gt;A bit of googling revealed that a number of people have had this error with the Canon IXUS s3 and that the problem was solved by opening the case and removing the internal battery. The specs of the IXUS 400 are similar to that of the S3 and the chassis are practically identical, so I guessed they may well share a fair few components, and therefore problems. I was not that keen on the idea of doing this however until I discovered that Canon wanted to charge me nearly £100 to fix it (including the cost of postage).&lt;/p&gt;
 &lt;p&gt;It seems a bit cheeky asking for that amount of money to fix a problem that is effectively a design flaw, so I went for the DIY option and it seems to have worked, I have only taken about 20 photos, but as the camera would not allow any to be taken before, this is a significant improvement!&lt;/p&gt;
 &lt;p&gt;For anyone wanting to do the same here are some photos of what to look for. This one is the back of the camera with the case taken off.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/images/naked_ixus.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/images/naked_ixus.jpg&#34;
     alt=&#34;A Canon IXUS 400 without it&amp;#39;s case on showing circuitry&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A naked Canon IXUS 400&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;And this one is of the front of the camera. The battery is under the circled bit of metal film which was stuck down and had to be peeled off to get to the battery which is mounted in a clip just underneath.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/images/naked_ixus_highlighted_battery.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fixing-the-memory-card-error-on-the-canon-ixus-400/images/naked_ixus_highlighted_battery.jpg&#34;
     alt=&#34;A camera without it&amp;#39;s case on with a red circle added to show battery location&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The battery is under the metal film which can be peeled back carefully&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -3271,10 +3063,10 @@ rewrite ^.+$ /search redirect;
       
       <item>
       <title>New hard disc</title>
-      <link>http://localhost:1313/posts/new-hard-disc/</link>
+      <link>https://willj.net/posts/new-hard-disc/</link>
       <pubDate>Wed, 09 Nov 2005 21:24:40 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-hard-disc/</guid>
+      <guid>https://willj.net/posts/new-hard-disc/</guid>
       <description>&lt;p&gt;I bought a new hard disc. It probably doesn&amp;rsquo;t work anymore, but then it did only cost me £5.20. I don&amp;rsquo;t care what anyone says, I like it. It is hanging behind my desk at work.&lt;/p&gt;
 &lt;p&gt;Here is the eBay description:&lt;/p&gt;
 &lt;blockquote&gt;

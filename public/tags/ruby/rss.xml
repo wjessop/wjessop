@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/ruby/</link>
+    <link>https://willj.net/tags/ruby/</link>
     <description>Recent content in Ruby on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 31 Jul 2024 17:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ruby/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/ruby/" rel="self" type="application/rss+xml" />
     <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
-      <link>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</link>
+      <link>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</link>
       <pubDate>Wed, 31 Jul 2024 17:00:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</guid>
+      <guid>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;Passing strings to the Rails logger methods (eg. &lt;code&gt;Rails.logger.info(…)&lt;/code&gt;) causes unecessary object allocations, and if you&amp;rsquo;re calling methods to generate data for your log messages then it can cause unecessary CPU work too. In this post I&amp;rsquo;ll show you how to use block syntax when using your logger with Rails to save object allocations and CPU time.&lt;/p&gt;
 &lt;h2 id=&#34;the-context&#34;&gt;The Context&lt;/h2&gt;
@@ -135,10 +135,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Running a specific knapsack test set locally</title>
-      <link>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</link>
+      <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
       <pubDate>Wed, 26 Apr 2023 15:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</guid>
+      <guid>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</guid>
       <description>&lt;p&gt;Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here&amp;rsquo;s how to do that!&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Grab &lt;code&gt;CI_NODE_TOTAL&lt;/code&gt; and &lt;code&gt;CI_NODE_INDEX&lt;/code&gt; from the test output, it&amp;rsquo;s likely near the top:&lt;/li&gt;
@@ -166,10 +166,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
-      <link>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
       <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
       <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -226,10 +226,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
-      <link>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
       <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
       <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
@@ -265,10 +265,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
-      <link>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
       <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
       <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -330,10 +330,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Random graph</title>
-      <link>http://localhost:1313/posts/random-graph/</link>
+      <link>https://willj.net/posts/random-graph/</link>
       <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/random-graph/</guid>
+      <guid>https://willj.net/posts/random-graph/</guid>
       <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
     alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
@@ -345,12 +345,12 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
-      <link>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
+      <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
       <pubDate>Fri, 25 Sep 2015 16:39:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
+      <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
       <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
     alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A simple graph&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -376,10 +376,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Testing Github commit hook one liners</title>
-      <link>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</link>
+      <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
       <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</guid>
+      <guid>https://willj.net/posts/testing-github-commit-hook-one-liners/</guid>
       <description>&lt;p&gt;A couple of ruby one-liners for dumping out the content of a github commit hook payload:&lt;/p&gt;
 &lt;p&gt;For hooks that use type &lt;strong&gt;application/json&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(request.body.read); end&amp;#39;&lt;/span&gt;
@@ -389,10 +389,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Robot at RubyConf</title>
-      <link>http://localhost:1313/posts/robot-at-rubyconf/</link>
+      <link>https://willj.net/posts/robot-at-rubyconf/</link>
       <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/robot-at-rubyconf/</guid>
+      <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
     alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
@@ -442,23 +442,23 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Railsberry animated gifs</title>
-      <link>http://localhost:1313/posts/railsberry-animated-gifs/</link>
+      <link>https://willj.net/posts/railsberry-animated-gifs/</link>
       <pubDate>Mon, 23 Apr 2012 16:05:30 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/railsberry-animated-gifs/</guid>
+      <guid>https://willj.net/posts/railsberry-animated-gifs/</guid>
       <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
 &lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
     alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
     alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jk.gif&#34;
     alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
 &lt;/figure&gt;
 
@@ -466,10 +466,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>99 bottles of Ruby beer on the wall</title>
-      <link>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
+      <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
       <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
+      <guid>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
       <description>&lt;p&gt;A while back a friend and I had a 99 bottles of beer on the wall one-liner competition in &lt;a href=&#34;http://ruby-lang.org/&#34; title=&#34;Ruby&#34;&gt;Ruby&lt;/a&gt;. I just found this in my home directory and so am claiming it as my entry:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;def b(c)&amp;quot;#{c} bottle#{c&amp;gt;1?&amp;quot;s&amp;quot;:&amp;quot;&amp;quot;} of beer on the wall&amp;quot;end;99.downto(1){|x|$&amp;gt;0?x-1:99)}.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;

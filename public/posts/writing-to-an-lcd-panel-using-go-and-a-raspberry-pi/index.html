@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-	<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/sass/styles.css">
 
-		<link href="http://localhost:1313/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
+		<link href="https://willj.net/rss.xml" rel="alternate" type="application/rss+xml" title="All posts | Will Jessop&#39;s Writings" />
 		<title>
 			Writing to an Lcd Panel Using Go and a Raspberry Pi
 			</title>
@@ -33,14 +33,14 @@
 		</div>
 		<time datetime="2020-06-24">Wednesday, June 24, 2020</time>
 	|
-	tags:<a href="http://localhost:1313/tags/electronics">electronics</a> <a href="http://localhost:1313/tags/raspberry-pi">Raspberry Pi</a> <a href="http://localhost:1313/tags/go">Go</a> 
+	tags:<a href="https://willj.net/tags/electronics">electronics</a> <a href="https://willj.net/tags/raspberry-pi">Raspberry Pi</a> <a href="https://willj.net/tags/go">Go</a> 
 	<hr />
 
 	<h2>Writing to an Lcd Panel Using Go and a Raspberry Pi</h2>
 
 	<article>
 		<p><img src="/img/posts/lcd.jpg#right" alt="LCD display showing climate data"></p>
-<p>In my <a href="http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">last post</a> I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.</p>
+<p>In my <a href="https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/">last post</a> I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.</p>
 <h3 id="why-tho">Why tho</h3>
 <p>Why indeed! It&rsquo;s not particularly useful, I know it&rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&rsquo;t. It&rsquo;s quite <em>interesting</em> to know how hot it is in here (my wife <em>definitely</em> agrees on this) and just being able to know by glancing at an LCD display is quite convenient.</p>
 <p>But that&rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.</p>

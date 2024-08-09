@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Electronics on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/electronics/</link>
+    <link>https://willj.net/tags/electronics/</link>
     <description>Recent content in Electronics on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Nov 2020 11:24:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/electronics/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/electronics/" rel="self" type="application/rss+xml" />
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
-      <link>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
+      <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
       <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
+      <guid>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/T67XX.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So, you bought four T67XX CO₂ sensors and only once they were delivered started to work out how to get values from them huh? Well I&amp;rsquo;m right there with you because so did I. and I carefully deposited the results in a new Go lib. Announcing the &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;Go T67XX CO₂ sensor library&lt;/a&gt;! This post will give you some details about what these sensors can do, then introduce the library and how to use it.&lt;/p&gt;
 &lt;hr&gt;
@@ -221,16 +221,16 @@
     </item>
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
-      <link>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
+      <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
       <pubDate>Wed, 24 Jun 2020 02:09:43 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
+      <guid>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
 &lt;h3 id=&#34;why-tho&#34;&gt;Why tho&lt;/h3&gt;
 &lt;p&gt;Why indeed! It&amp;rsquo;s not particularly useful, I know it&amp;rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&amp;rsquo;t. It&amp;rsquo;s quite &lt;em&gt;interesting&lt;/em&gt; to know how hot it is in here (my wife &lt;em&gt;definitely&lt;/em&gt; agrees on this) and just being able to know by glancing at an LCD display is quite convenient.&lt;/p&gt;
 &lt;p&gt;But that&amp;rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;the-display&#34;&gt;The display&lt;/h3&gt;
 &lt;p&gt;The display is an LCM1602 20 character by 4 line LCD. Attached to the back of the LCD is a &amp;ldquo;backpack&amp;rdquo;. This backpack connects to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt;, for example like the ones on either an Arduino or Raspberry Pi.&lt;/p&gt;
 &lt;h3 id=&#34;making-the-dislay-show-text&#34;&gt;Making the dislay show text&lt;/h3&gt;
@@ -282,24 +282,24 @@
 &lt;h3 id=&#34;thats-it&#34;&gt;That&amp;rsquo;s it!&lt;/h3&gt;
 &lt;p&gt;I&amp;rsquo;ll probably keep the LCD displaying climate data in my office, as I&amp;rsquo;m basically addicted to knowing what the temperature and humidity is now. If you decide to get your own LCD screen, make sure you grab one that has the backpack, as you&amp;rsquo;ll have a hard time using it if it doesn&amp;rsquo;t have one.&lt;/p&gt;
 &lt;p&gt;Just for fun, here&amp;rsquo;s a photo of the back of the LCD with the backlight shining through the circuit board:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
-      <link>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
+      <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
       <pubDate>Tue, 23 Jun 2020 20:26:10 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/climate.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
+      <guid>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/climate.png&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
 &lt;p&gt;A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Buddha%27s_hand&#34;&gt;Buddha&amp;rsquo;s hand tree&lt;/a&gt;. This tree was fairly expensive, and I wanted to maximise it&amp;rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&amp;rsquo;t like cold, but apparently don&amp;rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.&lt;/p&gt;
 &lt;p&gt;It was for this reason that I decided to start experimenting with climate monitoring.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I was originally planning on making some sensor units as described in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aaron Paterson&amp;rsquo;s ESP8266 + Plantower AQ sensor project&lt;/a&gt;, so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha&amp;rsquo;s Hand tree had already arrived I decided to get some &lt;a href=&#34;https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;BME280 temperature, humidity and pressure sensors from Amazon&lt;/a&gt; as they don&amp;rsquo;t cost too much and would allow me to get a jump start on checking that my trees were safe.&lt;/p&gt;
 &lt;p&gt;These BME280 sensors use &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;the I²C bus&lt;/a&gt;, which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.&lt;/p&gt;
 &lt;h4 id=&#34;required-equipment&#34;&gt;Required equipment&lt;/h4&gt;
@@ -445,20 +445,20 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;hr&gt;
 &lt;h3 id=&#34;the-finished-device&#34;&gt;The Finished Device&lt;/h3&gt;
 &lt;p&gt;Here is the working sensor and Pi in place in my conservatory, running the Go program, Influx DB and Grafana. I have now added a second Pi in my study that reports it&amp;rsquo;s sensor readings to the Influx DB on this machine too.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Robot at RubyConf</title>
-      <link>http://localhost:1313/posts/robot-at-rubyconf/</link>
+      <link>https://willj.net/posts/robot-at-rubyconf/</link>
       <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/robot-at-rubyconf/</guid>
+      <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
     alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
@@ -508,10 +508,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Prototype lifter arm</title>
-      <link>http://localhost:1313/posts/prototype-lifter-arm/</link>
+      <link>https://willj.net/posts/prototype-lifter-arm/</link>
       <pubDate>Sat, 02 Nov 2013 22:04:05 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/prototype-lifter-arm/</guid>
+      <guid>https://willj.net/posts/prototype-lifter-arm/</guid>
       <description>&lt;p&gt;I added a prototype lifter arm to my robot yesterday. It needs re-doing (it&amp;rsquo;s unreliable and heavy) but it works for now.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m using a new motor driver circuit for it as I burned out the SN754410 motor driver I was using, the lifter motor seems to peak briefly at about 1.5 amps when starting to lift the arm, and that&amp;rsquo;s out of the chips range. I stayed up late making a new motor control circuit with a L298N that can provide a lot more power.&lt;/p&gt;
 &lt;p&gt;Here is the robot picking up 12 ping-pong balls. I was driving, Morwenna was filming:&lt;/p&gt;
@@ -556,10 +556,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>First robot remote driving test</title>
-      <link>http://localhost:1313/posts/first-robot-remote-driving-test/</link>
+      <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
       <pubDate>Fri, 01 Nov 2013 02:16:09 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/first-robot-remote-driving-test/</guid>
+      <guid>https://willj.net/posts/first-robot-remote-driving-test/</guid>
       <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
 &lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
 
@@ -575,33 +575,33 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
-      <link>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
+      <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
       <pubDate>Thu, 31 Oct 2013 13:16:49 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
+      <guid>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
       <description>&lt;p&gt;I spent all day at &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hacman&lt;/a&gt; Tuesday and Wednesday printing and tweaking robot parts. I put it all together when I got home. This is the front, the lifter arm has holes to allow me to screw in different attachments, I&amp;rsquo;ve still not designed that part of the robot yet:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
     alt=&#34;The robot, mostly assembled&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here is the back view, you can see the lifter arm gear housing (the curved structure) and the motor that drives it, also the battery (underneath the ball hopper)&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
     alt=&#34;The rear of the robot with the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The lifter arm gear system looking through where the hopper would be:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
     alt=&#34;The robot without the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I need to design an attachment for the end of the lifter arm. Here I&amp;rsquo;ve created a simple one using meccano. It&amp;rsquo;s too heavy, the bolts catch on the floor and it dumps the ping-pong balls short of the hopper. Other than that it&amp;rsquo;s perfect. You can see the camera with capped lens that I&amp;rsquo;ve just wedged into the structure temporarily:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
     alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -612,14 +612,14 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Testing the new battery &#43; lifter arm circuit</title>
-      <link>http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
+      <link>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</link>
       <pubDate>Mon, 28 Oct 2013 23:02:01 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/</guid>
+      <guid>https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/</guid>
       <description>&lt;p&gt;First test of the Raspberry Pi running off battery power with no external supply at all. In the picture the 5000mAh battery is the object at the back with &amp;ldquo;5000&amp;rdquo; written on it. My multimeter is measuring the voltage output. One of the Raspberry Pi (the thing with the red light on it) output pins is connected through the MotorPiTX board (the yellow circuit board on-top of the Raspberry Pi) to the breadboard.&lt;/p&gt;
 &lt;p&gt;The breadboard contains two circuits, the top-right cluster of components is the circuit that turns the output of the Raspberry Pi into something relevant to the motor driver in the bottom left, the bottom left cluster of components is the motor driver itself.&lt;/p&gt;
 &lt;p&gt;The Pi is pulsing the output causing the motor driver to spin the motor. The micro-switch just on the very bottom of the picture is one of the limit switches for the ball lifter arm.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-the-new-battery-and-lifter-arm-circuit/images/img_4418.jpg&#34;
     alt=&#34;A curcuit under test with a multimeter&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A relatively tidy electronics bench for once&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -629,19 +629,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Testing new motor mounts</title>
-      <link>http://localhost:1313/posts/testing-new-motor-mounts/</link>
+      <link>https://willj.net/posts/testing-new-motor-mounts/</link>
       <pubDate>Thu, 24 Oct 2013 01:22:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-new-motor-mounts/</guid>
+      <guid>https://willj.net/posts/testing-new-motor-mounts/</guid>
       <description>&lt;p&gt;I needed to re-design the motor mounts on the robot base, they didn&amp;rsquo;t hold the motors securely enough and tended to shift around.&lt;/p&gt;
 &lt;p&gt;The new mounts are better fitting and include a small wedge that fits between one of the gearbox plates where there are no cogs.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
     alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
     alt=&#34;Two motors fully encased in the motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -652,18 +652,18 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
-      <link>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
+      <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
       <pubDate>Thu, 24 Oct 2013 01:15:37 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
+      <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
       <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
     alt=&#34;Raspberry pi camera holder&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
     alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -673,11 +673,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>New Pi mount, and testing the power requirements</title>
-      <link>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</link>
+      <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
       <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
+      <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
     alt=&#34;Testing the robot power requirements&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -694,7 +694,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     &lt;/div&gt;
 
 &lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
     alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -704,19 +704,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Lenses</title>
-      <link>http://localhost:1313/posts/lenses/</link>
+      <link>https://willj.net/posts/lenses/</link>
       <pubDate>Fri, 18 Oct 2013 16:17:20 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/lenses/</guid>
+      <guid>https://willj.net/posts/lenses/</guid>
       <description>&lt;p&gt;The Raspberry Pi camera doesn&amp;rsquo;t have a field of view that is wide enough for my robot, I&amp;rsquo;d have to mount it really far from my robot to see enough context to make it drivable so I&amp;rsquo;ve bought some wide angle iPhone lenses to try out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/lenses/images/img_4386.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4386.jpg&#34;
     alt=&#34;Wide-angle and fish-eye lenses&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Wide-angle and fish-eye lenses&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a photo taken using the fish-eye lens held up to my iPhone:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/lenses/images/img_4388.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/lenses/images/img_4388.jpg&#34;
     alt=&#34;The view through the fish-eye lens&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The view through the fish-eye lens&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -726,19 +726,19 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Secret project - MotorPiTX motor board</title>
-      <link>http://localhost:1313/posts/secret-project-motorpitx-motor-board/</link>
+      <link>https://willj.net/posts/secret-project-motorpitx-motor-board/</link>
       <pubDate>Sun, 08 Sep 2013 00:51:32 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/secret-project-motorpitx-motor-board/</guid>
+      <guid>https://willj.net/posts/secret-project-motorpitx-motor-board/</guid>
       <description>&lt;p&gt;I soldered together my MotorPiTX motor controller today and fitted it to the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4256.jpg&#34;
     alt=&#34;A prototype robot with a MotorPiTX board on top of a Raspberry Pi&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot with MotorPiTX board&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s a hell of a lot neater than my original effort, and only trails one wire. It goes forwards &lt;em&gt;and&lt;/em&gt; backwards now too. To the left of the blue relay near the top you can see my homemade heatsink attached to the voltage regulator:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project-motorpitx-motor-board/images/img_4257.jpg&#34;
     alt=&#34;Closeup of a heatsink made of meccano parts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Pro-spec heatsink&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -751,11 +751,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Secret project</title>
-      <link>http://localhost:1313/posts/secret-project/</link>
+      <link>https://willj.net/posts/secret-project/</link>
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/secret-project/</guid>
-      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
+      <guid>https://willj.net/posts/secret-project/</guid>
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -764,7 +764,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
 &lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
 &lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4248.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4248.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Motor mount&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -788,7 +788,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4247.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4247.jpg&#34;
     alt=&#34;A PCB with no components on it and a bag of componenets&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -799,11 +799,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
-      <link>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
+      <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+      <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
     alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
     &lt;/figcaption&gt;

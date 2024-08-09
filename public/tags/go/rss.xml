@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/go/</link>
+    <link>https://willj.net/tags/go/</link>
     <description>Recent content in Go on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/go/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/go/" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
-      <link>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</link>
+      <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
       <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
+      <guid>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
       <description>&lt;p&gt;There are a few &lt;a href=&#34;https://gohugo.io/tools/migrations/#wordpress&#34;&gt;&amp;ldquo;official&amp;rdquo; options for migrating wordpress content to Hugo&lt;/a&gt;, but they are all either cumbersome (requiring installing wordpress in docker) or don&amp;rsquo;t handle images. I didn&amp;rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.&lt;/p&gt;
 &lt;p&gt;In the end &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I created a somewhat rough, but functional program to do the job&lt;/a&gt; and it was successful.&lt;/p&gt;
 &lt;p&gt;The requirements:&lt;/p&gt;
@@ -66,10 +66,10 @@
     </item>
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
-      <link>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
+      <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
       <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
+      <guid>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/T67XX.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So, you bought four T67XX CO₂ sensors and only once they were delivered started to work out how to get values from them huh? Well I&amp;rsquo;m right there with you because so did I. and I carefully deposited the results in a new Go lib. Announcing the &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;Go T67XX CO₂ sensor library&lt;/a&gt;! This post will give you some details about what these sensors can do, then introduce the library and how to use it.&lt;/p&gt;
 &lt;hr&gt;
@@ -275,16 +275,16 @@
     </item>
     <item>
       <title>Writing to an Lcd Panel Using Go and a Raspberry Pi</title>
-      <link>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
+      <link>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</link>
       <pubDate>Wed, 24 Jun 2020 02:09:43 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
+      <guid>https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/lcd.jpg#right&#34; alt=&#34;LCD display showing climate data&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/&#34;&gt;last post&lt;/a&gt; I wrote about how I rigged up a Raspberry Pi to monitor temperature, humidity and air pressure. In this post I will talk about how I added a multiline LCD display into the mix to display the same data on a multiline LCD display.&lt;/p&gt;
 &lt;h3 id=&#34;why-tho&#34;&gt;Why tho&lt;/h3&gt;
 &lt;p&gt;Why indeed! It&amp;rsquo;s not particularly useful, I know it&amp;rsquo;s too hot in my office already just by, well, feeling the air, and I can always check out the Grafana dashboard I put together to get the latest data if I need to know an exact figure, which I don&amp;rsquo;t. It&amp;rsquo;s quite &lt;em&gt;interesting&lt;/em&gt; to know how hot it is in here (my wife &lt;em&gt;definitely&lt;/em&gt; agrees on this) and just being able to know by glancing at an LCD display is quite convenient.&lt;/p&gt;
 &lt;p&gt;But that&amp;rsquo;s all irellevant. I did it because it was fun and having an LCD display stuff is cool.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-detail.jpg#left&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;the-display&#34;&gt;The display&lt;/h3&gt;
 &lt;p&gt;The display is an LCM1602 20 character by 4 line LCD. Attached to the back of the LCD is a &amp;ldquo;backpack&amp;rdquo;. This backpack connects to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt;, for example like the ones on either an Arduino or Raspberry Pi.&lt;/p&gt;
 &lt;h3 id=&#34;making-the-dislay-show-text&#34;&gt;Making the dislay show text&lt;/h3&gt;
@@ -336,24 +336,24 @@
 &lt;h3 id=&#34;thats-it&#34;&gt;That&amp;rsquo;s it!&lt;/h3&gt;
 &lt;p&gt;I&amp;rsquo;ll probably keep the LCD displaying climate data in my office, as I&amp;rsquo;m basically addicted to knowing what the temperature and humidity is now. If you decide to get your own LCD screen, make sure you grab one that has the backpack, as you&amp;rsquo;ll have a hard time using it if it doesn&amp;rsquo;t have one.&lt;/p&gt;
 &lt;p&gt;Just for fun, here&amp;rsquo;s a photo of the back of the LCD with the backlight shining through the circuit board:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/LCM1602-backlight.jpg#full&#34; alt=&#34;YwRobot Arduino LCM1602 backpack&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
-      <link>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
+      <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
       <pubDate>Tue, 23 Jun 2020 20:26:10 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/climate.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
+      <guid>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/climate.png&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
 &lt;p&gt;A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Buddha%27s_hand&#34;&gt;Buddha&amp;rsquo;s hand tree&lt;/a&gt;. This tree was fairly expensive, and I wanted to maximise it&amp;rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&amp;rsquo;t like cold, but apparently don&amp;rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.&lt;/p&gt;
 &lt;p&gt;It was for this reason that I decided to start experimenting with climate monitoring.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I was originally planning on making some sensor units as described in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aaron Paterson&amp;rsquo;s ESP8266 + Plantower AQ sensor project&lt;/a&gt;, so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha&amp;rsquo;s Hand tree had already arrived I decided to get some &lt;a href=&#34;https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;BME280 temperature, humidity and pressure sensors from Amazon&lt;/a&gt; as they don&amp;rsquo;t cost too much and would allow me to get a jump start on checking that my trees were safe.&lt;/p&gt;
 &lt;p&gt;These BME280 sensors use &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;the I²C bus&lt;/a&gt;, which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.&lt;/p&gt;
 &lt;h4 id=&#34;required-equipment&#34;&gt;Required equipment&lt;/h4&gt;
@@ -499,21 +499,21 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;hr&gt;
 &lt;h3 id=&#34;the-finished-device&#34;&gt;The Finished Device&lt;/h3&gt;
 &lt;p&gt;Here is the working sensor and Pi in place in my conservatory, running the Go program, Influx DB and Grafana. I have now added a second Pi in my study that reports it&amp;rsquo;s sensor readings to the Influx DB on this machine too.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Secret project</title>
-      <link>http://localhost:1313/posts/secret-project/</link>
+      <link>https://willj.net/posts/secret-project/</link>
       <pubDate>Sat, 07 Sep 2013 12:41:02 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/secret-project/</guid>
-      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
+      <guid>https://willj.net/posts/secret-project/</guid>
+      <description>&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/41c6bjctp2l1.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;One of my new motors. It&amp;#39;s about 10mm in diameter&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -522,7 +522,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;p&gt;I&amp;rsquo;ve started work on a top-secret project. I can&amp;rsquo;t really hide the fact that it&amp;rsquo;s going to be a robot, but I&amp;rsquo;m not going to say what it is, at least not just yet.&lt;/p&gt;
 &lt;p&gt;So, last night I was designing a 3d printed mount for the &lt;a href=&#34;http://www.amazon.co.uk/gp/product/B008OAYP8Q/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1634&amp;amp;creative=19450&amp;amp;creativeASIN=B008OAYP8Q&amp;amp;linkCode=as2&amp;amp;tag=will_j-21&#34; title=&#34;3-6V motors&#34;&gt;tiny 3-6V motors&lt;/a&gt; I bought and I started to wonder if I could cobble something together using my old technic lego. I dug out the lego, but on top of that was my dusty old meccano set, even better!&lt;/p&gt;
 &lt;p&gt;WIthin a short amount of time I had some motor mounts and a frame made, including tensioning springs for the caterpillar tracks. All that was left was to take it for a spin. I hooked it up to my Raspberry Pi via my Custard Pi breakout board, a &lt;a href=&#34;https://simple.m.wikipedia.org/wiki/File:ULN2803A_Transistor_Array.jpg&#34;&gt;ULN2803A&lt;/a&gt; and a custom voltage regulator circuit.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4248.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4248.jpg&#34;
     alt=&#34;A very small motor with an in-built gearbox&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Motor mount&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -546,7 +546,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/secret-project/images/img_4247.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/secret-project/images/img_4247.jpg&#34;
     alt=&#34;A PCB with no components on it and a bag of componenets&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;MotorPiTX kit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -557,11 +557,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
-      <link>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
+      <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+      <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
     alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -607,10 +607,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Creating BERT dicts in Go</title>
-      <link>http://localhost:1313/posts/creating-bert-dicts-in-go/</link>
+      <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
       <pubDate>Sun, 10 Feb 2013 02:09:06 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/creating-bert-dicts-in-go/</guid>
+      <guid>https://willj.net/posts/creating-bert-dicts-in-go/</guid>
       <description>&lt;p&gt;I’ve been learning Go recently and have written a program to connect to an existing service (written in Ruby) that sends and receives messages serialised as &lt;a href=&#34;http://bert-rpc.org/&#34;&gt;BERT&lt;/a&gt; terms.&lt;/p&gt;
 &lt;p&gt;I’m posting this partly because I had quite a lot of fun figuring it out and partly to document creating BERT dicts in Go should anyone else need to do this in the future and hit the same issues I did.&lt;/p&gt;
 &lt;h2 id=&#34;why-bert&#34;&gt;Why BERT?&lt;/h2&gt;

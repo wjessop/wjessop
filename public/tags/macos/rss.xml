@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MacOS on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/macos/</link>
+    <link>https://willj.net/tags/macos/</link>
     <description>Recent content in MacOS on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Mon, 17 Feb 2020 16:23:53 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/macos/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/macos/" rel="self" type="application/rss+xml" />
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
-      <link>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
       <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
       <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -72,10 +72,10 @@
     </item>
     <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
-      <link>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
       <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
       <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
@@ -111,10 +111,10 @@
     </item>
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
-      <link>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
       <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
       <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...

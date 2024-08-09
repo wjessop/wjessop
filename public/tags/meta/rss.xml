@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meta on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/meta/</link>
+    <link>https://willj.net/tags/meta/</link>
     <description>Recent content in Meta on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 12 Sep 2023 13:30:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/meta/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/meta/" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
-      <link>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</link>
+      <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
       <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
+      <guid>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
       <description>&lt;p&gt;There are a few &lt;a href=&#34;https://gohugo.io/tools/migrations/#wordpress&#34;&gt;&amp;ldquo;official&amp;rdquo; options for migrating wordpress content to Hugo&lt;/a&gt;, but they are all either cumbersome (requiring installing wordpress in docker) or don&amp;rsquo;t handle images. I didn&amp;rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.&lt;/p&gt;
 &lt;p&gt;In the end &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I created a somewhat rough, but functional program to do the job&lt;/a&gt; and it was successful.&lt;/p&gt;
 &lt;p&gt;The requirements:&lt;/p&gt;
@@ -66,21 +66,21 @@
     </item>
     <item>
       <title>Welcome to My New Blog</title>
-      <link>http://localhost:1313/posts/welcome-to-my-new-blog/</link>
+      <link>https://willj.net/posts/welcome-to-my-new-blog/</link>
       <pubDate>Wed, 24 Jun 2020 23:30:40 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/welcome-to-my-new-blog/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/me_rotterdam_round.png#right&#34; alt=&#34;Me in Rotterdam&#34;&gt;&lt;/p&gt;
+      <guid>https://willj.net/posts/welcome-to-my-new-blog/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/me_rotterdam_round.png#right&#34; alt=&#34;Me in Rotterdam&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Welcome to my new site! If you want to see my old writings you can still find them at &lt;a href=&#34;https://blog.willj.net/&#34;&gt;my Wordpress blog site&lt;/a&gt; which is still up. I may at some point attempt to copy the posts over from there, but I don&amp;rsquo;t have time right now.&lt;/p&gt;
 &lt;p&gt;Anyway, thanks for checking out my new site!&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Tricks of the Trade</title>
-      <link>http://localhost:1313/posts/tricks-of-the-trade/</link>
+      <link>https://willj.net/posts/tricks-of-the-trade/</link>
       <pubDate>Thu, 12 Apr 2007 19:04:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/tricks-of-the-trade/</guid>
+      <guid>https://willj.net/posts/tricks-of-the-trade/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.themorningnews.org/archives/how_to/tricks_of_the_trade.php&#34; title=&#34;Tricks of the trade&#34;&gt;Interesting article&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;hellip;I recently asked readers for their &amp;ldquo;tricks of the trade,&amp;rdquo; and was amazed by the response. It seems every profession is rich with clever little occupational secrets.&lt;/p&gt;

@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>3D Printing on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/3d-printing/</link>
+    <link>https://willj.net/tags/3d-printing/</link>
     <description>Recent content in 3D Printing on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,19 +9,19 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Tue, 06 Aug 2024 10:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/3d-printing/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/3d-printing/" rel="self" type="application/rss+xml" />
     <item>
       <title>Final robot photos</title>
-      <link>http://localhost:1313/posts/final-robot-photos/</link>
+      <link>https://willj.net/posts/final-robot-photos/</link>
       <pubDate>Tue, 06 Aug 2024 10:00:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/final-robot-photos/</guid>
+      <guid>https://willj.net/posts/final-robot-photos/</guid>
       <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot back in about 2014 but never posted the final photos of it anywhere, these are the final photos I took of the finished robot.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0594.JPG&#34;
     alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/final-robot-photos/images/IMG_0595.JPG&#34;
     alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
 &lt;/figure&gt;
 
@@ -29,15 +29,15 @@
     </item>
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</title>
-      <link>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
+      <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
       <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
+      <guid>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
       <description>&lt;hr&gt;
 &lt;h1 id=&#34;update&#34;&gt;Update!&lt;/h1&gt;
 &lt;p&gt;It turns out that this is a Dell OptiPlex 7010 SFF, not a USFF (as advertised by the eBay seller)!&lt;/p&gt;
 &lt;hr&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Dell OptiPlex 7010 SFF&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -48,13 +48,13 @@
 &lt;h2 id=&#34;caveat&#34;&gt;Caveat!&lt;/h2&gt;
 &lt;p&gt;This works for my Seagate Barracuda 4TB drives. They&amp;rsquo;re slightly thinner than some of the other drives I&amp;rsquo;ve got, if yours are thicker then it might work for yoiu or it might not.&lt;/p&gt;
 &lt;h2 id=&#34;risers-of-the-machine&#34;&gt;Risers of the Machine&lt;/h2&gt;
-&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
+&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
     alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;View inside a Dell OptiPlex 7010 SFF, there isn&amp;#39;t much room&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -65,7 +65,7 @@
 &lt;p&gt;Metric is the best and only measurement system anyone should use, but unfortunately PC manufacturers seem to have settled on imperial for at least the bolt hole sizes I need to use which are &lt;a href=&#34;https://en.wikipedia.org/wiki/Unified_Thread_Standard&#34;&gt;6-32 UNC&lt;/a&gt;. The risers I need to incorporate into this design are fairly long too at nearly 40mm. That&amp;rsquo;s about M3.5 * 40mm in metric, but I couldn&amp;rsquo;t find any M3.5 risers of the right height, and I can buy 6-32 UNC bolts on eBay easily enough so I bought some of those. You can probably use M3.5 as a substitute.&lt;/p&gt;
 &lt;h2 id=&#34;to-fusion360&#34;&gt;To Fusion360!&lt;/h2&gt;
 &lt;p&gt;These days my 3d designing tool of choice is Fusion 360 so I opened it up and set to work. Much cursing, and a fair few scrapped prototypes later I came up with this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
     alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -77,27 +77,27 @@
 &lt;p&gt;There is about 5mm clearance between the bottom of the mount and the RAM, and enough clearance between the SSD and the CPU cooler for wires to pass comfortably. The SSD could be mounted about 5mm higher, closer to the bottom of the first hard drive, but I only had 12mm bolts in M3.5 and so had to print spacers.&lt;/p&gt;
 &lt;p&gt;There are captive nuts on the top-left of this image underneath the base, nearest the front of the case. These were exactly the right size for the nuts I was using, which meant that the nuts stayed in right up until I used any force at all on them like when I was trying to screw a bolt into them. This was infuriating so I epoxied the nuts in place. If I was to do another version of this I&amp;rsquo;d make the nut traps tighter so the nuts could be safely held in place with a press fit.&lt;/p&gt;
 &lt;p&gt;The two bolts you can see with two nuts on them used as spacers, these are a flaw in the design. In order to prevent the 50mm bolts I was using from bottoming out I could have used shorter bolts and printed recesses, but I didn&amp;rsquo;t want to buy more imperial bolts I was never going to use again. I could have printed spacers, but the nuts worked and they were there. In the end I had to remove one of the nuts from the bottom-left most bolt so it didn&amp;rsquo;t foul the hard drive, but it didn&amp;rsquo;t bottom out even then so it worked out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
     alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see the 3.5&amp;quot; hard drives in place. There is a gap between the two drives to allow for air flow.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
     alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see how tight it is near the case fan, the tolerances in this design are pretty tight. I couldn&amp;rsquo;t shift the hard drives further away from the front of the case/the case fan because the latch in the removable panel on the case prevents them from moving backwards in the case.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
     alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The front of the case looking in through the old CDRW slot. It doesn&amp;rsquo;t look like it but there is a mm or two clearance between the top of the top hard drive and the case when the lid is on.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
     alt=&#34;Hard drives seen through the front of the PC case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The same view but with the lit fitted.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;parts-list&#34;&gt;Parts list&lt;/h2&gt;
@@ -111,7 +111,7 @@
 &lt;li&gt;A SATA power splitter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The SSD bolts looks like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;printing-instructions&#34;&gt;Printing instructions&lt;/h2&gt;
@@ -149,15 +149,15 @@
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve said it before, but it&amp;rsquo;s worth repeating. This mount works just fine, the drives are well fixed in place, the cables stay in, the case lid closes. However, designing stuff isn&amp;rsquo;t my day job and this design has a number of issues that if someone with more time and who is better at 3d design wanted to build on then it could be greatly improved. If I were to print a new version of this I&amp;rsquo;d probably alter the design quite a lot.&lt;/p&gt;
 &lt;p&gt;All that said, if you want to print this, and have the parts, then I don&amp;rsquo;t see any reason why it shouldn&amp;rsquo;t also work for you, it&amp;rsquo;s working for me.&lt;/p&gt;
-&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;http://localhost:1313/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Custom 3D printed Blue Snowball desk stand</title>
-      <link>http://localhost:1313/posts/custom-blue-snowball-microphone-desk-stand/</link>
+      <link>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</link>
       <pubDate>Wed, 25 Nov 2020 04:59:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/custom-blue-snowball-microphone-desk-stand/</guid>
+      <guid>https://willj.net/posts/custom-blue-snowball-microphone-desk-stand/</guid>
       <description>&lt;h1 id=&#34;introducing-an-all-new-super-sleek-blue-snowball-microphone-desk-stand&#34;&gt;Introducing, an all-new, super-sleek Blue Snowball microphone desk stand!&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;images/blue_snowball_0.jpg#left&#34; alt=&#34;Blue snowball microphone on the new stand&#34;&gt;
 &lt;img src=&#34;images/microphone_stand_0.jpg#right&#34; alt=&#34;Closeup of the blue snowball stand showing the threads&#34;&gt;&lt;/p&gt;
@@ -187,10 +187,10 @@
     </item>
     <item>
       <title>Robot at RubyConf</title>
-      <link>http://localhost:1313/posts/robot-at-rubyconf/</link>
+      <link>https://willj.net/posts/robot-at-rubyconf/</link>
       <pubDate>Mon, 09 Dec 2013 14:14:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/robot-at-rubyconf/</guid>
+      <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
     alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
@@ -240,10 +240,10 @@
     </item>
     <item>
       <title>First robot remote driving test</title>
-      <link>http://localhost:1313/posts/first-robot-remote-driving-test/</link>
+      <link>https://willj.net/posts/first-robot-remote-driving-test/</link>
       <pubDate>Fri, 01 Nov 2013 02:16:09 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/first-robot-remote-driving-test/</guid>
+      <guid>https://willj.net/posts/first-robot-remote-driving-test/</guid>
       <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
 &lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
 
@@ -259,12 +259,12 @@
     </item>
     <item>
       <title>Rejects and prototypes</title>
-      <link>http://localhost:1313/posts/rejects-and-prototypes/</link>
+      <link>https://willj.net/posts/rejects-and-prototypes/</link>
       <pubDate>Thu, 31 Oct 2013 13:25:19 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/rejects-and-prototypes/</guid>
+      <guid>https://willj.net/posts/rejects-and-prototypes/</guid>
       <description>&lt;p&gt;Prototypes and rejects from the 3d printer. All part of the design process for my robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/rejects-and-prototypes/images/img_4436.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/rejects-and-prototypes/images/img_4436.jpg&#34;
     alt=&#34;Rejected and prototype 3D printed robot componenets&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Rejected and prototype 3D printed componenets&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -274,33 +274,33 @@
     </item>
     <item>
       <title>New robot base design and completed prototype arm assembly</title>
-      <link>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
+      <link>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</link>
       <pubDate>Thu, 31 Oct 2013 13:16:49 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
+      <guid>https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/</guid>
       <description>&lt;p&gt;I spent all day at &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hacman&lt;/a&gt; Tuesday and Wednesday printing and tweaking robot parts. I put it all together when I got home. This is the front, the lifter arm has holes to allow me to screw in different attachments, I&amp;rsquo;ve still not designed that part of the robot yet:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4432.jpg&#34;
     alt=&#34;The robot, mostly assembled&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot, mostly assembled&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here is the back view, you can see the lifter arm gear housing (the curved structure) and the motor that drives it, also the battery (underneath the ball hopper)&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4433.jpg&#34;
     alt=&#34;The rear of the robot with the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The rear of the robot with the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The lifter arm gear system looking through where the hopper would be:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_4434.jpg&#34;
     alt=&#34;The robot without the hopper in place&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The robot without the hopper in place&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I need to design an attachment for the end of the lifter arm. Here I&amp;rsquo;ve created a simple one using meccano. It&amp;rsquo;s too heavy, the bolts catch on the floor and it dumps the ping-pong balls short of the hopper. Other than that it&amp;rsquo;s perfect. You can see the camera with capped lens that I&amp;rsquo;ve just wedged into the structure temporarily:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-robot-base-design-and-completed-prototype-arm-assembly/images/img_44351.jpg&#34;
     alt=&#34;A prototype lifter arm made from meccano, attached to the robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A prototype lifter arm made from Meccano&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -311,32 +311,32 @@
     </item>
     <item>
       <title>An assembled ping-pong robot hopper</title>
-      <link>http://localhost:1313/posts/an-assembled-hopper/</link>
+      <link>https://willj.net/posts/an-assembled-hopper/</link>
       <pubDate>Thu, 24 Oct 2013 01:27:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/an-assembled-hopper/</guid>
+      <guid>https://willj.net/posts/an-assembled-hopper/</guid>
       <description>&lt;p&gt;Today I printed out and glued together the first iteration of the ping-pong ball hopper that takes up most of the space of the robot.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4405.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4405.jpg&#34;
     alt=&#34;The assembled hopper&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The assembled hopper&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Full of ping-pong balls, I can get 12-14 in without packing them manually. That seems like enough for now, but a larger hopper would be good.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4406.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4406.jpg&#34;
     alt=&#34;The hopper loaded with ping-pong balls&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The hopper loaded with ping-pong balls&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Mounted on the robot. You can see the completed camera mount and Raspberry Pi mounted on the side in the foreground:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4407.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4407.jpg&#34;
     alt=&#34;The ping-pong ball hopper mounted on the robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The ping-pong ball hopper mounted on the robot&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/an-assembled-hopper/images/img_4408.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/an-assembled-hopper/images/img_4408.jpg&#34;
     alt=&#34;The reverse angle&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The reverse angle&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -346,19 +346,19 @@
     </item>
     <item>
       <title>Testing new motor mounts</title>
-      <link>http://localhost:1313/posts/testing-new-motor-mounts/</link>
+      <link>https://willj.net/posts/testing-new-motor-mounts/</link>
       <pubDate>Thu, 24 Oct 2013 01:22:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-new-motor-mounts/</guid>
+      <guid>https://willj.net/posts/testing-new-motor-mounts/</guid>
       <description>&lt;p&gt;I needed to re-design the motor mounts on the robot base, they didn&amp;rsquo;t hold the motors securely enough and tended to shift around.&lt;/p&gt;
 &lt;p&gt;The new mounts are better fitting and include a small wedge that fits between one of the gearbox plates where there are no cogs.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4404.jpg&#34;
     alt=&#34;Two small motors with in-built gearboxes in motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;You can see the small gearboxes built in to the motors&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/testing-new-motor-mounts/images/img_4403.jpg&#34;
     alt=&#34;Two motors fully encased in the motor mounts&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new motor mounts are a snug fit&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -369,18 +369,18 @@
     </item>
     <item>
       <title>Raspberry Pi camera mount &#43; lens holder</title>
-      <link>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
+      <link>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</link>
       <pubDate>Thu, 24 Oct 2013 01:15:37 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
+      <guid>https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/</guid>
       <description>&lt;p&gt;I printed out the front half of my Raspberry Pi camera module mount. It serves two purposes, providing a way of mounting the camera on my robot, and giving me a place to attach the wide-angle lens I&amp;rsquo;d bought earlier.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4394.jpg&#34;
     alt=&#34;Raspberry pi camera holder&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/raspberry-pi-camera-mount-and-lens-holder/images/img_4396.jpg&#34;
     alt=&#34;Raspberry pi camera holder, rear, showing a circuit board&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The new Raspberry pi camera holder rear view&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -390,11 +390,11 @@
     </item>
     <item>
       <title>New Pi mount, and testing the power requirements</title>
-      <link>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</link>
+      <link>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</link>
       <pubDate>Sun, 20 Oct 2013 00:06:46 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
+      <guid>https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4390.jpg&#34;
     alt=&#34;Testing the robot power requirements&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Testing the robot power requirements&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -411,7 +411,7 @@
     &lt;/div&gt;
 
 &lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/new-pi-mount-and-testing-the-power-requirements/images/img_4392.jpg&#34;
     alt=&#34;Raspberry Pi mount and ping-pong ball hopper base&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Raspberry Pi mount and ping-pong ball hopper base&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -421,33 +421,33 @@
     </item>
     <item>
       <title>First prototype robot base</title>
-      <link>http://localhost:1313/posts/prototype-robot-base/</link>
+      <link>https://willj.net/posts/prototype-robot-base/</link>
       <pubDate>Mon, 30 Sep 2013 20:08:56 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/prototype-robot-base/</guid>
+      <guid>https://willj.net/posts/prototype-robot-base/</guid>
       <description>&lt;p&gt;The robot base design from my previous post printed OK. Here it is printing:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4320.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4320.jpg&#34;
     alt=&#34;A 3d printer printing on a glass sheet&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Robot base 3D printing&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The finished print. The two small separate objects are the motor covers:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4322.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4322.jpg&#34;
     alt=&#34;A completed 3d print&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Completed robot base print&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The assembled robot, including Raspberry Pi and MotorPiTX:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4330.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4330.jpg&#34;
     alt=&#34;An assembled robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Assembled robot base&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The underside of the robot:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/prototype-robot-base/images/img_4332.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/prototype-robot-base/images/img_4332.jpg&#34;
     alt=&#34;The underside of a robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Even robots have a bottom&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -457,19 +457,19 @@
     </item>
     <item>
       <title>OpenSCAD robot base design</title>
-      <link>http://localhost:1313/posts/openscad-robot-base-design/</link>
+      <link>https://willj.net/posts/openscad-robot-base-design/</link>
       <pubDate>Tue, 24 Sep 2013 01:23:15 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/openscad-robot-base-design/</guid>
+      <guid>https://willj.net/posts/openscad-robot-base-design/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve re-designed a prototype robot mount in OpenSCAD as Sketchup wasn&amp;rsquo;t up to the job. It took a while, you have to program the model in a text editor so there&amp;rsquo;s lots of trial and error. Will have to wait to print it to see if this design will work.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/openscad-robot-base-design/images/screen-shot-2013-09-24-at-02-18-33.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/openscad-robot-base-design/images/screen-shot-2013-09-24-at-02-18-33.png&#34;
     alt=&#34;A CAD model of a small part of the base of my robot&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Prototype robot base designed in OpenSCAD&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;http://localhost:1313/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/openscad-robot-base-design/images/screen-shot-2013-09-22-at-20-27-41.png&#34;
+&lt;p&gt;I&amp;rsquo;ve made some improvements over the &lt;a href=&#34;https://willj.net/posts/designing-a-track-mount&#34;&gt;original design&lt;/a&gt;, most notably thicker side walls and motor mounts, more accurate measurements and added the cross-pieces with a Raspberry Pi mount. Here&amp;rsquo;s the original Sketchup design for comparison:&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/openscad-robot-base-design/images/screen-shot-2013-09-22-at-20-27-41.png&#34;
     alt=&#34;The same robot base as before but in Sketchup&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Robot base designed in Sketchup&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -480,12 +480,12 @@
     </item>
     <item>
       <title>Trying out the prototype caterpillar track mount</title>
-      <link>http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
+      <link>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</link>
       <pubDate>Mon, 23 Sep 2013 18:09:32 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/</guid>
+      <guid>https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/</guid>
       <description>&lt;p&gt;It works, but it needs more refinement.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/trying-out-the-prototype-caterpillar-track-mount/images/img_4296.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/trying-out-the-prototype-caterpillar-track-mount/images/img_4296.jpg&#34;
     alt=&#34;A Pololu track and motor in a prototype mount&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Testing the new motor mount&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -495,10 +495,10 @@
     </item>
     <item>
       <title>Printing out a test caterpillar track and motor mount</title>
-      <link>http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
+      <link>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</link>
       <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
+      <guid>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
       <description>
 
     
@@ -507,12 +507,12 @@
       &gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4289.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4289.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Printing a motor / caterpillar track mount detail&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4290.jpg&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4290.jpg&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The 3d printer at work&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -521,12 +521,12 @@
     </item>
     <item>
       <title>Designing a track mount</title>
-      <link>http://localhost:1313/posts/designing-a-track-mount/</link>
+      <link>https://willj.net/posts/designing-a-track-mount/</link>
       <pubDate>Sat, 21 Sep 2013 22:42:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/designing-a-track-mount/</guid>
+      <guid>https://willj.net/posts/designing-a-track-mount/</guid>
       <description>&lt;p&gt;Designing a track mount for my pololu caterpillar tracks. Sketchup is trying very hard to prevent me.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/designing-a-track-mount/images/screen-shot-2013-09-21-at-23-37-18.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/designing-a-track-mount/images/screen-shot-2013-09-21-at-23-37-18.png&#34;
     alt=&#34;Screengrab of an in-progress design for a track mount&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Pololu track mount design in progress&lt;/h4&gt;
     &lt;/figcaption&gt;

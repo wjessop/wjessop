@@ -1,63 +1,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/design/</link>
+    <link>https://willj.net/tags/design/</link>
     <description>Recent content in Design on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 15 Aug 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/design/" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Designing your application for scale</title>
-      <link>http://localhost:1313/posts/designing-your-application-for-scale/</link>
-      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/designing-your-application-for-scale/</guid>
-      <description>&lt;h2 id=&#34;the-trap&#34;&gt;The Trap&lt;/h2&gt;
-&lt;p&gt;Picture a startup, recently launched, a sales tracking application called WidgetSalesTrackr. There are 10s of customers signed up, a similar number of users, and customers are using the application to track sales that they are making on their e-commerce platforms. Data is coming in from an API endpoint but it&amp;rsquo;s happening at the rate of 100s of sales per day and the data is still pretty small. They&amp;rsquo;ve been going 3 months so far and have in the region of 10,000 sales in the sales table.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s looking promising but it&amp;rsquo;s still small, the founders haven&amp;rsquo;t quit their main jobs yet but they have high hopes that things are going to take off because feedback is really positive.&lt;/p&gt;
-&lt;p&gt;Early on someone added pagination to the pages where sales are listed, but only after someone pointed out that having a few thousand sales on one page was a bit cumbersome. Whoops. Still, it was easy to add, and is fairly simple to use and understand:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/simple-pagination.png&#34; alt=&#34;Some basic pagination used on a website&#34;&gt;&lt;/p&gt;
-&lt;p&gt;There&amp;rsquo;s a button to skip to the first couple of pages, buttons to skip to the last couple of pages, and buttons to skip to the next and previous pages. Standard stuff.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/5-years-later-cropped.jpeg#full&#34; alt=&#34;Spongebob timecard, 5 years later&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Some years have passed and things have taken off. WidgetSalesTrackr has a team of 10 engineers plus the usual design, product, sales and marketing departments you&amp;rsquo;d expect.&lt;/p&gt;
-&lt;p&gt;The original 100s of sales per day ingested by the API has grown massively and now peaks at closer to 100 per second. Month on month they&amp;rsquo;re adding 50 million records to the sales table, and the records are getting updated now too as order statuses change. The database is starting to creak a little and it&amp;rsquo;s the sales table, the biggest table with the highest insert and update rate, that is the cause of most of the problems.&lt;/p&gt;
-&lt;p&gt;So what&amp;rsquo;s the problem here?&lt;/p&gt;
-&lt;p&gt;There is talk of moving sales data to another store, like DynamoDB or similar, but it&amp;rsquo;s a huge task.&lt;/p&gt;
-&lt;p&gt;Scaling problems are good though right! Yes, but that doesn&amp;rsquo;t mean you have to walk deliberately and directly into a pit trap full of them.
-distracting&lt;/p&gt;
-&lt;p&gt;there is no time to be dealing with this. There are more important projects to complete&lt;/p&gt;
-&lt;p&gt;Listen to customers:
-&amp;ldquo;I go back through the list of sales and calculate the average order total for all sales in the previous year&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Control access to the data&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;notes&#34;&gt;Notes&lt;/h1&gt;
-&lt;p&gt;Hyrum&amp;rsquo;s Law&lt;/p&gt;
-&lt;p&gt;With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve seen this problem many times now.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BOUND IT!&lt;/li&gt;
-&lt;li&gt;Total Number of sales &lt;add today&gt;&lt;/li&gt;
-&lt;li&gt;archived data, can be available more offline?&lt;/li&gt;
-&lt;li&gt;Go through the regular motions. Add indexes, cacheing, faster hardware, database partitions etc.&lt;/li&gt;
-&lt;li&gt;Postgres partitioning mention in talk, moving partitions out of the way&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
+    <lastBuildDate>Sun, 28 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://willj.net/tags/design/" rel="self" type="application/rss+xml" />
     <item>
       <title>Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF</title>
-      <link>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
+      <link>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</link>
       <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
+      <guid>https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/</guid>
       <description>&lt;hr&gt;
 &lt;h1 id=&#34;update&#34;&gt;Update!&lt;/h1&gt;
 &lt;p&gt;It turns out that this is a Dell OptiPlex 7010 SFF, not a USFF (as advertised by the eBay seller)!&lt;/p&gt;
 &lt;hr&gt;
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Dell OptiPlex 7010 SFF&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -68,13 +31,13 @@ distracting&lt;/p&gt;
 &lt;h2 id=&#34;caveat&#34;&gt;Caveat!&lt;/h2&gt;
 &lt;p&gt;This works for my Seagate Barracuda 4TB drives. They&amp;rsquo;re slightly thinner than some of the other drives I&amp;rsquo;ve got, if yours are thicker then it might work for yoiu or it might not.&lt;/p&gt;
 &lt;h2 id=&#34;risers-of-the-machine&#34;&gt;Risers of the Machine&lt;/h2&gt;
-&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
+&lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
     alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;View inside a Dell OptiPlex 7010 SFF, there isn&amp;#39;t much room&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
+&lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
     alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -85,7 +48,7 @@ distracting&lt;/p&gt;
 &lt;p&gt;Metric is the best and only measurement system anyone should use, but unfortunately PC manufacturers seem to have settled on imperial for at least the bolt hole sizes I need to use which are &lt;a href=&#34;https://en.wikipedia.org/wiki/Unified_Thread_Standard&#34;&gt;6-32 UNC&lt;/a&gt;. The risers I need to incorporate into this design are fairly long too at nearly 40mm. That&amp;rsquo;s about M3.5 * 40mm in metric, but I couldn&amp;rsquo;t find any M3.5 risers of the right height, and I can buy 6-32 UNC bolts on eBay easily enough so I bought some of those. You can probably use M3.5 as a substitute.&lt;/p&gt;
 &lt;h2 id=&#34;to-fusion360&#34;&gt;To Fusion360!&lt;/h2&gt;
 &lt;p&gt;These days my 3d designing tool of choice is Fusion 360 so I opened it up and set to work. Much cursing, and a fair few scrapped prototypes later I came up with this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
     alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -97,27 +60,27 @@ distracting&lt;/p&gt;
 &lt;p&gt;There is about 5mm clearance between the bottom of the mount and the RAM, and enough clearance between the SSD and the CPU cooler for wires to pass comfortably. The SSD could be mounted about 5mm higher, closer to the bottom of the first hard drive, but I only had 12mm bolts in M3.5 and so had to print spacers.&lt;/p&gt;
 &lt;p&gt;There are captive nuts on the top-left of this image underneath the base, nearest the front of the case. These were exactly the right size for the nuts I was using, which meant that the nuts stayed in right up until I used any force at all on them like when I was trying to screw a bolt into them. This was infuriating so I epoxied the nuts in place. If I was to do another version of this I&amp;rsquo;d make the nut traps tighter so the nuts could be safely held in place with a press fit.&lt;/p&gt;
 &lt;p&gt;The two bolts you can see with two nuts on them used as spacers, these are a flaw in the design. In order to prevent the 50mm bolts I was using from bottoming out I could have used shorter bolts and printed recesses, but I didn&amp;rsquo;t want to buy more imperial bolts I was never going to use again. I could have printed spacers, but the nuts worked and they were there. In the end I had to remove one of the nuts from the bottom-left most bolt so it didn&amp;rsquo;t foul the hard drive, but it didn&amp;rsquo;t bottom out even then so it worked out.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
     alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see the 3.5&amp;quot; hard drives in place. There is a gap between the two drives to allow for air flow.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
     alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see how tight it is near the case fan, the tolerances in this design are pretty tight. I couldn&amp;rsquo;t shift the hard drives further away from the front of the case/the case fan because the latch in the removable panel on the case prevents them from moving backwards in the case.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
     alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The front of the case looking in through the old CDRW slot. It doesn&amp;rsquo;t look like it but there is a mm or two clearance between the top of the top hard drive and the case when the lid is on.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
     alt=&#34;Hard drives seen through the front of the PC case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The same view but with the lit fitted.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5165.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;parts-list&#34;&gt;Parts list&lt;/h2&gt;
@@ -131,7 +94,7 @@ distracting&lt;/p&gt;
 &lt;li&gt;A SATA power splitter&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The SSD bolts looks like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5238.jpeg&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;printing-instructions&#34;&gt;Printing instructions&lt;/h2&gt;
@@ -169,7 +132,7 @@ distracting&lt;/p&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I&amp;rsquo;ve said it before, but it&amp;rsquo;s worth repeating. This mount works just fine, the drives are well fixed in place, the cables stay in, the case lid closes. However, designing stuff isn&amp;rsquo;t my day job and this design has a number of issues that if someone with more time and who is better at 3d design wanted to build on then it could be greatly improved. If I were to print a new version of this I&amp;rsquo;d probably alter the design quite a lot.&lt;/p&gt;
 &lt;p&gt;All that said, if you want to print this, and have the parts, then I don&amp;rsquo;t see any reason why it shouldn&amp;rsquo;t also work for you, it&amp;rsquo;s working for me.&lt;/p&gt;
-&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;http://localhost:1313/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let me know if you use this or improve it! Contact details on &lt;a href=&#34;https://willj.net/&#34;&gt;the homepage&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     </channel>

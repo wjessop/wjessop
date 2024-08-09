@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Will Jessop&#39;s Writings</title>
-    <link>http://localhost:1313/tags/programming/</link>
+    <link>https://willj.net/tags/programming/</link>
     <description>Recent content in Programming on Will Jessop&#39;s Writings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -9,13 +9,13 @@
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
     <lastBuildDate>Wed, 31 Jul 2024 17:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/programming/" rel="self" type="application/rss+xml" />
+    <atom:link href="https://willj.net/tags/programming/" rel="self" type="application/rss+xml" />
     <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
-      <link>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</link>
+      <link>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</link>
       <pubDate>Wed, 31 Jul 2024 17:00:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</guid>
+      <guid>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</guid>
       <description>&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;Passing strings to the Rails logger methods (eg. &lt;code&gt;Rails.logger.info(…)&lt;/code&gt;) causes unecessary object allocations, and if you&amp;rsquo;re calling methods to generate data for your log messages then it can cause unecessary CPU work too. In this post I&amp;rsquo;ll show you how to use block syntax when using your logger with Rails to save object allocations and CPU time.&lt;/p&gt;
 &lt;h2 id=&#34;the-context&#34;&gt;The Context&lt;/h2&gt;
@@ -135,10 +135,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Finding Postgres rows too large for BTree indexes</title>
-      <link>http://localhost:1313/posts/finding-postgres-rows-too-large-for-btree-indexes/</link>
+      <link>https://willj.net/posts/finding-postgres-rows-too-large-for-btree-indexes/</link>
       <pubDate>Sat, 17 Feb 2024 17:25:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/finding-postgres-rows-too-large-for-btree-indexes/</guid>
+      <guid>https://willj.net/posts/finding-postgres-rows-too-large-for-btree-indexes/</guid>
       <description>&lt;p&gt;We are currently migrating our main application database from AWS Aurora Postgres to Google AlloyDB Postgres (it&amp;rsquo;s a cost decision) and I&amp;rsquo;m using Google&amp;rsquo;s database Migration tool to do the work. At some point last week the migration failed on Google&amp;rsquo;s side with an error:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;index row size 2712 exceeds btree version 4 maximum 2704 for index index_name_column_name
 &lt;/code&gt;&lt;/pre&gt;
@@ -314,146 +314,12 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
 </description>
     </item>
     <item>
-      <title>Giving Postgres a handle adding query parameters to help the query planner</title>
-      <link>http://localhost:1313/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/</link>
-      <pubDate>Sun, 15 Oct 2023 23:49:00 +0100</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/giving-postgres-a-hand-adding-query-parameters-to-help-the-query-planner/</guid>
-      <description>&lt;h1 id=&#34;increasing-postgres-query-performance-with-additional-parameters&#34;&gt;Increasing postgres query performance with additional parameters&lt;/h1&gt;
-&lt;p&gt;There&amp;rsquo;s a lot to take in here so feel free to skip ahead to the &amp;ldquo;Improving the performance&amp;rdquo; section if you are getting lost or falling asleep.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/&#34;&gt;Buffer analysis and tracking IO timings when using EXPLAIN ANALYSE&lt;/a&gt; I promised to dig deeper into the specifics of the optimisation that we put in place. This post will go into the details, and hopefully give you some more ideas for helping to optimise your queries in the future.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s go back and look at the original query, with the query plan it looked something like this (I&amp;rsquo;ve removed the buffers data for brevity):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPLAIN&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ANALYSE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;INNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; activity_logs &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; events.activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    activity_logs.user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.date &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-01&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.event_end &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.shift_length &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; events.exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    date &lt;span style=&#34;color:#66d9ef&#34;&gt;ASC&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sort  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;36&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;37&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;736&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;737&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Key&lt;/span&gt;: events.date, events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Method&lt;/span&gt;: quicksort  Memory: &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;kB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  Nested Loop  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;10157&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;731&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;731&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (1)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_activity_logs_on_user_id_and_start_and_end &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; activity_logs  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;325&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;82&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;046&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;946&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;316&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (2)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_events_on_activity_log_id &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; events  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;119&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;603&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;603&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;316&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;-- (3)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id) &lt;span style=&#34;color:#75715e&#34;&gt;-- (4)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              Filter: ((date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ANY&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{2022-12-31,2023-01-01}&amp;#39;&lt;/span&gt;::date[])) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (((&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;end&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (shift_length &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;::double &lt;span style=&#34;color:#66d9ef&#34;&gt;precision&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; (exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;))) &lt;span style=&#34;color:#75715e&#34;&gt;-- (5)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Rows&lt;/span&gt; Removed &lt;span style=&#34;color:#66d9ef&#34;&gt;by&lt;/span&gt; Filter: &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;422&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Execution Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;2420&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;779&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This query was run on a cold cache. It&amp;rsquo;s not a particularly complex query, but it took 2.4 seconds to run, that&amp;rsquo;s not great in general, but worse for a query that&amp;rsquo;s run as often as this one. At it&amp;rsquo;s peak it ran over 4000 times per minute. So, what can be done to improve performance here? Let&amp;rsquo;s break down the query plan to see what&amp;rsquo;s happening, it&amp;rsquo;s approximately like this:&lt;/p&gt;
-&lt;p&gt;Step 1&lt;/p&gt;
-&lt;p&gt;Postgres pulls data on all &lt;code&gt;activity_logs&lt;/code&gt; that match the condition &lt;code&gt;activity_logs.user_id = 9372632&lt;/code&gt;, there are 316 rows in total, you can see this in the &lt;code&gt;rows=316&lt;/code&gt; entry at mark (2) in the query plan above.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; user_id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;--------------+---------
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;310366&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;316650&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;324602&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;330221&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;337458&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;344498&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;352023&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;359360&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;367422&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;374930&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;snip &lt;span style=&#34;color:#ae81ff&#34;&gt;296&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22069105&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22193550&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22317324&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22447556&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22596124&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22788358&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;22881229&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23011303&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23158612&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;23307676&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Step 2&lt;/p&gt;
-&lt;p&gt;This is where the &amp;ldquo;Nested Loop&amp;rdquo; hits. For every row found in Step 1, postgres looks up the &lt;code&gt;activity_logs.id&lt;/code&gt; entry in the &lt;code&gt;index_events_on_activity_log_id&lt;/code&gt; index (where I&amp;rsquo;ve marked (3) and (4)) and then filters these rows out (5) using the conditions present in the &lt;code&gt;WHERE&lt;/code&gt; clause. There are 5552 rows in the events table that match the &lt;code&gt;activity_log_ids&lt;/code&gt; returned in the first step, on average 18 per &lt;code&gt;activity_log_id&lt;/code&gt; in the nested loop.&lt;/p&gt;
-&lt;p&gt;Step 3&lt;/p&gt;
-&lt;p&gt;This is where any data that would be returned will be sent back to the client on the database connection, but in this case there are 0 rows returned.&lt;/p&gt;
-&lt;h2 id=&#34;improving-the-performance&#34;&gt;Improving the performance&lt;/h2&gt;
-&lt;p&gt;So this query runs for 2.4 seconds and pulls back 25MB (see calculation in the linked post) of data from disk to return 0 rows, that&amp;rsquo;s not great, but even though this is a really simple query, just one join, we can help postgres out, a lot. The way we do this is by knowing that for this query the only &lt;code&gt;activity_logs&lt;/code&gt; that can be relevant are those that start on or after the activity start date (where the query originates) @start_date, end before the definition of &amp;ldquo;end_of_week + 1.day&amp;rdquo; in the class. activity_logs outside that range aren&amp;rsquo;t relevant so this gives us data we can feed back into the query. The new query with the timesheet date constraints (picking some sample dates for the parameters) is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPLAIN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;ANALYSE&lt;/span&gt;, BUFFERS)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;INNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;JOIN&lt;/span&gt; activity_logs &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; events.activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    activity_logs.user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9372632&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; activity_logs.event_start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;-- New parameter!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-08&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; activity_logs.event_end   &lt;span style=&#34;color:#75715e&#34;&gt;-- New parameter!
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.date &lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-12-31&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-01&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.event_end &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; events.shift_length &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; events.exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ORDER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    date &lt;span style=&#34;color:#66d9ef&#34;&gt;ASC&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sort  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;66&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;420&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;421&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Key&lt;/span&gt;: events.event_start &lt;span style=&#34;color:#66d9ef&#34;&gt;DESC&lt;/span&gt; NULLS &lt;span style=&#34;color:#66d9ef&#34;&gt;LAST&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Sort &lt;span style=&#34;color:#66d9ef&#34;&gt;Method&lt;/span&gt;: quicksort  Memory: &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;kB
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  Nested Loop  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1491&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;65&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;415&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;415&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_activity_logs_on_user_id_and_start_and_end &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; activity_logs  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;70&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;) (actual time&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;414&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;414&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; loops&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: ((user_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;70142&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2022-06-18&amp;#39;&lt;/span&gt;::date))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;read&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex; background-color:#3c3d38&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Scan &lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; index_events_on_activity_log_id &lt;span style=&#34;color:#66d9ef&#34;&gt;on&lt;/span&gt; events  (cost&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;..&lt;span style=&#34;color:#ae81ff&#34;&gt;119&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;rows&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;166&lt;/span&gt;) (never executed) &lt;span style=&#34;color:#75715e&#34;&gt;-- (6)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#66d9ef&#34;&gt;Index&lt;/span&gt; Cond: (activity_log_id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; activity_logs.id)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              Filter: ((((&lt;span style=&#34;color:#66d9ef&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;end&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (shift_length &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;::double &lt;span style=&#34;color:#66d9ef&#34;&gt;precision&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;OR&lt;/span&gt; (exception_id &lt;span style=&#34;color:#66d9ef&#34;&gt;IS&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;)) &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; (date &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2023-01-18&amp;#39;&lt;/span&gt;::date))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Buffers: shared hit&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;150&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Planning Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;430&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Execution Time: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.&lt;span style=&#34;color:#ae81ff&#34;&gt;461&lt;/span&gt; ms
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is also on a cold cache. So what&amp;rsquo;s the difference here? The obvious thing is end result of the execution time, 1.5ms instead of 2400ms, that&amp;rsquo;s 0.06% of the time taken, but what&amp;rsquo;s the breakdown of where we saved time? If you follow the overall plan laid out earlier you can see that compared to Step 1. Postgres is still trying to pull back timesheet rows out of the &lt;code&gt;activity_logs&lt;/code&gt; table, it&amp;rsquo;s even using the same index, but it&amp;rsquo;s added a &lt;code&gt;activity_logs.event_start&lt;/code&gt; condition to the index lookup, and it return 0 rows, compared to the 316 rows returned by the previous query. Because Postgres has pulled back no rows here it doesn&amp;rsquo;t need to run the loop in Step 2 316 times at all, see mark (6). This is great, not running code at all is the best optimisation we can do as after all, no code is faster than no code. This new query also pulled back far less data, 8k vs 25MB greatly reducing the IO load on the database server, which was what got this query noticed in the first place.&lt;/p&gt;
-&lt;p&gt;Some of you might have noticed that we&amp;rsquo;ve picked a couple of fairly old &lt;code&gt;user_ids&lt;/code&gt; here (9372632, 70142) that may well not have many recent activity_logs or events, and that&amp;rsquo;s true, these users only have &lt;code&gt;activity_logs&lt;/code&gt; that go up to October/November 2021, but they were picked for a reason. They&amp;rsquo;re pretty close to the worst case and it&amp;rsquo;s not like these are much of an outlier, there are &lt;code&gt;user_ids&lt;/code&gt; going down to 18 that have activity_logs in the period we&amp;rsquo;re testing here. Often when testing it&amp;rsquo;s easier to see the difference you&amp;rsquo;re making when you pick the worst performing dats, as long as you test it on a range of data to verify the results on less &amp;ldquo;troublesome&amp;rdquo; data.&lt;/p&gt;
-&lt;p&gt;The ultimate proof though is when it goes to production which is when we finally get to see if the changes we made have helped. It&amp;rsquo;s important to track the changes you make to production because for all the testing on staging or locally that you do there could still be something about the volume or shape of data, different memory or configuration parameters on production that ultimately cause your new query to run slower. It doesn&amp;rsquo;t happen often, but it does happen. Thankfully PGAnalyse shows us that this optimisation was successful, it&amp;rsquo;s not dissapeared from the problem queries list completely:&lt;/p&gt;
-&lt;p&gt;picture.&lt;/p&gt;
-&lt;h2 id=&#34;some-final-notes&#34;&gt;Some final notes&lt;/h2&gt;
-&lt;h3 id=&#34;what-if-theres-no-well-defined-start-and-end-date&#34;&gt;What if there&amp;rsquo;s no well defined start and end date?&lt;/h3&gt;
-&lt;p&gt;Here we used both a start and end date to limit the data, and these dates are tightly scoped by the shift/timesheet relationship, but that&amp;rsquo;s not always possible. The key here was limiting the scope on the activity_logs table, so any field you can add as a parameter will give the query planner more to go off. Previously I&amp;rsquo;ve picked a sensible but arbitrary cutoff date for queries (in an SMS messaging system only looking for message threads newer than n months when handling incoming messages for instance). This is related to the next point:&lt;/p&gt;
-&lt;h3 id=&#34;add-more-conditions-if-you-can&#34;&gt;Add more conditions if you can&lt;/h3&gt;
-&lt;p&gt;There&amp;rsquo;s a good rule of thumb which is to add as many parameters to the query as you can to give the query planner more to work on. For instance status on activity_logs isn&amp;rsquo;t indexed, but a condition on that field could filter rows in Step 1, potentially cutting down the nested loops. If you don&amp;rsquo;t add a condition with a parameter then Postgres can&amp;rsquo;t use it. This doesn&amp;rsquo;t always work, Postgres can pick the wrong execution plan, but that&amp;rsquo;s pretty rare.&lt;/p&gt;
-&lt;p&gt;An example of this, though we added a start and end date to the optimised query above you can see from the query plan that postgres only queried the timesheet index for the start date:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Index Cond: ((user_id = 70142) AND (start &amp;gt; &#39;2022-06-18&#39;::date))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That&amp;rsquo;s OK, we can leave the end data in, postgres might be able to make use of it later for different data. In fact, checking a different user_id now I can see that postgres /has/ used the end date on the index lookup in this instance (7):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;                                                                                             QUERY PLAN
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;p&gt;Repeated testing shows this additional use of the end query parameter to cut about 0.04ms from the query. It&amp;rsquo;s not a lot, but we may as well, it&amp;rsquo;s free!&lt;/p&gt;
-&lt;h3 id=&#34;design-query-scope-into-the-product-early&#34;&gt;Design query scope into the product early&lt;/h3&gt;
-&lt;p&gt;If you can, think about how to limit data returned at the product design stage. It&amp;rsquo;s easy to forget when you&amp;rsquo;re first starting out with a feature that the data will (hopefully) be acumulating for years to come (the oldest shift was created on 2012-10-14). Consider building in constraints where possible early, such as &amp;ldquo;last 30 days of widget_sales&amp;rdquo; rather than just &amp;ldquo;List all widget_sales&amp;rdquo;. You set the expectations of users early, and it&amp;rsquo;s easier to expand the conditions later than it is to constrict them.&lt;/p&gt;
-&lt;h1 id=&#34;size-and-shape-of-data-is-important&#34;&gt;Size /and/ shape of data is important&lt;/h1&gt;
-&lt;p&gt;When you&amp;rsquo;re optimising queries the amount of data you are testing against matters, this is the more obvious thing, but &amp;ldquo;shape&amp;rdquo; matters too. For example low cardinality in a table that in production has high cardinality. If you&amp;rsquo;re testing on production data this isn&amp;rsquo;t an issue, the data you&amp;rsquo;re testing against /is/ the data you&amp;rsquo;re going to be running the query against eventually, but if you&amp;rsquo;re using generated data (for instance if production data is siloed and unavailable) then generating enough data that is as closely matched in it&amp;rsquo;s shape and relationship as production is important.&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Measuring IO timings when using EXPLAIN ANALYSE in Postgres</title>
-      <link>http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse/</link>
+      <link>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</link>
       <pubDate>Tue, 19 Sep 2023 23:21:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres&#34;&gt;an earlier post about using &lt;code&gt;BUFFERS&lt;/code&gt; with &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt;&lt;/a&gt; I mentioned that there were a couple of options to &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; that were not widely known, but I only talked about one, the &lt;code&gt;BUFFERS&lt;/code&gt; option. In this article I will dig into that second option; IO timing tracking.&lt;/p&gt;
+      <guid>https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres&#34;&gt;an earlier post about using &lt;code&gt;BUFFERS&lt;/code&gt; with &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt;&lt;/a&gt; I mentioned that there were a couple of options to &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; that were not widely known, but I only talked about one, the &lt;code&gt;BUFFERS&lt;/code&gt; option. In this article I will dig into that second option; IO timing tracking.&lt;/p&gt;
 &lt;h2 id=&#34;io-timing-tracking&#34;&gt;IO timing tracking&lt;/h2&gt;
 &lt;p&gt;The second tweak to the default &lt;code&gt;EXPLAIN&lt;/code&gt; usage is using IO timing tracking. You can set this per session:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;set track_io_timing = on;
@@ -508,10 +374,10 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
     </item>
     <item>
       <title>Buffer analysis when using EXPLAIN ANALYSE in Postgres</title>
-      <link>http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
+      <link>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</link>
       <pubDate>Fri, 15 Sep 2023 23:49:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</guid>
+      <guid>https://willj.net/posts/buffer-analysis-when-using-explain-analyse-in-postgres/</guid>
       <description>&lt;p&gt;Many people are familiar with running &lt;code&gt;EXPLAIN&lt;/code&gt; and &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; to diagnose Postgres performance issues, but there are a couple of useful options available when running these reports that aren&amp;rsquo;t always commonly known that you might find useful. The first of these is the &lt;code&gt;BUFFERS&lt;/code&gt; option.&lt;/p&gt;
 &lt;p&gt;In this article I will explain how to measure buffer usage in Postgres using the &lt;code&gt;BUFFERS&lt;/code&gt; option, and how I used it to help verify that a query optimization to massively reduce the IO demands of a problem query had worked.&lt;/p&gt;
 &lt;h2 id=&#34;the-buffers-option&#34;&gt;The BUFFERS option&lt;/h2&gt;
@@ -693,15 +559,15 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/aside&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;At scale IO can be a significant performance bottleneck for databases and optimizing problem queries that cause large amounts of IO can yield significant benefits. Adding the &lt;code&gt;BUFFERS&lt;/code&gt; option when using &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt; can give you a great way to identify problem areas of a query, and to verify when you&amp;rsquo;re done that you&amp;rsquo;ve actually solved the issue.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;ve found this interesting you might be interested in second part of this article, &lt;a href=&#34;http://localhost:1313/posts/measuring-io-timing-for-postgres-explain-analyse&#34;&gt;Measuring IO timings when using EXPLAIN ANALYSE in Postgres&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;ve found this interesting you might be interested in second part of this article, &lt;a href=&#34;https://willj.net/posts/measuring-io-timing-for-postgres-explain-analyse&#34;&gt;Measuring IO timings when using EXPLAIN ANALYSE in Postgres&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Converting a wordpress.com dump to Hugo, including images</title>
-      <link>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</link>
+      <link>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</link>
       <pubDate>Tue, 12 Sep 2023 13:30:00 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
+      <guid>https://willj.net/posts/converting-a-wordpress.com_dump_to_hugo/</guid>
       <description>&lt;p&gt;There are a few &lt;a href=&#34;https://gohugo.io/tools/migrations/#wordpress&#34;&gt;&amp;ldquo;official&amp;rdquo; options for migrating wordpress content to Hugo&lt;/a&gt;, but they are all either cumbersome (requiring installing wordpress in docker) or don&amp;rsquo;t handle images. I didn&amp;rsquo;t want to spend too much time on this and definitely wanted images to be converted so wrote a quick program to handle the conversion for me.&lt;/p&gt;
 &lt;p&gt;In the end &lt;a href=&#34;https://github.com/wjessop/wordpress_to_hugo&#34;&gt;I created a somewhat rough, but functional program to do the job&lt;/a&gt; and it was successful.&lt;/p&gt;
 &lt;p&gt;The requirements:&lt;/p&gt;
@@ -751,28 +617,11 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 </description>
     </item>
     <item>
-      <title>Always document your magic values</title>
-      <link>http://localhost:1313/posts/always-document-your-magic-values/</link>
-      <pubDate>Tue, 15 Aug 2023 00:00:00 +0000</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/always-document-your-magic-values/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;Having to write down documentation for the value makes you think about the value more, forces you to justify it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Chestertons fence
-Many programmers know this instinctively&lt;/p&gt;
-&lt;p&gt;Marina story, also instinctive?&lt;/p&gt;
-&lt;p&gt;Sometimes using the defaults can be documentable too, why did you choose the default? I prefer explicitly stating the value and why it was chosen.&lt;/p&gt;
-&lt;p&gt;Documenting no decision taken might be possible. No decision made on retry, will leave it to sidekiq etc. Better than no docs.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/G._K._Chesterton#Chesterton&#39;s_fence&#34;&gt;https://en.wikipedia.org/wiki/G._K._Chesterton#Chesterton&#39;s_fence&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    <item>
       <title>Running a specific knapsack test set locally</title>
-      <link>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</link>
+      <link>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</link>
       <pubDate>Wed, 26 Apr 2023 15:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/running-a-specific-knapsack-test-set-locally/</guid>
+      <guid>https://willj.net/posts/running-a-specific-knapsack-test-set-locally/</guid>
       <description>&lt;p&gt;Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here&amp;rsquo;s how to do that!&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Grab &lt;code&gt;CI_NODE_TOTAL&lt;/code&gt; and &lt;code&gt;CI_NODE_INDEX&lt;/code&gt; from the test output, it&amp;rsquo;s likely near the top:&lt;/li&gt;
@@ -800,10 +649,10 @@ Many programmers know this instinctively&lt;/p&gt;
     </item>
     <item>
       <title>Full-height Github &#34;checks&#34; box in Firefox</title>
-      <link>http://localhost:1313/posts/full-height-github-checks-box-in-firefox/</link>
+      <link>https://willj.net/posts/full-height-github-checks-box-in-firefox/</link>
       <pubDate>Tue, 16 Aug 2022 12:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/full-height-github-checks-box-in-firefox/</guid>
+      <guid>https://willj.net/posts/full-height-github-checks-box-in-firefox/</guid>
       <description>&lt;p&gt;The scrolling checks box on Github &lt;strong&gt;really&lt;/strong&gt; irritates me. Follow these instructions to make it full height on Firefox.&lt;/p&gt;
 &lt;h2 id=&#34;1-take-this-css&#34;&gt;1. Take this CSS:&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list-wrapper&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;branch-action-item&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;open&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; .&lt;span style=&#34;color:#a6e22e&#34;&gt;merge-status-list&lt;/span&gt; {
@@ -811,7 +660,7 @@ Many programmers know this instinctively&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
 &lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
     alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
@@ -819,33 +668,33 @@ Many programmers know this instinctively&lt;/p&gt;
     </item>
     <item>
       <title>Effective Github Notifications</title>
-      <link>http://localhost:1313/posts/effective-github-notifications/</link>
+      <link>https://willj.net/posts/effective-github-notifications/</link>
       <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/effective-github-notifications/</guid>
+      <guid>https://willj.net/posts/effective-github-notifications/</guid>
       <description>&lt;p&gt;Github notifications can be overwhelming, but with effective email filtering they can be turned from an encumbrance to being highly valuable. Here&amp;rsquo;s some filters to get you started (in Mail.app on a mac) to make them more useful.&lt;/p&gt;
 &lt;p&gt;Luckily Github provides us with the tools to make this filtering relatively easy. All email notifications sent from Github are automatically CCed to a Github email address that describes what they are, and this is the hook we use to create our filters.&lt;/p&gt;
 &lt;p&gt;All email addresses here are @github.com, even though in some examples they are hidden, and these rules can be added to the GMail web UI too if needed.&lt;/p&gt;
 &lt;h2 id=&#34;flag-high-priority-notifications&#34;&gt;Flag high priority notifications&lt;/h2&gt;
 &lt;p&gt;Mark &lt;strong&gt;assignments&lt;/strong&gt;, &lt;strong&gt;review requests&lt;/strong&gt;, &lt;strong&gt;mentions&lt;/strong&gt; or &lt;strong&gt;author actions&lt;/strong&gt; as high priority and flag them. This will put them at the top of your inbox:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-1.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-1.png&#34;
     alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;change-the-colour-of-medium-priority-items-so-they-stand-out&#34;&gt;Change the colour of medium priority items so they stand out&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Comments&lt;/strong&gt;, &lt;strong&gt;your activity&lt;/strong&gt;, and when a &lt;strong&gt;team mentions&lt;/strong&gt; you are in is mentioned.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-2.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-2.png&#34;
     alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;hide-low-priority-notifications&#34;&gt;Hide low priority notifications&lt;/h2&gt;
 &lt;p&gt;Things you might want to go and check once in a while but aren&amp;rsquo;t directly involved in we can put in a folder so they don&amp;rsquo;t demand attention throughout the day.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-3.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-3.png&#34;
     alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;What you should end up with after doing this is an inbox that shows you all the things that need your attention or you&amp;rsquo;d be interested, but hides the everyday torrent of Github spam in a folder that you can check if you want later.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/effective-github-notifications/images/Github-4.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-4.png&#34;
     alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
@@ -853,10 +702,10 @@ Many programmers know this instinctively&lt;/p&gt;
     </item>
     <item>
       <title>Using the T67XX CO₂ Sensor Module in Go</title>
-      <link>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
+      <link>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</link>
       <pubDate>Mon, 30 Nov 2020 11:24:00 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
+      <guid>https://willj.net/posts/using-the-t67xx-co2-sensor-module-in-go/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;images/T67XX.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So, you bought four T67XX CO₂ sensors and only once they were delivered started to work out how to get values from them huh? Well I&amp;rsquo;m right there with you because so did I. and I carefully deposited the results in a new Go lib. Announcing the &lt;a href=&#34;https://github.com/wjessop/T67XX&#34;&gt;Go T67XX CO₂ sensor library&lt;/a&gt;! This post will give you some details about what these sensors can do, then introduce the library and how to use it.&lt;/p&gt;
 &lt;hr&gt;
@@ -1062,19 +911,19 @@ Many programmers know this instinctively&lt;/p&gt;
     </item>
     <item>
       <title>Humidity, Temperature and Pressure Sensing on a Raspberry Pi With Go</title>
-      <link>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
+      <link>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</link>
       <pubDate>Tue, 23 Jun 2020 20:26:10 +0100</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/posts/climate.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
+      <guid>https://willj.net/posts/humidity-temperature-and-pressure-sensing-on-a-raspberry-pi-with-go/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://willj.net/img/posts/climate.png&#34;&gt;&lt;img src=&#34;https://willj.net/img/posts/climate.png#full&#34; alt=&#34;Office climate graphs&#34;&gt;&lt;/a&gt; (click for a higher resolution image)&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/buddhas-hand.jpg#right&#34; alt=&#34;Buddha&amp;rsquo;s Hand&#34;&gt;&lt;/p&gt;
 &lt;p&gt;A few months ago I bought a couple of lemon trees to grow in my conservatory, but most excitingly for me, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Buddha%27s_hand&#34;&gt;Buddha&amp;rsquo;s hand tree&lt;/a&gt;. This tree was fairly expensive, and I wanted to maximise it&amp;rsquo;s chances of surviving and hopefully thriving. Citrus trees are quite sensitive to extremes of temperature (they obviously don&amp;rsquo;t like cold, but apparently don&amp;rsquo;t like excess heat either) and also humidity, preferring an atmosphere of around 50% relative humidity or more.&lt;/p&gt;
 &lt;p&gt;It was for this reason that I decided to start experimenting with climate monitoring.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;the-hardware&#34;&gt;The Hardware&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/BME280.jpg#left&#34; alt=&#34;BME280 sensor&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I was originally planning on making some sensor units as described in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aaron Paterson&amp;rsquo;s ESP8266 + Plantower AQ sensor project&lt;/a&gt;, so I ordered a load of parts and PCBs to make those, but a lot of the parts for these sensor units are ordered from AliExpress, and so have delivery times in the order of weeks to months, rather than days, so given that my Buddha&amp;rsquo;s Hand tree had already arrived I decided to get some &lt;a href=&#34;https://www.amazon.co.uk/gp/product/B0799JRDKJ/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;BME280 temperature, humidity and pressure sensors from Amazon&lt;/a&gt; as they don&amp;rsquo;t cost too much and would allow me to get a jump start on checking that my trees were safe.&lt;/p&gt;
 &lt;p&gt;These BME280 sensors use &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;the I²C bus&lt;/a&gt;, which makes them really easy to connect to, and read, from an Arduino or Raspberry Pi. I have both hanging around, but the Raspberry Pi is easier to get something quick running because I can write my code in a higher level language and it comes with Wifi onboard. Using the raspberry pi meant that the equipment list I needed was small.&lt;/p&gt;
 &lt;h4 id=&#34;required-equipment&#34;&gt;Required equipment&lt;/h4&gt;
@@ -1220,20 +1069,20 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;hr&gt;
 &lt;h3 id=&#34;the-finished-device&#34;&gt;The Finished Device&lt;/h3&gt;
 &lt;p&gt;Here is the working sensor and Pi in place in my conservatory, running the Go program, Influx DB and Grafana. I have now added a second Pi in my study that reports it&amp;rsquo;s sensor readings to the Influx DB on this machine too.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://willj.net/img/posts/sensor-in-place.jpg#full&#34; alt=&#34;Raspberry Pi and attached sensor&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;improvements&#34;&gt;Improvements&lt;/h3&gt;
 &lt;p&gt;Raspberry Pis are fairly expensive, and have way more processing power than is needed to read sensor data, and they draw more power too. I plan on eventually putting together the boards in &lt;a href=&#34;https://github.com/tenderlove/esp8266aq&#34;&gt;Aarons project&lt;/a&gt; so I can put a few more of these around my house relatively cheaply, and with more sensor types. The Raspberry Pi is a great stop-gap though, and fine for a one-off. I may still run Influx and Grafana on a Pi.&lt;/p&gt;
 &lt;p&gt;Because the Raspberry Pi was meant to be temporary I&amp;rsquo;ve left it bare, I&amp;rsquo;ll 3d print some cases for everything when my &lt;a href=&#34;https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html&#34;&gt;3d printer arrives&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In my &lt;a href=&#34;http://localhost:1313/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
+&lt;p&gt;In my &lt;a href=&#34;https://willj.net/posts/writing-to-an-lcd-panel-using-go-and-a-raspberry-pi/&#34;&gt;next post&lt;/a&gt; I discuss how I added an LCD display to show the climate data.&lt;/p&gt;
 </description>
     </item>
     <item>
       <title>Error installing libv8 on Mac OS Catalina</title>
-      <link>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</link>
+      <link>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</link>
       <pubDate>Mon, 17 Feb 2020 16:23:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/error-installing-libv8-on-mac-os-catalina/</guid>
+      <guid>https://willj.net/posts/error-installing-libv8-on-mac-os-catalina/</guid>
       <description>&lt;p&gt;I got an error installing the libv8 gem on Catalina:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gem install libv8 -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.16.14.19&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions.  This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -1290,10 +1139,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Fixing the ruby &#39;CoreFoundation/CFString.h&#39; file not found install error</title>
-      <link>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
+      <link>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</link>
       <pubDate>Wed, 01 May 2019 15:00:33 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
+      <guid>https://willj.net/posts/fixing-the-ruby-corefoundationcfstring.h-file-not-found-install-error/</guid>
       <description>&lt;p&gt;I hit this error installing the latest Ruby using rbenv:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rbenv install 2.6.3
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ruby-build: use openssl from homebrew
@@ -1329,10 +1178,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Fixing errors installing the charlock_holmes ruby gem</title>
-      <link>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</link>
       <pubDate>Wed, 13 Feb 2019 05:50:52 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/</guid>
       <description>&lt;p&gt;The charlock_holmes gem can be a PITA to install on a mac, this is what worked for me. If you get this error:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0.7.7&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions. This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
@@ -1394,10 +1243,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Random graph</title>
-      <link>http://localhost:1313/posts/random-graph/</link>
+      <link>https://willj.net/posts/random-graph/</link>
       <pubDate>Fri, 25 Sep 2015 22:27:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/random-graph/</guid>
+      <guid>https://willj.net/posts/random-graph/</guid>
       <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
     alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
@@ -1409,12 +1258,12 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>How to find if two nodes are connected in an RGL graph</title>
-      <link>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
+      <link>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</link>
       <pubDate>Fri, 25 Sep 2015 16:39:53 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
+      <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
       <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
     alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A simple graph&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1440,10 +1289,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Testing Github commit hook one liners</title>
-      <link>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</link>
+      <link>https://willj.net/posts/testing-github-commit-hook-one-liners/</link>
       <pubDate>Mon, 09 Jun 2014 13:24:11 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-github-commit-hook-one-liners/</guid>
+      <guid>https://willj.net/posts/testing-github-commit-hook-one-liners/</guid>
       <description>&lt;p&gt;A couple of ruby one-liners for dumping out the content of a github commit hook payload:&lt;/p&gt;
 &lt;p&gt;For hooks that use type &lt;strong&gt;application/json&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby -rpp -rjson -rsinatra -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;set :port, 8000; post &amp;#34;/*&amp;#34; do; pp JSON(request.body.read); end&amp;#39;&lt;/span&gt;
@@ -1453,10 +1302,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>AWS IAM Policy for allowing s3cmd to sync to an S3 bucket</title>
-      <link>http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
+      <link>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</link>
       <pubDate>Fri, 18 Apr 2014 17:41:47 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
+      <guid>https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s a good idea to set an IAM access policy for anything that accesses AWS using your account details, I wanted to do this for s3cmd syncing a local directory to an s3 bucket. There are a &lt;a href=&#34;https://www.google.co.uk/search?q=s3cmd+iam+policy&amp;amp;oq=s3cmd+iam&amp;amp;aqs=chrome.0.69i59j69i57j69i60.4378j0j7&amp;amp;sourceid=chrome&amp;amp;es_sm=91&amp;amp;ie=UTF-8&#34;&gt;number of posts&lt;/a&gt; on setting up the IAM policy for s3cmd already but none of the examples worked for me, I got a 403 permission denied error when running the s3cmd sync command.&lt;/p&gt;
 &lt;p&gt;After some digging it turns out that s3cmd now tries to set an ACL on the files it uploads, and this needs to be specifically allowed in the ACL. I&amp;rsquo;m guessing that it didn&amp;rsquo;t in the past, hence the now incorrect IAM advice. So here is the new working IAM policy, complete with the &lt;code&gt;s3:PutObjectAcl&lt;/code&gt; permission added:&lt;/p&gt;
 &lt;p&gt;(See jrantil&amp;rsquo;s comment below on wether &lt;code&gt;s3:ListAllMyBuckets&lt;/code&gt; is needed in this instance)&lt;/p&gt;
@@ -1490,7 +1339,7 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update&#34;&gt;Update!&lt;/h2&gt;
 &lt;p&gt;This post was imported from my original blog where there were comments, and these may be relevant to anyone finding this page now:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/images/comments.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/images/comments.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1499,11 +1348,11 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>go-piglow, a lib for controlling the piglow in Golang</title>
-      <link>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
+      <link>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</link>
       <pubDate>Tue, 03 Sep 2013 23:26:43 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
-      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
+      <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
+      <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
     alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1549,10 +1398,10 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
     </item>
     <item>
       <title>Creating BERT dicts in Go</title>
-      <link>http://localhost:1313/posts/creating-bert-dicts-in-go/</link>
+      <link>https://willj.net/posts/creating-bert-dicts-in-go/</link>
       <pubDate>Sun, 10 Feb 2013 02:09:06 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/creating-bert-dicts-in-go/</guid>
+      <guid>https://willj.net/posts/creating-bert-dicts-in-go/</guid>
       <description>&lt;p&gt;I’ve been learning Go recently and have written a program to connect to an existing service (written in Ruby) that sends and receives messages serialised as &lt;a href=&#34;http://bert-rpc.org/&#34;&gt;BERT&lt;/a&gt; terms.&lt;/p&gt;
 &lt;p&gt;I’m posting this partly because I had quite a lot of fun figuring it out and partly to document creating BERT dicts in Go should anyone else need to do this in the future and hit the same issues I did.&lt;/p&gt;
 &lt;h2 id=&#34;why-bert&#34;&gt;Why BERT?&lt;/h2&gt;
@@ -1723,23 +1572,23 @@ slice is a: slice
     </item>
     <item>
       <title>Railsberry animated gifs</title>
-      <link>http://localhost:1313/posts/railsberry-animated-gifs/</link>
+      <link>https://willj.net/posts/railsberry-animated-gifs/</link>
       <pubDate>Mon, 23 Apr 2012 16:05:30 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/railsberry-animated-gifs/</guid>
+      <guid>https://willj.net/posts/railsberry-animated-gifs/</guid>
       <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
 &lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
     alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
     alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/railsberry-animated-gifs/images/jk.gif&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jk.gif&#34;
     alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
 &lt;/figure&gt;
 
@@ -1747,10 +1596,10 @@ slice is a: slice
     </item>
     <item>
       <title>Testing http over socket connections with socat</title>
-      <link>http://localhost:1313/posts/testing-http-over-socket-connections-with-socat/</link>
+      <link>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</link>
       <pubDate>Fri, 02 Dec 2011 22:00:55 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/testing-http-over-socket-connections-with-socat/</guid>
+      <guid>https://willj.net/posts/testing-http-over-socket-connections-with-socat/</guid>
       <description>&lt;p&gt;Sometimes I need to test an http server that is listening on a unix socket. It&amp;rsquo;s really easy to do this using socat, but the socat man page is pretty long. Here it is for anyone who needs it in the future, and me when I inevitably forget.&lt;/p&gt;
 &lt;p&gt;In this case the server is unicorn, but this will work for any http server listening on a socket, for instance thin. The lines beginning with &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; are lines I typed (the 4 lines at the start), remove the &amp;ldquo;&amp;ndash;&amp;gt;&amp;rdquo; when you try this.&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ socat - UNIX-CONNECT:/u/apps/app/shared/sockets/unicorn.sock,crnl
@@ -1787,18 +1636,18 @@ etc.
     </item>
     <item>
       <title>Cloud email service price comparison</title>
-      <link>http://localhost:1313/posts/cloud-email-service-price-comparison/</link>
+      <link>https://willj.net/posts/cloud-email-service-price-comparison/</link>
       <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/cloud-email-service-price-comparison/</guid>
+      <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1806,14 +1655,14 @@ etc.
 
 &lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
 &lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1835,13 +1684,13 @@ etc.
     </item>
     <item>
       <title>Should I switch from Sendgrid to Amazon SES?</title>
-      <link>http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
+      <link>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</link>
       <pubDate>Tue, 25 Jan 2011 21:53:07 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;http://localhost:1313/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
+      <guid>https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/emails-price-comparison1.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/emails-price-comparison1.png&#34;
     alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1849,7 +1698,7 @@ etc.
 
 &lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
 &lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/email-prices-plus-server.png&#34;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/email-prices-plus-server.png&#34;
     alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
     &lt;/figcaption&gt;
@@ -1861,10 +1710,10 @@ etc.
     </item>
     <item>
       <title>99 bottles of Ruby beer on the wall</title>
-      <link>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
+      <link>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</link>
       <pubDate>Wed, 05 Jul 2006 18:32:24 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
+      <guid>https://willj.net/posts/99-bottles-of-ruby-beer-on-the-wall/</guid>
       <description>&lt;p&gt;A while back a friend and I had a 99 bottles of beer on the wall one-liner competition in &lt;a href=&#34;http://ruby-lang.org/&#34; title=&#34;Ruby&#34;&gt;Ruby&lt;/a&gt;. I just found this in my home directory and so am claiming it as my entry:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;def b(c)&amp;quot;#{c} bottle#{c&amp;gt;1?&amp;quot;s&amp;quot;:&amp;quot;&amp;quot;} of beer on the wall&amp;quot;end;99.downto(1){|x|$&amp;gt;0?x-1:99)}.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;It weighs in at a hefty 206 characters and I know it is possible to get it smaller than this, but it is way too much of a time-sink for me to try.&lt;/p&gt;
