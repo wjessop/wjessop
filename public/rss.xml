@@ -14,6 +14,25 @@
       
       
       <item>
+      <title>Final robot photos</title>
+      <link>http://localhost:1313/posts/final-robot-photos/</link>
+      <pubDate>Tue, 06 Aug 2024 10:00:00 +0100</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>http://localhost:1313/posts/final-robot-photos/</guid>
+      <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot back in about 2014 but never posted the final photos of it anywhere, these are the final photos I took of the finished robot.&lt;/p&gt;
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0594.JPG&#34;
+    alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0595.JPG&#34;
+    alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+      
+      <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
       <link>http://localhost:1313/posts/you-should-use-the-rails-logger-block-syntax/</link>
       <pubDate>Wed, 31 Jul 2024 17:00:00 +0100</pubDate>
@@ -2089,25 +2108,6 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;two&amp;#34;&lt;/span&gt;)   &lt;span style=&#34;color:#75715e&#34;&gt;# true&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts t&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;has_vertex?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;three&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;# false&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-      
-      <item>
-      <title>Final robot photos</title>
-      <link>http://localhost:1313/posts/final-robot-photos/</link>
-      <pubDate>Thu, 30 Jul 2015 00:00:00 +0100</pubDate>
-      <author>will@willj.net (Will Jessop)</author>
-      <guid>http://localhost:1313/posts/final-robot-photos/</guid>
-      <description>&lt;p&gt;I spent several months iterating on the design and build of a ping pong ball collecting robot, these are the final finished photos I took of it.&lt;/p&gt;
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0594.JPG&#34;
-    alt=&#34;A robot view from the front left, a hopper full of ping pong balls on it&amp;#39;s back&#34;&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://localhost:1313/posts/final-robot-photos/images/IMG_0595.JPG&#34;
-    alt=&#34;Side view of the robot, wire bundle out the back&#34;&gt;
-&lt;/figure&gt;
-
-</description>
     </item>
     
       
