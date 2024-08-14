@@ -23,49 +23,49 @@ I also have some [Rails core commits](https://contributors.rubyonrails.org/contr
 ### Things people have said about me
 
 <testimonials>
-  <testimonial>
-    <blockquote>
+	<testimonial>
+		<blockquote>
 			<img src="/about/hire-me/testimonial_photos/sudara.jpg" alt="Sudara Williams" class="testimonial-photo">
 			<p>You literally couldn't pick a better leader than Will to chart out and safely guide your company through even the choppiest of technical waters.</p>
-      <p>Whether it be persistent performance problems, scaling best practices, or big upgrades, Will not only delivers, but raises the technical bar for your whole team along the way. It was an honor to get the opportunity to work with him.</p>
+			<p>Whether it be persistent performance problems, scaling best practices, or big upgrades, Will not only delivers, but raises the technical bar for your whole team along the way. It was an honor to get the opportunity to work with him.</p>
 		</blockquote>
-    <footer>
-      <cite>Sudara Williams</cite>
-      <p>Founder, <a href="https://rubytune.com">Rubytune</a></p>
-    </footer>
-  </testimonial>
+		<footer>
+			<cite>Sudara Williams</cite>
+			<p>Founder, <a href="https://rubytune.com">Rubytune</a></p>
+		</footer>
+	</testimonial>
 	<testimonial>
-    <blockquote>
+		<blockquote>
 			<img src="/about/hire-me/testimonial_photos/sean_handley.jpg" alt="Sean Handley" class="testimonial-photo">
 			<p>Will came onboard to help us out upgrading a business critical Rails application. He worked carefully pairing with the team to understand our systems, took care educating us on the strategy and best practices he uses, and ensured our large legacy application was updated smoothly with zero downtime or negative impact.</p>
-      <p>Absolutely would recommend him!</p>
+			<p>Absolutely would recommend him!</p>
 		</blockquote>
-    <footer>
-      <cite>Sean Handley</cite>
-      <p>Director of Engineering, <a href="https://stuart.com/">Stuart</a></p>
-    </footer>
-  </testimonial>
-  <testimonial>
-    <blockquote>
+		<footer>
+			<cite>Sean Handley</cite>
+			<p>Director of Engineering, <a href="https://stuart.com/">Stuart</a></p>
+		</footer>
+	</testimonial>
+	<testimonial>
+		<blockquote>
 			<img src="/about/hire-me/testimonial_photos/baz.jpg" alt="Sean Handley" class="testimonial-photo">
 			<p>At Collabor8Online, we started having problems - the good kind.  Our client base was growing, and with that growth the database was starting to creak.  Will calmly listened to our situation, discounted our more outlandish potential solutions and gave us some solid, actionable advice.  We implemented the first of these, getting our customers back on side and now we have a plan for scaling the technology as the business continues its growth.</p>
-      <p>Will knows his stuff, always favours the simple solution over the complex and is honest and helpful to the end.</p>
+			<p>Will knows his stuff, always favours the simple solution over the complex and is honest and helpful to the end.</p>
 		</blockquote>
-    <footer>
-      <cite>Rahoul Baruah</cite>
-      <p>CTO, <a href="https://www.collabor8online.co.uk/">Collabor8online</a></p>
-    </footer>
-  </testimonial>
-  <testimonial>
-    <blockquote>
+		<footer>
+			<cite>Rahoul Baruah</cite>
+			<p>CTO, <a href="https://www.collabor8online.co.uk/">Collabor8online</a></p>
+		</footer>
+	</testimonial>
+	<testimonial>
+		<blockquote>
 			<img src="/about/hire-me/testimonial_photos/daniel_gilchrist.jpg" alt="Daniel Gilchrist" class="testimonial-photo">
 			<p>Will's expertise in PostgreSQL performance was invaluable, contributing significantly to our performance improvements while educating the team to ensure we had the knowledge to scale our database operations effectively. One notable instance involved addressing a high volume of update queries that were consuming a significant percentage of runtime for particular tables. Through Will's guidance, we implemented monitoring to understand query behavior, enabling us to optimize for consistent HOT updates, which greatly reduced the overall runtime of these queries. I've learned a lot from Will and I hope to be able to work with him again in the future.</p>
 		</blockquote>
-    <footer>
-      <cite>Daniel Gilchrist</cite>
-      <p>Head of Product (UK) & Senior Developer <a href="https://workforce.com/">Tanda/Workforce</a></p>
-    </footer>
-  </testimonial>
+		<footer>
+			<cite>Daniel Gilchrist</cite>
+			<p>Head of Product (UK) & Senior Developer <a href="https://workforce.com/">Tanda/Workforce</a></p>
+		</footer>
+	</testimonial>
 </testimonials>
 
 ### Experience
@@ -87,7 +87,7 @@ A company that has one or more Ruby on Rails applications. You might need help w
 - Scaling up your infrastructure
 - Safely and simply upgrading your application
 - Technical leadership, including:
-  - Helping to fix issues with your product pipeline
+	- Helping to fix issues with your product pipeline
 	- Moving to a ShapeUp style development system
 	- Developer burnout or unhappiness
 	- Quality issues
@@ -99,6 +99,6 @@ A company that has one or more Ruby on Rails applications. You might need help w
 	- Where desired I will travel to meet and work with your team for short to medium periods, expenses such as travel and accomodation will be covered by you.
 	- I will travel internationally on the same terms.
 - I can invoice in most currencies and to most countries, I usually invoice every two weeks.
-  - Where applicable invoices will have VAT added.
+	- Where applicable invoices will have VAT added.
 
 You can contact me by <a href="mailto:will@willj.net">Email</a>
