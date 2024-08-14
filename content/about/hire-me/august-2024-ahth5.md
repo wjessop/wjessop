@@ -56,9 +56,17 @@ I also have some [Rails core commits](https://contributors.rubyonrails.org/contr
       <p>CTO, <a href="https://www.collabor8online.co.uk/">Collabor8online</a></p>
     </footer>
   </testimonial>
+  <testimonial>
+    <blockquote>
+			<img src="/about/hire-me/testimonial_photos/daniel_gilchrist.jpg" alt="Daniel Gilchrist" class="testimonial-photo">
+			<p>Will's expertise in PostgreSQL performance was invaluable, contributing significantly to our performance improvements while educating the team to ensure we had the knowledge to scale our database operations effectively. One notable instance involved addressing a high volume of update queries that were consuming a significant percentage of runtime for particular tables. Through Will's guidance, we implemented monitoring to understand query behavior, enabling us to optimize for consistent HOT updates, which greatly reduced the overall runtime of these queries. I've learned a lot from Will and I hope to be able to work with him again in the future.</p>
+		</blockquote>
+    <footer>
+      <cite>Daniel Gilchrist</cite>
+      <p>Head of Product (UK) & Senior Developer <a href="https://workforce.com/">Tanda/Workforce</a></p>
+    </footer>
+  </testimonial>
 </testimonials>
-
-
 
 ### Experience
 
