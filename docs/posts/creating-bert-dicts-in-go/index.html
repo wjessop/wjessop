@@ -110,8 +110,7 @@
 </code></pre>
 <p>Well, that doesn’t work. What you end up with is a one byte long BERP. It seems that gobert doesn’t automatically serialise maps. No problem, we’ll build one up manually. A quick look at the BERT documentation shows the format of a dict:</p>
 <blockquote>
-<p>“Dictionaries (hash tables) are expressed via an array of 2-tuples representing the key/value pairs. The KeysAndValues array is mandatory, such that an empty dict is expressed as {bert, dict, []}. Keys and values may be any term. For example, {bert, dict, [{name, &laquo;“Tom”&raquo;}, {age, 30}]}.”</p>
-</blockquote>
+<p>“Dictionaries (hash tables) are expressed via an array of 2-tuples representing the key/value pairs. The KeysAndValues array is mandatory, such that an empty dict is expressed as {bert, dict, []}. Keys and values may be any term. For example, {bert, dict, [{name, &laquo;“Tom”&raquo;}, {age, 30}]}.”</p></blockquote>
 <p>So let&rsquo;s create this special structure manually.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
@@ -187,8 +186,8 @@ slice is a: slice
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">message1</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Term</span>{<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Atom</span>(<span style="color:#e6db74">&#34;key1&#34;</span>), <span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Atom</span>(<span style="color:#e6db74">&#34;val1&#34;</span>)}
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">message2</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Term</span>{<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Atom</span>(<span style="color:#e6db74">&#34;key2&#34;</span>), <span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Atom</span>(<span style="color:#e6db74">&#34;val3&#34;</span>)}
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">keys_and_values</span> <span style="color:#f92672">:=</span> [<span style="color:#ae81ff">2</span>]<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Term</span>{<span style="color:#a6e22e">message1</span>, <span style="color:#a6e22e">message2</span>} <span style="color:#75715e">// Now an array
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">keys_and_values</span> <span style="color:#f92672">:=</span> [<span style="color:#ae81ff">2</span>]<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Term</span>{<span style="color:#a6e22e">message1</span>, <span style="color:#a6e22e">message2</span>} <span style="color:#75715e">// Now an array</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dict</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Term</span>{<span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">BertAtom</span>, <span style="color:#a6e22e">bert</span>.<span style="color:#a6e22e">Atom</span>(<span style="color:#e6db74">&#34;dict&#34;</span>), <span style="color:#a6e22e">keys_and_values</span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">buf</span> = new(<span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>)

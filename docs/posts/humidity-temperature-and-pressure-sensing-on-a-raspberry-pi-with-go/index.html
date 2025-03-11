@@ -79,10 +79,10 @@
 <p>It just so happens that a couple of people have written Go libraries for the BME280, I chose <a href="https://github.com/maciej/bme280">this one</a>. Putting it to use it&rsquo;s fairly simple to get the data out of the sensor and print it to the terminal:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Get sensor data from the BME280 and print it to the terminal
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get sensor data from the BME280 and print it to the terminal</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
@@ -161,21 +161,21 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// create new client with default option for server url authenticate by token
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewClient</span>(
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// create new client with default option for server url authenticate by token</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewClient</span>(
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;http://127.0.0.1:8086&#34;</span>, <span style="color:#a6e22e">influxhost</span>),
 </span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;climate-writer:&lt;password goes here&gt;&#34;</span>,
 </span></span><span style="display:flex;"><span>	)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// user blocking write client for writes to desired bucket
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">writeAPI</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">WriteApiBlocking</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">databaseName</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// user blocking write client for writes to desired bucket</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">writeAPI</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">WriteApiBlocking</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">databaseName</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ctx</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">now</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Write a single datapoint to Infux
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewPoint</span>(
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Write a single datapoint to Infux</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">influxdb2</span>.<span style="color:#a6e22e">NewPoint</span>(
 </span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;stat&#34;</span>,
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;unit&#34;</span>: <span style="color:#e6db74">&#34;temperature&#34;</span>, <span style="color:#e6db74">&#34;location&#34;</span>: <span style="color:#a6e22e">locationName</span>},
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{<span style="color:#e6db74">&#34;value&#34;</span>: <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Temperature</span>},
@@ -186,8 +186,8 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Repeat the above Influx write for humidity and pressure
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Repeat the above Influx write for humidity and pressure</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>I have pushed <a href="https://github.com/wjessop/rpi_go_bme280_example">a full working example</a> including reading the sensor data and sending to Influx DB to Github. It also includes optional writing of the climate data to an LCD panel.</p>
 <p>That is pretty much it! Place your Raspberry Pi with it&rsquo;s sensor in the place you want to be monitored, and it will gather the data for you. Creating a Grafana dashboard is left as an exercise for the reader.</p>
 <hr>

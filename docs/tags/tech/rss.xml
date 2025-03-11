@@ -343,8 +343,7 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As usual &lt;a href=&#34;https://www.postgresql.org/docs/current/runtime-config-statistics.html&#34;&gt;the Postgres docs do a thorough job explaining what this setting does&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Enables timing of database I/O calls. This parameter is off by default, as it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms. You can use the pg_test_timing tool to measure the overhead of timing on your system. I/O timing information is displayed in pg_stat_database, in the output of EXPLAIN when the BUFFERS option is used, in the output of VACUUM when the VERBOSE option is used, by autovacuum for auto-vacuums and auto-analyzes, when log_autovacuum_min_duration is set and by pg_stat_statements. Only superusers and users with the appropriate SET privilege can change this setting.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Enables timing of database I/O calls. This parameter is off by default, as it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms. You can use the pg_test_timing tool to measure the overhead of timing on your system. I/O timing information is displayed in pg_stat_database, in the output of EXPLAIN when the BUFFERS option is used, in the output of VACUUM when the VERBOSE option is used, by autovacuum for auto-vacuums and auto-analyzes, when log_autovacuum_min_duration is set and by pg_stat_statements. Only superusers and users with the appropriate SET privilege can change this setting.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;However simply put for our use case if you turn this setting on then when you run an &lt;code&gt;EXPLAIN (ANALYSE, BUFFERS)&lt;/code&gt; you will get the time in milliseconds that the IO operations in each part of your query took to perform, for example using one of the queries from the previous post:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPLAIN&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;ANALYSE&lt;/span&gt;, BUFFERS)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt;
@@ -400,8 +399,7 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
 &lt;h2 id=&#34;the-buffers-option&#34;&gt;The BUFFERS option&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;BUFFERS&lt;/code&gt; option can be used when running a simple &lt;code&gt;EXPLAIN&lt;/code&gt;, but really comes into it&amp;rsquo;s own when running an &lt;code&gt;EXPLAIN ANALYSE&lt;/code&gt;. In summary &lt;code&gt;BUFFERS&lt;/code&gt; will give you data on the buffer usage of a query. The postgres docs give a good description of what the data you get tells you:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Include information on buffer usage. Specifically, include the number of shared blocks hit, read, dirtied, and written, the number of local blocks hit, read, dirtied, and written, the number of temp blocks read and written, and the time spent reading and writing data file blocks and temporary file blocks (in milliseconds) if track_io_timing is enabled. A hit means that a read was avoided because the block was found already in cache when needed. Shared blocks contain data from regular tables and indexes; local blocks contain data from temporary tables and indexes; while temporary blocks contain short-term working data used in sorts, hashes, Materialize plan nodes, and similar cases. The number of blocks dirtied indicates the number of previously unmodified blocks that were changed by this query; while the number of blocks written indicates the number of previously-dirtied blocks evicted from cache by this backend during query processing. The number of blocks shown for an upper-level node includes those used by all its child nodes. In text format, only non-zero values are printed. It defaults to FALSE.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Include information on buffer usage. Specifically, include the number of shared blocks hit, read, dirtied, and written, the number of local blocks hit, read, dirtied, and written, the number of temp blocks read and written, and the time spent reading and writing data file blocks and temporary file blocks (in milliseconds) if track_io_timing is enabled. A hit means that a read was avoided because the block was found already in cache when needed. Shared blocks contain data from regular tables and indexes; local blocks contain data from temporary tables and indexes; while temporary blocks contain short-term working data used in sorts, hashes, Materialize plan nodes, and similar cases. The number of blocks dirtied indicates the number of previously unmodified blocks that were changed by this query; while the number of blocks written indicates the number of previously-dirtied blocks evicted from cache by this backend during query processing. The number of blocks shown for an upper-level node includes those used by all its child nodes. In text format, only non-zero values are printed. It defaults to FALSE.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/docs/current/sql-explain.html&#34;&gt;https://www.postgresql.org/docs/current/sql-explain.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -966,12 +964,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/i-got-my-pan-tilt-servos-working/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m making a simple camera gimbal and tonight I wired up the right analog stick on my xbox controller to control the pan/tilt servos:&lt;/p&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/C8RJzWzkW0c?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/C8RJzWzkW0c?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;p&gt;Tomorrow I will print out a prototype gimbal structure.&lt;/p&gt;
@@ -1054,21 +1048,13 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
       <description>&lt;p&gt;I added a prototype lifter arm to my robot yesterday. It needs re-doing (it&amp;rsquo;s unreliable and heavy) but it works for now.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m using a new motor driver circuit for it as I burned out the SN754410 motor driver I was using, the lifter motor seems to peak briefly at about 1.5 amps when starting to lift the arm, and that&amp;rsquo;s out of the chips range. I stayed up late making a new motor control circuit with a L298N that can provide a lot more power.&lt;/p&gt;
 &lt;p&gt;Here is the robot picking up 12 ping-pong balls. I was driving, Morwenna was filming:&lt;/p&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/doxEBi1UjLg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/doxEBi1UjLg?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;p&gt;Here is the same run seen through the on-board camera. Almost all of the run was done watching the live feed rather than watching the robot itself:&lt;/p&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/T1NwjBEUjio?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/T1NwjBEUjio?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;p&gt;Here is the paper strip-board design for the L298N circuit.&lt;/p&gt;
@@ -1101,12 +1087,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
       <guid>https://willj.net/posts/first-robot-remote-driving-test/</guid>
       <description>&lt;p&gt;I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my &lt;a href=&#34;https://github.com/wjessop/gamepad&#34;&gt;gamepad ruby gem&lt;/a&gt; and an Xbox 1 controller. It worked OK. It was a bit jerky, there&amp;rsquo;s no PWM so no acceleration, it&amp;rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&amp;rsquo;t show enough of the robot so it&amp;rsquo;s hard to get a real idea of where the robot is.&lt;/p&gt;
 &lt;p&gt;I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.&lt;/p&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;p&gt;The robot is also prone to shed a track if the &amp;ldquo;half turn&amp;rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&amp;rsquo;t run the Raspberry Pi CPU.&lt;/p&gt;
@@ -1274,12 +1256,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 
 &lt;p&gt;Before I pick a battery I need to know what power requirements my robot is going to have so I took it into the &lt;a href=&#34;http://hacman.org.uk/&#34;&gt;hackspace&lt;/a&gt; to test. I hooked it up to one of the power supplies then ran all the systems, so Streaming video off the Raspberry Pi over wireless whilst running the motors. I weight it down with a large motor (the big black thing) and then provided resistance, it peaks at about 1.6 amps.&lt;/p&gt;
 &lt;p&gt;In the video you can also see the new side mounted Raspberry Pi and the base of the ping-pong ball hopper.&lt;/p&gt;
-
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rA89dFa6OmU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rA89dFa6OmU?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;p&gt;Detail view of the side mounted Raspberry Pi and the base of the ping-pong ball hopper:&lt;/p&gt;
@@ -1355,12 +1333,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
       <pubDate>Mon, 23 Sep 2013 14:38:44 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/</guid>
-      <description>
-
-    
-    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/-1ye-TLipiY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+      <description>&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/-1ye-TLipiY?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/printing-out-a-test-caterpillar-track-and-motor-mount/images/img_4289.jpg&#34;&gt;&lt;figcaption&gt;
@@ -1439,8 +1413,7 @@ etc.
 &lt;li&gt;Converts the default line termination character NL (&amp;rsquo;n&amp;rsquo;, 0x0a)&lt;/li&gt;
 &lt;li&gt;to/from CRNL (&amp;ldquo;rn&amp;rdquo;, 0x0d0a) when writing/reading on this&lt;/li&gt;
 &lt;li&gt;channel (example). Note: socat simply strips all CR characters.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 </description>
     </item>
     <item>
@@ -1453,8 +1426,7 @@ etc.
 &lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Since this post was published, we have released a new pricing structure *and* a new service tier that offers more email for less + a feature set and pricing model that you will find very competitive with SES.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
     alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
@@ -1547,8 +1519,7 @@ rewrite ^.+$ /search redirect;
 &lt;blockquote&gt;
 &lt;p&gt;Thank you for coming to Fish4 this morning.&lt;/p&gt;
 &lt;p&gt;Unfortunately the fish4 website is unavailable due to the failure of a very expensive piece of Sun hardware (Sun 6900). A Sun engineer is at the data centre but didn&amp;rsquo;t think to bring the replacement part with him.&lt;/p&gt;
-&lt;p&gt;We hope the sun engineer will have repaired the hardware by 12pm, and will update this estimate if necessary as the work progresses.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;We hope the sun engineer will have repaired the hardware by 12pm, and will update this estimate if necessary as the work progresses.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Here is a screengrab of the error:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2006/07/fish4_error_large.png&#34; alt=&#34;&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -1598,8 +1569,7 @@ rewrite ^.+$ /search redirect;
 &lt;p&gt;14&amp;quot; hard disk platter from the 1970s&lt;/p&gt;
 &lt;p&gt;From the days when programmers didn&amp;rsquo;t eat quiche!&lt;/p&gt;
 &lt;p&gt;This platter from a hard disk drive came from a Hull University mainframe in 1978. The disk is 14 inches (35.5cm) in diameter and 1.5mm thick.&lt;/p&gt;
-&lt;p&gt;It is made from a hard aluminium alloy coated with magnetic material. One side is covered with a random collection of supermarket price and product labels of the period. Even though it has been used as a rather lethal frisbee, it is still perfectly flat.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;It is made from a hard aluminium alloy coated with magnetic material. One side is covered with a random collection of supermarket price and product labels of the period. Even though it has been used as a rather lethal frisbee, it is still perfectly flat.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;And here are some photos:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_sticker_side.jpg&#34; alt=&#34;&#34;&gt;
 &lt;img src=&#34;http://willjessop4.files.wordpress.com/2005/11/hd_detail_2.jpg&#34; alt=&#34;&#34;&gt;

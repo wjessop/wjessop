@@ -41,12 +41,8 @@
 	<article>
 		<p>I programmed some remote control software using a Golang receiving program on the robot and a ruby control client using my <a href="https://github.com/wjessop/gamepad">gamepad ruby gem</a> and an Xbox 1 controller. It worked OK. It was a bit jerky, there&rsquo;s no PWM so no acceleration, it&rsquo;s either go or stop; anything not totally rigid on the robot wobbles. Also the position of the camera doesn&rsquo;t show enough of the robot so it&rsquo;s hard to get a real idea of where the robot is.</p>
 <p>I was filming, the robot was being controlled my my wife, Morwenna, from upstairs.</p>
-
-
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
-      ></iframe>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4YYC7bCiRTI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
 <p>The robot is also prone to shed a track if the &ldquo;half turn&rdquo; is used too much, that is one track forwards or backwards, the other one stationary. I can fix this in software if I can work out a way to do PWM on the robot that doesn&rsquo;t run the Raspberry Pi CPU.</p>
