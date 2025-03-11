@@ -8,4 +8,5 @@ opentocontracts: false
 noindex: true
 ---
 
-<a href="/about/hire-me/august-2024-ahth5/">This page has moved!</a>
+<a href="/about/hire-me/march-2025-ahx4i/">This page has moved!</a>
+
