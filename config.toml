@@ -5,12 +5,11 @@ rssLimit = 20
 copyright = "&#169; Will Jessop. All rights reserved."
 enableRobotsTXT = true
 
-[Params]
+[params]
   OpenToContracts = true
-
-[author]
-    name = "Will Jessop"
-    email = "will@willj.net"
+  [params.author]
+      name = "Will Jessop"
+      email = "will@willj.net"
 
 [menu]
   [[menu.main]]
