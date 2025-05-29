@@ -8,8 +8,578 @@
     <managingEditor>will@willj.net (Will Jessop)</managingEditor>
     <webMaster>will@willj.net (Will Jessop)</webMaster>
     <copyright>&amp;#169; Will Jessop. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Jul 2024 17:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 29 May 2025 10:50:00 +0000</lastBuildDate>
     <atom:link href="https://willj.net/tags/programming/" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fixing errors installing the charlock_holmes ruby gem redux</title>
+      <link>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem-redux/</link>
+      <pubDate>Thu, 29 May 2025 10:50:00 +0000</pubDate>
+      <author>will@willj.net (Will Jessop)</author>
+      <guid>https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem-redux/</guid>
+      <description>&lt;p&gt;A while back I posted about &lt;a href=&#34;https://willj.net/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/&#34;&gt;fixing an error installing the charlock_holmes gem on MacOS&lt;/a&gt;, well the error has returned. Here&amp;rsquo;s the newest fix.&lt;/p&gt;
+&lt;p&gt;If you get an error that looks something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/bin/ruby extconf.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-dir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt --with-opt-include&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt/icu4c/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-lib&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt/icu4c/lib --with-cxxflags&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;-std&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;c++11
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-i18n...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licui18n&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-io...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licuio&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-uc...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licuuc&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unicode/ucnv.h... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -lz... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licuuc... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licudata... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu that requires explicit C++ version flag... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu that compiles with c++20 standard... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Static linking is disabled.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;creating Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make DESTDIR&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt; sitearchdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-47905-r2zqyx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sitelibdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-47905-r2zqyx clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make DESTDIR&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt; sitearchdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-47905-r2zqyx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sitelibdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-47905-r2zqyx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling converter.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from converter.c:2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling encoding_detector.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from encoding_detector.c:2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling ext.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ext.c:1:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling transliterator.cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:15:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/utypes.h:39:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/uversion.h:182:11: warning:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nested namespace definition is a C++17 extension; define each namespace
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;separately &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++17-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;182&lt;/span&gt; | namespace U_HEADER_ONLY_NAMESPACE &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |           ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/uversion.h:180:48: note:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expanded from macro &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;U_HEADER_ONLY_NAMESPACE&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#define U_HEADER_ONLY_NAMESPACE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;U_ICU_NAMESPACE::U_HEADER_NESTED_NAMESPACE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:271:38: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;271&lt;/span&gt; | template&amp;lt;typename T, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;UChar&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                 ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:271:55: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;271&lt;/span&gt; | template&amp;lt;typename T, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;UChar&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                  ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                       is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:8: warning:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;constexpr &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; is a C++17 extension &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++17-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |        ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:24: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                   ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                        is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:50: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                  ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:385:16: warning:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;variable templates are a C++14 extension &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++14-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;385&lt;/span&gt; | constexpr bool ConvertibleToU16StringView &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:386:10: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;386&lt;/span&gt; |     std::is_convertible_v&amp;lt;T, std::u16string_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ~~~~~^~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |          is_convertible
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_convertible.h:22:29:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_convertible : public
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;integral_constant&amp;lt;bool, __is_convertible&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_T1, _T2&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:393:5: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;(&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;-style cast or type construction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;386&lt;/span&gt; |     std::is_convertible_v&amp;lt;T, std::u16string_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;387&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if !U_CHAR16_IS_TYPEDEF &amp;amp;&amp;amp; (!defined(_LIBCPP_VERSION) ||&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;_LIBCPP_VERSION &amp;lt; 180000&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;388&lt;/span&gt; |     &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; std::is_convertible_v&amp;lt;T, std::basic_string_view&amp;lt;uint16_t&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;389&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;390&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if U_SIZEOF_WCHAR_T==2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;391&lt;/span&gt; |     &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; std::is_convertible_v&amp;lt;T, std::wstring_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;392&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;393&lt;/span&gt; |     ;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:36: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;type named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                      ~~~~~~~~~~~~~~^~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:47: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;#39;&lt;/span&gt; in template-parameter-list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                               ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:93: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:36: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;type named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                      ~~~~~~~~~~~~~~^~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:47: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;#39;&lt;/span&gt; in template-parameter-list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                               ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:92: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:40:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:134:29: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;134&lt;/span&gt; |             typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                        ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:135:23: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;135&lt;/span&gt; |                 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.data&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, const char*&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                  ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                       is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:40:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:140:17: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;use of address-of-label extension outside of a &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;140&lt;/span&gt; |                 std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.size&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, size_t&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                 ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:140:62: error:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expected member name or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;;&amp;#39;&lt;/span&gt; after declaration specifiers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;140&lt;/span&gt; |                 std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.size&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, size_t&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                              ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:346:40: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;346&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:381:40: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;381&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:1959:40: error: no
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1959&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal error: too many errors emitted, stopping now &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-ferror-limit&lt;span style=&#34;color:#f92672&#34;&gt;=]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; warnings and &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; errors generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;transliterator.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/extensions/arm64-darwin-24/3.4.0/charlock_holmes-0.7.9/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:126:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder.run&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:52:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Gem::Ext::Builder.make&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:44:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Array#each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:44:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder.make&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/ext_conf_builder.rb:44:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::ExtConfBuilder.build&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:195:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder#build_extension&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:229:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Gem::Ext::Builder#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:226:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Array#each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:226:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/installer.rb:844:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Installer#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:76:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::RubyGemsGemInstaller#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:28:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::RubyGemsGemInstaller#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/source/rubygems.rb:203:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Source::Rubygems#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:54:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::GemInstaller#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:16:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::GemInstaller#install_from_spec&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:130:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::ParallelInstaller#do_install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:121:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Bundler::ParallelInstaller#worker_pool&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:62:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Worker#apply_func&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:57:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Bundler::Worker#process_queue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;internal:kernel&amp;gt;:168:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Kernel#loop&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:54:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Worker#process_queue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:90:in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block (2 levels) in Bundler::Worker#create_threads&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;An error occurred &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; installing charlock_holmes &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.7.9&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, and Bundler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cannot &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In Gemfile:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;will@lentil ~/clients/Outvote/repos/web-app/master &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;on master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;% gem uninstall charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;charlock_holmes&amp;#39;&lt;/span&gt; is not installed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;will@lentil ~/clients/Outvote/repos/web-app/master &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;on master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;% git pull
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;will@lentil ~/clients/Outvote/repos/web-app/master &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;on master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;% bundle
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Fetching gem metadata from https://enterprise.contribsys.com/..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Fetching gem metadata from https://rubygems.org/........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Installing charlock_holmes 0.7.9 with native extensions
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    current directory: /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/bin/ruby extconf.rb --with-opt-dir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt --with-opt-include&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt/icu4c/include
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--with-opt-lib&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;/usr/local/opt/icu4c/lib --with-cxxflags&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;-std&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;c++11
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-i18n... &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licui18n&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-io... &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licuio&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; pkg-config &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu-uc... &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-I/opt/homebrew/Cellar/icu4c@77/77.1/include &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-L/opt/homebrew/Cellar/icu4c@77/77.1/lib&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-licuuc&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licui18n... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; unicode/ucnv.h... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -lz... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licuuc... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -licudata... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu that requires explicit C++ version flag... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;checking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; icu that compiles with c++20 standard... yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Static linking is disabled.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;creating Makefile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory: /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make DESTDIR&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt; sitearchdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-48158-xjue2n sitelibdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-48158-xjue2n clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;current directory: /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make DESTDIR&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt; sitearchdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-48158-xjue2n sitelibdir&lt;span style=&#34;color:#ae81ff&#34;&gt;\=&lt;/span&gt;./.gem.20250529-48158-xjue2n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling converter.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from converter.c:2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling encoding_detector.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from encoding_detector.c:2:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling ext.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ext.c:1:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from ./common.h:9:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby.h:38:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/ruby.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/internal/anyargs.h:83:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:6: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MAJOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |      ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/include/ruby-3.4.0/ruby/backward/cxxanyargs.hpp:540:37: warning: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;RUBY_API_VERSION_MINOR&amp;#39;&lt;/span&gt; is not defined, evaluates to &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wundef&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;540&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if (RUBY_API_VERSION_MAJOR * 100 + RUBY_API_VERSION_MINOR) &amp;gt;= 301&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; warnings generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compiling transliterator.cpp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:15:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/utypes.h:39:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/uversion.h:182:11: warning: nested namespace definition is a C++17 extension; define each namespace separately
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++17-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;182&lt;/span&gt; | namespace U_HEADER_ONLY_NAMESPACE &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |           ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/uversion.h:180:48: note: expanded from macro &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;U_HEADER_ONLY_NAMESPACE&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#define U_HEADER_ONLY_NAMESPACE U_ICU_NAMESPACE::U_HEADER_NESTED_NAMESPACE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:271:38: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;271&lt;/span&gt; | template&amp;lt;typename T, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, UChar&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                 ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:271:55: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;271&lt;/span&gt; | template&amp;lt;typename T, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;std::is_same_v&amp;lt;T, UChar&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                  ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                       is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29: note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:8: warning: constexpr &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; is a C++17 extension &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++17-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |        ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:24: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                   ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                        is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29: note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:273:50: error: expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;273&lt;/span&gt; |     &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; constexpr &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;UChar, char16_t&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                  ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:385:16: warning: variable templates are a C++14 extension &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-Wc++14-extensions&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;385&lt;/span&gt; | constexpr bool ConvertibleToU16StringView &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:386:10: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;386&lt;/span&gt; |     std::is_convertible_v&amp;lt;T, std::u16string_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ~~~~~^~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |          is_convertible
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_convertible.h:22:29: note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_convertible&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_convertible : public integral_constant&amp;lt;bool, __is_convertible&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_T1, _T2&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:37:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:393:5: error: expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;(&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;-style cast or type construction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;386&lt;/span&gt; |     std::is_convertible_v&amp;lt;T, std::u16string_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;387&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if !U_CHAR16_IS_TYPEDEF &amp;amp;&amp;amp; (!defined(_LIBCPP_VERSION) || _LIBCPP_VERSION &amp;lt; 180000)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;388&lt;/span&gt; |     &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; std::is_convertible_v&amp;lt;T, std::basic_string_view&amp;lt;uint16_t&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;389&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;390&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#if U_SIZEOF_WCHAR_T==2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;391&lt;/span&gt; |     &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; std::is_convertible_v&amp;lt;T, std::wstring_view&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;392&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#endif&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;393&lt;/span&gt; |     ;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |     ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:36: error: no type named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                      ~~~~~~~~~~~~~~^~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:47: error: expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;#39;&lt;/span&gt; in template-parameter-list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                               ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:429:93: error: expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;429&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;!std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                                                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:36: error: no type named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                      ~~~~~~~~~~~~~~^~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:47: error: expected &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;#39;&lt;/span&gt; in template-parameter-list
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                               ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/char16ptr.h:439:92: error: expected unqualified-id
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;439&lt;/span&gt; |           typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; typename std::enable_if_t&amp;lt;std::is_pointer_v&amp;lt;std::remove_reference_t&amp;lt;T&amp;gt;&amp;gt;&amp;gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                                                            ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:40:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:134:29: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;134&lt;/span&gt; |             typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                        ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:135:23: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same_v&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;; did you mean &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;135&lt;/span&gt; |                 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.data&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, const char*&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                  ~~~~~^~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                       is_same
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_same.h:22:29: note: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;is_same&amp;#39;&lt;/span&gt; declared here
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; | struct _LIBCPP_TEMPLATE_VIS is_same : _BoolConstant&amp;lt;__is_same&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;_Tp, _Up&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                             ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:40:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:140:17: error: use of address-of-label extension outside of a &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; body
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;140&lt;/span&gt; |                 std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.size&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, size_t&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                 ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/stringpiece.h:140:62: error: expected member name or &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;;&amp;#39;&lt;/span&gt; after declaration specifiers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;140&lt;/span&gt; |                 std::is_same_v&amp;lt;decltype&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;T&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;.size&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt;, size_t&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                                              ^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from transliterator.cpp:5:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In file included from /opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/translit.h:27:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:346:40: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;346&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:381:40: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;381&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/icu4c@77/77.1/include/unicode/unistr.h:1959:40: error: no template named &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;enable_if_t&amp;#39;&lt;/span&gt; in namespace &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;std&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1959&lt;/span&gt; |   template&amp;lt;typename S, typename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; std::enable_if_t&amp;lt;ConvertibleToU16StringView&amp;lt;S&amp;gt;&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      |                                   ~~~~~^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal error: too many errors emitted, stopping now &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-ferror-limit&lt;span style=&#34;color:#f92672&#34;&gt;=]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; warnings and &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; errors generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;transliterator.o&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make failed, exit code &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Gem files will remain installed in /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; inspection.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results logged to /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/extensions/arm64-darwin-24/3.4.0/charlock_holmes-0.7.9/gem_make.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:126:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder.run&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:52:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Gem::Ext::Builder.make&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:44:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Array#each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:44:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder.make&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/ext_conf_builder.rb:44:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::ExtConfBuilder.build&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:195:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder#build_extension&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:229:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Gem::Ext::Builder#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:226:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Array#each&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/ext/builder.rb:226:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Ext::Builder#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/3.4.0/rubygems/installer.rb:844:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Gem::Installer#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:76:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::RubyGemsGemInstaller#build_extensions&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/rubygems_gem_installer.rb:28:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::RubyGemsGemInstaller#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/source/rubygems.rb:203:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Source::Rubygems#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:54:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::GemInstaller#install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/gem_installer.rb:16:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::GemInstaller#install_from_spec&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:130:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::ParallelInstaller#do_install&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/installer/parallel_installer.rb:121:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Bundler::ParallelInstaller#worker_pool&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:62:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Worker#apply_func&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:57:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block in Bundler::Worker#process_queue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;internal:kernel&amp;gt;:168:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Kernel#loop&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:54:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Bundler::Worker#process_queue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/bundler-2.4.22/lib/bundler/worker.rb:90:in &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;block (2 levels) in Bundler::Worker#create_threads&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;An error occurred &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; installing charlock_holmes &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.7.9&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, and Bundler cannot &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;In Gemfile:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  charlock_holmes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Try installing using a newer c++ standard:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gem install charlock_holmes -v&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0.7.9 -- --with-opt-dir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/opt --with-opt-include&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/opt/icu4c/include --with-opt-lib&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/opt/icu4c/lib --with-cxxflags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;-std&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;c++17
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Building native extensions with: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;--with-opt-dir=/usr/local/opt --with-opt-include=/usr/local/opt/icu4c/include --with-opt-lib=/usr/local/opt/icu4c/lib --with-cxxflags=-std=c++17&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This could take a &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed charlock_holmes-0.7.9
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; gem installed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>You should use the Ruby on Rails logger block syntax</title>
       <link>https://willj.net/posts/you-should-use-the-rails-logger-block-syntax/</link>
