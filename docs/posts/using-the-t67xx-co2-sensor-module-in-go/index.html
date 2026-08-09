@@ -131,11 +131,12 @@
 </table>
 <p>Whatever you do, don&rsquo;t connect them backwards as this sensor seems to be particularly sensitive to being misconnected (I did this and accidentally let the magic smoke out of one of them). I used a <a href="https://www.adafruit.com/product/757">level shifter</a> to switch the 3.3v lines to 5v because I didn&rsquo;t have any 4.7k resistors and this is what worked for me, though the unit should work at 3.3v, from the datasheet:</p>
 <blockquote>
-<p>There is an internal pull up resistor on pin 1 of the I2C interface. Customer will need to provide an external pull up resistor on pin 2 with a recommended value of 4.7k. I2C interface can operate at both 3.3V and 5V logic levels.</p></blockquote>
+<p>There is an internal pull up resistor on pin 1 of the I2C interface. Customer will need to provide an external pull up resistor on pin 2 with a recommended value of 4.7k. I2C interface can operate at both 3.3V and 5V logic levels.</p>
+</blockquote>
 <p><img src="images/connected.jpg#full" alt="The sensor connected and displaying the CO₂ reading on an LCD"></p>
 <h2 id="using-the-sensor-with-the-t67xx-go-library">Using the sensor with the T67XX Go library</h2>
 <p>I&rsquo;m not going to go into the details of how the library works, there are docs and examples over at <a href="https://github.com/wjessop/T67XX">the T67XX Github page</a>, but at a high level, given a connection to the I²C bus it can read CO₂ data and perform management tasks. Here&rsquo;s a simple program that waits for the sensor to achieve full accuracy then reads CO₂ values from it every 10 seconds:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
@@ -165,8 +166,8 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// For now the library needs a logger to be provided. It needs to satisfy the</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// following interface:</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// type Logger interface {</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	// type Logger interface {</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 	Debug(...interface{})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 	Debugf(string, ...interface{})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 	Fatalf(string, ...interface{})</span>
@@ -175,8 +176,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">driver</span>.<span style="color:#a6e22e">SetLogger</span>(<span style="color:#a6e22e">log</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// EnableABC enables the ABC calibration. From the datasheet:</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//   &#34;ABC LOGIC™ Automatic Background Logic, or ABC Logic™, is a patented</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	//   &#34;ABC LOGIC™ Automatic Background Logic, or ABC Logic™, is a patented</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    self-calibration technique that is designed to be used in applications where</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    concentrations will drop to outside ambient conditions (400 ppm) at least</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    three times in a 7 days, typically during unoccupied periods. Full accuracy</span>
@@ -188,8 +189,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    the reference value and this reference value is the lowest concentration</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    to which the sensor is exposed. ABC Logic™ requires continuous operation of</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    the sensor for periods of at least 24 hours.</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    Note: Applies when used in typical residential ambient air. Consult Telaire</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	//    Note: Applies when used in typical residential ambient air. Consult Telaire</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">//    if other gases or corrosive agents are part of the application environment.&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">driver</span>.<span style="color:#a6e22e">EnableABC</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Could not enable ABC calibration on the sensor&#34;</span>, <span style="color:#a6e22e">err</span>)

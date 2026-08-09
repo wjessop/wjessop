@@ -41,7 +41,7 @@
 	<article>
 		<p>A while back I posted about <a href="/posts/fixing-errors-installing-the-charlock_holmes-ruby-gem/">fixing an error installing the charlock_holmes gem on MacOS</a>, well the error has returned. Here&rsquo;s the newest fix.</p>
 <p>If you get an error that looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>current directory:
 </span></span><span style="display:flex;"><span>/Users/will/.rbenv/versions/3.4.3/lib/ruby/gems/3.4.0/gems/charlock_holmes-0.7.9/ext/charlock_holmes
@@ -596,7 +596,7 @@
 </span></span><span style="display:flex;"><span>In Gemfile:
 </span></span><span style="display:flex;"><span>  charlock_holmes
 </span></span></code></pre></div><p>Try installing using a newer c++ standard:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gem install charlock_holmes -v<span style="color:#f92672">=</span>0.7.9 -- --with-opt-dir<span style="color:#f92672">=</span>/usr/local/opt --with-opt-include<span style="color:#f92672">=</span>/usr/local/opt/icu4c/include --with-opt-lib<span style="color:#f92672">=</span>/usr/local/opt/icu4c/lib --with-cxxflags<span style="color:#f92672">=</span>-std<span style="color:#f92672">=</span>c++17
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gem install charlock_holmes -v<span style="color:#f92672">=</span>0.7.9 -- --with-opt-dir<span style="color:#f92672">=</span>/usr/local/opt --with-opt-include<span style="color:#f92672">=</span>/usr/local/opt/icu4c/include --with-opt-lib<span style="color:#f92672">=</span>/usr/local/opt/icu4c/lib --with-cxxflags<span style="color:#f92672">=</span>-std<span style="color:#f92672">=</span>c++17
 </span></span><span style="display:flex;"><span>Building native extensions with: <span style="color:#e6db74">&#39;--with-opt-dir=/usr/local/opt --with-opt-include=/usr/local/opt/icu4c/include --with-opt-lib=/usr/local/opt/icu4c/lib --with-cxxflags=-std=c++17&#39;</span>
 </span></span><span style="display:flex;"><span>This could take a <span style="color:#66d9ef">while</span>...
 </span></span><span style="display:flex;"><span>Successfully installed charlock_holmes-0.7.9

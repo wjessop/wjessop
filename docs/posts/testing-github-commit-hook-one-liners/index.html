@@ -41,9 +41,9 @@
 	<article>
 		<p>A couple of ruby one-liners for dumping out the content of a github commit hook payload:</p>
 <p>For hooks that use type <strong>application/json</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(request.body.read); end&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(request.body.read); end&#39;</span>
 </span></span></code></pre></div><p>For hooks that use type <strong>application/x-www-form-urlencoded</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(params[:payload]); end&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ruby -rpp -rjson -rsinatra -e <span style="color:#e6db74">&#39;set :port, 8000; post &#34;/*&#34; do; pp JSON(params[:payload]); end&#39;</span>
 </span></span></code></pre></div>
 	</article>
 

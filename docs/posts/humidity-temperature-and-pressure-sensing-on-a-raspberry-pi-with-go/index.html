@@ -77,13 +77,13 @@
 </ul>
 <p>In reality you can use whatever language you like, Ruby or Python would be fine as this isn&rsquo;t a highly CPU or memory intensive application, but you are likely to want to choose a language that someone has already written a driver for the sensor in as that&rsquo;s going to cut down the amount of time you have to spend writing the software <strong>a lot</strong>.</p>
 <p>It just so happens that a couple of people have written Go libraries for the BME280, I chose <a href="https://github.com/maciej/bme280">this one</a>. Putting it to use it&rsquo;s fairly simple to get the data out of the sensor and print it to the terminal:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get sensor data from the BME280 and print it to the terminal</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Get sensor data from the BME280 and print it to the terminal</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">import (</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -141,7 +141,7 @@ tmp 100% 2096KB   4.4MB/s   00:00
 Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 </code></pre>
 <p>Sweet! The next step is to get the data into Influx DB so we can log it and graph it with Grafana. To do that I used the <a href="http://github.com/influxdata/influxdb-client-go">Influx DB API provided by the Influx creators</a> themselves. This looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;context&#34;</span>

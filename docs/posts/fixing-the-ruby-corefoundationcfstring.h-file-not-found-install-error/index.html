@@ -40,7 +40,7 @@
 
 	<article>
 		<p>I hit this error installing the latest Ruby using rbenv:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
 </span></span><span style="display:flex;"><span>ruby-build: use openssl from homebrew
 </span></span><span style="display:flex;"><span>Downloading ruby-2.6.3.tar.bz2...
 </span></span><span style="display:flex;"><span>-&gt; https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2
@@ -61,9 +61,9 @@
 </span></span><span style="display:flex;"><span>make: *** <span style="color:#f92672">[</span>file.o<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>make: *** Waiting <span style="color:#66d9ef">for</span> unfinished jobs....
 </span></span></code></pre></div><p>The problem is missing headers. To re-install just run this command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 </span></span></code></pre></div><p>Now, Ruby should install just fine:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ rbenv install 2.6.3
 </span></span><span style="display:flex;"><span>ruby-build: use openssl from homebrew
 </span></span><span style="display:flex;"><span>Downloading ruby-2.6.3.tar.bz2...
 </span></span><span style="display:flex;"><span>-<span style="color:#ae81ff">\&gt;</span> https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.bz2

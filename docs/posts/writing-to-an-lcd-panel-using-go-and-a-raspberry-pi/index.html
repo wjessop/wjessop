@@ -51,7 +51,7 @@
 <p>This was the fun part of the challenge. There are some <a href="https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/">Python code and libraries</a> and at least one <a href="https://github.com/johnrickman/LiquidCrystal_I2C">C++ library</a> out there that work mostly OK, but I don&rsquo;t want to use Python, I want to use Go.</p>
 <p>So, rather than attempt to start from scratch and interpret <a href="https://cdn-shop.adafruit.com/datasheets/TC1602A-01T.pdf">the datasheet</a> I decided try to convert some of the Python code to Go. This turned out to be pretty easy, even though I don&rsquo;t really know Python at all.</p>
 <p>What I ended up with was my <a href="https://github.com/wjessop/lcm1602_lcd">Go LCM1602 LCD driver</a> project. This library is pretty simple to use, as can be seen from the example code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">lcd</span> <span style="color:#e6db74">&#34;github.com/wjessop/lcm1602_lcd&#34;</span>
@@ -85,7 +85,7 @@
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>The only feature not documented here is the <code>WritePaddedString</code> method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// WritePaddedString writes a string to the LCD at the given row, but pads the</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// WritePaddedString writes a string to the LCD at the given row, but pads the</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// row to effectively wipe any remaining characters off the line. This is handy</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// for when you want to repeatedly display data on a line, but it could be of</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// varying length, and you don&#39;t want to blank the entire screen each time.</span>

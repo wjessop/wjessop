@@ -40,7 +40,7 @@
 
 	<article>
 		<p>I got an error installing the libv8 gem on Catalina:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gem install libv8 -v <span style="color:#e6db74">&#39;3.16.14.19&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gem install libv8 -v <span style="color:#e6db74">&#39;3.16.14.19&#39;</span>
 </span></span><span style="display:flex;"><span>Building native extensions.  This could take a <span style="color:#66d9ef">while</span>...
 </span></span><span style="display:flex;"><span>ERROR:  Error installing libv8:
 </span></span><span style="display:flex;"><span>	ERROR: Failed to build gem native extension.
@@ -62,10 +62,10 @@
 </span></span><span style="display:flex;"><span>Beginning compilation. This will take some time.
 </span></span><span style="display:flex;"><span>Building v8 with env CXX<span style="color:#f92672">=</span>c++ LINK<span style="color:#f92672">=</span>c++  /usr/bin/make x64.release ARFLAGS.target<span style="color:#f92672">=</span>crs werror<span style="color:#f92672">=</span>no
 </span></span><span style="display:flex;"><span>GYP_GENERATORS<span style="color:#f92672">=</span>make <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	build/gyp/gyp --generator-output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;out&#34;</span> build/all.gyp <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	              -Ibuild/standalone.gypi --depth<span style="color:#f92672">=</span>. <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	              -Dv8_target_arch<span style="color:#f92672">=</span>x64 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	              -S.x64  -Dv8_enable_backtrace<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Dv8_can_use_vfp2_instructions<span style="color:#f92672">=</span>true -Darm_fpu<span style="color:#f92672">=</span>vfpv2 -Dv8_can_use_vfp3_instructions<span style="color:#f92672">=</span>true -Darm_fpu<span style="color:#f92672">=</span>vfpv3 -Dwerror<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+</span></span></span><span style="display:flex;"><span>	build/gyp/gyp --generator-output<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;out&#34;</span> build/all.gyp <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>	              -Ibuild/standalone.gypi --depth<span style="color:#f92672">=</span>. <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>	              -Dv8_target_arch<span style="color:#f92672">=</span>x64 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>	              -S.x64  -Dv8_enable_backtrace<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -Dv8_can_use_vfp2_instructions<span style="color:#f92672">=</span>true -Darm_fpu<span style="color:#f92672">=</span>vfpv2 -Dv8_can_use_vfp3_instructions<span style="color:#f92672">=</span>true -Darm_fpu<span style="color:#f92672">=</span>vfpv3 -Dwerror<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>  CXX<span style="color:#f92672">(</span>target<span style="color:#f92672">)</span> /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/gems/libv8-3.16.14.19/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
 </span></span><span style="display:flex;"><span>warning: include path <span style="color:#66d9ef">for</span> stdlibc++ headers not found; pass <span style="color:#e6db74">&#39;-stdlib=libc++&#39;</span> on the command line to use the libc++ standard library instead <span style="color:#f92672">[</span>-Wstdlibcxx-not-found<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>In file included from ../src/allocation.cc:33:
@@ -85,7 +85,7 @@
 </span></span><span style="display:flex;"><span>Results logged to /Users/will/.rbenv/versions/2.4.5/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-19/2.4.0/libv8-3.16.14.19/gem_make.out
 </span></span></code></pre></div><h2 id="the-solution">The Solution</h2>
 <p>The solution was as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install v8@3.15
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install v8@3.15
 </span></span><span style="display:flex;"><span>$ gem install libv8 -v <span style="color:#e6db74">&#39;3.16.14.19&#39;</span> -- --with-system-v8
 </span></span><span style="display:flex;"><span>Building native extensions with: <span style="color:#e6db74">&#39;--with-system-v8&#39;</span>
 </span></span><span style="display:flex;"><span>This could take a <span style="color:#66d9ef">while</span>...
