@@ -3,7 +3,7 @@ title: You should use the Ruby on Rails logger block syntax
 date: 2024-07-31T17:00:00+01:00
 draft: false
 preview: false
-tags: [programming, ruby, rails, ruby on rails, performance, tech]
+tags: [programming, Ruby, rails, ruby on rails, performance, tech]
 summary: A description of how to save memory and CPU time using the Ruby on Rails logger block syntax with examples of the memory saved
 description: Using Ruby on Rails logger block syntax can save you object allocations in the Ruby VM, and CPU time, I show you how to use it and the difference using it can make
 category: ""

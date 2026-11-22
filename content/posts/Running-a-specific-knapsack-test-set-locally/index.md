@@ -2,7 +2,7 @@
 title: Running a specific knapsack test set locally
 date: 2023-04-26T15:00:00Z
 draft: false
-tags: ["ruby", "programming"]
+tags: ["Ruby", "programming"]
 summary: Sometimes you have a test order issue CI that you want to debug locally, and to do that you need to only run the tests that knapsack runs in the relevant shard, in the right order. Here's how to do that!
 category: ""
 type: Post

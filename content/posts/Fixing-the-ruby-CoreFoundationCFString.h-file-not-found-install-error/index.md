@@ -2,7 +2,7 @@
 title: "Fixing the ruby 'CoreFoundation/CFString.h' file not found install error"
 date: 2019-05-01T15:00:33Z
 draft: false
-tags: ["ruby", "programming", "MacOS"]
+tags: ["Ruby", "programming", "MacOS"]
 summary: "You just need to install the headers"
 category: ""
 type: Post

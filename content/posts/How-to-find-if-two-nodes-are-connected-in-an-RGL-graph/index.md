@@ -2,7 +2,7 @@
 title: How to find if two nodes are connected in an RGL graph
 date: 2015-09-25T16:39:53Z
 draft: false
-tags: [programming, ruby, tech]
+tags: [programming, Ruby, tech]
 summary: I'm experimenting with graphs and I needed to find out if two nodes in an rgl graph were connected
 category: ""
 type: Post
