@@ -1231,7 +1231,7 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
 &lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
-    alt=&#34;Notifications in action in Apple Mail&#34;&gt;
+			alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
 </description>
@@ -1248,24 +1248,24 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;h2 id=&#34;flag-high-priority-notifications&#34;&gt;Flag high priority notifications&lt;/h2&gt;
 &lt;p&gt;Mark &lt;strong&gt;assignments&lt;/strong&gt;, &lt;strong&gt;review requests&lt;/strong&gt;, &lt;strong&gt;mentions&lt;/strong&gt; or &lt;strong&gt;author actions&lt;/strong&gt; as high priority and flag them. This will put them at the top of your inbox:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-1.png&#34;
-    alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;change-the-colour-of-medium-priority-items-so-they-stand-out&#34;&gt;Change the colour of medium priority items so they stand out&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Comments&lt;/strong&gt;, &lt;strong&gt;your activity&lt;/strong&gt;, and when a &lt;strong&gt;team mentions&lt;/strong&gt; you are in is mentioned.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-2.png&#34;
-    alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;hide-low-priority-notifications&#34;&gt;Hide low priority notifications&lt;/h2&gt;
 &lt;p&gt;Things you might want to go and check once in a while but aren&amp;rsquo;t directly involved in we can put in a folder so they don&amp;rsquo;t demand attention throughout the day.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-3.png&#34;
-    alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;What you should end up with after doing this is an inbox that shows you all the things that need your attention or you&amp;rsquo;d be interested, but hides the everyday torrent of Github spam in a folder that you can check if you want later.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-4.png&#34;
-    alt=&#34;Notifications in action in Apple Mail&#34;&gt;
+			alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
 </description>
@@ -1282,42 +1282,42 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;h3 id=&#34;unit-specs&#34;&gt;Unit specs&lt;/h3&gt;
 &lt;p&gt;I got my devices (I think mine are T6713) from &lt;a href=&#34;https://www.aliexpress.com/item/32322544929.html?spm=a2g0s.9042311.0.0.7fcf4c4dwbubog&#34;&gt;AliExpress&lt;/a&gt;, and there are specs on the page there, but some interesting specs to highlight would be:&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Measurement Range&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;0 to 5000 ppm&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;400-5000 ppm ± 75 ppm or 10% of reading, whichever is greater&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Signal Update&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Every 5 second&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Response Time&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;&amp;lt; 3 minutes for 90% step change typical&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Warm Up Time&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;&amp;lt; 2 minutes (operational), 10 minutes (maximum accuracy)&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Connection&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;I²C slave up to 100 kHz, UART @ 19200 Baud w/Modbus support&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Power Requirements&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;4.5-5.5 VDC, Peak 200mA (155mA typical), Average 25mA (20mA typical)&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;&lt;/th&gt;
+					&lt;th&gt;&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Measurement Range&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;0 to 5000 ppm&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;400-5000 ppm ± 75 ppm or 10% of reading, whichever is greater&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Signal Update&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;Every 5 second&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Response Time&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;&amp;lt; 3 minutes for 90% step change typical&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Warm Up Time&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;&amp;lt; 2 minutes (operational), 10 minutes (maximum accuracy)&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Connection&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;I²C slave up to 100 kHz, UART @ 19200 Baud w/Modbus support&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;Power Requirements&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;4.5-5.5 VDC, Peak 200mA (155mA typical), Average 25mA (20mA typical)&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;This sensor is likely good enough for most home uses like just ensuring you&amp;rsquo;re getting enough fresh air during the day, and this is what I&amp;rsquo;m using it for:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;images/graph.png#full&#34; alt=&#34;graph of CO₂ data&#34;&gt;&lt;/p&gt;
@@ -1326,45 +1326,45 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;I&amp;rsquo;m using it connected to an &lt;a href=&#34;https://en.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C bus&lt;/a&gt; on my Raspberry Pi 4, so although there are a few modes of connecting the sensor that&amp;rsquo;s the one I&amp;rsquo;m focussing on. To do this. I connected the pins as follows:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;images/connections.png#right&#34; alt=&#34;T67XX CO₂ sensor datasheet cover&#34;&gt;&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Pin&lt;/th&gt;
-          &lt;th&gt;Function&lt;/th&gt;
-          &lt;th&gt;Raspberry Pi 4 pin&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;SDA&lt;/td&gt;
-          &lt;td&gt;3&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;SCL&lt;/td&gt;
-          &lt;td&gt;5&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;V++&lt;/td&gt;
-          &lt;td&gt;4&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;GND&lt;/td&gt;
-          &lt;td&gt;6&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;PWM&lt;/td&gt;
-          &lt;td&gt;Not connected&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;CTRL/TEST&lt;/td&gt;
-          &lt;td&gt;6 (Also GND)&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;Pin&lt;/th&gt;
+					&lt;th&gt;Function&lt;/th&gt;
+					&lt;th&gt;Raspberry Pi 4 pin&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;SDA&lt;/td&gt;
+					&lt;td&gt;3&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;SCL&lt;/td&gt;
+					&lt;td&gt;5&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;V++&lt;/td&gt;
+					&lt;td&gt;4&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;GND&lt;/td&gt;
+					&lt;td&gt;6&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;PWM&lt;/td&gt;
+					&lt;td&gt;Not connected&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;
+					&lt;td&gt;CTRL/TEST&lt;/td&gt;
+					&lt;td&gt;6 (Also GND)&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Whatever you do, don&amp;rsquo;t connect them backwards as this sensor seems to be particularly sensitive to being misconnected (I did this and accidentally let the magic smoke out of one of them). I used a &lt;a href=&#34;https://www.adafruit.com/product/757&#34;&gt;level shifter&lt;/a&gt; to switch the 3.3v lines to 5v because I didn&amp;rsquo;t have any 4.7k resistors and this is what worked for me, though the unit should work at 3.3v, from the datasheet:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1403,8 +1403,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// For now the library needs a logger to be provided. It needs to satisfy the&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// following interface:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	// type Logger interface {&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// type Logger interface {&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Debug(...interface{})&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Debugf(string, ...interface{})&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 	Fatalf(string, ...interface{})&lt;/span&gt;
@@ -1413,8 +1413,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;SetLogger&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// EnableABC enables the ABC calibration. From the datasheet:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	//   &amp;#34;ABC LOGIC™ Automatic Background Logic, or ABC Logic™, is a patented&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//   &amp;#34;ABC LOGIC™ Automatic Background Logic, or ABC Logic™, is a patented&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    self-calibration technique that is designed to be used in applications where&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    concentrations will drop to outside ambient conditions (400 ppm) at least&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    three times in a 7 days, typically during unoccupied periods. Full accuracy&lt;/span&gt;
@@ -1426,8 +1426,8 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    the reference value and this reference value is the lowest concentration&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    to which the sensor is exposed. ABC Logic™ requires continuous operation of&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    the sensor for periods of at least 24 hours.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;	//    Note: Applies when used in typical residential ambient air. Consult Telaire&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    Note: Applies when used in typical residential ambient air. Consult Telaire&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;//    if other gases or corrosive agents are part of the application environment.&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;driver&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;EnableABC&lt;/span&gt;(); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Could not enable ABC calibration on the sensor&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
@@ -1525,11 +1525,11 @@ Send packet CA-&amp;gt;Netherlands-&amp;gt;CA .... 150,000,000 ns  = 150 ms
 &lt;p&gt;It just so happens that a couple of people have written Go libraries for the BME280, I chose &lt;a href=&#34;https://github.com/maciej/bme280&#34;&gt;this one&lt;/a&gt;. Putting it to use it&amp;rsquo;s fairly simple to get the data out of the sensor and print it to the terminal:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Get sensor data from the BME280 and print it to the terminal&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;import (&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Get sensor data from the BME280 and print it to the terminal&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -1819,9 +1819,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <guid>https://willj.net/posts/random-graph/</guid>
       <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
-    alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -1834,9 +1834,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
       <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
-    alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;A simple graph&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;A simple graph&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;How do you find out if there is a path between any of the two nodes? By using a breadth-first search:&lt;/p&gt;
@@ -1910,8 +1910,8 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update&#34;&gt;Update!&lt;/h2&gt;
 &lt;p&gt;This post was imported from my original blog where there were comments, and these may be relevant to anyone finding this page now:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/aws-iam-policy-for-allowing-s3cmd-to-sync-to-an-s3-bucket/images/comments.png&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			&lt;h4&gt;Comments on the original blog post&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -1923,9 +1923,9 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/</guid>
       <description>&lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/go-piglow-a-lib-for-controlling-the-piglow-in-golang/images/piglow.jpg&#34;
-    alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;A Piglow glowing&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A Piglow Raspberry pi board lit up&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;A Piglow glowing&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;A few days ago I got a &lt;a href=&#34;http://shop.pimoroni.com/products/piglow&#34; title=&#34;Piglow&#34;&gt;Piglow&lt;/a&gt;. It&amp;rsquo;s a fairly useless but fun addon board for the Raspberry Pi that has 18 individual user controllable LEDs arranged in Arms/Legs/Tentacles (whatever you want to call them).&lt;/p&gt;
@@ -1956,8 +1956,8 @@ Temp: 22.4C, Press: 1000.0hPa, Hum: 54.8%
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The lib API allows for controlling individual LEDs, the colour rings, the tentacles, or to display a value bar-graph style on each tentacle.&lt;/p&gt;
 &lt;p&gt;I wrote some more complex example programs to go with the lib to demo these capabilities. A simple program to flash the LEDs, a CPU meter that displays 1, 5 and 15 minute load average on each of the tentacles, and the most fun, a disco program, here is me demonstrating them:&lt;/p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
+			&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/1EmJIwzhJwQ?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
 
 &lt;p&gt;Right now i&amp;rsquo;m running &lt;a href=&#34;https://github.com/wjessop/piglow-fader&#34; title=&#34;piglow-fader&#34;&gt;this program&lt;/a&gt; on my Pi to slowly fade between the colour rings.&lt;/p&gt;
 </description>
@@ -2145,17 +2145,17 @@ slice is a: slice
       <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
 &lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
-    alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
+			alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
-    alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
+			alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jk.gif&#34;
-    alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
+			alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
 &lt;/figure&gt;
 
 </description>
@@ -2206,7 +2206,7 @@ etc.
       <pubDate>Wed, 30 Nov 2011 21:27:42 +0000</pubDate>
       <author>will@willj.net (Will Jessop)</author>
       <guid>https://willj.net/posts/cloud-email-service-price-comparison/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;http://willj.net/static/cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;strong&gt;Larger interactive versions of all the graphs on this page are available &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt; &lt;strong&gt;Update:&lt;/strong&gt; Added &lt;a href=&#34;https://www.mailgun.com/&#34; title=&#34;Mailgun&#34;&gt;Mailgun&lt;/a&gt; to the &lt;a href=&#34;cloud_email_provider_price_comparison.html&#34;&gt;graphs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Earlier this year I posted a &lt;a href=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses&#34; title=&#34;Sendgrid and Amazone SES price comparison&#34;&gt;price comparison&lt;/a&gt; between &lt;a href=&#34;https://sendgrid.com/&#34; title=&#34;Sendgrid&#34;&gt;Sendgrid&lt;/a&gt;, and the then newly available &lt;a href=&#34;http://aws.amazon.com/ses/&#34; title=&#34;Amazon SES&#34;&gt;Amazon SES&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Tim Falls commented on the post saying that Sendgrid had updated their pricing:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -2214,24 +2214,24 @@ etc.
 &lt;/blockquote&gt;
 &lt;p&gt;That was back in June, so it&amp;rsquo;s about time I produced an updated comparison. First, lets look at the difference between the old and new Sendgrid prices:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-11-30-at-22-20-15.png&#34;
-    alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;Comparison of old and new Sendgrid prices&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Overall the up-front plan prices, and prices for email over allowance have remained the same, but email allowance within each plan has increased. The exception is the Silver plan where email over allowance has increased by $0.0001/email. New to the lineup is the Lite plan.&lt;/p&gt;
 &lt;p&gt;More interesting is how these new prices compare to the competitors. I&amp;rsquo;ve added in Amazon SES, and Postmark too:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-52.png&#34;
-    alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;Sendgrid, Postmark and Amazon SES price comparison&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The most notable differences here are the inclusion of &lt;a href=&#34;http://postmarkapp.com/&#34; title=&#34;Postmark&#34;&gt;Postmark&lt;/a&gt;, and the the Sendgrid Lite plan that shadows Amazon SES. I&amp;rsquo;d guess this was added purely to compete with Amazon. As in my last post it is hard to see what is going on with smaller numbers of emails being sent, here&amp;rsquo;s a zoom on the origin:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/cloud-email-service-price-comparison/images/screen-shot-2011-12-01-at-00-42-57.png&#34;
-    alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;graph showing cost of email service providers&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;Price comparison for small numbers of emails sent&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see the Sendgrid Lite plan shadowing Amazon and the Postmark costs heading up rapidly.&lt;/p&gt;
@@ -2257,17 +2257,17 @@ etc.
       <description>&lt;p&gt;&lt;strong&gt;Update: A new comparison with updated Sendgrid prices, and Postmark is available &lt;a href=&#34;https://willj.net/posts/cloud-email-service-price-comparison&#34;&gt;here&lt;/a&gt; &amp;ldquo;Sendgrid, Postmark and Amazon SES price comparison&amp;rdquo;).&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Probably yes, at least if price is your main concern and you are just concerned with sending email and not with extras. I wanted to see just how the &lt;a href=&#34;http://aws.amazon.com/ses/&#34;&gt;Amazon SES&lt;/a&gt; prices stacked up against (that I am aware of) the next cheapest provider, &lt;a href=&#34;http://sendgrid.com/&#34;&gt;Sendgrid&lt;/a&gt; so I graphed it:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/emails-price-comparison1.png&#34;
-    alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;Cost comparison for Amazon SES/Sendgrid&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;SendGrid can&amp;rsquo;t be too happy with that, in short at no point is it better to go with SendGrid over SES if you are only taking price into account. Of course SendGrid have &lt;a href=&#34;https://sendgrid.com/pricing/&#34;&gt;value-add over just plain email&lt;/a&gt; sending, you decide if it&amp;rsquo;s worth the premium, but for me the only feature I&amp;rsquo;d want would be the &amp;lsquo;Whitelabel&amp;rsquo; option, and Amazon SES has that included.&lt;/p&gt;
 &lt;p&gt;Note that you get 2000 emails per day free with Amazon SES if you send from an &lt;a href=&#34;http://aws.amazon.com/ec2/&#34;&gt;Amazon EC2&lt;/a&gt; instance, but at this scale there is very little visible difference in cost. I thought it would be useful to take into account the cost of an EC2 instance, even if you have your main server elsewhere you could run your email processing on a micro or small EC2 machine to take advantage of the 2000 free emails per day, here&amp;rsquo;s a zoom in on the origin:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/should-i-switch-from-sendgrid-to-amazon-ses/images/email-prices-plus-server.png&#34;
-    alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A graph showing the difference between prices for Sendgrid and AWS SES, including spinning up a server to send mail from&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;Cost comparison for Amazon SES/Sendgrid &amp;#43; EC2 instance cost&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;So, there is no point in spinning up an EC2 instance to take advantage of the 2000 free emails per day.&lt;/p&gt;

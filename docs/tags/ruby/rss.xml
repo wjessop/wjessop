@@ -906,9 +906,9 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       <guid>https://willj.net/posts/random-graph/</guid>
       <description>&lt;p&gt;Random graph, from playing around with &lt;a href=&#34;https://github.com/monora/rgl&#34;&gt;RGL&lt;/a&gt; in Ruby.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willjessop4.files.wordpress.com/2015/09/959tvax.jpg&#34;
-    alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A random graph&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;I like it, but it&amp;#39;s pointless&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 </description>
@@ -921,9 +921,9 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       <guid>https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/</guid>
       <description>&lt;p&gt;Say you have a graph like this:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/how-to-find-if-two-nodes-are-connected-in-an-rgl-graph/images/graph.jpg&#34;
-    alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;A simple graph&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;a simple graph&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;A simple graph&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;How do you find out if there is a path between any of the two nodes? By using a breadth-first search:&lt;/p&gt;
@@ -965,39 +965,39 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       <guid>https://willj.net/posts/robot-at-rubyconf/</guid>
       <description>&lt;p&gt;I took my robot to &lt;a href=&#34;http://rubyconf.org/&#34;&gt;RubyConf&lt;/a&gt;. It&amp;rsquo;s not really Ruby related, but I figured it would go down like a robot at a programmers conference… So I took the robot apart, packed it away and headed to Miami:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4472.jpg&#34;
-    alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;The view from my hotel balcony&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A panorama of Miami, the view from my hotel balcony&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;The view from my hotel balcony&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;First job, putting the robot back together again. I was happy it made it through security. It was the first time I&amp;rsquo;d flown with a small toolkit.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4471.jpg&#34;
-    alt=&#34;The robot dissasembled&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;The robot laid bare&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;The robot dissasembled&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;The robot laid bare&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4482.jpg&#34;
-    alt=&#34;Someone using an xbox controller to drive my robot&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;I was carrying the robot around most of the first day, people constantly asked to try it out&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;Someone using an xbox controller to drive my robot&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;I was carrying the robot around most of the first day, people constantly asked to try it out&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It worked well on the shiny floor of the lobby. You can just about see the new 3d printed lifter arm:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;http://willjessop4.files.wordpress.com/2013/12/img_4486.jpg&#34;
-    alt=&#34;A crowd of people watching someone use my robot&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;The balls went everywhere&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A crowd of people watching someone use my robot&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;The balls went everywhere&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8RdkD-BATBE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
+			&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/8RdkD-BATBE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
 
 &lt;p&gt;Totally coincidentally Ron Evans also did a great talk on &lt;a href=&#34;http://artoo.io/&#34;&gt;Artoo&lt;/a&gt; and the newly announced &lt;a href=&#34;http://gobot.io/&#34;&gt;Gobotio&lt;/a&gt;.&lt;/p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/mhXyNGX38mw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
+			&lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/mhXyNGX38mw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
 
 &lt;p&gt;Programmers love robots!&lt;/p&gt;
 </description>
@@ -1011,17 +1011,17 @@ For these examples going to be using the excellent &lt;a href=&#34;https://githu
       <description>&lt;p&gt;I put up some &lt;a href=&#34;http://www.flickr.com/photos/will_j/sets/72157629881298443/&#34; title=&#34;Railsberry&#34;&gt;photos of Railsberry here&lt;/a&gt;, but Flickr doesn&amp;rsquo;t work with animated gifs, so here they are. Click the images to get the animated versions.&lt;/p&gt;
 &lt;h4 id=&#34;riding-the-railsberry-unicorn&#34;&gt;Riding the Railsberry Unicorn:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/riding_unicorn.gif&#34;
-    alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
+			alt=&#34;A woman riding someone in a unicorn mask&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;jon-leighton-getting-closer&#34;&gt;Jon Leighton getting closer:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jon_walk.gif&#34;
-    alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
+			alt=&#34;Jon Leighton getting getting progressively closer to the camera, stop motion style&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h4 id=&#34;josh-kalderimis-misbehaving&#34;&gt;Josh Kalderimis misbehaving:&lt;/h4&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/railsberry-animated-gifs/images/jk.gif&#34;
-    alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
+			alt=&#34;A man doing something like a jazz hands pose&#34;&gt;
 &lt;/figure&gt;
 
 </description>

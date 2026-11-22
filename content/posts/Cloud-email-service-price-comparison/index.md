@@ -8,7 +8,7 @@ category: ""
 type: Post
 ---
 
-**Larger interactive versions of all the graphs on this page are available [here](cloud_email_provider_price_comparison.html).** **Update:** Added [Mailgun](https://www.mailgun.com/ "Mailgun") to the [graphs](http://willj.net/static/cloud_email_provider_price_comparison.html).
+**Larger interactive versions of all the graphs on this page are available [here](cloud_email_provider_price_comparison.html).** **Update:** Added [Mailgun](https://www.mailgun.com/ "Mailgun") to the [graphs](cloud_email_provider_price_comparison.html).
 
 Earlier this year I posted a [price comparison](/posts/should-i-switch-from-sendgrid-to-amazon-ses "Sendgrid and Amazone SES price comparison") between [Sendgrid](https://sendgrid.com/ "Sendgrid"), and the then newly available [Amazon SES](http://aws.amazon.com/ses/ "Amazon SES").
 

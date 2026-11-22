@@ -21,9 +21,9 @@
 &lt;p&gt;It turns out that this is a Dell OptiPlex 7010 SFF, not a USFF (as advertised by the eBay seller)!&lt;/p&gt;
 &lt;hr&gt;
 &lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/DELL-Optiplex-7010-SFF.jpg&#34;
-    alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;A Dell OptiPlex 7010 SFF&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;A Dell OptiPlex 7010 SFF&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;I recently bought a &lt;a href=&#34;https://www.dell.com/support/kbdoc/en-uk/000212008/dell-optiplex-small-form-factor-7010-system-guide&#34;&gt;Dell OptiPlex 7010 Small Form Factor&lt;/a&gt; PC from eBay. I was Intending on squeezing two of the spare Seagate Barracuda 4TB 3.5&amp;quot; hard drives I have in it with an SSD boot disk and installing &lt;a href=&#34;https://www.truenas.com/&#34;&gt;TrueNAS&lt;/a&gt; to use it as a file store. It&amp;rsquo;s a small, quiet machine and should be ideal, but when I was doing my research into what I should buy I think I got the SFF (Ultra Small Form Factor) confused with another Dell OptiPlex machine and it turns out that the SFF model I got can only officially fit a single 2.5&amp;quot; SSD in it, and no 3.5&amp;quot; drives at all. Whoops.&lt;/p&gt;
@@ -32,15 +32,15 @@
 &lt;p&gt;This works for my Seagate Barracuda 4TB drives. They&amp;rsquo;re slightly thinner than some of the other drives I&amp;rsquo;ve got, if yours are thicker then it might work for yoiu or it might not.&lt;/p&gt;
 &lt;h2 id=&#34;risers-of-the-machine&#34;&gt;Risers of the Machine&lt;/h2&gt;
 &lt;figure class=&#34;left&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-Optiplex-7010-SFF-inside.jpg&#34;
-    alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;View inside a Dell OptiPlex 7010 SFF, there isn&amp;#39;t much room&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;View inside a Dell OptiPlex 7010 Ultra Small Form Factor&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;View inside a Dell OptiPlex 7010 SFF, there isn&amp;#39;t much room&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&#34;right&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Dell-OptiPlex-7010-motherboard.jpg&#34;
-    alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A Dell OptiPlex 7010 Ultra Small Form Factor motherboard&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;The motherboard. Red circles are candidates for risers, the turquoise square is where the CPU heat sink and fan are&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Once the existing mounts had been removed I could see that there were four screws holding the motherboard in place, and an existing riser, all of which could be re-purposed as places to screw a riser which would allow me to mount drives suspended over the RAM. See the image where I&amp;rsquo;ve marked the locations of these holes with a red circle. The turquoise square is about where the CPU heatsink and fan are, but the heatsink is low profile and draws the heat towards the back of the machine closer to the IO ports where the fan is.&lt;/p&gt;
@@ -49,9 +49,9 @@
 &lt;h2 id=&#34;to-fusion360&#34;&gt;To Fusion360!&lt;/h2&gt;
 &lt;p&gt;These days my 3d designing tool of choice is Fusion 360 so I opened it up and set to work. Much cursing, and a fair few scrapped prototypes later I came up with this:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/Fusion%20360%20design.png&#34;
-    alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
-    &lt;/figcaption&gt;
+			alt=&#34;A mount for two 3.5 inch and one 2.5 inch hard drive&#34;&gt;&lt;figcaption&gt;
+			&lt;h4&gt;3d design isn&amp;#39;t my day job&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;It&amp;rsquo;s definitely not going to win any awards for beautiful design, and it&amp;rsquo;s got some problems, but it works. I could certainly have improved the design further, but I was running out of patience with 3d printing prototypes I had to throw away, and time on my Fusion 360 trial (damn you Autodesk!). Anyway, it&amp;rsquo;s ugly, it&amp;rsquo;s flawed, but it works.&lt;/p&gt;
@@ -61,22 +61,22 @@
 &lt;p&gt;There are captive nuts on the top-left of this image underneath the base, nearest the front of the case. These were exactly the right size for the nuts I was using, which meant that the nuts stayed in right up until I used any force at all on them like when I was trying to screw a bolt into them. This was infuriating so I epoxied the nuts in place. If I was to do another version of this I&amp;rsquo;d make the nut traps tighter so the nuts could be safely held in place with a press fit.&lt;/p&gt;
 &lt;p&gt;The two bolts you can see with two nuts on them used as spacers, these are a flaw in the design. In order to prevent the 50mm bolts I was using from bottoming out I could have used shorter bolts and printed recesses, but I didn&amp;rsquo;t want to buy more imperial bolts I was never going to use again. I could have printed spacers, but the nuts worked and they were there. In the end I had to remove one of the nuts from the bottom-left most bolt so it didn&amp;rsquo;t foul the hard drive, but it didn&amp;rsquo;t bottom out even then so it worked out.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5160.jpeg&#34;
-    alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;&gt;
+			alt=&#34;A custom 3d printed HD mount inside the Dell OptiPlex case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see the 3.5&amp;quot; hard drives in place. There is a gap between the two drives to allow for air flow.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5161.jpeg&#34;
-    alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;&gt;
+			alt=&#34;2 hard drives mounted on the fully assembled custom mount&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Here you can see how tight it is near the case fan, the tolerances in this design are pretty tight. I couldn&amp;rsquo;t shift the hard drives further away from the front of the case/the case fan because the latch in the removable panel on the case prevents them from moving backwards in the case.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5164.jpeg&#34;
-    alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;&gt;
+			alt=&#34;the mounted hard drives very close to the front of the case and the case fan&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The front of the case looking in through the old CDRW slot. It doesn&amp;rsquo;t look like it but there is a mm or two clearance between the top of the top hard drive and the case when the lid is on.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/fitting-two-hard-drives-and-an-ssd-in-a-dell-optiplex-7010-usff/images/IMG_5162.jpeg&#34;
-    alt=&#34;Hard drives seen through the front of the PC case&#34;&gt;
+			alt=&#34;Hard drives seen through the front of the PC case&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The same view but with the lit fitted.&lt;/p&gt;

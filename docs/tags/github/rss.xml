@@ -24,7 +24,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-tell-firefox-to-use-the-new-css&#34;&gt;2. Tell Firefox to use the new CSS&lt;/h2&gt;
 &lt;p&gt;Follow the guide &lt;a href=&#34;https://davidwalsh.name/firefox-user-stylesheet&#34;&gt;here&lt;/a&gt; for adding it to the custom CSS. And done, full height checks box!&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/full-height-github-checks-box-in-firefox/images/full-height-github-checks-box.png&#34;
-    alt=&#34;Notifications in action in Apple Mail&#34;&gt;
+			alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
 </description>
@@ -41,24 +41,24 @@
 &lt;h2 id=&#34;flag-high-priority-notifications&#34;&gt;Flag high priority notifications&lt;/h2&gt;
 &lt;p&gt;Mark &lt;strong&gt;assignments&lt;/strong&gt;, &lt;strong&gt;review requests&lt;/strong&gt;, &lt;strong&gt;mentions&lt;/strong&gt; or &lt;strong&gt;author actions&lt;/strong&gt; as high priority and flag them. This will put them at the top of your inbox:&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-1.png&#34;
-    alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Configuring Github high priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;change-the-colour-of-medium-priority-items-so-they-stand-out&#34;&gt;Change the colour of medium priority items so they stand out&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Comments&lt;/strong&gt;, &lt;strong&gt;your activity&lt;/strong&gt;, and when a &lt;strong&gt;team mentions&lt;/strong&gt; you are in is mentioned.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-2.png&#34;
-    alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Configuring Github medium priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;hide-low-priority-notifications&#34;&gt;Hide low priority notifications&lt;/h2&gt;
 &lt;p&gt;Things you might want to go and check once in a while but aren&amp;rsquo;t directly involved in we can put in a folder so they don&amp;rsquo;t demand attention throughout the day.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-3.png&#34;
-    alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
+			alt=&#34;Hiding Github low priority email notifications in Apple mail&#34;&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;What you should end up with after doing this is an inbox that shows you all the things that need your attention or you&amp;rsquo;d be interested, but hides the everyday torrent of Github spam in a folder that you can check if you want later.&lt;/p&gt;
 &lt;figure class=&#34;full&#34;&gt;&lt;img src=&#34;https://willj.net/posts/effective-github-notifications/images/Github-4.png&#34;
-    alt=&#34;Notifications in action in Apple Mail&#34;&gt;
+			alt=&#34;Notifications in action in Apple Mail&#34;&gt;
 &lt;/figure&gt;
 
 </description>
